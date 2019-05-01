@@ -1,0 +1,9 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"php.validate.executablePath": "C:/xampp/php/php.exe",
+	"settings": {}
+}

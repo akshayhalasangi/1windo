@@ -1,0 +1,177 @@
+
+.mob-form-group{
+	margin-bottom: 1.2rem;
+}
+.form-group-country-code .select-country-code {
+	min-width: 100px; 
+}
+.form-group-country-code .select2-container.select2-container--default{
+	width: 150px !important; 
+	margin-right: 5px;
+}
+.mob-form-input .form-group .has-error{
+	display: block;
+}
+.mob-form-input .form-group  input{
+	width: 250px;
+}
+.mob-form-input .form-group .has-error .form-error{
+	position: absolute;
+    width: 400px;
+}
+
+.ks-widget-messages-inbox .ks-widget-messages-inbox-item{
+	display: block;
+	width: 100%;
+}
+.ks-widget-messages-inbox .ks-widget-messages-inbox-item-avatar, .ks-widget-messages-inbox-item-body, .ks-widget-messages-inbox-item-avatar, .ks-widget-messages-inbox-items .tbl-delete {
+	display: inline-block;
+}
+.ks-widget-messages-inbox .ks-widget-messages-inbox-item-avatar{
+	width: 10%;
+}
+.ks-widget-messages-inbox-item-body{
+	width: 100%;
+    margin-right: 25px;
+    min-width: 380px;
+}
+.ks-widget-messages-inbox .ks-widget-messages-inbox-item-body-name-and-time{
+	display: block !important;
+}
+.ks-widget-messages-inbox-item-avatar{
+	width: 20%;
+	min-width: 100px;
+}
+.ks-widget-messages-inbox-items .button-content{
+	width: 10%;
+}
+ .ks-widget-messages-inbox-items .tbl-delete{
+    border: none;
+    float: right;
+}
+.ks-widget-messages-inbox .ks-widget-messages-inbox-item-body-name-and-time>.ks-name{
+	width: 185px;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+}
+.ks-widget-messages-inbox .ks-widget-messages-inbox-item-body-name-and-time>.ks-time{
+	text-transform:lowercase !important;
+}
+.ks-widget-messages-inbox .ks-widget-messages-inbox-item{
+	padding-top: 20px !important;
+}
+.ks-widget-messages-inbox-item-body-message{
+	width: 90%;
+    min-width: 185px;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+}
+.ks-card-widget .jspContainer{
+	height: 500px !important;
+}
+.panel.ks-information .card-block.ks-datatable .dataTables_wrapper{
+	width: auto !important;
+}
+
+/*--- Panel Content ---*/
+.ks-permission.panel form{
+	padding: 30px;
+}
+.ks-permission.panel form select.ks-select{
+	min-width: 200px !important;
+}
+.ks-permission.panel .table{
+	border-right: 1px solid #dee0e1 !important;
+    width: 45% !important;
+    margin-bottom: 30px;
+}
+.ks-permission.panel .table thead{
+	background: #7541ed;
+}
+.ks-permission.panel .table thead tr th{
+	color: #ffffff !important;
+}
+.sweet-alert .sa-icon.sa-error:before, .sweet-alert .sa-icon.sa-info:before, .sweet-alert .sa-icon.sa-success:before, .sweet-alert .sa-icon.sa-warning:before {
+    font-family: FontAwesome !important;
+}
+.help-block.form-error {
+    color: #ef5350;
+}
+.ks-no-record{
+	margin: 20px 15px;
+}
+.optionGroup {
+    font-weight: bold;
+    font-style: italic;
+	font-size:13px;
+}
+    
+.optionSub {
+    font-weight: bold;
+    font-style: italic;
+
+}   
+.optionChild {
+    padding-left: 15px;
+}
+
+.tbl-delete{	
+	color: #7541ed;
+}
+
+.tbl-delete:hover, .tbl-delete:active{
+	color: #F00;
+	text-decoration: none !important;
+}
+
+#mainCategories {margin-top: 80px}
+#mainCategories img {margin-bottom: 20px; width: 50%}
+
+.categories{padding-left: 10px; padding-bottom: 10px; border-bottom: solid 1px #dee0e1}
+.categories i{margin-right: 5px}
+
+a.active{color: #7541ed !important; font-weight: 500 !important}
+
+.tableRowActions tr td:not(:last-child){cursor: pointer;}
+.tableRowActions tr:hover{background-color: #dcdcdc}
+
+.ks-title span.hirerchy a{color: #676767; font-size: 14px !important;}
+.ks-title span.hirerchy i{font-size: 14px; padding-left: 5px; padding-right: 5px;}
+.ks-title span.hirerchy a:hover{color: #8c00f0}
+
+.services{margin: 15px 0px; text-align: center}
+.services h4{font-size: 15px}
+.avatar{max-width: 100%; width: 80px; height: 80px; object-fit: contain; margin: 10px 0px}
+.serviceCategories .divider:not(:last-child){border-bottom: solid 1px #e2e2e2; margin-bottom: 25px}
+.serviceCategories h4.subHeader{width: 100%; border-bottom: solid 1px #e2e2e2}
+.accordion{width: 100%; margin-bottom: 5px}
+.accordion .card-header{padding: 5px !important}
+.accordion .card-header h5{width: 100%}
+.accordion button{color: #333; font-size: 16px; text-align: left; width: 100%; font-weight: normal;}
+.accordion button i{float: right !important}
+.accordion button:hover, .accordion button:focus{text-decoration: none !important}
+.subLevelSlipDisplay{padding: 15px !important}
+.hierarchySplit{margin-left: 10px; margin-right: 10px}
+.x2{padding: 5px 10px;}
+.btn-highlight h5{display: inline-block; color: #FFF}
+.label-info{font-size: 13px;}
+
+#map{height: 350px;	width: 100%; margin: 15px 0px !important}
+label{font-weight: bold}
+.foodType{display:inline-block; width: 18px; padding-right: 5px}
+@media only screen and (max-width: 1250px){
+	.ks-datatable{overflow: auto;}
+}
+
+/* Vendor Module */
+
+#completeInfo h3{color: #7541ed}
+#profileImg{margin-bottom: 20px}
+#completeInfo th{text-transform: uppercase; width: 25%}
+#completeInfo h3.divider{margin-top: 40px}
