@@ -834,6 +834,7 @@ array( 'ProductID' => "4",'Name' => "4Maybelline",'DisplayImage' => UPLOAD_PRODU
                 $OptionsArray = json_decode($Options);
                 $CTotal = 0;
                 foreach ($OptionsArray as $Option) {
+
                     $OptionsData = $this->Services_model->getOptions($Option);
 
                     $ServiceID = $OptionsData->O_ServiceID;
@@ -1281,12 +1282,18 @@ array( 'ProductID' => "4",'Name' => "4Maybelline",'DisplayImage' => UPLOAD_PRODU
                 //$ExistingCartArray    =  $this->Cart_model->getRestaurantsCart(NULL,array('RC_Status <>'=>'3','RC_Status <>'=>'4','RC_CustomerID'=>$data['Val_Customer']));
                 $ExistingCartArray = $this->Cart_model->getRestaurantsCart(null, array('RC_CustomerID' => $data['Val_Customer']), "RC_Status NOT IN (3,4)");
 
-                if (!empty($ExistingCartArray)) {
+                if (!empty($ExistingCartArray)||$ExistingCartArray=='1') {
                     //echo "Exist";
-                    $ExistingCartData = (object) $ExistingCartArray[0];
+                    $ExistingCartData=(object)$ExistingCartArray[0];
+
                     $Restaurant = $data['Val_Restaurant'];
+
                     $RestaurantData = $this->Restaurants_model->get($Restaurant);
+
                     if (!empty($RestaurantData)) {
+
+                        // When food cart is belonging from same Restaurant then its working 
+
                         if ($Restaurant == $ExistingCartData->RC_RestaurantID) {
                             //echo "Exist2";
                             $CTotal = 0;
@@ -1297,6 +1304,7 @@ array( 'ProductID' => "4",'Name' => "4Maybelline",'DisplayImage' => UPLOAD_PRODU
                             $FoodID = $data['Val_Food'];
 
                             $ExistingCartDetailData = $this->Cart_model->getRestaurantsCartDetails(null, array('RD_CartID' => $ExistingCartData->RCartID, 'RD_FoodID' => $FoodID));
+                           
                             if (!empty($FoodPricesArray)) {
                                 foreach ($FoodPricesArray as $Key => $Price) {
                                     $FoodsTotal = $FoodsTotal + $Price;
@@ -1305,7 +1313,7 @@ array( 'ProductID' => "4",'Name' => "4Maybelline",'DisplayImage' => UPLOAD_PRODU
                                 $FoodsTotal = $ExistingCartData->PC_ItemTotal;
                             }
 
-                            if (empty($ExistingCartDetailData)) //if(!in_array($ProductVal,$ProductID,true))
+                            if (!empty($ExistingCartDetailData)) //if(!in_array($ProductVal,$ProductID,true))
                             {
 
                                 $FoodData = $this->Restaurants_model->getFoods($data['Val_Food']);
@@ -1343,7 +1351,7 @@ array( 'ProductID' => "4",'Name' => "4Maybelline",'DisplayImage' => UPLOAD_PRODU
                                     $PostDetailData['Val_RDquantity'] = '1';
                                     $PostDetailData['Val_RDprice'] = getStringValue($FoodAmount);
                                     $CartDetailsSuccess = $this->Cart_model->addCartRestaurantsDetails($PostDetailData);
-                                    $DetailID= (string) $CartDetailsSuccess;
+                                    $DetailID[]= (string) $CartDetailsSuccess;
 
                                     $UpdatePostData['Val_RCdetail'] = json_encode($DetailID);
                                     $CartUpdateStatus = $this->Cart_model->updateCartRestaurants($UpdatePostData, $ExistingCartData->RCartID);
@@ -1351,14 +1359,16 @@ array( 'ProductID' => "4",'Name' => "4Maybelline",'DisplayImage' => UPLOAD_PRODU
 
                                 $CartData = $this->Cart_model->getRestaurantsCart($ExistingCartData->RCartID);
 
-                                $ItemCount = $CartData['RC_ItemCount'];
+                                $CartData1=(object)$CartData[0];
+
+                                $ItemCount = $CartData1->RC_ItemCount;
 
                                 $Record = array(
-                                    'CartID' =>$CartData->RCartID,
+                                    'CartID' =>$CartData1->RCartID,
                                     'Currency' => "Rs. ",
                                     'ItemCount' => $ItemCount,
-                                    'ItemTotal' => $CartData->RC_ItemTotal,
-                                    'CartTotal' => $CartData->RC_CartTotal,
+                                    'ItemTotal' => $CartData1->RC_ItemTotal,
+                                    'CartTotal' => $CartData1->RC_CartTotal,
                                 );
 
                                 $result = array('status' => 'success', 'flag' => '1', 'message' => 'Product Added Successfully', 'data' => $Record);
@@ -1372,7 +1382,8 @@ array( 'ProductID' => "4",'Name' => "4Maybelline",'DisplayImage' => UPLOAD_PRODU
                                 $CartID = $ExistingCartData->RCartID;
 
                                 $CartData = $this->Cart_model->getRestaurantsCart($CartID);
-                                $CartData1= (object)$CartData;
+
+                                $CartData1= (object)$CartData[0];
 
                                 $ItemCount = $CartData1->RC_ItemCount;
 
@@ -1390,6 +1401,7 @@ array( 'ProductID' => "4",'Name' => "4Maybelline",'DisplayImage' => UPLOAD_PRODU
                         } else {
                             //Cannot Add to Cart as Cart Contains Food Items from Another Restaurant, Just Show Existing Data as it is
                             $CartID = $ExistingCartData->RCartID;
+
                             $CartData = $this->Cart_model->getRestaurantsCart($CartID);
 
                             $ItemCount = $CartData->RC_ItemCount;
@@ -1405,6 +1417,7 @@ array( 'ProductID' => "4",'Name' => "4Maybelline",'DisplayImage' => UPLOAD_PRODU
                             $result = array('status' => 'warning', 'flag' => '3', 'message' => 'You cannot add items from this restaurant as your cart contains items from another restaurant.', 'data' => $Record);
 
                         }
+
                     } else {
                         $result = array('status' => 'warning', 'flag' => '3', 'message' => 'Something Important Happened !! ', 'data' => (object) array());
                     }
@@ -1421,8 +1434,11 @@ array( 'ProductID' => "4",'Name' => "4Maybelline",'DisplayImage' => UPLOAD_PRODU
                     $CTotal = 0;
                     $ProductsTotal = 0;
                     $DeliveryCharges = 15.00;
+
                     $RestaurantData = $this->Restaurants_model->get($Restaurant);
+
                     if (!empty($RestaurantData)) {
+
                         $RestaurantID = $RestaurantData->RestaurantID;
                         $RestaurantName = $RestaurantData->R_Name;
 
@@ -1487,7 +1503,7 @@ array( 'ProductID' => "4",'Name' => "4Maybelline",'DisplayImage' => UPLOAD_PRODU
                             $PostDetailData['Val_RDquantity'] = '1';
                             $PostDetailData['Val_RDprice'] = $FoodAmount;
                             $CartDetailsSuccess = $this->Cart_model->addCartRestaurantsDetails($PostDetailData);
-                            $DetailID=  $CartDetailsSuccess;
+                            $DetailID[]=(string)  $CartDetailsSuccess;
                             //}
 
                             $UpdatePostData['Val_RCdetail'] = json_encode($DetailID);
@@ -2491,47 +2507,43 @@ array( 'ProductID' => "4",'Name' => "4Maybelline",'DisplayImage' => UPLOAD_PRODU
                 $ExistingProductCartArray = $this->Cart_model->getProductsCart(null, array( 'PC_CustomerID' => $data['Val_Customer']), "PC_Status IN (1,2) AND PC_OrderStatus IN (0,1)");
                
                 $ExistingRestaurantCartArray = $this->Cart_model->getRestaurantsCart(null, array('RC_CustomerID' => $data['Val_Customer']), "RC_Status IN (1,2) AND RC_OrderStatus IN (0,1)");
-
+                
                 $ServicesCart = '1';
                 $ServicesRecords =  array();                                        
 
-                if (!empty($ExistingServiceCartArray)) {                    
-
+                if (!empty($ExistingServiceCartArray)) {
+                    
                     foreach($ExistingServiceCartArray as $ExistingServiceCartData)
                     {
+                        $CartID = $ExistingServiceCartArray;
+                        $OptionsCount = "0";
+                        $OptionsData = array();
+                        $OptionNames = json_decode($ExistingServiceCartData['C_OptionNames']);
+                        $PackageNames = json_decode($ExistingServiceCartData['C_PackageNames']);
+                        $OptionPrices = json_decode($ExistingServiceCartData['C_OptionPrices']);
 
-                
-                    $CartID = $ExistingServiceCartArray;
-
-                    $OptionsCount = "0";
-                    $OptionsData = array();
-                    $OptionNames = json_decode($ExistingServiceCartData['C_OptionNames']);
-                    $PackageNames = json_decode($ExistingServiceCartData['C_PackageNames']);
-                    $OptionPrices = json_decode($ExistingServiceCartData['C_OptionPrices']);
-
-                    $Index = 0;
-                    foreach ($OptionNames as $Option) {
-
-                        $OptionsData = array(
-                            'Title' => $PackageNames[$Index],
-                            'Description' => $Option,
+                        $Index = 0;
+                        foreach ($OptionNames as $Option) {
+                            $OptionsData = array(
+                                'Title' => $PackageNames[$Index],
+                                'Description' => $Option,
+                                'Currency' => "Rs. ",
+                                'Price' => $OptionPrices[$Index],
+                            );
+                            $Index++;
+                        }
+                        $OptionsCount = (string) count($OptionsData);
+                        $ServiceRecord = array(
+                            'CartID' => getStringValue($ExistingServiceCartData['CartID']),
+                            'OptionsCount' => $OptionsCount,
+                            'OptionsData' => $OptionsData,
                             'Currency' => "Rs. ",
-                            'Price' => $OptionPrices[$Index],
+                            'CartTotal' => $ExistingServiceCartData['C_Total'],
                         );
-                        $Index++;
+                        array_push($ServicesRecords, $ServiceRecord);
+                        $ServicesCart = '2';
                     }
-                    $OptionsCount = (string) count($OptionsData);
-                    $ServiceRecord = array(
-                        'CartID' => getStringValue($ExistingServiceCartData['CartID']),
-                        'OptionsCount' => $OptionsCount,
-                        'OptionsData' => $OptionsData,
-                        'Currency' => "Rs. ",
-                        'CartTotal' => $ExistingServiceCartData['C_Total'],
-                    );
-                    array_push($ServicesRecords, $ServiceRecord);
-                    $ServicesCart = '2';
                 }
-            }
                 else{
                     $ServiceRecord = array('status' => 'info', 'flag' => '4', 'message' => 'Service Cart is Empty');
                     array_push($ServicesRecords, $ServiceRecord); 
@@ -2620,21 +2632,36 @@ array( 'ProductID' => "4",'Name' => "4Maybelline",'DisplayImage' => UPLOAD_PRODU
                 $RestaurantsCartItemsCount = 0;
 
                 if (!empty($ExistingRestaurantCartArray)) {
+
+                   
                     foreach($ExistingRestaurantCartArray as $ExistingCartData)
                     {
+                        // $RCartID = $ExistingCartData['RCartID'];
+                        // $RDCartIDs = $this->Cart_model->getRestaurantsCartDetails($RCartID);
                         $DetailIDsJson = $ExistingCartData['RC_DetailID'];
                         $DetailIDsArray = json_decode($DetailIDsJson);
-    
+
                         $RestaurantsCartItemsCount = 0;
                         $FoodsRecords = array();
                         $FoodsCount = 0;
+
+                        /*if (!empty($RDCartIDs)) {*/
+
                         if (!empty($DetailIDsArray)) {
+
                             $FoodsRecords = array();
                             $FoodsCount = 0;
+
                             foreach ($DetailIDsArray as $DetailID) {
+
+                                /*foreach ($RDCartIDs as $DetailID) {*/
+
                                 $ExistingCartDetailData = $this->Cart_model->getRestaurantsCartDetails($DetailID);
+                                
                                 $FoodID = '';
+
                                 if (!empty($ExistingCartDetailData)) {
+
                                     $Quantity=$ExistingCartDetailData->RD_Quantity;
                                     $RestaurantsCartItemsCount = $RestaurantsCartItemsCount +$Quantity ;
                                     $FoodID = $ExistingCartDetailData->RD_FoodID;
@@ -2642,30 +2669,34 @@ array( 'ProductID' => "4",'Name' => "4Maybelline",'DisplayImage' => UPLOAD_PRODU
                                     $FoodData = $this->Restaurants_model->getFoods($FoodID);
     
                                     $DisplayImage = (!empty($FoodData->F_DisplayImage) ? UPLOAD_RESTAURANTS_FOODS_BASE_URL . $FoodData->RFoodID . '/' . $FoodData->F_DisplayImage : '');
-                                    array_push($FoodsRecords, array(
-                                        'FoodID' => getStringValue($FoodData->RFoodID),
-    
-                                        'Title' => getStringValue($FoodData->F_Title),
-                                        'Description' => getStringValue($FoodData->F_Description),
-                                        'Currency' => getStringValue("Rs. "),
-                                        'Price' => getStringValue($FoodData->F_Price),
-                                        'DisplayImage' => getStringValue($DisplayImage),
-                                        'Type' => getStringValue($FoodData->F_Type),
-                                        'CartQuantity' => $ExistingCartDetailData->RD_Quantity,
-                                    )
+                                    
+                                        array_push($FoodsRecords, array(
+
+                                            'FoodID'        => getStringValue($FoodData->RFoodID),
+                                            'Title'         => getStringValue($FoodData->F_Title),
+                                            'Description'   => getStringValue($FoodData->F_Description),
+                                            'Currency'      => getStringValue("Rs. "),
+                                            'Price'         => getStringValue($FoodData->F_Price),
+                                            'DisplayImage'  => getStringValue($DisplayImage),
+                                            'Type'          => getStringValue($FoodData->F_Type),
+                                            'CartQuantity'  => $ExistingCartDetailData->RD_Quantity,
+                                        )
                                     );
     
                                 } else {
                                     $RestaurantsCartItemsCount = $RestaurantsCartItemsCount + 0;
                                 }
                             }
-                            $FoodsCount = (string) count($FoodsRecords);
+                            $FoodsCount = (string)count($FoodsRecords);
+
                             if (!empty($ExistingCartData->RC_ItemCount)) {
+
                                 $RestaurantsCartItemsCount = $ExistingCartData->RC_ItemCount;
+
                             } else {
                                 $RestaurantsCartItemsCount = $RestaurantsCartItemsCount;
                             }
-    
+
                             $RestaurantsCartItemsCount = (string) $RestaurantsCartItemsCount;
     
                         } else {
