@@ -1280,11 +1280,18 @@ array( 'ProductID' => "4",'Name' => "4Maybelline",'DisplayImage' => UPLOAD_PRODU
             else if (!empty($data['Val_Type']) && $data['Val_Type'] == 3 && !empty($data['Val_Customer']) && !empty($data['Val_Restaurant']) && !empty($data['Val_Food'])) {
 
                 //$ExistingCartArray    =  $this->Cart_model->getRestaurantsCart(NULL,array('RC_Status <>'=>'3','RC_Status <>'=>'4','RC_CustomerID'=>$data['Val_Customer']));
-                $ExistingCartArray = $this->Cart_model->getRestaurantsCart(null, array('RC_CustomerID' => $data['Val_Customer']), "RC_Status NOT IN (3,4)");
+                $ExistingCartArray1 = $this->Cart_model->getRestaurantsCart(null, array('RC_CustomerID' => $data['Val_Customer']), "RC_Status NOT IN (3,4)");
 
-                if (!empty($ExistingCartArray)||$ExistingCartArray=='1') {
+                $ExistingCartArray = end($ExistingCartArray1);
+                $RC_Status = $ExistingCartArray['RC_Status'];
+                $RestaurantID = $ExistingCartArray['RC_RestaurantID'];
+             
+                if (!empty($ExistingCartArray) && $RC_Status == '1' && $RestaurantID == $data['Val_Restaurant'] ){
+
+                /*if (!empty($ExistingCartArray)){*/    
+                    
                     //echo "Exist";
-                    $ExistingCartData=(object)$ExistingCartArray[0];
+                    $ExistingCartData=(object)$ExistingCartArray; //[0]
 
                     $Restaurant = $data['Val_Restaurant'];
 
@@ -1313,7 +1320,7 @@ array( 'ProductID' => "4",'Name' => "4Maybelline",'DisplayImage' => UPLOAD_PRODU
                                 $FoodsTotal = $ExistingCartData->PC_ItemTotal;
                             }
 
-                            if (empty($ExistingCartDetailData)) //if(!in_array($ProductVal,$ProductID,true))
+                            if (!empty($ExistingCartDetailData)) //if(!in_array($ProductVal,$ProductID,true))
                             {
 
                                 $FoodData = $this->Restaurants_model->getFoods($data['Val_Food']);
@@ -1539,7 +1546,7 @@ array( 'ProductID' => "4",'Name' => "4Maybelline",'DisplayImage' => UPLOAD_PRODU
                         }
 
                     } else {
-                        $result = array('status' => 'warning', 'flag' => '3', 'message' => 'Something Important Happened !! ', 'data' => (object) array());
+                        $result = array('status' => 'warning', 'flag' => '3', 'message' => 'Something Important Happened !!! ', 'data' => (object) array());
                     }
 
                     //        {            } else {
