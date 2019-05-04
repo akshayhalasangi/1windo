@@ -1313,7 +1313,7 @@ array( 'ProductID' => "4",'Name' => "4Maybelline",'DisplayImage' => UPLOAD_PRODU
                                 $FoodsTotal = $ExistingCartData->PC_ItemTotal;
                             }
 
-                            if (!empty($ExistingCartDetailData)) //if(!in_array($ProductVal,$ProductID,true))
+                            if (empty($ExistingCartDetailData)) //if(!in_array($ProductVal,$ProductID,true))
                             {
 
                                 $FoodData = $this->Restaurants_model->getFoods($data['Val_Food']);
@@ -2509,13 +2509,13 @@ array( 'ProductID' => "4",'Name' => "4Maybelline",'DisplayImage' => UPLOAD_PRODU
                 $ExistingRestaurantCartArray = $this->Cart_model->getRestaurantsCart(null, array('RC_CustomerID' => $data['Val_Customer']), "RC_Status IN (1,2) AND RC_OrderStatus IN (0,1)");
                 
                 $ServicesCart = '1';
-                $ServicesRecords =  array();                                        
+                $ServicesRecords=  array();                                        
 
                 if (!empty($ExistingServiceCartArray)) {
                     
                     foreach($ExistingServiceCartArray as $ExistingServiceCartData)
                     {
-                        $CartID = $ExistingServiceCartArray;
+                        $CartID = $ExistingServiceCartData['CartID'];
                         $OptionsCount = "0";
                         $OptionsData = array();
                         $OptionNames = json_decode($ExistingServiceCartData['C_OptionNames']);
@@ -2524,7 +2524,7 @@ array( 'ProductID' => "4",'Name' => "4Maybelline",'DisplayImage' => UPLOAD_PRODU
 
                         $Index = 0;
                         foreach ($OptionNames as $Option) {
-                            $OptionsData = array(
+                            $OptionsData[] = array(
                                 'Title' => $PackageNames[$Index],
                                 'Description' => $Option,
                                 'Currency' => "Rs. ",
@@ -2532,7 +2532,7 @@ array( 'ProductID' => "4",'Name' => "4Maybelline",'DisplayImage' => UPLOAD_PRODU
                             );
                             $Index++;
                         }
-                        $OptionsCount = (string) count($OptionsData);
+                        $OptionsCount =count($OptionsData);
                         $ServiceRecord = array(
                             'CartID' => getStringValue($ExistingServiceCartData['CartID']),
                             'OptionsCount' => $OptionsCount,
