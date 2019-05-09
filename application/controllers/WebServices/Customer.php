@@ -446,11 +446,11 @@ class Customer extends W_Controller
 
         if (!empty($data['Action']) && $data['Action'] == 'GetData') {
 
-            // $groceryName='TV Appliances & Electronics';//'Groceries'; 
-            // $vegetableName='Vegetables';
+            $groceryName='Groceries'; 
+            $vegetableName='Vegetables';
 
-            // $GroceriesArray=$this->Categories_model->getDataOne($groceryName);
-            // $VegetablesArray=$this->Categories_model->getDataTwo($vegetableName);
+            $GroceriesArray=$this->Categories_model->getDataOne($groceryName);
+            $VegetablesArray=$this->Categories_model->getDataTwo($vegetableName);
 
             // $GroceriesArray=$this->Categories_model->get(null, array('C_Level' => '1', 'C_Type' => '2'), "ASC");
             // $VegetablesArray=$this->Categories_model->get(null, array('C_Level' => '1', 'C_Type' => '2'), "ASC");
@@ -461,42 +461,42 @@ class Customer extends W_Controller
             $FeaturedProductsArray = $this->Products_model->get(null, array('P_Featured' => '2'), "ASC");
 //                $ServicesArray = $this->Services_model->get(NULL,array('S_Type'=>'1'));
 
-            // if (!empty($GroceriesArray)) {
-            //     foreach ($GroceriesArray as $GroceriesArrayData) {
-            //         $DisplayImage = '';
-            //         $DisplayImage = (!empty($GroceriesArrayData['C_DisplayImage']) ? UPLOAD_CATEGORIES_BASE_URL . $GroceriesArrayData['CategoryID'] . '/' . $GroceriesArrayData['C_DisplayImage'] : '');
-            //         $DisplayIcon = '';
-            //         $DisplayIcon = (!empty($GroceriesArrayData['C_DisplayIcon']) ? UPLOAD_CATEGORIES_BASE_URL . $GroceriesArrayData['CategoryID'] . '/' . $GroceriesArrayData['C_DisplayIcon'] : '');
+            if (!empty($GroceriesArray)) {
+                foreach ($GroceriesArray as $GroceriesArrayData) {
+                    $DisplayImage = '';
+                    $DisplayImage = (!empty($GroceriesArrayData['C_DisplayImage']) ? UPLOAD_CATEGORIES_BASE_URL . $GroceriesArrayData['CategoryID'] . '/' . $GroceriesArrayData['C_DisplayImage'] : '');
+                    $DisplayIcon = '';
+                    $DisplayIcon = (!empty($GroceriesArrayData['C_DisplayIcon']) ? UPLOAD_CATEGORIES_BASE_URL . $GroceriesArrayData['CategoryID'] . '/' . $GroceriesArrayData['C_DisplayIcon'] : '');
 
-            //         $GroceriesData[] = array(
-            //                             'CategoryID' => $GroceriesData['CategoryID'],
-            //                             'Name' =>$GroceriesData['C_Name'],
-            //                             'DisplayImage' => $DisplayImage,
-            //                             'DisplayIcon' => $DisplayIcon,
-            //                             );
-            //     }   
-            // } else {
-            //     $GroceriesData= array();
-            // }
+                    $GroceriesData[] = array(
+                                        'CategoryID' => $GroceriesArrayData['CategoryID'],
+                                        'Name' =>$GroceriesArrayData['C_Name'],
+                                        'DisplayImage' => $DisplayImage,
+                                        'DisplayIcon' => $DisplayIcon,
+                                        );
+                }   
+            } else {
+                $GroceriesData= array();
+            }
 
 
-            // if (!empty($VegetablesArray)) {
-            //     foreach ($VegetablesArray as $VegetablesArrayData) {
-            //         $DisplayImage = '';
-            //         $DisplayImage = (!empty($VegetablesArrayData['C_DisplayImage']) ? UPLOAD_CATEGORIES_BASE_URL . $VegetablesArrayData['CategoryID'] . '/' . $VegetablesArrayData['C_DisplayImage'] : '');
-            //         $DisplayIcon = '';
-            //         $DisplayIcon = (!empty($VegetablesArrayData['C_DisplayIcon']) ? UPLOAD_CATEGORIES_BASE_URL . $VegetablesArrayData['CategoryID'] . '/' . $VegetablesArrayData['C_DisplayIcon'] : '');
+            if (!empty($VegetablesArray)) {
+                foreach ($VegetablesArray as $VegetablesArrayData) {
+                    $DisplayImage = '';
+                    $DisplayImage = (!empty($VegetablesArrayData['C_DisplayImage']) ? UPLOAD_CATEGORIES_BASE_URL . $VegetablesArrayData['CategoryID'] . '/' . $VegetablesArrayData['C_DisplayImage'] : '');
+                    $DisplayIcon = '';
+                    $DisplayIcon = (!empty($VegetablesArrayData['C_DisplayIcon']) ? UPLOAD_CATEGORIES_BASE_URL . $VegetablesArrayData['CategoryID'] . '/' . $VegetablesArrayData['C_DisplayIcon'] : '');
 
-            //         $VegetablesData[] = array(
-            //                             'CategoryID' => $GroceriesData['CategoryID'],
-            //                             'Name' =>$GroceriesData['C_Name'],
-            //                             'DisplayImage' => $DisplayImage,
-            //                             'DisplayIcon' => $DisplayIcon,
-            //                             );
-            //     }   
-            // } else {
-            //     $VegetablesData= array();
-            // }
+                    $VegetablesData[] = array(
+                                        'CategoryID' => $VegetablesArrayData['CategoryID'],
+                                        'Name' =>$VegetablesArrayData['C_Name'],
+                                        'DisplayImage' => $DisplayImage,
+                                        'DisplayIcon' => $DisplayIcon,
+                                        );
+                }   
+            } else {
+                $VegetablesData= array();
+            }
 
 
 
@@ -726,8 +726,8 @@ array( 'ProductID' => "4",'Name' => "4Maybelline",'DisplayImage' => UPLOAD_PRODU
             );
 
 
-            // $Records['GroceriesData'] = $GroceriesData;
-            // $Records['VegetablesData'] = $VegetablesData;
+            $Records['GroceriesData'] = $GroceriesData;
+            $Records['VegetablesData'] = $VegetablesData;
             $Records['ServiceCategoriesData'] = $ServiceCategoriesData;
             //$Records['ServiceCategoriesData'] =$ServiceCategoriesDataNew;
             $Records['ProductCategoriesData'] = $ProductCategoriesData;
@@ -1852,6 +1852,7 @@ array( 'ProductID' => "4",'Name' => "4Maybelline",'DisplayImage' => UPLOAD_PRODU
                 $ExistingCartDetailData = $this->Cart_model->getProductsCartDetails($data['Val_Detail']);
 
                 if (!empty($ExistingCartData) && !empty($ExistingCartDetailData)) {
+                    
                     //$ExistingCartData = (object)$ExistingCartArray[0];
 
                     $ProductVal = $data['Val_Product'];
@@ -2424,77 +2425,97 @@ array( 'ProductID' => "4",'Name' => "4Maybelline",'DisplayImage' => UPLOAD_PRODU
         } else if (!empty($data['Action']) && $data['Action'] == 'GetRestaurantCart') {
 
             if (!empty($data['Val_Customer'])) {
-
-//                    $ExistingRestaurantCartArray =  $this->Cart_model->getRestaurantsCart(NULL,array('RC_OrderStatus'=>'0','RC_Status <>'=>'3','RC_Status <>'=>'4','RC_CustomerID'=>$data['Val_Customer']));
-                $ExistingRestaurantCartArray = $this->Cart_model->getRestaurantsCart(null, array('RC_OrderStatus' => '0', 'RC_CustomerID' => $data['Val_Customer']), "RC_Status NOT IN (3,4)");
-
-                $DetailIDsArray = array();
-
+                $RestaurantsRecords = array();
+                $ExistingRestaurantCartArray = $this->Cart_model->getRestaurantsCart(null, array('RC_CustomerID' => $data['Val_Customer']), "RC_Status IN (1,2) AND RC_OrderStatus IN (0,1)");
+                
                 if (!empty($ExistingRestaurantCartArray)) {
-                    $ExistingCartData = (object) $ExistingRestaurantCartArray[0];
 
-                    $DetailIDsJson = $ExistingCartData->RC_DetailID;
-                    $DetailIDsArray = json_decode($DetailIDsJson);
+                   
+                    foreach($ExistingRestaurantCartArray as $ExistingCartData)
+                    {
+                        // $RCartID = $ExistingCartData['RCartID'];
+                        // $RDCartIDs = $this->Cart_model->getRestaurantsCartDetails($RCartID);
+                        $DetailIDsJson = $ExistingCartData['RC_DetailID'];
+                        $DetailIDsArray = json_decode($DetailIDsJson);
 
-                    $CartItemsCount = 0;
-                    $FoodsRecords = array();
-                    $FoodsCount = 0;
-                    if (!empty($DetailIDsArray)) {
+                        $RestaurantsCartItemsCount = 0;
                         $FoodsRecords = array();
                         $FoodsCount = 0;
-                        foreach ($DetailIDsArray as $DetailID) {
-                            $ExistingCartDetailData = $this->Cart_model->getRestaurantsCartDetails($DetailID);
-                            $FoodID = '';
-                            if (!empty($ExistingCartDetailData)) {
-                                $CartItemsCount = $CartItemsCount + $ExistingCartDetailData->RD_Quantity;
-                                $FoodID = $ExistingCartDetailData->RD_FoodID;
 
-                                $FoodData = $this->Restaurants_model->getFoods($FoodID);
+                        /*if (!empty($RDCartIDs)) {*/
 
-                                $DisplayImage = (!empty($FoodData->F_DisplayImage) ? UPLOAD_RESTAURANTS_FOODS_BASE_URL . $FoodData->RFoodID . '/' . $FoodData->F_DisplayImage : '');
-                                array_push($FoodsRecords, array(
-                                    'FoodID' => getStringValue($FoodData->RFoodID),
+                        if (!empty($DetailIDsArray)) {
 
-                                    'Title' => getStringValue($FoodData->F_Title),
-                                    'Description' => getStringValue($FoodData->F_Description),
-                                    'Currency' => getStringValue("Rs. "),
-                                    'Price' => getStringValue($FoodData->F_Price),
-                                    'DisplayImage' => getStringValue($DisplayImage),
-                                    'Type' => getStringValue($FoodData->F_Type),
-                                    'CartQuantity' => $ExistingCartDetailData->RD_Quantity,
-                                )
-                                );
+                            $FoodsRecords = array();
+                            $FoodsCount = 0;
+
+                            foreach ($DetailIDsArray as $DetailID) {
+
+                                /*foreach ($RDCartIDs as $DetailID) {*/
+
+                                $ExistingCartDetailData = $this->Cart_model->getRestaurantsCartDetails($DetailID);
+                                
+                                $FoodID = '';
+
+                                if (!empty($ExistingCartDetailData)) {
+
+                                    $Quantity=$ExistingCartDetailData->RD_Quantity;
+                                    $RestaurantsCartItemsCount = $RestaurantsCartItemsCount +$Quantity ;
+                                    $FoodID = $ExistingCartDetailData->RD_FoodID;
+    
+                                    $FoodData = $this->Restaurants_model->getFoods($FoodID);
+    
+                                    $DisplayImage = (!empty($FoodData->F_DisplayImage) ? UPLOAD_RESTAURANTS_FOODS_BASE_URL . $FoodData->RFoodID . '/' . $FoodData->F_DisplayImage : '');
+                                    
+                                        array_push($FoodsRecords, array(
+
+                                            'FoodID'        => getStringValue($FoodData->RFoodID),
+                                            'Title'         => getStringValue($FoodData->F_Title),
+                                            'Description'   => getStringValue($FoodData->F_Description),
+                                            'Currency'      => getStringValue("Rs. "),
+                                            'Price'         => getStringValue($FoodData->F_Price),
+                                            'DisplayImage'  => getStringValue($DisplayImage),
+                                            'Type'          => getStringValue($FoodData->F_Type),
+                                            'CartQuantity'  => $ExistingCartDetailData->RD_Quantity,
+                                        )
+                                    );
+    
+                                } else {
+                                    $RestaurantsCartItemsCount = $RestaurantsCartItemsCount + 0;
+                                }
+                            }
+                            $FoodsCount = (string)count($FoodsRecords);
+
+                            if (!empty($ExistingCartData->RC_ItemCount)) {
+
+                                $RestaurantsCartItemsCount = $ExistingCartData->RC_ItemCount;
 
                             } else {
-                                $CartItemsCount = $CartItemsCount + 0;
+                                $RestaurantsCartItemsCount = $RestaurantsCartItemsCount;
                             }
-                        }
-                        $FoodsCount = (string) count($FoodsRecords);
-                        if (!empty($ExistingCartData->RC_ItemCount)) {
-                            $CartItemsCount = $ExistingCartData->RC_ItemCount;
+
+                            $RestaurantsCartItemsCount = (string) $RestaurantsCartItemsCount;
+    
                         } else {
-                            $CartItemsCount = $CartItemsCount;
+                            //echo "Not Matching 3";
+                            $RestaurantsCartItemsCount = $RestaurantsCartItemsCount + 0;
                         }
-
-                        $CartItemsTotal = number_format($ExistingCartData->RC_ItemTotal, 2);
-
-                    } else {
-                        //echo "Not Matching 3";
-                        $CartItemsCount = $CartItemsCount + 0;
+    
+                        $RestaurantRecord = array(
+                            'CartID' => getStringValue($ExistingCartData['RCartID']),
+                            'FoodsCount' => $FoodsCount,
+                            'FoodsData' => $FoodsRecords,
+                            'Currency' => "Rs. ",
+                            'ItemsCount' => $RestaurantsCartItemsCount,
+                            'ItemTotal' => $ExistingCartData['RC_ItemTotal'],
+                            'DeliveryCharges' => $ExistingCartData['RC_DeliveryCharge'],
+                            'CartTotal' => $ExistingCartData['RC_CartTotal'],
+                        );
+                        array_push($RestaurantsRecords, $RestaurantRecord);
+                      $RestaurantsCart = '2';
                     }
 
-                    $Record = array(
-                        'CartID' => getStringValue($ExistingCartData->RCartID),
-                        'FoodsCount' => $FoodsCount,
-                        'FoodsData' => $FoodsRecords,
-                        'Currency' => "Rs. ",
-                        'ItemsCount' => $CartItemsCount,
-                        'ItemTotal' => $ExistingCartData->RC_ItemTotal,
-                        'DeliveryCharges' => $ExistingCartData->RC_DeliveryCharge,
-                        'CartTotal' => $ExistingCartData->RC_CartTotal,
-
-                    );
-                    $result = array('status' => 'success', 'flag' => '1', 'message' => 'Cart Fetched Successfully.', 'data' => $Record);
+                    $result = array('status' => 'success', 'flag' => '1', 'message' => 'Cart Fetched Successfully.', 'data' => $RestaurantsRecords);
                 } else {
                     $result = array('status' => 'error', 'flag' => '2', 'message' => 'Cart is empty', 'data' => (object) array());
                 }
@@ -2729,7 +2750,7 @@ array( 'ProductID' => "4",'Name' => "4Maybelline",'DisplayImage' => UPLOAD_PRODU
                   
                 }
                 else{
-                    $RestaurantRecord= array('status' => 'info', 'flag' => '4', 'message' => 'Restaurant Cart is Empty');
+                    $RestaurantRecord= array('status' => 'info', 'flag' => '4', 'message' => 'Restaurant Cart is Empty', 'restaurantCartArray'=>$ExistingRestaurantCartArray);
                     array_push($RestaurantsRecords, $RestaurantRecord);
                 }
 

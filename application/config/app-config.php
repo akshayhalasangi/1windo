@@ -47,5 +47,5 @@ define('APP_DB_USERNAME','root');
 define('APP_DB_PASSWORD','');
 /* The name of the database you want to connect to */
  //define('APP_DB_NAME','1windo_app');
-//define('APP_DB_NAME','newschema1');
-define('APP_DB_NAME','1windo');
+define('APP_DB_NAME','newschema1');
+//define('APP_DB_NAME','1windo');

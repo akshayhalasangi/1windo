@@ -24,13 +24,8 @@ class Categories_model extends W_Model
         $this->db->where('C_Type',2);
         $this->db->where('C_Level',1);
         $this->db->where('C_Name',$groceryName);
-        $result =$this->db->get()->result_array();
-        if($result){
-            return true;
-        }
-        else{
-            return false;
-        }
+        return $this->db->get()->result_array();
+        
 
     } 
 
