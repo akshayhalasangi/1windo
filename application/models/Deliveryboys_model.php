@@ -25,6 +25,20 @@ class Deliveryboys_model extends W_Model
             $this->db->where('DeliveryBoyID', $deliveryboyid);        
             return $this->db->get(TBL_DELIVERYBOYS)->row();
         } else {
+            $staffID = get_staff_user_id();
+            $this->db->where('Staff_ID', $staffID);
+            $result = $this->db->get('staffs')->row();
+            switch ($result->S_IsAdmin) {
+                case 0:
+                    $this->db->order_by('DeliveryBoyID','DESC');
+                    return $this->db->get(TBL_DELIVERYBOYS)->result_array();
+                    break;
+                case 1:
+                    $this->db->where('DB_Area', $result->Area);
+                    $this->db->order_by('DeliveryBoyID','DESC');
+                    return $this->db->get(TBL_DELIVERYBOYS)->result_array();
+                    break;
+            }
             $this->db->order_by('DeliveryBoyID','DESC');
             return $this->db->get(TBL_DELIVERYBOYS)->result_array();
         }

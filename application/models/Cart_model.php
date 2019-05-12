@@ -106,8 +106,23 @@ class Cart_model extends W_Model
 				$this->db->select('*');
 				$this->db->from(TBL_CART_SERVICES);
 				$this->db->where($where);
-				if(!empty($wherestring))
+				if(!empty($wherestring)){
 					$this->db->where($wherestring);
+                }
+//                $staffID = get_staff_user_id();
+//                $this->db->where('Staff_ID', $staffID);
+//                $result = $this->db->get('staffs')->row();
+//                switch ($result->S_IsAdmin) {
+//                    case 0:
+//                        $this->db->order_by('C_OrderStatus', $orderby);
+//                        $result = $this->db->get()->result_array();
+//                        break;
+//                    case 1:
+//                        $this->db->where('C_Area', $result->Area);
+//                        $this->db->order_by('C_OrderStatus', $orderby);
+//                        $result = $this->db->get()->result_array();
+//                        break;
+//                }
 
 				$this->db->order_by('C_OrderStatus', $orderby);
 				$result = $this->db->get()->result_array();
@@ -116,7 +131,7 @@ class Cart_model extends W_Model
 			{
 				$result = false; 
 			}		
-			$whatisthequery= $this->db->last_query();
+//			$whatisthequery= $this->db->last_query();
 		return $result;
 	}
 	 /**

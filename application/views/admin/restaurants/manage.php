@@ -74,7 +74,7 @@
                                         </table>
                                     </div>
                                      <?php else : ?>                                         
-                                        <div class="ks-no-record"><h5 class="ks-no-record"><?= _l('txt_restaurants_not_found')?></h5></div>
+                                        <div class="ks-no-record"><h5 class="ks-no-record"><?= _l('Restaurants not found')?></h5></div>
                                     <?php endif; ?>
                                 </div>                            
                             </div>
