@@ -118,8 +118,20 @@
                                                     );
                                                 ?>   
                                                 <?= render_input( 'Val_Password', 'addd_edit_password','','password',$attrs,array(),'','','','admin_placeholder_password','','',true,'','','',$data_atts); } ?>
- 
-                                                <div class="form-group">
+                                                <?php if( "MyProfile" !==$this->uri->segment(2)) :?>
+                                                <label><?= _l('Select Area'); ?></label><br/>
+                                                <select id="select2-id-label-single"  name="Area" id="Staff" class="form-control ks-select" style="margin-bottom: .4em">
+
+                                                    <option value=""><?= _l('Select Area');?></option>
+                                                    <?php
+                                                    if(!empty($areas)) {
+                                                        foreach($areas as $area) {
+                                                            ?>
+                                                            <option value="<?php echo $area['id']; ?>"><?= $area['name']; ?></option>
+                                                        <?php }  }?>
+                                                </select>
+                                                <?php endif;?>
+                                                <div class="form-group" style="margin-top: .8em">
                                                     <label><?= _l('profile_image'); ?></label><br/>
                                                     <button class="btn btn-primary ks-btn-file">
                                                         <span class="la la-cloud-upload ks-icon"></span>

@@ -55,6 +55,7 @@ $route['404_override'] = 'error';
 $route['translate_uri_dashes'] = FALSE;
 
 $route['Admin']  = "Admin/Home";
+$route['SuperAdmin']  = "SuperAdmin/Home";
 
 #Admin
 $route['Admin/MyProfile'] = "Authentication/MyProfile";

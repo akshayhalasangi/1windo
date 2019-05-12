@@ -17,6 +17,12 @@
                         <li class="nav-item">
                             <a class="nav-link" href="<?= admin_url('ResetPassword'); ?>"><?= _l('txt_change_password'); ?></a>
                         </li>
+                        <?php $admin = getAdminData(get_staff_user_id());
+                        if(!empty($admin) && $admin->S_IsAdmin == 1){ ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?= admin_url('Permissions'); ?>"><?= _l('txt_permission'); ?></a>
+                        </li>
+                        <?php } ?>
                     </ul>
                 </div>
                 <?php } else { ?>

@@ -213,7 +213,7 @@ function getRedirectUrl($staffid = '')
         return ADMIN_URL;
     }
 
-    return STAFF_URL;
+    return ADMIN_URL;
 }
 
 

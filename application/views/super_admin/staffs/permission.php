@@ -38,8 +38,7 @@
                                                  
                                                     <option value=""><?= _l('select_staff');?></option>
                                                     <?php
-                                                    die(var_dump("here"));
-                                                    if(!empty($staffsList)) { 
+                                                    if(!empty($staffsList)) {
                                                         foreach($staffsList as $staff) {
                                                             $StaffID = $this->uri->segment(3);
                                                             

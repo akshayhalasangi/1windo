@@ -67,8 +67,10 @@ class Staffs_model extends W_Model
             
                 $admin_data['S_Password']             = $hasher->HashPassword($data['Val_Password']);                    
                 $admin_data['S_IsActive'] = '1';
-                
-                
+                if (isset($data['Area'])) {
+                    $admin_data['Area'] = $data['Area'];
+                }
+
                 $data = do_action('before_admin_added', $data);             
                 $this->db->insert('staffs', $admin_data);                    
                 $adminid = $this->db->insert_id();

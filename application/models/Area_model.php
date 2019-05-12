@@ -43,4 +43,10 @@ class Area_model extends W_Model
         $this->db->where('city_id',$city_id);
        return $this->db->get()->result_array();
    }
+    public function getAllAreas()
+    {
+        $this->db->select('*');
+        $this->db->from('1w_tbl_area');
+        return $this->db->get()->result_array();
+    }
 }

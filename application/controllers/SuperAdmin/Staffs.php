@@ -53,7 +53,9 @@ class Staffs extends Admin_Controller
             $data['title'] = _l('add_new',_l('add_staff'));
         }
         $data['addAssets'] = true;
-        
+        $CI =& get_instance();
+        $CI->load->model('area_model');
+        $data['areas'] = $this->area_model->getAllAreas();
         $this->load->view(camelToSnake(getRedirectUrl()).'/staffs/staff',$data);
     }
  
