@@ -30,20 +30,30 @@ a.nav-link.active.current{
                     <span><?= _l('txt_users'); ?></span>
                 </a>
             </li> -->
+ <?php
+ $CI =& get_instance();
+ $role = $CI->session->userdata('role');
+ if($role !== 'vendor') {
+     ?>
+     <li class="nav-item <?= ($Controller == 'Customers') ? 'open' : ''; ?>">
+         <a class="nav-link dropdown" href="<?= admin_url('Customers'); ?>" role="button" aria-haspopup="true"
+            aria-expanded="false">
+             <span class="ks-icon la la-users"></span>
+             <span><?= _l('txt_customers'); ?></span>
+         </a>
+     </li>
 
-            <li class="nav-item <?= ($Controller == 'Customers') ? 'open' : ''; ?>">
-                <a class="nav-link dropdown" href="<?= admin_url('Customers');?>" role="button" aria-haspopup="true" aria-expanded="false">
-                    <span class="ks-icon la la-users"></span>
-                    <span><?= _l('txt_customers'); ?></span>
-                </a>
-            </li>
-            
-			<li class="nav-item <?= ($Controller == 'Categories') ? 'open' : ''; ?>">
-                <a class="nav-link"  href="<?= admin_url('Categories');?>" role="button" aria-haspopup="true" aria-expanded="false">
-                    <span class="ks-icon la la-cubes"></span>
-                    <span><?= _l('txt_categories'); ?></span>
-                </a>
-            </li>        
+     <li class="nav-item <?= ($Controller == 'Categories') ? 'open' : ''; ?>">
+         <a class="nav-link" href="<?= admin_url('Categories'); ?>" role="button" aria-haspopup="true"
+            aria-expanded="false">
+             <span class="ks-icon la la-cubes"></span>
+             <span><?= _l('txt_categories'); ?></span>
+         </a>
+     </li>
+
+     <?php
+ }
+?>
 			<li class="nav-item <?= ($Controller == 'Services') ? 'open' : ''; ?>">
                 <a class="nav-link"  href="<?= admin_url('Services');?>" role="button" aria-haspopup="true" aria-expanded="false">
                     <span class="ks-icon la la-fighter-jet"></span>
@@ -67,19 +77,29 @@ a.nav-link.active.current{
                     <span class="ks-icon la la-shopping-cart"></span>
                     <span><?= _l('Orders'); ?></span>
                 </a>
-            </li>  			      
-			<li class="nav-item <?= ($Controller == 'Vendors') ? 'open' : ''; ?>">
-                <a class="nav-link"  href="<?= admin_url('Vendors');?>" role="button" aria-haspopup="true" aria-expanded="false">
-                    <span class="ks-icon la la-certificate"></span>
-                    <span><?= _l('Vendors'); ?></span>
-                </a>
-            </li>  			      
-			<li class="nav-item <?= ($Controller == 'DeliveryBoys') ? 'open' : ''; ?>">
-                <a class="nav-link"  href="<?= admin_url('DeliveryBoys');?>" role="button" aria-haspopup="true" aria-expanded="false">
-                    <span class="ks-icon la la-motorcycle"></span>
-                    <span><?= _l('Delivery Boys'); ?></span>
-                </a>
-            </li>  			      			
+            </li>
+            <?php
+            $CI =& get_instance();
+            $role = $CI->session->userdata('role');
+            if($role !== 'vendor') {
+                ?>
+                <li class="nav-item <?= ($Controller == 'Vendors') ? 'open' : ''; ?>">
+                    <a class="nav-link" href="<?= admin_url('Vendors'); ?>" role="button" aria-haspopup="true"
+                       aria-expanded="false">
+                        <span class="ks-icon la la-certificate"></span>
+                        <span><?= _l('Vendors'); ?></span>
+                    </a>
+                </li>
+                <li class="nav-item <?= ($Controller == 'DeliveryBoys') ? 'open' : ''; ?>">
+                    <a class="nav-link" href="<?= admin_url('DeliveryBoys'); ?>" role="button" aria-haspopup="true"
+                       aria-expanded="false">
+                        <span class="ks-icon la la-motorcycle"></span>
+                        <span><?= _l('Delivery Boys'); ?></span>
+                    </a>
+                </li>
+                <?php
+            }
+            ?>
         </ul>         
     </div>
 </div>

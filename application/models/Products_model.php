@@ -545,7 +545,21 @@ class Products_model extends W_Model
 
         return false;
     }
+    public function addVendorWithProducts($vendorid, $attribvalueid)
+    {
 
+        $data=['product_id'=>$attribvalueid,'vendor_id'=>$vendorid];
+        $this->db->insert('1w_tbl_product_vendor', $data);
+        $attribvalueid = $this->db->insert_id();
+
+        if  ($attribvalueid) {
+            logActivity('New Product Attribute Created [' . $attribvalueid . ']');
+
+            return true;
+        }
+
+        return false;
+    }
 	/**
      * @param  array $_POST data
      * @param  integer ID

@@ -180,12 +180,22 @@ function getAdminData($staffid = '')
         $_staffid = $staffid;
     }
     $CI =& get_instance();
-   // $CI->db->select('1');
+    $role = $CI->session->userdata('role');
+    if($role === 'vendor')
+    {
+        $CI->db->where('V_Status', 2);
+        $CI->db->where('VendorID', $_staffid);
+        $staff = $CI->db->get('vendors')->row();
+        $staff->S_FirstName=$staff->V_FirstName;
+         $staff->S_LastName=$staff->V_LastName;
+    }
+    else
+    {
     $CI->db->where('S_IsActive', 1);
     $CI->db->where('S_Status', 2);
     $CI->db->where('Staff_ID', $_staffid);
     $staff = $CI->db->get('staffs')->row();
-     
+    }
     if ($staff) {   
         return $staff;
     }
@@ -199,21 +209,30 @@ function getRedirectUrl($staffid = '')
     if (is_numeric($staffid)) {
         $_staffid = $staffid;
     }
-    $CI =& get_instance();
-    // $CI->db->select('1');
-    $CI->db->where('S_IsActive', 1);
-    $CI->db->where('S_Status', 2);
-    $CI->db->where('Staff_ID', $_staffid);
-    $staff = $CI->db->get('staffs')->row();
 
-    if ($staff->S_IsAdmin == 0) {
-        return SUPER_ADMIN_URL ;
+
+    $CI =& get_instance();
+    $role = $CI->session->userdata('role');
+    if($role === 'vendor')
+    {
+        return VENDOR_URL;
     }
-    if ($staff->S_IsAdmin == 1) {
+    else {
+        // $CI->db->select('1');
+        $CI->db->where('S_IsActive', 1);
+        $CI->db->where('S_Status', 2);
+        $CI->db->where('Staff_ID', $_staffid);
+        $staff = $CI->db->get('staffs')->row();
+
+        if ($staff->S_IsAdmin == 0) {
+            return SUPER_ADMIN_URL;
+        }
+        if ($staff->S_IsAdmin == 1) {
+            return ADMIN_URL;
+        }
+
         return ADMIN_URL;
     }
-
-    return ADMIN_URL;
 }
 
 

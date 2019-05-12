@@ -118,11 +118,18 @@
                         </span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="Preview">
-                        <a class="dropdown-item" href="<?= admin_url('MyProfile');?>">
-                            <span class="la la-user ks-icon"></span>
-                            <span><?= _l('txt_my_profile');?></span>
-                        </a>
-                         
+                        <?php
+                        $CI =& get_instance();
+                        $role = $CI->session->userdata('role');
+                        if($role !== 'vendor') {
+                            ?>
+                            <a class="dropdown-item" href="<?= admin_url('MyProfile'); ?>">
+                                <span class="la la-user ks-icon"></span>
+                                <span><?= _l('txt_my_profile'); ?></span>
+                            </a>
+                            <?php
+                        }
+                        ?>
                         <a class="dropdown-item" href="<?= base_url('Authentication/Logout');?>">
                             <span class="la la-sign-out ks-icon" aria-hidden="true"></span>
                             <span><?= _l('txt_logout'); ?></span>                            

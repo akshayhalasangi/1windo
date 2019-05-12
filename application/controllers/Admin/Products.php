@@ -12,21 +12,8 @@ class Products extends Admin_Controller
     }
 
     public function index(){
-         
-        $data['title'] = _l('title_products');
-        $data['listAssets'] = 'true'; 
 
-        $this->load->model('Categories_model');
-        $CategoryList = $this->Categories_model->getCategory(null, array("C_Type" => PRODUCT_CATEGORY_ID), 'ASC', 'C_Parent');
-        $CategoryHierarchy = $this->Categories_model->getCategoryHierarchy(PRODUCT_CATEGORY_ID);
-
-        $data['productCategoryList']['Categories'] = displayCategoryHierarchy($CategoryList, $CategoryHierarchy);
-
-        // $data['productsList'] = $this->Products_model->getProduct();
-
-        $this->load->view(PRODUCT_URL . 'categories', $data);
-    }
-    public function ProductList($id){
+//        $id=10;
         if(isset($id)){
             $data['productsList'] = $this->Products_model->getProduct(null, array("P_CategoryID" => $id));
             $data['productID'] = $id;
@@ -38,9 +25,9 @@ class Products extends Admin_Controller
 
             $data['title'] = $categoryName._l('txt_products');
             $data['categoryName'] =  $categoryName;
-            $this->load->view(PRODUCT_URL . 'manage', $data);
+            $this->load->view(camelToSnake(getRedirectUrl()).'/products/' . 'manage', $data);
         }else{
-            redirect('Admin/Products');
+            redirect('Vendor/Products');
         }
     }
 	public function Attributes(){
@@ -48,7 +35,7 @@ class Products extends Admin_Controller
         $data['listAssets'] = 'true';
         $data['attributesList'] = $this->Products_model->getAttributes();
 
-        $this->load->view( PRODUCT_URL.'manage-attributes', $data);   
+        $this->load->view( camelToSnake(getRedirectUrl()).'/products/'.'manage-attributes', $data);
     }
 	public function AttribValues($attributeid){
         $data['title'] = _l('title_products_attributes_values');
@@ -59,7 +46,7 @@ class Products extends Admin_Controller
         $data['attributeName'] = $this->Products_model->getAttributes($attributeid);
         $data['attributeName'] = $data['attributeName']->A_Title;
 
-        $this->load->view( PRODUCT_URL.'manage-attribvalues', $data);   
+        $this->load->view( camelToSnake(getRedirectUrl()).'/products/'.'manage-attribvalues', $data);
     }
 	public function Reviews($productid, $categoryId = ''){
         $data['title'] = _l('title_products_reviews');
@@ -67,7 +54,7 @@ class Products extends Admin_Controller
         $data['reviewsList'] = $this->Products_model->getReviews(NULL,array('R_Type'=>'2','R_RelationID'=>$productid));
         $data['ProductID'] = $productid;
         $data['categoryId'] = $categoryId;
-        $this->load->view( PRODUCT_URL.'manage-reviews', $data);   
+        $this->load->view( camelToSnake(getRedirectUrl()).'/products/'.'manage-reviews', $data);
     }
     public function Product($id = '', $categoryId = ''){
 
@@ -133,7 +120,7 @@ class Products extends Admin_Controller
 		$data['attributes'] = $this->Products_model->getAttributes(NULL,array('A_Status'=>'2'),'ASC');
 		
         $data['addAssets'] = true;        
-        $this->load->view(PRODUCT_URL.'product',$data);            
+        $this->load->view(camelToSnake(getRedirectUrl()).'/products/'.'product',$data);
     }
 	public function Attribute($id = ''){
 
@@ -172,7 +159,7 @@ class Products extends Admin_Controller
         }
         $data['listAssets'] = 'true';
 		$data['addAssets'] = true;        
-        $this->load->view(PRODUCT_URL.'attribute',$data);            
+        $this->load->view(camelToSnake(getRedirectUrl()).'/products/'.'attribute',$data);
     }
 
 	public function AttribValue($attributeid, $id = ''){
@@ -217,7 +204,7 @@ class Products extends Admin_Controller
 		
 		$data['AttributeID'] = $attributeid;      
 		$data['addAssets'] = true;        
-        $this->load->view(PRODUCT_URL.'attribvalue',$data);            
+        $this->load->view(camelToSnake(getRedirectUrl()).'/products/'.'attribvalue',$data);
     }
 
 	/* Delete Get Services Ajax */
@@ -286,8 +273,19 @@ class Products extends Admin_Controller
         $data['Val_Pstatus'] = $data['status'];
 		 
         if(!empty($data)){
-            $Success = $this->Products_model->update($data,$ProductID);
-            
+            $CI =& get_instance();
+            $role = $CI->session->userdata('role');
+            if($role === 'vendor')
+            {
+
+                $Success = $this->Products_model->addVendorWithProducts(get_staff_user_id(),$ProductID);
+
+
+            }
+//            else{
+//                $Success = $this->Products_model->update($data,$ProductID);
+//            }
+
             if($Success){
                 setAjaxResponse( _l('product_status_update_success'),'success',_l('success'));
             } else {
