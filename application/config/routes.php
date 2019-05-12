@@ -55,6 +55,7 @@ $route['404_override'] = 'error';
 $route['translate_uri_dashes'] = FALSE;
 
 $route['Admin']  = "Admin/Home";
+$route['SuperAdmin']  = "SuperAdmin/Home";
 
 #Admin
 $route['Admin/MyProfile'] = "Authentication/MyProfile";
@@ -62,3 +63,8 @@ $route['Admin/ResetPassword'] = "Authentication/ResetPassword";
 $route['Admin/Permissions'] = "Authentication/Permissions";
 $route['Admin/AddPermission'] = "Authentication/AddPermission";
 $route['Admin/Permissions/(:num)'] = "Authentication/Permissions/$1";
+$route['SuperAdmin/MyProfile'] = "Authentication/MyProfile";
+$route['SuperAdmin/ResetPassword'] = "Authentication/ResetPassword";
+$route['SuperAdmin/Permissions'] = "Authentication/Permissions";
+$route['SuperAdmin/AddPermission'] = "Authentication/AddPermission";
+$route['SuperAdmin/Permissions/(:num)'] = "Authentication/Permissions/$1";

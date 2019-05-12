@@ -1,53 +1,3397 @@
--- MySQL dump 10.16  Distrib 10.1.37-MariaDB, for Win32 (AMD64)
---
--- Host: 127.0.0.1    Database: newschema1
--- ------------------------------------------------------
--- Server version	10.1.37-MariaDB
+/*
+SQLyog Community
+MySQL - 10.1.38-MariaDB : Database - newschema1
+*********************************************************************
+*/
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
+
+/*!40101 SET SQL_MODE=''*/;
+
 /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`newschema1` /*!40100 DEFAULT CHARACTER SET latin1 */;
 
---
--- Table structure for table `1w_tbl_activity_log`
---
+USE `newschema1`;
+
+/*Table structure for table `1w_tbl_activity_log` */
 
 DROP TABLE IF EXISTS `1w_tbl_activity_log`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+
 CREATE TABLE `1w_tbl_activity_log` (
   `Activity_ID` int(11) NOT NULL AUTO_INCREMENT,
   `AL_Description` mediumtext COLLATE utf8_persian_ci NOT NULL,
   `AL_Date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `AL_StaffID` varchar(11) CHARACTER SET utf8 DEFAULT NULL,
   PRIMARY KEY (`Activity_ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=3956 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci ROW_FORMAT=DYNAMIC;
-/*!40101 SET character_set_client = @saved_cs_client */;
+) ENGINE=MyISAM AUTO_INCREMENT=3971 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci ROW_FORMAT=DYNAMIC;
 
---
--- Dumping data for table `1w_tbl_activity_log`
---
+/*Data for the table `1w_tbl_activity_log` */
 
-LOCK TABLES `1w_tbl_activity_log` WRITE;
-/*!40000 ALTER TABLE `1w_tbl_activity_log` DISABLE KEYS */;
-INSERT INTO `1w_tbl_activity_log` VALUES (615,'Profile updated[ StaffID3]','2019-01-30 11:04:59','Admin Nadaf'),(616,'Profile updated[ StaffID3]','2019-01-30 11:05:00','Admin Nadaf'),(617,'log_user_info_updated','2019-01-30 22:42:14','Admin Nadaf'),(618,'log_user_info_updated','2019-01-30 22:42:18','Admin Nadaf'),(619,'New Service Created [ From Staff: 1]','2019-02-01 21:44:22','Admin Nadaf'),(620,'New Service Created [ From Staff: 1]','2019-02-01 21:44:59','Admin Nadaf'),(621,'New Service Work Created [Work 3 From Staff: 1]','2019-02-01 21:46:55','Admin Nadaf'),(622,'service_work_deleted [7]','2019-02-01 21:46:59','Admin Nadaf'),(623,'service_deleted [32]','2019-02-01 22:11:43','Admin Nadaf'),(624,'New Category Created [cdfdf From Staff: 1]','2019-02-01 22:12:06','Admin Nadaf'),(625,'Category Info Updated [71]','2019-02-01 22:12:10','Admin Nadaf'),(626,'Category Info Updated [75]','2019-02-01 22:12:11','Admin Nadaf'),(627,'category_deleted [75]','2019-02-01 22:12:14','Admin Nadaf'),(628,'category_deleted [71]','2019-02-01 22:12:16','Admin Nadaf'),(629,'category_deleted [68]','2019-02-01 22:12:24','Admin Nadaf'),(630,'service_deleted [30]','2019-02-01 22:13:07','Admin Nadaf'),(631,'service_deleted [31]','2019-02-01 22:13:28','Admin Nadaf'),(632,'service_deleted [29]','2019-02-01 22:13:38','Admin Nadaf'),(633,'failed_login_attempt[mobile:9112110507, user_type:1, IP:106.220.66.32]','2019-02-03 17:39:07',NULL),(634,'New Customer Created [9112110507]','2019-02-03 17:39:07',NULL),(635,'New Member Created [9112110507]','2019-02-03 17:39:07',NULL),(636,'failed_login_attempt[mobile:9096751185, user_type:2, IP:106.220.66.32]','2019-02-03 17:40:59',NULL),(637,'New Vendor Created [9096751185]','2019-02-03 17:40:59',NULL),(638,'New Member Created [9096751185]','2019-02-03 17:40:59',NULL),(639,'log_user_info_updated','2019-02-03 17:42:46',NULL),(640,'New Profile Created [3]','2019-02-03 17:42:46',NULL),(641,'New Vendor About Created [3]','2019-02-03 17:42:46',NULL),(642,'New Vendor Wroks Created [3]','2019-02-03 17:42:46',NULL),(643,'New Vendor Locations Created [3]','2019-02-03 17:42:46',NULL),(644,'New Vendor Account Created [3]','2019-02-03 17:42:46',NULL),(645,'log_profile_info_updated','2019-02-03 17:43:49',NULL),(646,'failed_login_attempt[mobile:9096751185, user_type:3, IP:106.220.66.32]','2019-02-03 17:44:42',NULL),(647,'New Vendor Created [9096751185]','2019-02-03 17:44:42',NULL),(648,'New Member Created [9096751185]','2019-02-03 17:44:42',NULL),(649,'log_user_info_updated','2019-02-03 17:45:30',NULL),(650,'New Vendor Account Created [3]','2019-02-03 17:45:30',NULL),(651,'New Cart Product Created [2]','2019-02-04 17:14:18',NULL),(652,'New Cart Product Details Created [2]','2019-02-04 17:14:18',NULL),(653,'Cart Product Info Updated [2]','2019-02-04 17:14:19',NULL),(654,'New Category Created [Test From Staff: 1]','2019-02-04 19:56:08','Admin Nadaf'),(655,'Category Info Updated [76]','2019-02-04 19:56:29','Admin Nadaf'),(656,'Category Info Updated [76]','2019-02-04 19:56:31','Admin Nadaf'),(657,'New Service Created [ From Staff: 1]','2019-02-04 20:12:20','Admin Nadaf'),(658,'failed_login_attempt[mobile:7769999468, user_type:3, IP:42.106.237.42]','2019-02-06 09:14:08',NULL),(659,'New Vendor Created [7769999468]','2019-02-06 09:14:08',NULL),(660,'New Member Created [7769999468]','2019-02-06 09:14:08',NULL),(661,'failed_login_attempt[mobile:9146031522, user_type:3, IP:42.106.237.42]','2019-02-06 09:14:36',NULL),(662,'New Vendor Created [9146031522]','2019-02-06 09:14:36',NULL),(663,'New Member Created [9146031522]','2019-02-06 09:14:36',NULL),(664,'log_user_info_updated','2019-02-06 09:15:36',NULL),(665,'New Vendor Account Created [4]','2019-02-06 09:15:36',NULL),(666,'failed_login_attempt[mobile:8796256084, user_type:2, IP:27.97.141.143]','2019-02-06 15:24:05',NULL),(667,'New Vendor Created [8796256084]','2019-02-06 15:24:05',NULL),(668,'New Member Created [8796256084]','2019-02-06 15:24:05',NULL),(669,'New Cart Created [3]','2019-02-06 17:44:39',NULL),(670,'New Cart Created [4]','2019-02-06 18:56:38',NULL),(671,'log_user_info_updated','2019-02-07 11:35:52',NULL),(672,'New Profile Created [4]','2019-02-07 11:35:52',NULL),(673,'New Vendor About Created [4]','2019-02-07 11:35:52',NULL),(674,'New Vendor Wroks Created [4]','2019-02-07 11:35:52',NULL),(675,'New Vendor Locations Created [4]','2019-02-07 11:35:52',NULL),(676,'New Vendor Account Created [4]','2019-02-07 11:35:52',NULL),(677,'log_user_info_updated','2019-02-07 11:35:57',NULL),(678,'log_profile_info_updated','2019-02-07 13:00:35',NULL),(679,'log_profile_info_updated','2019-02-07 13:02:34',NULL),(680,'log_profile_info_updated','2019-02-07 13:02:58',NULL),(681,'log_profile_info_updated','2019-02-07 13:04:51',NULL),(682,'log_profile_info_updated','2019-02-07 13:06:35',NULL),(683,'log_profile_info_updated','2019-02-07 13:08:17',NULL),(684,'failed_login_attempt[mobile:9146031522, user_type:1, IP:42.106.238.128]','2019-02-08 01:05:05',NULL),(685,'New Customer Created [9146031522]','2019-02-08 01:05:05',NULL),(686,'New Member Created [9146031522]','2019-02-08 01:05:05',NULL),(687,'log_user_info_updated','2019-02-08 17:25:02',NULL),(688,'failed_login_attempt[mobile:9146031522, user_type:2, IP:42.106.238.39]','2019-02-08 17:27:02',NULL),(689,'New Vendor Created [9146031522]','2019-02-08 17:27:02',NULL),(690,'New Member Created [9146031522]','2019-02-08 17:27:02',NULL),(691,'log_user_info_updated','2019-02-08 17:28:54',NULL),(692,'New Profile Created [5]','2019-02-08 17:28:54',NULL),(693,'New Vendor About Created [5]','2019-02-08 17:28:54',NULL),(694,'New Vendor Wroks Created [5]','2019-02-08 17:28:54',NULL),(695,'New Vendor Locations Created [5]','2019-02-08 17:28:54',NULL),(696,'New Vendor Account Created [5]','2019-02-08 17:28:54',NULL),(697,'log_locations_info_updated','2019-02-08 17:36:05',NULL),(698,'log_works_info_updated','2019-02-08 17:36:44',NULL),(699,'log_works_info_updated','2019-02-08 17:36:51',NULL),(700,'log_works_info_updated','2019-02-08 17:37:00',NULL),(701,'log_about_info_updated','2019-02-08 17:48:45',NULL),(702,'log_profile_info_updated','2019-02-08 17:49:40',NULL),(703,'log_profile_info_updated','2019-02-08 17:50:39',NULL),(704,'log_profile_info_updated','2019-02-08 17:51:06',NULL),(705,'log_profile_info_updated','2019-02-08 17:51:10',NULL),(706,'log_user_info_updated','2019-02-08 17:51:16',NULL),(707,'failed_login_attempt[mobile:9844532816, user_type:3, IP:122.171.78.230]','2019-02-10 09:11:29',NULL),(708,'New Vendor Created [9844532816]','2019-02-10 09:11:29',NULL),(709,'New Member Created [9844532816]','2019-02-10 09:11:29',NULL),(710,'failed_login_attempt[mobile:9844532816, user_type:2, IP:122.171.78.230]','2019-02-10 09:58:31',NULL),(711,'New Vendor Created [9844532816]','2019-02-10 09:58:31',NULL),(712,'New Member Created [9844532816]','2019-02-10 09:58:31',NULL),(713,'failed_login_attempt[mobile:7774812090, user_type:2, IP:103.72.140.67]','2019-02-12 10:27:01',NULL),(714,'New Vendor Created [7774812090]','2019-02-12 10:27:01',NULL),(715,'New Member Created [7774812090]','2019-02-12 10:27:01',NULL),(716,'log_user_info_updated','2019-02-12 10:34:54',NULL),(717,'New Profile Created [6]','2019-02-12 10:34:54',NULL),(718,'New Vendor About Created [6]','2019-02-12 10:34:54',NULL),(719,'New Vendor Wroks Created [6]','2019-02-12 10:34:54',NULL),(720,'New Vendor Locations Created [6]','2019-02-12 10:34:54',NULL),(721,'New Vendor Account Created [6]','2019-02-12 10:34:54',NULL),(722,'log_profile_info_updated','2019-02-12 11:53:56',NULL),(723,'log_user_info_updated','2019-02-13 09:47:25',NULL),(724,'New Cart Product Created [3]','2019-02-13 19:45:25',NULL),(725,'New Cart Product Details Created [3]','2019-02-13 19:45:25',NULL),(726,'Cart Product Info Updated [3]','2019-02-13 19:45:25',NULL),(727,'New Cart Product Created [4]','2019-02-13 19:49:41',NULL),(728,'New Cart Product Details Created [4]','2019-02-13 19:49:41',NULL),(729,'Cart Product Info Updated [4]','2019-02-13 19:49:41',NULL),(730,'log_profile_info_updated','2019-02-13 20:03:17',NULL),(731,'log_profile_info_updated','2019-02-13 20:05:51',NULL),(732,'log_profile_info_updated','2019-02-13 20:05:56',NULL),(733,'log_profile_info_updated','2019-02-13 20:25:06',NULL),(734,'log_about_info_updated','2019-02-13 20:25:38',NULL),(735,'log_works_info_updated','2019-02-13 20:25:52',NULL),(736,'log_locations_info_updated','2019-02-13 20:26:10',NULL),(737,'log_user_info_updated','2019-02-13 20:26:12',NULL),(738,'log_user_info_updated','2019-02-13 20:26:31',NULL),(739,'log_user_info_updated','2019-02-13 21:27:14',NULL),(740,'failed_login_attempt[mobile:8421118351, user_type:2, IP:42.107.65.254]','2019-02-13 21:34:25',NULL),(741,'New Vendor Created [8421118351]','2019-02-13 21:34:25',NULL),(742,'New Member Created [8421118351]','2019-02-13 21:34:25',NULL),(743,'log_user_info_updated','2019-02-13 21:35:02',NULL),(744,'New Profile Created [7]','2019-02-13 21:35:02',NULL),(745,'New Vendor About Created [7]','2019-02-13 21:35:02',NULL),(746,'New Vendor Wroks Created [7]','2019-02-13 21:35:02',NULL),(747,'New Vendor Locations Created [7]','2019-02-13 21:35:02',NULL),(748,'New Vendor Account Created [7]','2019-02-13 21:35:02',NULL),(749,'log_profile_info_updated','2019-02-13 21:36:00',NULL),(750,'log_profile_info_updated','2019-02-13 21:36:41',NULL),(751,'log_profile_info_updated','2019-02-13 21:37:03',NULL),(752,'log_profile_info_updated','2019-02-13 21:37:07',NULL),(753,'log_profile_info_updated','2019-02-13 21:37:11',NULL),(754,'log_locations_info_updated','2019-02-13 21:37:38',NULL),(755,'log_works_info_updated','2019-02-13 21:37:53',NULL),(756,'log_about_info_updated','2019-02-13 21:38:27',NULL),(757,'log_user_info_updated','2019-02-13 21:38:29',NULL),(758,'log_user_info_updated','2019-02-13 21:38:42',NULL),(759,'log_user_info_updated','2019-02-13 21:39:32',NULL),(760,'failed_login_attempt[mobile:8310455343, user_type:2, IP:106.51.22.72]','2019-02-13 22:05:14',NULL),(761,'New Vendor Created [8310455343]','2019-02-13 22:05:14',NULL),(762,'New Member Created [8310455343]','2019-02-13 22:05:14',NULL),(763,'failed_login_attempt[mobile:8600645478, user_type:2, IP:103.72.140.67]','2019-02-14 10:28:31',NULL),(764,'New Vendor Created [8600645478]','2019-02-14 10:28:31',NULL),(765,'New Member Created [8600645478]','2019-02-14 10:28:31',NULL),(766,'log_user_info_updated','2019-02-14 11:25:46',NULL),(767,'log_user_info_updated','2019-02-14 11:31:10',NULL),(768,'log_user_info_updated','2019-02-14 11:31:24',NULL),(769,'log_user_info_updated','2019-02-14 11:44:58',NULL),(770,'log_user_info_updated','2019-02-14 11:45:10',NULL),(771,'failed_login_attempt[mobile:9623070446, user_type:2, IP:103.72.140.67]','2019-02-14 11:52:06',NULL),(772,'New Vendor Created [9623070446]','2019-02-14 11:52:06',NULL),(773,'New Member Created [9623070446]','2019-02-14 11:52:06',NULL),(774,'log_user_info_updated','2019-02-14 12:58:34',NULL),(775,'log_user_info_updated','2019-02-14 12:59:03',NULL),(776,'log_user_info_updated','2019-02-14 13:22:51',NULL),(777,'log_user_info_updated','2019-02-14 14:42:46',NULL),(778,'log_user_info_updated','2019-02-14 14:43:47',NULL),(779,'log_user_info_updated','2019-02-14 14:44:45',NULL),(780,'log_user_info_updated','2019-02-14 14:44:58',NULL),(781,'log_user_info_updated','2019-02-16 10:13:36',NULL),(782,'log_user_info_updated','2019-02-16 10:14:35',NULL),(783,'log_user_info_updated','2019-02-16 10:24:37',NULL),(784,'log_user_info_updated','2019-02-16 10:38:10',NULL),(785,'log_user_info_updated','2019-02-16 11:29:39','Admin Nadaf'),(786,'log_user_info_updated','2019-02-16 11:29:45','Admin Nadaf'),(787,'log_user_info_updated','2019-02-16 11:29:47','Admin Nadaf'),(788,'log_user_info_updated','2019-02-16 11:29:58',NULL),(789,'log_user_info_updated','2019-02-16 11:30:04','Admin Nadaf'),(790,'log_user_info_updated','2019-02-16 11:30:06',NULL),(791,'log_user_info_updated','2019-02-16 11:30:20',NULL),(792,'log_user_info_updated','2019-02-16 11:34:00',NULL),(793,'log_user_info_updated','2019-02-16 11:34:06',NULL),(794,'log_user_info_updated','2019-02-16 12:03:46',NULL),(795,'log_user_info_updated','2019-02-16 12:15:55',NULL),(796,'log_user_info_updated','2019-02-16 12:23:20',NULL),(797,'log_user_info_updated','2019-02-16 16:42:58',NULL),(798,'log_user_info_updated','2019-02-16 16:54:12',NULL),(799,'log_user_info_updated','2019-02-16 19:06:25',NULL),(800,'log_user_info_updated','2019-02-16 19:06:49',NULL),(801,'log_user_info_updated','2019-02-16 19:20:31',NULL),(802,'log_user_info_updated','2019-02-16 19:20:39',NULL),(803,'log_user_info_updated','2019-02-18 10:20:38',NULL),(804,'log_user_info_updated','2019-02-18 10:30:42',NULL),(805,'log_user_info_updated','2019-02-18 10:32:50',NULL),(806,'log_user_info_updated','2019-02-18 10:35:40',NULL),(807,'log_user_info_updated','2019-02-18 10:36:49',NULL),(808,'log_user_info_updated','2019-02-18 10:40:39',NULL),(809,'log_user_info_updated','2019-02-18 10:41:54',NULL),(810,'log_user_info_updated','2019-02-18 10:51:18',NULL),(811,'log_user_info_updated','2019-02-18 11:00:56',NULL),(812,'log_user_info_updated','2019-02-18 11:04:41',NULL),(813,'log_user_info_updated','2019-02-18 11:07:39',NULL),(814,'log_user_info_updated','2019-02-18 11:11:16',NULL),(815,'log_user_info_updated','2019-02-18 11:13:26',NULL),(816,'log_user_info_updated','2019-02-18 11:15:22',NULL),(817,'log_user_info_updated','2019-02-18 11:15:48',NULL),(818,'log_user_info_updated','2019-02-18 11:17:18',NULL),(819,'log_user_info_updated','2019-02-18 11:22:28',NULL),(820,'log_user_info_updated','2019-02-18 11:25:54',NULL),(821,'log_user_info_updated','2019-02-18 11:34:05',NULL),(822,'New Product Created [Shirt From Staff: 1]','2019-02-18 11:54:42','Admin Nadaf'),(823,'Product Info Updated [12]','2019-02-18 11:54:45','Admin Nadaf'),(824,'log_user_info_updated','2019-02-18 11:57:01',NULL),(825,'log_user_info_updated','2019-02-18 11:57:59',NULL),(826,'log_user_info_updated','2019-02-18 11:58:11',NULL),(827,'log_user_info_updated','2019-02-18 12:00:26','Admin Nadaf'),(828,'log_user_info_updated','2019-02-18 12:01:13',NULL),(829,'log_user_info_updated','2019-02-18 12:03:04',NULL),(830,'log_user_info_updated','2019-02-18 12:04:15',NULL),(831,'failed_login_attempt[mobile:9999999999, user_type:2, IP:42.107.80.53]','2019-02-18 12:30:01',NULL),(832,'New Vendor Created [9999999999]','2019-02-18 12:30:01',NULL),(833,'New Member Created [9999999999]','2019-02-18 12:30:01',NULL),(834,'log_user_info_updated','2019-02-18 12:30:22',NULL),(835,'log_user_info_updated','2019-02-18 12:58:13',NULL),(836,'log_user_info_updated','2019-02-18 13:01:02',NULL),(837,'log_user_info_updated','2019-02-18 13:01:05',NULL),(838,'log_user_info_updated','2019-02-18 13:02:39',NULL),(839,'log_user_info_updated','2019-02-18 15:09:44',NULL),(840,'log_user_info_updated','2019-02-18 15:15:14',NULL),(841,'log_user_info_updated','2019-02-18 15:15:14',NULL),(842,'log_user_info_updated','2019-02-18 15:16:10',NULL),(843,'log_user_info_updated','2019-02-18 15:18:30',NULL),(844,'log_user_info_updated','2019-02-18 15:19:19',NULL),(845,'log_user_info_updated','2019-02-18 15:21:44',NULL),(846,'log_user_info_updated','2019-02-18 15:22:27',NULL),(847,'log_user_info_updated','2019-02-18 15:26:01',NULL),(848,'log_user_info_updated','2019-02-18 15:29:32',NULL),(849,'log_user_info_updated','2019-02-18 15:36:14',NULL),(850,'log_user_info_updated','2019-02-18 15:38:18',NULL),(851,'log_account_info_updated','2019-02-18 15:56:54',NULL),(852,'log_account_info_updated','2019-02-18 15:58:01',NULL),(853,'log_user_info_updated','2019-02-18 16:14:56',NULL),(854,'log_user_info_updated','2019-02-18 16:33:38',NULL),(855,'log_account_info_updated','2019-02-18 16:42:28',NULL),(856,'log_account_info_updated','2019-02-18 16:42:53',NULL),(857,'log_user_info_updated','2019-02-19 09:42:22',NULL),(858,'log_user_info_updated','2019-02-19 09:45:13',NULL),(859,'log_user_info_updated','2019-02-19 10:08:51',NULL),(860,'log_user_info_updated','2019-02-19 10:51:43',NULL),(861,'failed_login_attempt[mobile:9146544486, user_type:2, IP:103.72.142.241]','2019-02-19 10:54:46',NULL),(862,'New Vendor Created [9146544486]','2019-02-19 10:54:46',NULL),(863,'New Member Created [9146544486]','2019-02-19 10:54:46',NULL),(864,'Category Info Updated [8]','2019-02-19 16:44:56','Admin Nadaf'),(865,'Category Info Updated [6]','2019-02-19 16:44:59','Admin Nadaf'),(866,'Category Info Updated [73]','2019-02-19 16:47:15','Admin Nadaf'),(867,'Category Info Updated [72]','2019-02-19 16:48:29','Admin Nadaf'),(868,'Category Info Updated [13]','2019-02-19 16:51:56','Admin Nadaf'),(869,'Category Info Updated [12]','2019-02-19 16:51:57','Admin Nadaf'),(870,'Category Info Updated [11]','2019-02-19 16:51:58','Admin Nadaf'),(871,'Category Info Updated [10]','2019-02-19 16:52:00','Admin Nadaf'),(872,'Category Info Updated [25]','2019-02-19 16:53:15','Admin Nadaf'),(873,'Category Info Updated [24]','2019-02-19 16:53:17','Admin Nadaf'),(874,'Category Info Updated [23]','2019-02-19 16:53:19','Admin Nadaf'),(875,'Category Info Updated [22]','2019-02-19 16:53:20','Admin Nadaf'),(876,'Category Info Updated [21]','2019-02-19 16:53:21','Admin Nadaf'),(877,'Category Info Updated [25]','2019-02-19 16:54:10','Admin Nadaf'),(878,'Category Info Updated [24]','2019-02-19 16:54:23','Admin Nadaf'),(879,'Category Info Updated [24]','2019-02-19 16:54:26','Admin Nadaf'),(880,'Category Info Updated [25]','2019-02-19 16:54:28','Admin Nadaf'),(881,'log_user_info_updated','2019-02-19 17:19:54',NULL),(882,'log_user_info_updated','2019-02-19 17:20:38',NULL),(883,'log_user_info_updated','2019-02-19 17:23:04',NULL),(884,'log_user_info_updated','2019-02-19 17:23:13',NULL),(885,'log_user_info_updated','2019-02-19 17:23:41',NULL),(886,'log_user_info_updated','2019-02-19 17:23:55',NULL),(887,'log_user_info_updated','2019-02-19 17:24:01',NULL),(888,'log_user_info_updated','2019-02-19 21:37:11',NULL),(889,'log_user_info_updated','2019-02-19 21:37:26',NULL),(890,'log_user_info_updated','2019-02-19 21:39:01',NULL),(891,'log_account_info_updated','2019-02-19 21:39:41',NULL),(892,'log_user_info_updated','2019-02-19 21:41:03',NULL),(893,'log_user_info_updated','2019-02-20 14:18:34',NULL),(894,'log_user_info_updated','2019-02-20 14:18:38',NULL),(895,'failed_login_attempt[mobile:8975003570, user_type:2, IP:103.72.142.241]','2019-02-20 17:30:29',NULL),(896,'New Vendor Created [8975003570]','2019-02-20 17:30:29',NULL),(897,'New Member Created [8975003570]','2019-02-20 17:30:29',NULL),(898,'log_user_info_updated','2019-02-20 17:41:57',NULL),(899,'log_user_info_updated','2019-02-20 17:48:20',NULL),(900,'Category Info Updated [9]','2019-02-21 10:15:55','Admin Nadaf'),(901,'Category Info Updated [8]','2019-02-21 10:15:56','Admin Nadaf'),(902,'Category Info Updated [7]','2019-02-21 10:15:57','Admin Nadaf'),(903,'Category Info Updated [6]','2019-02-21 10:15:58','Admin Nadaf'),(904,'Category Info Updated [5]','2019-02-21 10:15:59','Admin Nadaf'),(905,'Category Info Updated [4]','2019-02-21 10:16:00','Admin Nadaf'),(906,'Category Info Updated [3]','2019-02-21 10:16:02','Admin Nadaf'),(907,'Category Info Updated [2]','2019-02-21 10:16:02','Admin Nadaf'),(908,'Category Info Updated [1]','2019-02-21 10:16:03','Admin Nadaf'),(909,'Category Info Updated [25]','2019-02-21 10:16:29','Admin Nadaf'),(910,'Category Info Updated [24]','2019-02-21 10:16:29','Admin Nadaf'),(911,'Category Info Updated [23]','2019-02-21 10:16:30','Admin Nadaf'),(912,'Category Info Updated [22]','2019-02-21 10:16:31','Admin Nadaf'),(913,'Category Info Updated [21]','2019-02-21 10:16:32','Admin Nadaf'),(914,'log_user_info_updated','2019-02-21 10:50:18',NULL),(915,'failed_login_attempt[mobile:7083234537, user_type:2, IP:103.72.142.244]','2019-02-21 12:22:28',NULL),(916,'New Vendor Created [7083234537]','2019-02-21 12:22:28',NULL),(917,'New Member Created [7083234537]','2019-02-21 12:22:28',NULL),(918,'log_user_info_updated','2019-02-21 12:58:58',NULL),(919,'New Profile Created [8]','2019-02-21 12:58:58',NULL),(920,'New Vendor About Created [8]','2019-02-21 12:58:58',NULL),(921,'New Vendor Wroks Created [8]','2019-02-21 12:58:58',NULL),(922,'New Vendor Locations Created [8]','2019-02-21 12:58:58',NULL),(923,'New Vendor Account Created [8]','2019-02-21 12:58:58',NULL),(924,'log_user_info_updated','2019-02-21 14:19:45',NULL),(925,'log_user_info_updated','2019-02-21 14:20:15',NULL),(926,'log_user_info_updated','2019-02-21 14:30:34',NULL),(927,'log_user_info_updated','2019-02-21 14:56:57',NULL),(928,'vendor_deleted [8]','2019-02-21 15:12:09','Admin Nadaf'),(929,'member_deleted [17]','2019-02-21 15:12:09','Admin Nadaf'),(930,'vendor_deleted [12]','2019-02-21 15:12:14','Admin Nadaf'),(931,'member_deleted [21]','2019-02-21 15:12:14','Admin Nadaf'),(932,'failed_login_attempt[mobile:9764326905, user_type:2, IP:103.72.142.251]','2019-02-21 15:23:46',NULL),(933,'New Vendor Created [9764326905]','2019-02-21 15:23:46',NULL),(934,'New Member Created [9764326905]','2019-02-21 15:23:46',NULL),(935,'failed_login_attempt[mobile:8421118351, user_type:2, IP:42.107.79.204]','2019-02-21 15:54:25',NULL),(936,'New Vendor Created [8421118351]','2019-02-21 15:54:25',NULL),(937,'New Member Created [8421118351]','2019-02-21 15:54:25',NULL),(938,'failed_login_attempt[mobile:7028668351, user_type:2, IP:42.107.79.204]','2019-02-21 15:58:27',NULL),(939,'New Vendor Created [7028668351]','2019-02-21 15:58:27',NULL),(940,'New Member Created [7028668351]','2019-02-21 15:58:27',NULL),(941,'log_user_info_updated','2019-02-21 16:03:08',NULL),(942,'New Profile Created [9]','2019-02-21 16:03:08',NULL),(943,'New Vendor About Created [9]','2019-02-21 16:03:08',NULL),(944,'New Vendor Wroks Created [9]','2019-02-21 16:03:08',NULL),(945,'New Vendor Locations Created [9]','2019-02-21 16:03:08',NULL),(946,'New Vendor Account Created [9]','2019-02-21 16:03:08',NULL),(947,'log_profile_info_updated','2019-02-21 16:09:49',NULL),(948,'log_profile_info_updated','2019-02-21 16:12:04',NULL),(949,'log_profile_info_updated','2019-02-21 16:12:38',NULL),(950,'log_profile_info_updated','2019-02-21 16:12:43',NULL),(951,'log_profile_info_updated','2019-02-21 16:12:49',NULL),(952,'log_about_info_updated','2019-02-21 16:13:44',NULL),(953,'log_about_info_updated','2019-02-21 16:13:51',NULL),(954,'log_about_info_updated','2019-02-21 16:14:10',NULL),(955,'log_works_info_updated','2019-02-21 16:14:51',NULL),(956,'log_works_info_updated','2019-02-21 16:14:52',NULL),(957,'log_locations_info_updated','2019-02-21 16:22:04',NULL),(958,'log_locations_info_updated','2019-02-21 16:30:24',NULL),(959,'log_user_info_updated','2019-02-21 16:30:52',NULL),(960,'log_user_info_updated','2019-02-21 16:36:41',NULL),(961,'log_user_info_updated','2019-02-21 16:37:08','Admin Nadaf'),(962,'failed_login_attempt[mobile:8628646243, user_type:2, IP:42.107.79.204]','2019-02-21 16:39:05',NULL),(963,'New Vendor Created [8628646243]','2019-02-21 16:39:05',NULL),(964,'New Member Created [8628646243]','2019-02-21 16:39:05',NULL),(965,'log_user_info_updated','2019-02-21 16:39:12',NULL),(966,'log_user_info_updated','2019-02-21 18:39:38',NULL),(967,'log_user_info_updated','2019-02-21 19:17:36',NULL),(968,'New Profile Created [10]','2019-02-21 19:17:36',NULL),(969,'New Vendor About Created [10]','2019-02-21 19:17:36',NULL),(970,'New Vendor Wroks Created [10]','2019-02-21 19:17:36',NULL),(971,'New Vendor Locations Created [10]','2019-02-21 19:17:36',NULL),(972,'New Vendor Account Created [10]','2019-02-21 19:17:36',NULL),(973,'log_profile_info_updated','2019-02-21 19:18:13',NULL),(974,'log_profile_info_updated','2019-02-21 19:18:40',NULL),(975,'log_profile_info_updated','2019-02-21 19:18:56',NULL),(976,'log_profile_info_updated','2019-02-21 19:18:58',NULL),(977,'log_about_info_updated','2019-02-21 19:19:26',NULL),(978,'log_works_info_updated','2019-02-21 19:19:30',NULL),(979,'log_locations_info_updated','2019-02-21 19:20:14',NULL),(980,'log_user_info_updated','2019-02-21 19:20:16',NULL),(981,'log_user_info_updated','2019-02-21 19:29:22',NULL),(982,'log_user_info_updated','2019-02-21 19:29:36',NULL),(983,'log_user_info_updated','2019-02-21 19:30:11',NULL),(984,'log_user_info_updated','2019-02-21 19:32:15',NULL),(985,'log_user_info_updated','2019-02-21 19:33:09',NULL),(986,'log_user_info_updated','2019-02-21 19:35:05',NULL),(987,'log_user_info_updated','2019-02-21 19:51:19',NULL),(988,'log_user_info_updated','2019-02-21 20:06:07','Admin Nadaf'),(989,'log_user_info_updated','2019-02-21 20:06:09','Admin Nadaf'),(990,'log_user_info_updated','2019-02-21 20:11:41','Admin Nadaf'),(991,'failed_login_attempt[mobile:9503664444, user_type:1, IP:49.14.65.193]','2019-02-21 21:05:39',NULL),(992,'New Customer Created [9503664444]','2019-02-21 21:05:40',NULL),(993,'New Member Created [9503664444]','2019-02-21 21:05:40',NULL),(994,'log_user_info_updated','2019-02-22 10:31:48',NULL),(995,'log_user_info_updated','2019-02-22 10:35:26',NULL),(996,'log_user_info_updated','2019-02-22 10:38:01',NULL),(997,'log_user_info_updated','2019-02-22 10:39:14',NULL),(998,'log_user_info_updated','2019-02-22 10:40:04',NULL),(999,'log_user_info_updated','2019-02-22 10:40:41',NULL),(1000,'log_user_info_updated','2019-02-22 10:41:00',NULL),(1001,'log_user_info_updated','2019-02-22 10:42:41',NULL),(1002,'log_user_info_updated','2019-02-22 10:47:34',NULL),(1003,'log_user_info_updated','2019-02-22 10:50:32',NULL),(1004,'log_user_info_updated','2019-02-22 10:51:22',NULL),(1005,'log_user_info_updated','2019-02-22 10:53:34',NULL),(1006,'log_user_info_updated','2019-02-22 10:57:35',NULL),(1007,'log_user_info_updated','2019-02-22 10:57:45',NULL),(1008,'log_user_info_updated','2019-02-22 10:58:58',NULL),(1009,'log_user_info_updated','2019-02-22 11:00:52',NULL),(1010,'log_user_info_updated','2019-02-22 11:01:34',NULL),(1011,'log_user_info_updated','2019-02-22 11:11:03',NULL),(1012,'log_user_info_updated','2019-02-22 11:13:06',NULL),(1013,'log_user_info_updated','2019-02-22 11:15:14',NULL),(1014,'log_user_info_updated','2019-02-22 11:35:50',NULL),(1015,'log_user_info_updated','2019-02-22 11:36:56',NULL),(1016,'log_user_info_updated','2019-02-22 11:37:16',NULL),(1017,'log_user_info_updated','2019-02-22 11:37:33',NULL),(1018,'log_user_info_updated','2019-02-22 11:44:31',NULL),(1019,'log_user_info_updated','2019-02-22 11:48:11',NULL),(1020,'log_user_info_updated','2019-02-22 11:53:59',NULL),(1021,'log_user_info_updated','2019-02-22 11:57:44',NULL),(1022,'log_user_info_updated','2019-02-22 12:05:15',NULL),(1023,'log_user_info_updated','2019-02-22 12:05:29',NULL),(1024,'log_profile_info_updated','2019-02-22 12:30:57',NULL),(1025,'log_profile_info_updated','2019-02-22 12:31:39',NULL),(1026,'log_profile_info_updated','2019-02-22 12:32:00',NULL),(1027,'log_profile_info_updated','2019-02-22 12:32:05',NULL),(1028,'log_profile_info_updated','2019-02-22 12:32:15',NULL),(1029,'log_about_info_updated','2019-02-22 12:36:16',NULL),(1030,'log_works_info_updated','2019-02-22 12:36:24',NULL),(1031,'log_locations_info_updated','2019-02-22 12:36:45',NULL),(1032,'log_user_info_updated','2019-02-22 12:37:25',NULL),(1033,'log_user_info_updated','2019-02-22 12:39:22',NULL),(1034,'log_user_info_updated','2019-02-22 12:39:50','Admin Nadaf'),(1035,'log_user_info_updated','2019-02-22 12:40:05',NULL),(1036,'log_user_info_updated','2019-02-22 12:40:33','Admin Nadaf'),(1037,'log_user_info_updated','2019-02-22 12:41:04',NULL),(1038,'log_user_info_updated','2019-02-22 12:41:51',NULL),(1039,'log_user_info_updated','2019-02-22 12:42:27',NULL),(1040,'log_user_info_updated','2019-02-22 12:42:47',NULL),(1041,'log_user_info_updated','2019-02-22 12:43:18',NULL),(1042,'log_user_info_updated','2019-02-22 12:45:48',NULL),(1043,'log_user_info_updated','2019-02-22 12:46:28',NULL),(1044,'log_about_info_updated','2019-02-22 12:48:25',NULL),(1045,'log_works_info_updated','2019-02-22 12:48:37',NULL),(1046,'log_locations_info_updated','2019-02-22 12:48:55',NULL),(1047,'log_locations_info_updated','2019-02-22 12:49:03',NULL),(1048,'log_user_info_updated','2019-02-22 12:49:14',NULL),(1049,'log_user_info_updated','2019-02-22 12:49:24',NULL),(1050,'log_user_info_updated','2019-02-22 12:50:34','Admin Nadaf'),(1051,'log_user_info_updated','2019-02-22 12:50:37',NULL),(1052,'log_user_info_updated','2019-02-22 12:50:43',NULL),(1053,'log_user_info_updated','2019-02-22 12:51:21','Admin Nadaf'),(1054,'log_user_info_updated','2019-02-22 12:51:36',NULL),(1055,'log_user_info_updated','2019-02-22 12:53:22',NULL),(1056,'log_user_info_updated','2019-02-22 12:54:09',NULL),(1057,'log_user_info_updated','2019-02-22 12:54:17',NULL),(1058,'log_user_info_updated','2019-02-22 12:54:53',NULL),(1059,'log_user_info_updated','2019-02-22 12:55:33',NULL),(1060,'log_user_info_updated','2019-02-22 12:58:16',NULL),(1061,'log_user_info_updated','2019-02-22 12:58:43',NULL),(1062,'log_user_info_updated','2019-02-22 12:59:17',NULL),(1063,'log_user_info_updated','2019-02-22 13:02:06',NULL),(1064,'log_user_info_updated','2019-02-22 13:05:58',NULL),(1065,'log_user_info_updated','2019-02-22 13:07:04',NULL),(1066,'log_user_info_updated','2019-02-22 13:08:11','Admin Nadaf'),(1067,'log_user_info_updated','2019-02-22 13:08:15',NULL),(1068,'log_user_info_updated','2019-02-22 13:08:18',NULL),(1069,'log_user_info_updated','2019-02-22 13:09:16',NULL),(1070,'log_user_info_updated','2019-02-22 13:09:37',NULL),(1071,'log_user_info_updated','2019-02-22 13:09:44',NULL),(1072,'log_user_info_updated','2019-02-22 13:10:21','Admin Nadaf'),(1073,'failed_login_attempt[mobile:8657387317, user_type:2, IP:42.108.229.166]','2019-02-22 13:10:28',NULL),(1074,'New Vendor Created [8657387317]','2019-02-22 13:10:28',NULL),(1075,'New Member Created [8657387317]','2019-02-22 13:10:28',NULL),(1076,'log_user_info_updated','2019-02-22 13:10:37',NULL),(1077,'failed_login_attempt[mobile:9370649300, user_type:2, IP:42.108.229.166]','2019-02-22 13:11:43',NULL),(1078,'New Vendor Created [9370649300]','2019-02-22 13:11:43',NULL),(1079,'New Member Created [9370649300]','2019-02-22 13:11:43',NULL),(1080,'log_user_info_updated','2019-02-22 13:12:16','Admin Nadaf'),(1081,'log_user_info_updated','2019-02-22 13:12:26',NULL),(1082,'New Profile Created [11]','2019-02-22 13:12:26',NULL),(1083,'New Vendor About Created [11]','2019-02-22 13:12:26',NULL),(1084,'New Vendor Wroks Created [11]','2019-02-22 13:12:26',NULL),(1085,'New Vendor Locations Created [11]','2019-02-22 13:12:26',NULL),(1086,'New Vendor Account Created [11]','2019-02-22 13:12:26',NULL),(1087,'log_user_info_updated','2019-02-22 13:12:30','Admin Nadaf'),(1088,'log_user_info_updated','2019-02-22 13:12:43',NULL),(1089,'log_user_info_updated','2019-02-22 13:13:11','Admin Nadaf'),(1090,'log_profile_info_updated','2019-02-22 13:13:12',NULL),(1091,'log_user_info_updated','2019-02-22 13:13:28',NULL),(1092,'log_profile_info_updated','2019-02-22 13:13:50',NULL),(1093,'log_profile_info_updated','2019-02-22 13:14:13',NULL),(1094,'log_profile_info_updated','2019-02-22 13:14:15',NULL),(1095,'log_about_info_updated','2019-02-22 13:15:05',NULL),(1096,'log_works_info_updated','2019-02-22 13:15:14',NULL),(1097,'log_works_info_updated','2019-02-22 13:15:22',NULL),(1098,'log_locations_info_updated','2019-02-22 13:16:27',NULL),(1099,'log_user_info_updated','2019-02-22 13:16:30',NULL),(1100,'log_user_info_updated','2019-02-22 13:16:52',NULL),(1101,'log_user_info_updated','2019-02-22 13:17:56',NULL),(1102,'log_user_info_updated','2019-02-22 13:18:19','Admin Nadaf'),(1103,'log_user_info_updated','2019-02-22 13:18:38',NULL),(1104,'log_user_info_updated','2019-02-22 13:19:15',NULL),(1105,'log_user_info_updated','2019-02-22 14:01:54',NULL),(1106,'log_user_info_updated','2019-02-22 14:02:53',NULL),(1107,'log_user_info_updated','2019-02-22 14:03:00',NULL),(1108,'log_user_info_updated','2019-02-22 14:03:06',NULL),(1109,'log_user_info_updated','2019-02-22 14:04:36','Admin Nadaf'),(1110,'log_user_info_updated','2019-02-22 14:04:44',NULL),(1111,'log_user_info_updated','2019-02-22 14:05:09',NULL),(1112,'log_user_info_updated','2019-02-22 14:17:13',NULL),(1113,'log_user_info_updated','2019-02-22 14:19:40',NULL),(1114,'log_user_info_updated','2019-02-22 14:20:04','Admin Nadaf'),(1115,'log_user_info_updated','2019-02-22 14:20:09',NULL),(1116,'log_user_info_updated','2019-02-22 14:20:21',NULL),(1117,'log_user_info_updated','2019-02-22 14:21:15',NULL),(1118,'log_user_info_updated','2019-02-22 14:21:25','Admin Nadaf'),(1119,'log_user_info_updated','2019-02-22 14:21:30',NULL),(1120,'log_user_info_updated','2019-02-22 14:21:46',NULL),(1121,'log_user_info_updated','2019-02-22 14:24:56',NULL),(1122,'log_user_info_updated','2019-02-22 14:27:50',NULL),(1123,'log_user_info_updated','2019-02-22 14:28:46',NULL),(1124,'log_user_info_updated','2019-02-22 14:30:01',NULL),(1125,'log_user_info_updated','2019-02-22 14:30:50',NULL),(1126,'log_user_info_updated','2019-02-22 14:31:43',NULL),(1127,'log_user_info_updated','2019-02-22 14:33:18',NULL),(1128,'log_user_info_updated','2019-02-22 14:33:58',NULL),(1129,'log_user_info_updated','2019-02-22 14:34:40',NULL),(1130,'log_user_info_updated','2019-02-22 14:38:20',NULL),(1131,'log_user_info_updated','2019-02-22 14:39:05',NULL),(1132,'log_user_info_updated','2019-02-22 14:39:24','Admin Nadaf'),(1133,'log_user_info_updated','2019-02-22 14:39:41',NULL),(1134,'log_user_info_updated','2019-02-22 14:40:19',NULL),(1135,'failed_login_attempt[mobile:9449827434, user_type:2, IP:157.45.47.116]','2019-02-22 14:42:03',NULL),(1136,'New Vendor Created [9449827434]','2019-02-22 14:42:03',NULL),(1137,'New Member Created [9449827434]','2019-02-22 14:42:03',NULL),(1138,'log_user_info_updated','2019-02-22 14:45:26',NULL),(1139,'log_user_info_updated','2019-02-22 14:45:52',NULL),(1140,'New Profile Created [12]','2019-02-22 14:45:52',NULL),(1141,'New Vendor About Created [12]','2019-02-22 14:45:52',NULL),(1142,'New Vendor Wroks Created [12]','2019-02-22 14:45:52',NULL),(1143,'New Vendor Locations Created [12]','2019-02-22 14:45:52',NULL),(1144,'New Vendor Account Created [12]','2019-02-22 14:45:52',NULL),(1145,'log_user_info_updated','2019-02-22 14:48:11','Admin Nadaf'),(1146,'log_user_info_updated','2019-02-22 14:48:41',NULL),(1147,'failed_login_attempt[mobile:9999999999, user_type:2, IP:157.45.47.116]','2019-02-22 14:50:58',NULL),(1148,'New Vendor Created [9999999999]','2019-02-22 14:50:58',NULL),(1149,'New Member Created [9999999999]','2019-02-22 14:50:58',NULL),(1150,'vendor_deleted [4]','2019-02-22 14:56:18','Admin Nadaf'),(1151,'member_deleted [11]','2019-02-22 14:56:18','Admin Nadaf'),(1152,'failed_login_attempt[mobile:8796256084, user_type:2, IP:103.72.142.241]','2019-02-22 14:56:30',NULL),(1153,'New Vendor Created [8796256084]','2019-02-22 14:56:30',NULL),(1154,'New Member Created [8796256084]','2019-02-22 14:56:30',NULL),(1155,'log_user_info_updated','2019-02-22 14:57:53',NULL),(1156,'New Profile Created [13]','2019-02-22 14:57:53',NULL),(1157,'New Vendor About Created [13]','2019-02-22 14:57:53',NULL),(1158,'New Vendor Wroks Created [13]','2019-02-22 14:57:53',NULL),(1159,'New Vendor Locations Created [13]','2019-02-22 14:57:53',NULL),(1160,'New Vendor Account Created [13]','2019-02-22 14:57:53',NULL),(1161,'log_profile_info_updated','2019-02-22 14:58:49',NULL),(1162,'log_profile_info_updated','2019-02-22 14:59:43',NULL),(1163,'log_profile_info_updated','2019-02-22 15:00:28',NULL),(1164,'log_profile_info_updated','2019-02-22 15:00:42',NULL),(1165,'log_profile_info_updated','2019-02-22 15:01:19',NULL),(1166,'log_about_info_updated','2019-02-22 15:01:47',NULL),(1167,'log_works_info_updated','2019-02-22 15:01:59',NULL),(1168,'log_locations_info_updated','2019-02-22 15:02:10',NULL),(1169,'log_user_info_updated','2019-02-22 15:08:57',NULL),(1170,'log_user_info_updated','2019-02-22 15:09:28',NULL),(1171,'log_user_info_updated','2019-02-22 15:10:01',NULL),(1172,'log_user_info_updated','2019-02-22 15:11:44',NULL),(1173,'log_user_info_updated','2019-02-22 15:16:40',NULL),(1174,'log_user_info_updated','2019-02-22 15:17:16',NULL),(1175,'log_user_info_updated','2019-02-22 15:18:24',NULL),(1176,'log_user_info_updated','2019-02-22 15:19:11',NULL),(1177,'log_user_info_updated','2019-02-22 15:22:13',NULL),(1178,'log_user_info_updated','2019-02-22 15:22:55',NULL),(1179,'log_user_info_updated','2019-02-22 15:24:34',NULL),(1180,'log_user_info_updated','2019-02-22 15:25:53','Admin Nadaf'),(1181,'log_user_info_updated','2019-02-22 15:26:00',NULL),(1182,'log_user_info_updated','2019-02-22 15:26:44',NULL),(1183,'log_user_info_updated','2019-02-22 15:27:16',NULL),(1184,'log_user_info_updated','2019-02-22 15:27:46',NULL),(1185,'log_user_info_updated','2019-02-22 15:28:42',NULL),(1186,'log_user_info_updated','2019-02-22 15:28:45','Admin Nadaf'),(1187,'log_user_info_updated','2019-02-22 15:29:29',NULL),(1188,'log_user_info_updated','2019-02-22 15:29:51',NULL),(1189,'log_user_info_updated','2019-02-22 15:33:04',NULL),(1190,'log_user_info_updated','2019-02-22 15:33:52',NULL),(1191,'vendor_deleted [24]','2019-02-22 15:36:12','Admin Nadaf'),(1192,'member_deleted [34]','2019-02-22 15:36:12','Admin Nadaf'),(1193,'failed_login_attempt[mobile:8796256084, user_type:2, IP:103.72.142.241]','2019-02-22 15:36:25',NULL),(1194,'New Vendor Created [8796256084]','2019-02-22 15:36:25',NULL),(1195,'New Member Created [8796256084]','2019-02-22 15:36:25',NULL),(1196,'log_user_info_updated','2019-02-22 15:37:18',NULL),(1197,'New Profile Created [14]','2019-02-22 15:37:18',NULL),(1198,'New Vendor About Created [14]','2019-02-22 15:37:18',NULL),(1199,'New Vendor Wroks Created [14]','2019-02-22 15:37:18',NULL),(1200,'New Vendor Locations Created [14]','2019-02-22 15:37:18',NULL),(1201,'New Vendor Account Created [14]','2019-02-22 15:37:18',NULL),(1202,'log_profile_info_updated','2019-02-22 15:40:49',NULL),(1203,'log_profile_info_updated','2019-02-22 15:41:13',NULL),(1204,'log_profile_info_updated','2019-02-22 15:41:39',NULL),(1205,'log_profile_info_updated','2019-02-22 15:41:42',NULL),(1206,'log_profile_info_updated','2019-02-22 15:42:23',NULL),(1207,'vendor_deleted [25]','2019-02-22 15:43:55','Admin Nadaf'),(1208,'member_deleted [35]','2019-02-22 15:43:55','Admin Nadaf'),(1209,'failed_login_attempt[mobile:8796256084, user_type:2, IP:103.72.142.241]','2019-02-22 15:44:41',NULL),(1210,'New Vendor Created [8796256084]','2019-02-22 15:44:41',NULL),(1211,'New Member Created [8796256084]','2019-02-22 15:44:41',NULL),(1212,'log_user_info_updated','2019-02-22 15:45:17',NULL),(1213,'New Profile Created [15]','2019-02-22 15:45:17',NULL),(1214,'New Vendor About Created [15]','2019-02-22 15:45:17',NULL),(1215,'New Vendor Wroks Created [15]','2019-02-22 15:45:17',NULL),(1216,'New Vendor Locations Created [15]','2019-02-22 15:45:17',NULL),(1217,'New Vendor Account Created [15]','2019-02-22 15:45:17',NULL),(1218,'log_user_info_updated','2019-02-22 15:45:20',NULL),(1219,'log_user_info_updated','2019-02-22 15:45:31',NULL),(1220,'vendor_deleted [26]','2019-02-22 15:47:12','Admin Nadaf'),(1221,'member_deleted [36]','2019-02-22 15:47:12','Admin Nadaf'),(1222,'failed_login_attempt[mobile:8796256084, user_type:2, IP:103.72.142.241]','2019-02-22 15:47:42',NULL),(1223,'New Vendor Created [8796256084]','2019-02-22 15:47:42',NULL),(1224,'New Member Created [8796256084]','2019-02-22 15:47:42',NULL),(1225,'log_user_info_updated','2019-02-22 15:48:19',NULL),(1226,'New Profile Created [16]','2019-02-22 15:48:19',NULL),(1227,'New Vendor About Created [16]','2019-02-22 15:48:19',NULL),(1228,'New Vendor Wroks Created [16]','2019-02-22 15:48:19',NULL),(1229,'New Vendor Locations Created [16]','2019-02-22 15:48:19',NULL),(1230,'New Vendor Account Created [16]','2019-02-22 15:48:19',NULL),(1231,'log_profile_info_updated','2019-02-22 15:53:04',NULL),(1232,'log_profile_info_updated','2019-02-22 15:53:33',NULL),(1233,'log_profile_info_updated','2019-02-22 15:54:00',NULL),(1234,'log_profile_info_updated','2019-02-22 15:54:30',NULL),(1235,'log_about_info_updated','2019-02-22 15:55:58',NULL),(1236,'log_works_info_updated','2019-02-22 15:56:10',NULL),(1237,'log_locations_info_updated','2019-02-22 15:56:22',NULL),(1238,'log_user_info_updated','2019-02-22 15:56:24',NULL),(1239,'log_user_info_updated','2019-02-22 15:57:52',NULL),(1240,'log_user_info_updated','2019-02-22 15:58:42',NULL),(1241,'log_user_info_updated','2019-02-22 15:59:20',NULL),(1242,'log_user_info_updated','2019-02-22 16:00:42',NULL),(1243,'log_user_info_updated','2019-02-22 16:01:03',NULL),(1244,'log_user_info_updated','2019-02-22 16:02:30',NULL),(1245,'log_user_info_updated','2019-02-22 16:40:00',NULL),(1246,'log_user_info_updated','2019-02-22 16:40:57',NULL),(1247,'log_user_info_updated','2019-02-22 16:41:39',NULL),(1248,'log_user_info_updated','2019-02-22 16:42:24',NULL),(1249,'vendor_deleted [27]','2019-02-22 16:43:19','Admin Nadaf'),(1250,'member_deleted [37]','2019-02-22 16:43:19','Admin Nadaf'),(1251,'failed_login_attempt[mobile:8796256084, user_type:2, IP:103.72.142.241]','2019-02-22 16:43:27',NULL),(1252,'New Vendor Created [8796256084]','2019-02-22 16:43:27',NULL),(1253,'New Member Created [8796256084]','2019-02-22 16:43:27',NULL),(1254,'log_user_info_updated','2019-02-22 16:43:59',NULL),(1255,'New Profile Created [17]','2019-02-22 16:43:59',NULL),(1256,'New Vendor About Created [17]','2019-02-22 16:43:59',NULL),(1257,'New Vendor Wroks Created [17]','2019-02-22 16:43:59',NULL),(1258,'New Vendor Locations Created [17]','2019-02-22 16:43:59',NULL),(1259,'New Vendor Account Created [17]','2019-02-22 16:43:59',NULL),(1260,'log_profile_info_updated','2019-02-22 16:44:41',NULL),(1261,'log_profile_info_updated','2019-02-22 16:45:06',NULL),(1262,'log_profile_info_updated','2019-02-22 16:45:21',NULL),(1263,'log_profile_info_updated','2019-02-22 16:45:23',NULL),(1264,'log_about_info_updated','2019-02-22 16:46:02',NULL),(1265,'log_works_info_updated','2019-02-22 16:46:13',NULL),(1266,'log_locations_info_updated','2019-02-22 16:46:28',NULL),(1267,'log_about_info_updated','2019-02-22 16:47:39',NULL),(1268,'log_user_info_updated','2019-02-22 16:48:16',NULL),(1269,'vendor_deleted [28]','2019-02-22 16:48:25','Admin Nadaf'),(1270,'member_deleted [38]','2019-02-22 16:48:25','Admin Nadaf'),(1271,'failed_login_attempt[mobile:8796256084, user_type:2, IP:103.72.142.241]','2019-02-22 16:48:33',NULL),(1272,'New Vendor Created [8796256084]','2019-02-22 16:48:33',NULL),(1273,'New Member Created [8796256084]','2019-02-22 16:48:33',NULL),(1274,'log_user_info_updated','2019-02-22 16:49:10',NULL),(1275,'New Profile Created [18]','2019-02-22 16:49:10',NULL),(1276,'New Vendor About Created [18]','2019-02-22 16:49:10',NULL),(1277,'New Vendor Wroks Created [18]','2019-02-22 16:49:10',NULL),(1278,'New Vendor Locations Created [18]','2019-02-22 16:49:10',NULL),(1279,'New Vendor Account Created [18]','2019-02-22 16:49:10',NULL),(1280,'log_profile_info_updated','2019-02-22 16:49:50',NULL),(1281,'log_profile_info_updated','2019-02-22 16:50:17',NULL),(1282,'log_profile_info_updated','2019-02-22 16:50:32',NULL),(1283,'log_profile_info_updated','2019-02-22 16:50:37',NULL),(1284,'log_about_info_updated','2019-02-22 16:51:33',NULL),(1285,'log_works_info_updated','2019-02-22 16:51:42',NULL),(1286,'log_locations_info_updated','2019-02-22 16:51:54',NULL),(1287,'log_user_info_updated','2019-02-22 16:52:03',NULL),(1288,'log_user_info_updated','2019-02-22 16:53:25',NULL),(1289,'log_user_info_updated','2019-02-22 16:53:48',NULL),(1290,'log_user_info_updated','2019-02-22 16:56:09',NULL),(1291,'log_user_info_updated','2019-02-22 16:56:32',NULL),(1292,'log_user_info_updated','2019-02-22 17:00:28',NULL),(1293,'log_user_info_updated','2019-02-22 17:07:52',NULL),(1294,'vendor_deleted [7]','2019-02-22 17:09:16','Admin Nadaf'),(1295,'member_deleted [16]','2019-02-22 17:09:16','Admin Nadaf'),(1296,'failed_login_attempt[mobile:7774812090, user_type:2, IP:103.72.142.241]','2019-02-22 17:10:34',NULL),(1297,'New Vendor Created [7774812090]','2019-02-22 17:10:34',NULL),(1298,'New Member Created [7774812090]','2019-02-22 17:10:34',NULL),(1299,'log_user_info_updated','2019-02-22 17:11:07',NULL),(1300,'New Profile Created [19]','2019-02-22 17:11:07',NULL),(1301,'New Vendor About Created [19]','2019-02-22 17:11:07',NULL),(1302,'New Vendor Wroks Created [19]','2019-02-22 17:11:07',NULL),(1303,'New Vendor Locations Created [19]','2019-02-22 17:11:07',NULL),(1304,'New Vendor Account Created [19]','2019-02-22 17:11:07',NULL),(1305,'log_profile_info_updated','2019-02-22 17:11:30',NULL),(1306,'log_profile_info_updated','2019-02-22 17:11:51',NULL),(1307,'log_profile_info_updated','2019-02-22 17:12:06',NULL),(1308,'log_profile_info_updated','2019-02-22 17:12:08',NULL),(1309,'log_about_info_updated','2019-02-22 17:12:42',NULL),(1310,'log_works_info_updated','2019-02-22 17:12:53',NULL),(1311,'log_locations_info_updated','2019-02-22 17:13:04',NULL),(1312,'log_user_info_updated','2019-02-22 17:13:07',NULL),(1313,'log_user_info_updated','2019-02-22 17:21:23',NULL),(1314,'log_user_info_updated','2019-02-22 23:47:31','Admin Nadaf'),(1315,'log_user_info_updated','2019-02-22 23:47:34','Admin Nadaf'),(1316,'vendor_deleted [23]','2019-02-22 23:47:50','Admin Nadaf'),(1317,'member_deleted [33]','2019-02-22 23:47:50','Admin Nadaf'),(1318,'log_user_info_updated','2019-02-22 23:47:59','Admin Nadaf'),(1319,'vendor_deleted [9]','2019-02-22 23:48:29','Admin Nadaf'),(1320,'member_deleted [18]','2019-02-22 23:48:29','Admin Nadaf'),(1321,'vendor_deleted [22]','2019-02-22 23:48:38','Admin Nadaf'),(1322,'member_deleted [32]','2019-02-22 23:48:38','Admin Nadaf'),(1323,'log_user_info_updated','2019-02-22 23:48:50','Admin Nadaf'),(1324,'log_user_info_updated','2019-02-22 23:48:52','Admin Nadaf'),(1325,'vendor_deleted [13]','2019-02-22 23:49:02','Admin Nadaf'),(1326,'member_deleted [22]','2019-02-22 23:49:02','Admin Nadaf'),(1327,'log_user_info_updated','2019-02-22 23:49:13','Admin Nadaf'),(1328,'log_user_info_updated','2019-02-22 23:49:15','Admin Nadaf'),(1329,'vendor_deleted [1]','2019-02-22 23:49:20','Admin Nadaf'),(1330,'member_deleted [2]','2019-02-22 23:49:20','Admin Nadaf'),(1331,'log_user_info_updated','2019-02-22 23:55:45',NULL),(1332,'log_user_info_updated','2019-02-22 23:57:45',NULL),(1333,'failed_login_attempt[mobile:8904817656, user_type:2, IP:49.35.44.180]','2019-02-23 00:39:35',NULL),(1334,'New Vendor Created [8904817656]','2019-02-23 00:39:35',NULL),(1335,'New Member Created [8904817656]','2019-02-23 00:39:35',NULL),(1336,'log_user_info_updated','2019-02-23 00:40:34',NULL),(1337,'New Profile Created [20]','2019-02-23 00:40:34',NULL),(1338,'New Vendor About Created [20]','2019-02-23 00:40:34',NULL),(1339,'New Vendor Wroks Created [20]','2019-02-23 00:40:34',NULL),(1340,'New Vendor Locations Created [20]','2019-02-23 00:40:34',NULL),(1341,'New Vendor Account Created [20]','2019-02-23 00:40:34',NULL),(1342,'log_user_info_updated','2019-02-23 10:20:55',NULL),(1343,'log_user_info_updated','2019-02-23 10:22:23',NULL),(1344,'vendor_deleted [30]','2019-02-23 10:27:35','Admin Nadaf'),(1345,'member_deleted [40]','2019-02-23 10:27:35','Admin Nadaf'),(1346,'failed_login_attempt[mobile:7774812090, user_type:2, IP:103.72.142.236]','2019-02-23 10:27:51',NULL),(1347,'New Vendor Created [7774812090]','2019-02-23 10:27:51',NULL),(1348,'New Member Created [7774812090]','2019-02-23 10:27:51',NULL),(1349,'New Address Created [2]','2019-02-23 11:02:44',NULL),(1350,'New Cart Created [5]','2019-02-23 11:02:50',NULL),(1351,'New Cart Product Created [5]','2019-02-23 11:03:28',NULL),(1352,'New Cart Product Details Created [5]','2019-02-23 11:03:28',NULL),(1353,'Cart Product Info Updated [5]','2019-02-23 11:03:28',NULL),(1354,'Category Info Updated [9]','2019-02-23 12:56:06','Admin Nadaf'),(1355,'Category Info Updated [8]','2019-02-23 12:56:07','Admin Nadaf'),(1356,'Category Info Updated [9]','2019-02-23 12:56:39','Admin Nadaf'),(1357,'Category Info Updated [8]','2019-02-23 12:56:41','Admin Nadaf'),(1358,'log_profile_info_updated','2019-02-23 13:44:12',NULL),(1359,'log_profile_info_updated','2019-02-23 13:44:51',NULL),(1360,'log_profile_info_updated','2019-02-23 13:45:06',NULL),(1361,'log_profile_info_updated','2019-02-23 13:45:09',NULL),(1362,'log_about_info_updated','2019-02-23 13:45:25',NULL),(1363,'log_locations_info_updated','2019-02-23 13:45:52',NULL),(1364,'log_works_info_updated','2019-02-23 13:46:26',NULL),(1365,'log_works_info_updated','2019-02-23 13:46:53',NULL),(1366,'log_user_info_updated','2019-02-23 13:46:53',NULL),(1367,'log_works_info_updated','2019-02-23 13:46:56',NULL),(1368,'log_user_info_updated','2019-02-23 13:47:05',NULL),(1369,'failed_login_attempt[mobile:8796235652, user_type:2, IP:106.78.207.225]','2019-02-23 15:41:18',NULL),(1370,'New Vendor Created [8796235652]','2019-02-23 15:41:18',NULL),(1371,'New Member Created [8796235652]','2019-02-23 15:41:18',NULL),(1372,'failed_login_attempt[mobile:9900413744, user_type:2, IP:27.59.209.40]','2019-02-24 10:53:55',NULL),(1373,'New Vendor Created [9900413744]','2019-02-24 10:53:55',NULL),(1374,'New Member Created [9900413744]','2019-02-24 10:53:55',NULL),(1375,'failed_login_attempt[mobile:7774812090, user_type:1, IP:106.79.64.46]','2019-02-25 12:03:37',NULL),(1376,'New Customer Created [7774812090]','2019-02-25 12:03:37',NULL),(1377,'New Member Created [7774812090]','2019-02-25 12:03:37',NULL),(1378,'log_user_info_updated','2019-02-25 12:06:49',NULL),(1379,'log_user_info_updated','2019-02-25 12:06:58',NULL),(1380,'log_user_info_updated','2019-02-25 12:09:41',NULL),(1381,'log_user_info_updated','2019-02-25 12:13:24',NULL),(1382,'log_user_info_updated','2019-02-25 12:14:03',NULL),(1383,'log_user_info_updated','2019-02-25 12:21:15',NULL),(1384,'New Cart Product Created [6]','2019-02-25 12:21:24',NULL),(1385,'New Cart Product Details Created [6]','2019-02-25 12:21:24',NULL),(1386,'Cart Product Info Updated [6]','2019-02-25 12:21:24',NULL),(1387,'New Cart Product Created [7]','2019-02-25 12:23:33',NULL),(1388,'New Cart Product Details Created [7]','2019-02-25 12:23:33',NULL),(1389,'Cart Product Info Updated [7]','2019-02-25 12:23:33',NULL),(1390,'log_user_info_updated','2019-02-25 12:32:19',NULL),(1391,'log_user_info_updated','2019-02-25 12:33:13','Admin Nadaf'),(1392,'log_user_info_updated','2019-02-25 12:35:49','Admin Nadaf'),(1393,'log_user_info_updated','2019-02-25 12:43:29',NULL),(1394,'log_user_info_updated','2019-02-25 12:43:51',NULL),(1395,'log_user_info_updated','2019-02-25 12:56:16',NULL),(1396,'log_user_info_updated','2019-02-25 13:03:06',NULL),(1397,'log_user_info_updated','2019-02-25 13:24:27',NULL),(1398,'New Cart Product Created [8]','2019-02-25 14:34:48',NULL),(1399,'New Cart Product Details Created [8]','2019-02-25 14:34:48',NULL),(1400,'Cart Product Info Updated [8]','2019-02-25 14:34:48',NULL),(1401,'log_user_info_updated','2019-02-25 14:51:03',NULL),(1402,'log_user_info_updated','2019-02-25 14:51:09',NULL),(1403,'log_user_info_updated','2019-02-25 14:53:14',NULL),(1404,'New Cart Product Created [9]','2019-02-25 15:13:33',NULL),(1405,'New Cart Product Details Created [9]','2019-02-25 15:13:33',NULL),(1406,'Cart Product Info Updated [9]','2019-02-25 15:13:33',NULL),(1407,'New Cart Product Created [10]','2019-02-25 15:28:59',NULL),(1408,'New Cart Product Details Created [10]','2019-02-25 15:28:59',NULL),(1409,'Cart Product Info Updated [10]','2019-02-25 15:28:59',NULL),(1410,'New Cart Product Created [11]','2019-02-25 15:35:46',NULL),(1411,'New Cart Product Details Created [11]','2019-02-25 15:35:46',NULL),(1412,'Cart Product Info Updated [11]','2019-02-25 15:35:46',NULL),(1413,'New Cart Product Created [12]','2019-02-25 15:40:44',NULL),(1414,'New Cart Product Details Created [12]','2019-02-25 15:40:44',NULL),(1415,'Cart Product Info Updated [12]','2019-02-25 15:40:44',NULL),(1416,'log_user_info_updated','2019-02-25 15:44:34',NULL),(1417,'New Cart Product Created [13]','2019-02-25 15:54:19',NULL),(1418,'New Cart Product Details Created [13]','2019-02-25 15:54:19',NULL),(1419,'Cart Product Info Updated [13]','2019-02-25 15:54:19',NULL),(1420,'New Cart Product Created [14]','2019-02-25 16:05:26',NULL),(1421,'New Cart Product Details Created [14]','2019-02-25 16:05:26',NULL),(1422,'Cart Product Info Updated [14]','2019-02-25 16:05:26',NULL),(1423,'log_user_info_updated','2019-02-25 16:12:57',NULL),(1424,'log_user_info_updated','2019-02-25 16:13:35',NULL),(1425,'log_user_info_updated','2019-02-25 16:24:27',NULL),(1426,'New Cart Product Created [15]','2019-02-25 16:43:45',NULL),(1427,'New Cart Product Details Created [15]','2019-02-25 16:43:45',NULL),(1428,'Cart Product Info Updated [15]','2019-02-25 16:43:45',NULL),(1429,'New Cart Product Created [16]','2019-02-25 16:47:13',NULL),(1430,'New Cart Product Details Created [16]','2019-02-25 16:47:13',NULL),(1431,'Cart Product Info Updated [16]','2019-02-25 16:47:13',NULL),(1432,'New Cart Product Created [17]','2019-02-25 17:00:45',NULL),(1433,'New Cart Product Details Created [17]','2019-02-25 17:00:45',NULL),(1434,'Cart Product Info Updated [17]','2019-02-25 17:00:45',NULL),(1435,'log_user_info_updated','2019-02-25 17:25:05',NULL),(1436,'log_user_info_updated','2019-02-25 17:46:12',NULL),(1437,'log_user_info_updated','2019-02-25 18:06:15',NULL),(1438,'log_user_info_updated','2019-02-25 18:43:03',NULL),(1439,'log_user_info_updated','2019-02-25 18:43:20',NULL),(1440,'New Cart Product Created [18]','2019-02-26 09:57:14',NULL),(1441,'New Cart Product Details Created [18]','2019-02-26 09:57:14',NULL),(1442,'Cart Product Info Updated [18]','2019-02-26 09:57:14',NULL),(1443,'log_user_info_updated','2019-02-26 09:59:16','Admin Nadaf'),(1444,'New Cart Product Created [19]','2019-02-26 09:59:43',NULL),(1445,'New Cart Product Details Created [19]','2019-02-26 09:59:43',NULL),(1446,'Cart Product Info Updated [19]','2019-02-26 09:59:43',NULL),(1447,'log_user_info_updated','2019-02-26 10:00:00','Admin Nadaf'),(1448,'customer_deleted [8]','2019-02-26 10:00:03','Admin Nadaf'),(1449,'member_deleted [45]','2019-02-26 10:00:03','Admin Nadaf'),(1450,'failed_login_attempt[mobile:8796256084, user_type:1, IP:103.72.142.248]','2019-02-26 10:17:54',NULL),(1451,'New Customer Created [8796256084]','2019-02-26 10:17:54',NULL),(1452,'New Member Created [8796256084]','2019-02-26 10:17:54',NULL),(1453,'log_user_info_updated','2019-02-26 10:24:39',NULL),(1454,'New Cart Product Created [20]','2019-02-26 10:24:57',NULL),(1455,'New Cart Product Details Created [20]','2019-02-26 10:24:57',NULL),(1456,'Cart Product Info Updated [20]','2019-02-26 10:24:57',NULL),(1457,'New Cart Product Created [21]','2019-02-26 10:43:54',NULL),(1458,'New Cart Product Details Created [21]','2019-02-26 10:43:54',NULL),(1459,'Cart Product Info Updated [21]','2019-02-26 10:43:54',NULL),(1460,'log_user_info_updated','2019-02-26 10:45:11',NULL),(1461,'New Cart Product Created [22]','2019-02-26 10:46:48',NULL),(1462,'New Cart Product Details Created [22]','2019-02-26 10:46:48',NULL),(1463,'Cart Product Info Updated [22]','2019-02-26 10:46:48',NULL),(1464,'log_user_info_updated','2019-02-26 10:47:47',NULL),(1465,'log_user_info_updated','2019-02-26 10:50:48',NULL),(1466,'New Cart Product Created [23]','2019-02-26 10:50:58',NULL),(1467,'New Cart Product Details Created [23]','2019-02-26 10:50:58',NULL),(1468,'Cart Product Info Updated [23]','2019-02-26 10:50:58',NULL),(1469,'New Cart Product Created [24]','2019-02-26 10:52:29',NULL),(1470,'New Cart Product Details Created [24]','2019-02-26 10:52:29',NULL),(1471,'Cart Product Info Updated [24]','2019-02-26 10:52:29',NULL),(1472,'New Cart Product Created [25]','2019-02-26 10:54:06',NULL),(1473,'New Cart Product Details Created [25]','2019-02-26 10:54:06',NULL),(1474,'Cart Product Info Updated [25]','2019-02-26 10:54:06',NULL),(1475,'New Cart Product Created [26]','2019-02-26 10:56:01',NULL),(1476,'New Cart Product Details Created [26]','2019-02-26 10:56:01',NULL),(1477,'Cart Product Info Updated [26]','2019-02-26 10:56:01',NULL),(1478,'log_user_info_updated','2019-02-26 11:02:42',NULL),(1479,'log_user_info_updated','2019-02-26 11:04:19',NULL),(1480,'log_user_info_updated','2019-02-26 11:05:20',NULL),(1481,'log_user_info_updated','2019-02-26 11:05:45',NULL),(1482,'log_user_info_updated','2019-02-26 11:56:01',NULL),(1483,'New Profile Created [21]','2019-02-26 11:56:01',NULL),(1484,'New Vendor About Created [21]','2019-02-26 11:56:01',NULL),(1485,'New Vendor Wroks Created [21]','2019-02-26 11:56:01',NULL),(1486,'New Vendor Locations Created [21]','2019-02-26 11:56:01',NULL),(1487,'New Vendor Account Created [21]','2019-02-26 11:56:01',NULL),(1488,'vendor_deleted [32]','2019-02-26 12:37:58','Admin Nadaf'),(1489,'member_deleted [42]','2019-02-26 12:37:58','Admin Nadaf'),(1490,'failed_login_attempt[mobile:7774812890, user_type:2, IP:103.72.142.248]','2019-02-26 12:38:33',NULL),(1491,'New Vendor Created [7774812890]','2019-02-26 12:38:33',NULL),(1492,'New Member Created [7774812890]','2019-02-26 12:38:33',NULL),(1493,'failed_login_attempt[mobile:7774812090, user_type:2, IP:103.72.142.248]','2019-02-26 12:38:49',NULL),(1494,'New Vendor Created [7774812090]','2019-02-26 12:38:49',NULL),(1495,'New Member Created [7774812090]','2019-02-26 12:38:49',NULL),(1496,'log_user_info_updated','2019-02-26 12:49:57',NULL),(1497,'log_user_info_updated','2019-02-26 12:50:25','Admin Nadaf'),(1498,'log_user_info_updated','2019-02-26 12:50:59','Admin Nadaf'),(1499,'log_user_info_updated','2019-02-26 12:56:41',NULL),(1500,'log_user_info_updated','2019-02-26 12:57:23','Admin Nadaf'),(1501,'log_user_info_updated','2019-02-26 12:57:39',NULL),(1502,'log_user_info_updated','2019-02-26 13:02:04','Admin Nadaf'),(1503,'log_user_info_updated','2019-02-26 13:08:30',NULL),(1504,'log_user_info_updated','2019-02-26 13:27:32',NULL),(1505,'log_user_info_updated','2019-02-26 14:06:21',NULL),(1506,'log_user_info_updated','2019-02-26 14:08:40',NULL),(1507,'log_user_info_updated','2019-02-26 14:08:58','Admin Nadaf'),(1508,'log_user_info_updated','2019-02-26 14:09:13',NULL),(1509,'log_user_info_updated','2019-02-26 14:13:57',NULL),(1510,'vendor_deleted [36]','2019-02-26 14:14:22','Admin Nadaf'),(1511,'member_deleted [48]','2019-02-26 14:14:22','Admin Nadaf'),(1512,'failed_login_attempt[mobile:7774812090, user_type:2, IP:103.72.142.248]','2019-02-26 14:15:41',NULL),(1513,'New Vendor Created [7774812090]','2019-02-26 14:15:41',NULL),(1514,'New Member Created [7774812090]','2019-02-26 14:15:41',NULL),(1515,'log_user_info_updated','2019-02-26 14:16:25',NULL),(1516,'New Profile Created [22]','2019-02-26 14:16:25',NULL),(1517,'New Vendor About Created [22]','2019-02-26 14:16:25',NULL),(1518,'New Vendor Wroks Created [22]','2019-02-26 14:16:25',NULL),(1519,'New Vendor Locations Created [22]','2019-02-26 14:16:25',NULL),(1520,'New Vendor Account Created [22]','2019-02-26 14:16:25',NULL),(1521,'log_profile_info_updated','2019-02-26 14:17:20',NULL),(1522,'log_profile_info_updated','2019-02-26 14:17:47',NULL),(1523,'log_profile_info_updated','2019-02-26 14:18:07',NULL),(1524,'log_profile_info_updated','2019-02-26 14:18:14',NULL),(1525,'log_about_info_updated','2019-02-26 14:19:03',NULL),(1526,'log_works_info_updated','2019-02-26 14:19:18',NULL),(1527,'log_locations_info_updated','2019-02-26 14:19:56',NULL),(1528,'log_user_info_updated','2019-02-26 14:20:47',NULL),(1529,'log_user_info_updated','2019-02-26 14:21:42',NULL),(1530,'log_user_info_updated','2019-02-26 14:21:46',NULL),(1531,'log_user_info_updated','2019-02-26 14:21:51','Admin Nadaf'),(1532,'log_user_info_updated','2019-02-26 14:21:54',NULL),(1533,'log_user_info_updated','2019-02-26 14:22:37',NULL),(1534,'log_user_info_updated','2019-02-26 14:22:53',NULL),(1535,'log_user_info_updated','2019-02-26 14:23:04','Admin Nadaf'),(1536,'log_user_info_updated','2019-02-26 14:23:09',NULL),(1537,'log_user_info_updated','2019-02-26 14:27:06',NULL),(1538,'log_user_info_updated','2019-02-26 14:27:26',NULL),(1539,'log_user_info_updated','2019-02-26 14:29:34','Admin Nadaf'),(1540,'log_user_info_updated','2019-02-26 14:29:36','Admin Nadaf'),(1541,'log_user_info_updated','2019-02-26 14:31:45',NULL),(1542,'log_user_info_updated','2019-02-26 14:32:48',NULL),(1543,'log_user_info_updated','2019-02-26 14:37:06',NULL),(1544,'log_user_info_updated','2019-02-26 14:38:33',NULL),(1545,'log_user_info_updated','2019-02-26 14:38:45',NULL),(1546,'log_user_info_updated','2019-02-26 14:39:07',NULL),(1547,'log_user_info_updated','2019-02-26 15:06:13',NULL),(1548,'vendor_deleted [37]','2019-02-26 15:10:25','Admin Nadaf'),(1549,'member_deleted [49]','2019-02-26 15:10:25','Admin Nadaf'),(1550,'vendor_deleted [35]','2019-02-26 15:10:36','Admin Nadaf'),(1551,'member_deleted [47]','2019-02-26 15:10:36','Admin Nadaf'),(1552,'log_user_info_updated','2019-02-26 15:12:31',NULL),(1553,'log_user_info_updated','2019-02-26 15:12:32',NULL),(1554,'failed_login_attempt[mobile:7774812090, user_type:2, IP:103.72.142.248]','2019-02-26 15:13:43',NULL),(1555,'New Vendor Created [7774812090]','2019-02-26 15:13:43',NULL),(1556,'New Member Created [7774812090]','2019-02-26 15:13:43',NULL),(1557,'log_user_info_updated','2019-02-26 15:14:44',NULL),(1558,'Category Info Updated [25]','2019-02-26 15:20:36','Admin Nadaf'),(1559,'Category Info Updated [24]','2019-02-26 15:20:37','Admin Nadaf'),(1560,'Category Info Updated [23]','2019-02-26 15:20:38','Admin Nadaf'),(1561,'Category Info Updated [22]','2019-02-26 15:20:38','Admin Nadaf'),(1562,'Category Info Updated [21]','2019-02-26 15:20:39','Admin Nadaf'),(1563,'Category Info Updated [25]','2019-02-26 15:21:07','Admin Nadaf'),(1564,'Category Info Updated [24]','2019-02-26 15:21:08','Admin Nadaf'),(1565,'Category Info Updated [23]','2019-02-26 15:21:09','Admin Nadaf'),(1566,'Category Info Updated [22]','2019-02-26 15:21:10','Admin Nadaf'),(1567,'Category Info Updated [21]','2019-02-26 15:21:11','Admin Nadaf'),(1568,'Category Info Updated [73]','2019-02-26 15:22:23','Admin Nadaf'),(1569,'Category Info Updated [72]','2019-02-26 15:22:24','Admin Nadaf'),(1570,'Category Info Updated [73]','2019-02-26 15:22:39','Admin Nadaf'),(1571,'Category Info Updated [72]','2019-02-26 15:22:40','Admin Nadaf'),(1572,'log_user_info_updated','2019-02-26 15:54:49',NULL),(1573,'vendor_deleted [38]','2019-02-26 15:55:21','Admin Nadaf'),(1574,'member_deleted [50]','2019-02-26 15:55:21','Admin Nadaf'),(1575,'log_user_info_updated','2019-02-26 15:58:23',NULL),(1576,'failed_login_attempt[mobile:7774812090, user_type:2, IP:103.72.142.248]','2019-02-26 15:59:19',NULL),(1577,'New Vendor Created [7774812090]','2019-02-26 15:59:19',NULL),(1578,'New Member Created [7774812090]','2019-02-26 15:59:19',NULL),(1579,'log_user_info_updated','2019-02-26 17:21:56',NULL),(1580,'log_user_info_updated','2019-02-26 17:23:34',NULL),(1581,'New Cart Product Created [27]','2019-02-27 10:21:11',NULL),(1582,'New Cart Product Details Created [27]','2019-02-27 10:21:11',NULL),(1583,'Cart Product Info Updated [27]','2019-02-27 10:21:11',NULL),(1584,'log_user_info_updated','2019-02-27 10:28:13','Admin Nadaf'),(1585,'New Cart Product Created [28]','2019-02-27 10:29:05',NULL),(1586,'New Cart Product Details Created [28]','2019-02-27 10:29:05',NULL),(1587,'Cart Product Info Updated [28]','2019-02-27 10:29:05',NULL),(1588,'log_user_info_updated','2019-02-27 10:32:33','Admin Nadaf'),(1589,'New Cart Product Created [29]','2019-02-27 10:34:16',NULL),(1590,'New Cart Product Details Created [29]','2019-02-27 10:34:16',NULL),(1591,'Cart Product Info Updated [29]','2019-02-27 10:34:16',NULL),(1592,'New Cart Product Created [30]','2019-02-27 10:35:27',NULL),(1593,'New Cart Product Details Created [30]','2019-02-27 10:35:27',NULL),(1594,'Cart Product Info Updated [30]','2019-02-27 10:35:27',NULL),(1595,'log_user_info_updated','2019-02-27 14:19:14',NULL),(1596,'New Profile Created [23]','2019-02-27 14:19:14',NULL),(1597,'New Vendor About Created [23]','2019-02-27 14:19:14',NULL),(1598,'New Vendor Wroks Created [23]','2019-02-27 14:19:14',NULL),(1599,'New Vendor Locations Created [23]','2019-02-27 14:19:14',NULL),(1600,'New Vendor Account Created [23]','2019-02-27 14:19:14',NULL),(1601,'log_profile_info_updated','2019-02-27 14:20:49',NULL),(1602,'log_profile_info_updated','2019-02-27 14:21:22',NULL),(1603,'log_profile_info_updated','2019-02-27 14:21:38',NULL),(1604,'log_profile_info_updated','2019-02-27 14:21:43',NULL),(1605,'log_about_info_updated','2019-02-27 14:22:25',NULL),(1606,'log_works_info_updated','2019-02-27 14:22:36',NULL),(1607,'log_works_info_updated','2019-02-27 14:22:41',NULL),(1608,'log_works_info_updated','2019-02-27 14:22:49',NULL),(1609,'log_works_info_updated','2019-02-27 14:30:44',NULL),(1610,'log_works_info_updated','2019-02-27 14:31:03',NULL),(1611,'log_works_info_updated','2019-02-27 14:31:09',NULL),(1612,'log_about_info_updated','2019-02-27 14:31:17',NULL),(1613,'log_works_info_updated','2019-02-27 14:32:15',NULL),(1614,'log_works_info_updated','2019-02-27 14:32:40',NULL),(1615,'log_works_info_updated','2019-02-27 14:33:40',NULL),(1616,'log_works_info_updated','2019-02-27 14:34:02',NULL),(1617,'log_works_info_updated','2019-02-27 14:34:44',NULL),(1618,'log_works_info_updated','2019-02-27 14:35:54',NULL),(1619,'log_works_info_updated','2019-02-27 14:36:08',NULL),(1620,'log_user_info_updated','2019-02-27 14:56:49',NULL),(1621,'log_locations_info_updated','2019-02-27 15:00:02',NULL),(1622,'log_works_info_updated','2019-02-27 15:00:41',NULL),(1623,'log_locations_info_updated','2019-02-27 15:18:18',NULL),(1624,'log_locations_info_updated','2019-02-27 15:27:00',NULL),(1625,'log_user_info_updated','2019-02-27 15:32:29',NULL),(1626,'log_user_info_updated','2019-02-27 15:32:52','Admin Nadaf'),(1627,'log_user_info_updated','2019-02-27 15:33:00',NULL),(1628,'log_user_info_updated','2019-02-27 15:33:19','Admin Nadaf'),(1629,'log_user_info_updated','2019-02-27 15:33:33',NULL),(1630,'log_user_info_updated','2019-02-27 15:35:16',NULL),(1631,'log_user_info_updated','2019-02-27 15:37:16',NULL),(1632,'log_user_info_updated','2019-02-27 15:37:17',NULL),(1633,'log_user_info_updated','2019-02-27 15:37:21',NULL),(1634,'log_user_info_updated','2019-02-27 15:38:20',NULL),(1635,'log_user_info_updated','2019-02-27 15:39:41',NULL),(1636,'log_user_info_updated','2019-02-27 15:40:19','Admin Nadaf'),(1637,'log_user_info_updated','2019-02-27 15:40:43',NULL),(1638,'log_user_info_updated','2019-02-27 15:42:30',NULL),(1639,'log_user_info_updated','2019-02-27 15:43:16',NULL),(1640,'log_user_info_updated','2019-02-27 15:43:17','Admin Nadaf'),(1641,'log_user_info_updated','2019-02-27 15:43:33',NULL),(1642,'log_user_info_updated','2019-02-27 15:46:25',NULL),(1643,'vendor_deleted [39]','2019-02-27 15:47:32','Admin Nadaf'),(1644,'member_deleted [51]','2019-02-27 15:47:32','Admin Nadaf'),(1645,'log_user_info_updated','2019-02-27 15:47:53',NULL),(1646,'log_user_info_updated','2019-02-27 15:49:04',NULL),(1647,'failed_login_attempt[mobile:7774812090, user_type:2, IP:103.72.142.248]','2019-02-27 15:49:42',NULL),(1648,'New Vendor Created [7774812090]','2019-02-27 15:49:42',NULL),(1649,'New Member Created [7774812090]','2019-02-27 15:49:42',NULL),(1650,'log_user_info_updated','2019-02-27 16:02:19',NULL),(1651,'log_user_info_updated','2019-02-27 16:20:27',NULL),(1652,'log_user_info_updated','2019-02-27 16:20:28',NULL),(1653,'log_user_info_updated','2019-02-27 16:55:50',NULL),(1654,'log_user_info_updated','2019-02-27 16:59:59',NULL),(1655,'log_user_info_updated','2019-02-27 17:09:31',NULL),(1656,'New Profile Created [24]','2019-02-27 17:09:31',NULL),(1657,'New Vendor About Created [24]','2019-02-27 17:09:31',NULL),(1658,'New Vendor Wroks Created [24]','2019-02-27 17:09:31',NULL),(1659,'New Vendor Locations Created [24]','2019-02-27 17:09:31',NULL),(1660,'New Vendor Account Created [24]','2019-02-27 17:09:31',NULL),(1661,'log_user_info_updated','2019-02-27 17:13:05',NULL),(1662,'log_user_info_updated','2019-02-27 17:14:57',NULL),(1663,'log_user_info_updated','2019-02-27 17:15:34',NULL),(1664,'log_user_info_updated','2019-02-27 17:16:10',NULL),(1665,'log_user_info_updated','2019-02-27 17:16:22','Admin Nadaf'),(1666,'log_user_info_updated','2019-02-27 17:16:30',NULL),(1667,'log_user_info_updated','2019-02-27 17:17:33',NULL),(1668,'log_user_info_updated','2019-02-27 17:19:41',NULL),(1669,'log_user_info_updated','2019-02-27 17:19:51',NULL),(1670,'vendor_deleted [40]','2019-02-28 09:47:03','Admin Nadaf'),(1671,'member_deleted [52]','2019-02-28 09:47:03','Admin Nadaf'),(1672,'failed_login_attempt[mobile:7774812090, user_type:2, IP:106.66.246.86]','2019-02-28 09:48:44',NULL),(1673,'New Vendor Created [7774812090]','2019-02-28 09:48:44',NULL),(1674,'New Member Created [7774812090]','2019-02-28 09:48:44',NULL),(1675,'log_user_info_updated','2019-02-28 10:52:21',NULL),(1676,'log_user_info_updated','2019-02-28 10:53:37',NULL),(1677,'New Profile Created [25]','2019-02-28 10:53:37',NULL),(1678,'New Vendor About Created [25]','2019-02-28 10:53:37',NULL),(1679,'New Vendor Wroks Created [25]','2019-02-28 10:53:37',NULL),(1680,'New Vendor Locations Created [25]','2019-02-28 10:53:37',NULL),(1681,'New Vendor Account Created [25]','2019-02-28 10:53:37',NULL),(1682,'log_profile_info_updated','2019-02-28 10:54:08',NULL),(1683,'log_profile_info_updated','2019-02-28 10:54:25',NULL),(1684,'log_profile_info_updated','2019-02-28 10:54:35',NULL),(1685,'log_profile_info_updated','2019-02-28 10:54:37',NULL),(1686,'log_about_info_updated','2019-02-28 10:55:30',NULL),(1687,'log_works_info_updated','2019-02-28 10:55:55',NULL),(1688,'log_locations_info_updated','2019-02-28 10:56:33',NULL),(1689,'vendor_deleted [10]','2019-02-28 10:57:37','Admin Nadaf'),(1690,'member_deleted [19]','2019-02-28 10:57:37','Admin Nadaf'),(1691,'log_user_info_updated','2019-02-28 11:00:34',NULL),(1692,'log_user_info_updated','2019-02-28 11:02:37',NULL),(1693,'log_user_info_updated','2019-02-28 11:02:50',NULL),(1694,'log_user_info_updated','2019-02-28 11:11:24',NULL),(1695,'log_user_info_updated','2019-02-28 11:14:23',NULL),(1696,'log_user_info_updated','2019-02-28 11:14:32',NULL),(1697,'log_user_info_updated','2019-02-28 11:14:42',NULL),(1698,'log_user_info_updated','2019-02-28 11:14:45',NULL),(1699,'log_user_info_updated','2019-02-28 11:16:00',NULL),(1700,'log_user_info_updated','2019-02-28 11:23:19',NULL),(1701,'log_user_info_updated','2019-02-28 11:23:43',NULL),(1702,'log_user_info_updated','2019-02-28 11:24:12',NULL),(1703,'log_user_info_updated','2019-02-28 11:25:25',NULL),(1704,'log_user_info_updated','2019-02-28 11:26:53',NULL),(1705,'log_user_info_updated','2019-02-28 11:28:53',NULL),(1706,'log_user_info_updated','2019-02-28 11:30:43','Admin Nadaf'),(1707,'log_user_info_updated','2019-02-28 11:31:01',NULL),(1708,'log_user_info_updated','2019-02-28 11:33:35',NULL),(1709,'log_user_info_updated','2019-02-28 11:42:18',NULL),(1710,'log_user_info_updated','2019-02-28 11:47:11',NULL),(1711,'log_user_info_updated','2019-02-28 11:49:00',NULL),(1712,'log_user_info_updated','2019-02-28 11:53:55','Admin Nadaf'),(1713,'log_user_info_updated','2019-02-28 11:54:32',NULL),(1714,'log_user_info_updated','2019-02-28 11:54:43','Admin Nadaf'),(1715,'log_user_info_updated','2019-02-28 11:54:51',NULL),(1716,'log_user_info_updated','2019-02-28 11:55:03',NULL),(1717,'log_user_info_updated','2019-02-28 11:57:59',NULL),(1718,'log_user_info_updated','2019-02-28 12:01:31','Admin Nadaf'),(1719,'log_user_info_updated','2019-02-28 12:04:26',NULL),(1720,'log_user_info_updated','2019-02-28 12:04:43','Admin Nadaf'),(1721,'log_user_info_updated','2019-02-28 12:05:24',NULL),(1722,'log_user_info_updated','2019-02-28 12:07:11',NULL),(1723,'log_user_info_updated','2019-02-28 12:09:43',NULL),(1724,'log_user_info_updated','2019-02-28 12:13:24',NULL),(1725,'log_user_info_updated','2019-02-28 12:16:07',NULL),(1726,'log_user_info_updated','2019-02-28 12:16:23',NULL),(1727,'log_user_info_updated','2019-02-28 12:16:34',NULL),(1728,'log_user_info_updated','2019-02-28 12:20:29',NULL),(1729,'log_user_info_updated','2019-02-28 12:20:37',NULL),(1730,'log_user_info_updated','2019-02-28 12:21:57',NULL),(1731,'log_user_info_updated','2019-02-28 12:30:08',NULL),(1732,'log_user_info_updated','2019-02-28 12:33:25',NULL),(1733,'log_user_info_updated','2019-02-28 12:48:53',NULL),(1734,'log_user_info_updated','2019-02-28 14:48:40',NULL),(1735,'log_user_info_updated','2019-02-28 14:50:53',NULL),(1736,'vendor_deleted [41]','2019-02-28 14:52:26','Admin Nadaf'),(1737,'member_deleted [53]','2019-02-28 14:52:26','Admin Nadaf'),(1738,'failed_login_attempt[mobile:7774812090, user_type:2, IP:103.72.142.232]','2019-02-28 14:56:22',NULL),(1739,'New Vendor Created [7774812090]','2019-02-28 14:56:22',NULL),(1740,'New Member Created [7774812090]','2019-02-28 14:56:22',NULL),(1741,'log_user_info_updated','2019-02-28 14:56:47',NULL),(1742,'New Profile Created [26]','2019-02-28 14:56:47',NULL),(1743,'New Vendor About Created [26]','2019-02-28 14:56:47',NULL),(1744,'New Vendor Wroks Created [26]','2019-02-28 14:56:47',NULL),(1745,'New Vendor Locations Created [26]','2019-02-28 14:56:47',NULL),(1746,'New Vendor Account Created [26]','2019-02-28 14:56:47',NULL),(1747,'log_profile_info_updated','2019-02-28 14:57:10',NULL),(1748,'log_profile_info_updated','2019-02-28 14:57:30',NULL),(1749,'log_profile_info_updated','2019-02-28 14:57:45',NULL),(1750,'log_profile_info_updated','2019-02-28 14:57:48',NULL),(1751,'log_about_info_updated','2019-02-28 15:00:00',NULL),(1752,'log_works_info_updated','2019-02-28 15:00:23',NULL),(1753,'log_locations_info_updated','2019-02-28 15:01:07',NULL),(1754,'log_user_info_updated','2019-02-28 15:21:49',NULL),(1755,'log_user_info_updated','2019-02-28 15:22:10','Admin Nadaf'),(1756,'log_user_info_updated','2019-02-28 15:22:18',NULL),(1757,'log_user_info_updated','2019-02-28 15:22:40',NULL),(1758,'log_user_info_updated','2019-02-28 15:23:52',NULL),(1759,'log_user_info_updated','2019-02-28 15:25:24',NULL),(1760,'log_user_info_updated','2019-02-28 15:25:58','Admin Nadaf'),(1761,'log_user_info_updated','2019-02-28 15:26:55',NULL),(1762,'log_user_info_updated','2019-02-28 15:32:48',NULL),(1763,'log_user_info_updated','2019-02-28 15:32:48',NULL),(1764,'log_user_info_updated','2019-02-28 15:33:32','Admin Nadaf'),(1765,'log_user_info_updated','2019-02-28 15:33:41',NULL),(1766,'log_user_info_updated','2019-02-28 15:33:43',NULL),(1767,'log_user_info_updated','2019-02-28 15:33:52','Admin Nadaf'),(1768,'log_user_info_updated','2019-02-28 15:34:14',NULL),(1769,'log_user_info_updated','2019-02-28 15:34:25',NULL),(1770,'log_user_info_updated','2019-02-28 15:35:25',NULL),(1771,'log_user_info_updated','2019-02-28 15:35:30',NULL),(1772,'log_user_info_updated','2019-02-28 15:36:06',NULL),(1773,'log_user_info_updated','2019-02-28 15:36:49',NULL),(1774,'log_user_info_updated','2019-02-28 15:41:17',NULL),(1775,'log_user_info_updated','2019-02-28 15:41:24',NULL),(1776,'log_user_info_updated','2019-02-28 15:42:39','Admin Nadaf'),(1777,'log_user_info_updated','2019-02-28 15:42:46',NULL),(1778,'log_user_info_updated','2019-02-28 15:42:53',NULL),(1779,'vendor_deleted [42]','2019-02-28 15:43:05','Admin Nadaf'),(1780,'member_deleted [54]','2019-02-28 15:43:05','Admin Nadaf'),(1781,'failed_login_attempt[mobile:7774812090, user_type:2, IP:103.72.142.232]','2019-02-28 15:43:50',NULL),(1782,'New Vendor Created [7774812090]','2019-02-28 15:43:50',NULL),(1783,'New Member Created [7774812090]','2019-02-28 15:43:50',NULL),(1784,'log_user_info_updated','2019-02-28 15:44:13',NULL),(1785,'New Profile Created [27]','2019-02-28 15:44:13',NULL),(1786,'New Vendor About Created [27]','2019-02-28 15:44:13',NULL),(1787,'New Vendor Wroks Created [27]','2019-02-28 15:44:13',NULL),(1788,'New Vendor Locations Created [27]','2019-02-28 15:44:13',NULL),(1789,'New Vendor Account Created [27]','2019-02-28 15:44:13',NULL),(1790,'log_profile_info_updated','2019-02-28 15:44:40',NULL),(1791,'log_profile_info_updated','2019-02-28 15:44:57',NULL),(1792,'log_profile_info_updated','2019-02-28 15:45:08',NULL),(1793,'log_profile_info_updated','2019-02-28 15:45:10',NULL),(1794,'log_about_info_updated','2019-02-28 15:45:39',NULL),(1795,'log_works_info_updated','2019-02-28 15:45:53',NULL),(1796,'log_locations_info_updated','2019-02-28 15:46:06',NULL),(1797,'log_user_info_updated','2019-02-28 15:47:42',NULL),(1798,'log_user_info_updated','2019-02-28 15:49:19',NULL),(1799,'log_user_info_updated','2019-02-28 15:49:25',NULL),(1800,'log_user_info_updated','2019-02-28 15:51:43',NULL),(1801,'log_user_info_updated','2019-02-28 15:51:45',NULL),(1802,'log_user_info_updated','2019-02-28 15:53:16',NULL),(1803,'log_user_info_updated','2019-02-28 15:53:44','Admin Nadaf'),(1804,'log_user_info_updated','2019-02-28 15:53:53',NULL),(1805,'log_user_info_updated','2019-02-28 15:54:14',NULL),(1806,'log_user_info_updated','2019-02-28 15:54:27','Admin Nadaf'),(1807,'log_user_info_updated','2019-02-28 15:57:28',NULL),(1808,'log_user_info_updated','2019-02-28 16:00:14',NULL),(1809,'log_user_info_updated','2019-02-28 16:02:13',NULL),(1810,'log_user_info_updated','2019-02-28 16:04:31',NULL),(1811,'log_user_info_updated','2019-02-28 16:50:00',NULL),(1812,'log_user_info_updated','2019-02-28 16:50:21',NULL),(1813,'log_user_info_updated','2019-02-28 16:50:36',NULL),(1814,'log_user_info_updated','2019-02-28 16:54:04',NULL),(1815,'log_user_info_updated','2019-02-28 16:54:36',NULL),(1816,'log_user_info_updated','2019-02-28 16:56:36',NULL),(1817,'log_user_info_updated','2019-02-28 16:57:13',NULL),(1818,'New Address Created [3]','2019-03-01 10:43:33',NULL),(1819,'New Cart Created [6]','2019-03-01 10:44:05',NULL),(1820,'New Address Created [4]','2019-03-01 15:05:18',NULL),(1821,'New Cart Created [7]','2019-03-01 15:05:33',NULL),(1822,'log_user_info_updated','2019-03-02 11:06:13',NULL),(1823,'log_user_info_updated','2019-03-02 11:11:50',NULL),(1824,'log_user_info_updated','2019-03-02 11:12:09',NULL),(1825,'log_user_info_updated','2019-03-02 11:18:51',NULL),(1826,'log_user_info_updated','2019-03-02 11:19:28','Admin Nadaf'),(1827,'log_user_info_updated','2019-03-02 11:19:40',NULL),(1828,'log_user_info_updated','2019-03-02 11:20:07',NULL),(1829,'log_user_info_updated','2019-03-02 11:22:54',NULL),(1830,'log_user_info_updated','2019-03-02 11:25:16',NULL),(1831,'log_user_info_updated','2019-03-02 11:26:00',NULL),(1832,'log_user_info_updated','2019-03-02 11:27:45',NULL),(1833,'log_user_info_updated','2019-03-02 11:27:47',NULL),(1834,'vendor_deleted [43]','2019-03-02 11:30:25','Admin Nadaf'),(1835,'member_deleted [55]','2019-03-02 11:30:25','Admin Nadaf'),(1836,'failed_login_attempt[mobile:7774812090, user_type:2, IP:103.72.142.236]','2019-03-02 11:31:05',NULL),(1837,'New Vendor Created [7774812090]','2019-03-02 11:31:05',NULL),(1838,'New Member Created [7774812090]','2019-03-02 11:31:05',NULL),(1839,'log_user_info_updated','2019-03-02 11:32:57',NULL),(1840,'log_user_info_updated','2019-03-02 11:34:51',NULL),(1841,'vendor_deleted [44]','2019-03-02 12:32:55','Admin Nadaf'),(1842,'member_deleted [56]','2019-03-02 12:32:55','Admin Nadaf'),(1843,'failed_login_attempt[mobile:7774812090, user_type:2, IP:103.72.142.236]','2019-03-02 12:33:10',NULL),(1844,'New Vendor Created [7774812090]','2019-03-02 12:33:10',NULL),(1845,'New Member Created [7774812090]','2019-03-02 12:33:10',NULL),(1846,'log_user_info_updated','2019-03-02 17:01:38',NULL),(1847,'New Profile Created [28]','2019-03-02 17:01:38',NULL),(1848,'New Vendor About Created [28]','2019-03-02 17:01:38',NULL),(1849,'New Vendor Wroks Created [28]','2019-03-02 17:01:38',NULL),(1850,'New Vendor Locations Created [28]','2019-03-02 17:01:38',NULL),(1851,'New Vendor Account Created [28]','2019-03-02 17:01:38',NULL),(1852,'log_user_info_updated','2019-03-02 17:17:24','Admin Nadaf'),(1853,'log_user_info_updated','2019-03-02 17:18:02',NULL),(1854,'New Profile Created [29]','2019-03-02 17:18:02',NULL),(1855,'New Vendor About Created [29]','2019-03-02 17:18:02',NULL),(1856,'New Vendor Wroks Created [29]','2019-03-02 17:18:02',NULL),(1857,'New Vendor Locations Created [29]','2019-03-02 17:18:02',NULL),(1858,'New Vendor Account Created [29]','2019-03-02 17:18:02',NULL),(1859,'log_user_info_updated','2019-03-02 17:26:59',NULL),(1860,'log_user_info_updated','2019-03-02 17:28:21',NULL),(1861,'log_user_info_updated','2019-03-02 17:28:39',NULL),(1862,'log_user_info_updated','2019-03-02 17:29:29',NULL),(1863,'log_user_info_updated','2019-03-02 17:30:16',NULL),(1864,'vendor_deleted [17]','2019-03-02 17:31:05','Admin Nadaf'),(1865,'member_deleted [26]','2019-03-02 17:31:05','Admin Nadaf'),(1866,'failed_login_attempt[mobile:8421118351, user_type:2, IP:42.107.81.255]','2019-03-02 17:31:48',NULL),(1867,'New Vendor Created [8421118351]','2019-03-02 17:31:48',NULL),(1868,'New Member Created [8421118351]','2019-03-02 17:31:48',NULL),(1869,'log_user_info_updated','2019-03-02 17:32:23',NULL),(1870,'New Profile Created [30]','2019-03-02 17:32:23',NULL),(1871,'New Vendor About Created [30]','2019-03-02 17:32:23',NULL),(1872,'New Vendor Wroks Created [30]','2019-03-02 17:32:23',NULL),(1873,'New Vendor Locations Created [30]','2019-03-02 17:32:23',NULL),(1874,'New Vendor Account Created [30]','2019-03-02 17:32:23',NULL),(1875,'log_profile_info_updated','2019-03-02 17:34:07',NULL),(1876,'log_profile_info_updated','2019-03-02 17:34:34',NULL),(1877,'log_profile_info_updated','2019-03-02 17:35:02',NULL),(1878,'log_profile_info_updated','2019-03-02 17:35:04',NULL),(1879,'log_about_info_updated','2019-03-02 17:35:27',NULL),(1880,'log_about_info_updated','2019-03-02 17:35:38',NULL),(1881,'log_works_info_updated','2019-03-02 17:35:51',NULL),(1882,'log_locations_info_updated','2019-03-02 17:36:39',NULL),(1883,'log_user_info_updated','2019-03-02 17:36:44',NULL),(1884,'log_user_info_updated','2019-03-02 19:03:00',NULL),(1885,'log_user_info_updated','2019-03-02 19:42:49',NULL),(1886,'log_profile_info_updated','2019-03-04 10:17:29',NULL),(1887,'log_profile_info_updated','2019-03-04 10:20:12',NULL),(1888,'log_profile_info_updated','2019-03-04 10:21:51',NULL),(1889,'log_profile_info_updated','2019-03-04 10:21:54',NULL),(1890,'log_about_info_updated','2019-03-04 10:24:22',NULL),(1891,'log_works_info_updated','2019-03-04 10:24:52',NULL),(1892,'log_works_info_updated','2019-03-04 10:25:16',NULL),(1893,'log_locations_info_updated','2019-03-04 10:27:21',NULL),(1894,'log_locations_info_updated','2019-03-04 10:27:56',NULL),(1895,'log_user_info_updated','2019-03-04 10:28:49',NULL),(1896,'log_account_info_updated','2019-03-04 11:39:04',NULL),(1897,'log_account_info_updated','2019-03-04 11:39:47',NULL),(1898,'log_user_info_updated','2019-03-04 12:24:51',NULL),(1899,'log_user_info_updated','2019-03-04 12:26:21',NULL),(1900,'New Cart Created [8]','2019-03-04 12:39:19',NULL),(1901,'New Cart Product Created [31]','2019-03-04 12:43:48',NULL),(1902,'New Cart Product Details Created [31]','2019-03-04 12:43:48',NULL),(1903,'Cart Product Info Updated [31]','2019-03-04 12:43:48',NULL),(1904,'New Cart Created [9]','2019-03-04 14:43:28',NULL),(1905,'failed_login_attempt[mobile:8796256084, user_type:3, IP:103.72.142.236]','2019-03-04 14:57:03',NULL),(1906,'New Vendor Created [8796256084]','2019-03-04 14:57:03',NULL),(1907,'New Member Created [8796256084]','2019-03-04 14:57:03',NULL),(1908,'log_user_info_updated','2019-03-04 15:02:26',NULL),(1909,'New Vendor Account Created [5]','2019-03-04 15:02:26',NULL),(1910,'log_user_info_updated','2019-03-04 15:02:54',NULL),(1911,'log_user_info_updated','2019-03-04 15:03:26','Admin Nadaf'),(1912,'log_user_info_updated','2019-03-04 15:07:58',NULL),(1913,'log_user_info_updated','2019-03-04 15:08:50',NULL),(1914,'log_user_info_updated','2019-03-04 15:08:52',NULL),(1915,'log_user_info_updated','2019-03-04 15:38:59',NULL),(1916,'log_account_info_updated','2019-03-04 15:41:11',NULL),(1917,'log_user_info_updated','2019-03-04 15:41:32','Admin Nadaf'),(1918,'log_account_info_updated','2019-03-04 15:41:44',NULL),(1919,'log_user_info_updated','2019-03-04 15:55:18',NULL),(1920,'failed_login_attempt[mobile:9130359496, user_type:2, IP:103.72.142.236]','2019-03-04 15:55:51',NULL),(1921,'New Vendor Created [9130359496]','2019-03-04 15:55:51',NULL),(1922,'New Member Created [9130359496]','2019-03-04 15:55:51',NULL),(1923,'log_user_info_updated','2019-03-04 15:56:56',NULL),(1924,'New Profile Created [31]','2019-03-04 15:56:56',NULL),(1925,'New Vendor About Created [31]','2019-03-04 15:56:56',NULL),(1926,'New Vendor Wroks Created [31]','2019-03-04 15:56:56',NULL),(1927,'New Vendor Locations Created [31]','2019-03-04 15:56:56',NULL),(1928,'New Vendor Account Created [31]','2019-03-04 15:56:56',NULL),(1929,'log_profile_info_updated','2019-03-04 15:59:45',NULL),(1930,'log_profile_info_updated','2019-03-04 16:01:05',NULL),(1931,'log_profile_info_updated','2019-03-04 16:01:27',NULL),(1932,'log_profile_info_updated','2019-03-04 16:01:48',NULL),(1933,'log_about_info_updated','2019-03-04 16:02:35',NULL),(1934,'log_works_info_updated','2019-03-04 16:03:10',NULL),(1935,'log_locations_info_updated','2019-03-04 16:03:24',NULL),(1936,'log_user_info_updated','2019-03-04 16:04:01',NULL),(1937,'log_user_info_updated','2019-03-05 09:36:56','Admin Nadaf'),(1938,'vendor_deleted [45]','2019-03-05 09:37:18','Admin Nadaf'),(1939,'member_deleted [57]','2019-03-05 09:37:18','Admin Nadaf'),(1940,'log_user_info_updated','2019-03-05 09:40:21',NULL),(1941,'failed_login_attempt[mobile:7774812090, user_type:2, IP:103.72.142.236]','2019-03-05 09:40:39',NULL),(1942,'New Vendor Created [7774812090]','2019-03-05 09:40:39',NULL),(1943,'New Member Created [7774812090]','2019-03-05 09:40:39',NULL),(1944,'log_user_info_updated','2019-03-05 09:42:27',NULL),(1945,'New Profile Created [32]','2019-03-05 09:42:27',NULL),(1946,'New Vendor About Created [32]','2019-03-05 09:42:27',NULL),(1947,'New Vendor Wroks Created [32]','2019-03-05 09:42:27',NULL),(1948,'New Vendor Locations Created [32]','2019-03-05 09:42:27',NULL),(1949,'New Vendor Account Created [32]','2019-03-05 09:42:27',NULL),(1950,'log_profile_info_updated','2019-03-05 10:32:30',NULL),(1951,'log_profile_info_updated','2019-03-05 10:54:11',NULL),(1952,'log_profile_info_updated','2019-03-05 11:02:01',NULL),(1953,'log_profile_info_updated','2019-03-05 11:03:29',NULL),(1954,'log_profile_info_updated','2019-03-05 11:14:00',NULL),(1955,'log_profile_info_updated','2019-03-05 11:26:09',NULL),(1956,'vendor_deleted [48]','2019-03-05 12:01:05','Admin Nadaf'),(1957,'member_deleted [61]','2019-03-05 12:01:05','Admin Nadaf'),(1958,'failed_login_attempt[mobile:7774812090, user_type:2, IP:103.72.142.236]','2019-03-05 12:07:30',NULL),(1959,'New Vendor Created [7774812090]','2019-03-05 12:07:30',NULL),(1960,'New Member Created [7774812090]','2019-03-05 12:07:30',NULL),(1961,'log_user_info_updated','2019-03-05 12:44:59',NULL),(1962,'New Profile Created [33]','2019-03-05 12:44:59',NULL),(1963,'New Vendor About Created [33]','2019-03-05 12:44:59',NULL),(1964,'New Vendor Wroks Created [33]','2019-03-05 12:44:59',NULL),(1965,'New Vendor Locations Created [33]','2019-03-05 12:44:59',NULL),(1966,'New Vendor Account Created [33]','2019-03-05 12:44:59',NULL),(1967,'log_profile_info_updated','2019-03-05 14:06:52',NULL),(1968,'log_profile_info_updated','2019-03-05 14:21:09',NULL),(1969,'log_profile_info_updated','2019-03-05 14:21:24',NULL),(1970,'log_profile_info_updated','2019-03-05 14:21:45',NULL),(1971,'log_about_info_updated','2019-03-05 14:29:15',NULL),(1972,'log_about_info_updated','2019-03-05 14:39:02',NULL),(1973,'log_works_info_updated','2019-03-05 14:44:41',NULL),(1974,'log_locations_info_updated','2019-03-05 14:49:58',NULL),(1975,'log_user_info_updated','2019-03-05 14:51:37',NULL),(1976,'log_user_info_updated','2019-03-05 14:51:44',NULL),(1977,'log_user_info_updated','2019-03-05 15:43:07',NULL),(1978,'log_user_info_updated','2019-03-05 16:55:53',NULL),(1979,'log_user_info_updated','2019-03-05 17:20:59',NULL),(1980,'log_user_info_updated','2019-03-05 17:27:03',NULL),(1981,'log_user_info_updated','2019-03-05 17:30:55',NULL),(1982,'log_user_info_updated','2019-03-05 17:38:21',NULL),(1983,'log_account_info_updated','2019-03-05 17:38:59',NULL),(1984,'customer_deleted [9]','2019-03-05 18:03:21','Admin Nadaf'),(1985,'member_deleted [46]','2019-03-05 18:03:21','Admin Nadaf'),(1986,'failed_login_attempt[mobile:8796256084, user_type:1, IP:103.204.119.220]','2019-03-05 18:03:30',NULL),(1987,'New Customer Created [8796256084]','2019-03-05 18:03:30',NULL),(1988,'New Member Created [8796256084]','2019-03-05 18:03:30',NULL),(1989,'log_user_info_updated','2019-03-05 18:21:57',NULL),(1990,'log_user_info_updated','2019-03-05 18:57:00',NULL),(1991,'New Address Created [5]','2019-03-05 19:46:00',NULL),(1992,'New Cart Created [10]','2019-03-05 19:52:42',NULL),(1993,'log_user_info_updated','2019-03-06 09:56:15',NULL),(1994,'log_user_info_updated','2019-03-06 09:57:38',NULL),(1995,'log_user_info_updated','2019-03-06 10:08:44',NULL),(1996,'log_user_info_updated','2019-03-06 10:09:28','Admin Nadaf'),(1997,'log_user_info_updated','2019-03-06 10:09:30','Admin Nadaf'),(1998,'vendor_deleted [49]','2019-03-06 10:09:34','Admin Nadaf'),(1999,'member_deleted [62]','2019-03-06 10:09:34','Admin Nadaf'),(2000,'log_user_info_updated','2019-03-06 10:12:52',NULL),(2001,'failed_login_attempt[mobile:7774812090, user_type:2, IP:103.26.58.2]','2019-03-06 10:15:29',NULL),(2002,'New Vendor Created [7774812090]','2019-03-06 10:15:29',NULL),(2003,'New Member Created [7774812090]','2019-03-06 10:15:29',NULL),(2004,'log_user_info_updated','2019-03-06 11:37:59',NULL),(2005,'New Profile Created [34]','2019-03-06 11:37:59',NULL),(2006,'New Vendor About Created [34]','2019-03-06 11:37:59',NULL),(2007,'New Vendor Wroks Created [34]','2019-03-06 11:37:59',NULL),(2008,'New Vendor Locations Created [34]','2019-03-06 11:37:59',NULL),(2009,'New Vendor Account Created [34]','2019-03-06 11:37:59',NULL),(2010,'log_about_info_updated','2019-03-06 11:42:02',NULL),(2011,'log_profile_info_updated','2019-03-06 11:42:35',NULL),(2012,'log_profile_info_updated','2019-03-06 11:43:00',NULL),(2013,'log_profile_info_updated','2019-03-06 11:43:15',NULL),(2014,'log_profile_info_updated','2019-03-06 11:43:19',NULL),(2015,'log_works_info_updated','2019-03-06 11:43:31',NULL),(2016,'log_user_info_updated','2019-03-06 11:45:02',NULL),(2017,'log_user_info_updated','2019-03-06 11:45:19',NULL),(2018,'log_locations_info_updated','2019-03-06 12:28:51',NULL),(2019,'log_user_info_updated','2019-03-06 12:28:54',NULL),(2020,'customer_deleted [10]','2019-03-06 13:12:33','Admin Nadaf'),(2021,'member_deleted [63]','2019-03-06 13:12:33','Admin Nadaf'),(2022,'log_user_info_updated','2019-03-06 13:23:00',NULL),(2023,'vendor_deleted [50]','2019-03-06 13:23:41','Admin Nadaf'),(2024,'member_deleted [64]','2019-03-06 13:23:41','Admin Nadaf'),(2025,'failed_login_attempt[mobile:7774812090, user_type:2, IP:103.26.58.2]','2019-03-06 13:24:31',NULL),(2026,'New Vendor Created [7774812090]','2019-03-06 13:24:31',NULL),(2027,'New Member Created [7774812090]','2019-03-06 13:24:31',NULL),(2028,'deliveryboy_deleted [7]','2019-03-06 13:37:56','Admin Nadaf'),(2029,'member_deleted [59]','2019-03-06 13:37:56','Admin Nadaf'),(2030,'failed_login_attempt[mobile:7774812090, user_type:3, IP:157.33.154.38]','2019-03-06 13:40:24',NULL),(2031,'New Vendor Created [7774812090]','2019-03-06 13:40:24',NULL),(2032,'New Member Created [7774812090]','2019-03-06 13:40:24',NULL),(2033,'failed_login_attempt[mobile:9146544486, user_type:3, IP:157.33.154.38]','2019-03-06 13:41:16',NULL),(2034,'New Vendor Created [9146544486]','2019-03-06 13:41:16',NULL),(2035,'New Member Created [9146544486]','2019-03-06 13:41:16',NULL),(2036,'failed_login_attempt[mobile:8308967060, user_type:2, IP:49.15.2.107]','2019-03-06 14:18:48',NULL),(2037,'New Vendor Created [8308967060]','2019-03-06 14:18:48',NULL),(2038,'New Member Created [8308967060]','2019-03-06 14:18:48',NULL),(2039,'failed_login_attempt[mobile:8796256084, user_type:3, IP:103.26.58.2]','2019-03-06 14:26:17',NULL),(2040,'New Vendor Created [8796256084]','2019-03-06 14:26:17',NULL),(2041,'New Member Created [8796256084]','2019-03-06 14:26:17',NULL),(2042,'log_user_info_updated','2019-03-06 14:28:13',NULL),(2043,'New Vendor Account Created [6]','2019-03-06 14:28:13',NULL),(2044,'failed_login_attempt[mobile:8796256084, user_type:1, IP:157.33.154.38]','2019-03-06 15:02:37',NULL),(2045,'New Customer Created [8796256084]','2019-03-06 15:02:37',NULL),(2046,'New Member Created [8796256084]','2019-03-06 15:02:37',NULL),(2047,'log_user_info_updated','2019-03-06 15:05:30',NULL),(2048,'log_user_info_updated','2019-03-06 16:54:10',NULL),(2049,'log_user_info_updated','2019-03-06 16:54:39',NULL),(2050,'log_user_info_updated','2019-03-06 17:03:51',NULL),(2051,'log_user_info_updated','2019-03-06 17:04:10',NULL),(2052,'log_user_info_updated','2019-03-06 17:07:40',NULL),(2053,'log_user_info_updated','2019-03-06 17:13:31',NULL),(2054,'New Profile Created [35]','2019-03-06 17:13:31',NULL),(2055,'New Vendor About Created [35]','2019-03-06 17:13:31',NULL),(2056,'New Vendor Wroks Created [35]','2019-03-06 17:13:31',NULL),(2057,'New Vendor Locations Created [35]','2019-03-06 17:13:31',NULL),(2058,'New Vendor Account Created [35]','2019-03-06 17:13:31',NULL),(2059,'New Cart Product Created [32]','2019-03-07 11:19:15',NULL),(2060,'New Cart Product Details Created [32]','2019-03-07 11:19:15',NULL),(2061,'Cart Product Info Updated [32]','2019-03-07 11:19:15',NULL),(2062,'New Cart Product Created [33]','2019-03-07 11:21:21',NULL),(2063,'New Cart Product Details Created [33]','2019-03-07 11:21:21',NULL),(2064,'Cart Product Info Updated [33]','2019-03-07 11:21:21',NULL),(2065,'New Cart Product Created [34]','2019-03-07 11:31:24',NULL),(2066,'New Cart Product Details Created [34]','2019-03-07 11:31:24',NULL),(2067,'Cart Product Info Updated [34]','2019-03-07 11:31:24',NULL),(2068,'New Cart Product Created [35]','2019-03-07 12:09:44',NULL),(2069,'New Cart Product Details Created [35]','2019-03-07 12:09:44',NULL),(2070,'Cart Product Info Updated [35]','2019-03-07 12:09:44',NULL),(2071,'New Cart Product Created [36]','2019-03-07 12:13:09',NULL),(2072,'New Cart Product Details Created [36]','2019-03-07 12:13:09',NULL),(2073,'Cart Product Info Updated [36]','2019-03-07 12:13:09',NULL),(2074,'New Cart Product Created [37]','2019-03-07 12:18:38',NULL),(2075,'New Cart Product Details Created [37]','2019-03-07 12:18:38',NULL),(2076,'Cart Product Info Updated [37]','2019-03-07 12:18:38',NULL),(2077,'New Cart Product Created [38]','2019-03-07 12:20:34',NULL),(2078,'New Cart Product Details Created [38]','2019-03-07 12:20:34',NULL),(2079,'Cart Product Info Updated [38]','2019-03-07 12:20:34',NULL),(2080,'New Cart Product Created [39]','2019-03-07 13:03:18',NULL),(2081,'New Cart Product Details Created [39]','2019-03-07 13:03:18',NULL),(2082,'Cart Product Info Updated [39]','2019-03-07 13:03:18',NULL),(2083,'New Cart Product Created [40]','2019-03-07 13:13:33',NULL),(2084,'New Cart Product Details Created [40]','2019-03-07 13:13:33',NULL),(2085,'Cart Product Info Updated [40]','2019-03-07 13:13:33',NULL),(2086,'log_user_info_updated','2019-03-07 18:22:52',NULL),(2087,'log_user_info_updated','2019-03-07 18:23:12',NULL),(2088,'New Cart Product Created [41]','2019-03-08 11:20:11',NULL),(2089,'New Cart Product Details Created [41]','2019-03-08 11:20:11',NULL),(2090,'Cart Product Info Updated [41]','2019-03-08 11:20:11',NULL),(2091,'New Cart Product Created [42]','2019-03-08 11:22:22',NULL),(2092,'New Cart Product Details Created [42]','2019-03-08 11:22:22',NULL),(2093,'Cart Product Info Updated [42]','2019-03-08 11:22:22',NULL),(2094,'New Cart Product Created [43]','2019-03-08 11:31:03',NULL),(2095,'New Cart Product Details Created [43]','2019-03-08 11:31:03',NULL),(2096,'Cart Product Info Updated [43]','2019-03-08 11:31:03',NULL),(2097,'New Address Created [6]','2019-03-08 11:44:24',NULL),(2098,'New Cart Created [11]','2019-03-08 11:44:48',NULL),(2099,'New Cart Product Created [44]','2019-03-08 12:59:13',NULL),(2100,'New Cart Product Details Created [44]','2019-03-08 12:59:13',NULL),(2101,'Cart Product Info Updated [44]','2019-03-08 12:59:13',NULL),(2102,'New Cart Product Created [45]','2019-03-08 13:00:11',NULL),(2103,'New Cart Product Details Created [45]','2019-03-08 13:00:11',NULL),(2104,'Cart Product Info Updated [45]','2019-03-08 13:00:11',NULL),(2105,'New Cart Product Created [46]','2019-03-08 13:04:32',NULL),(2106,'New Cart Product Details Created [46]','2019-03-08 13:04:32',NULL),(2107,'Cart Product Info Updated [46]','2019-03-08 13:04:32',NULL),(2108,'New Cart Product Created [47]','2019-03-08 14:59:58',NULL),(2109,'New Cart Product Details Created [47]','2019-03-08 14:59:58',NULL),(2110,'Cart Product Info Updated [47]','2019-03-08 14:59:58',NULL),(2111,'New Cart Product Created [48]','2019-03-08 16:03:21',NULL),(2112,'New Cart Product Details Created [48]','2019-03-08 16:03:21',NULL),(2113,'Cart Product Info Updated [48]','2019-03-08 16:03:21',NULL),(2114,'log_user_info_updated','2019-03-09 12:49:29',NULL),(2115,'log_account_info_updated','2019-03-09 12:49:53',NULL),(2116,'log_user_info_updated','2019-03-09 16:35:42',NULL),(2117,'log_user_info_updated','2019-03-12 11:12:39',NULL),(2118,'log_user_info_updated','2019-03-12 11:15:24',NULL),(2119,'log_user_info_updated','2019-03-12 18:16:34',NULL),(2120,'log_user_info_updated','2019-03-15 12:13:40',NULL),(2121,'failed_login_attempt[mobile:9503008804, user_type:2, IP:103.204.119.222]','2019-03-15 22:42:12',NULL),(2122,'New Vendor Created [9503008804]','2019-03-15 22:42:12',NULL),(2123,'New Member Created [9503008804]','2019-03-15 22:42:12',NULL),(2124,'log_user_info_updated','2019-03-15 22:54:15',NULL),(2125,'New Profile Created [36]','2019-03-15 22:54:15',NULL),(2126,'New Vendor About Created [36]','2019-03-15 22:54:15',NULL),(2127,'New Vendor Wroks Created [36]','2019-03-15 22:54:15',NULL),(2128,'New Vendor Locations Created [36]','2019-03-15 22:54:15',NULL),(2129,'New Vendor Account Created [36]','2019-03-15 22:54:15',NULL),(2130,'log_profile_info_updated','2019-03-15 22:55:50',NULL),(2131,'log_profile_info_updated','2019-03-15 22:57:06',NULL),(2132,'log_profile_info_updated','2019-03-15 22:57:37',NULL),(2133,'log_profile_info_updated','2019-03-15 22:57:51',NULL),(2134,'log_about_info_updated','2019-03-15 22:59:10',NULL),(2135,'log_works_info_updated','2019-03-15 22:59:15',NULL),(2136,'log_profile_info_updated','2019-03-15 23:28:15',NULL),(2137,'failed_login_attempt[mobile:7498863799, user_type:2, IP:49.35.64.76]','2019-03-15 23:41:21',NULL),(2138,'New Vendor Created [7498863799]','2019-03-15 23:41:21',NULL),(2139,'New Member Created [7498863799]','2019-03-15 23:41:21',NULL),(2140,'log_user_info_updated','2019-03-15 23:43:06',NULL),(2141,'New Profile Created [37]','2019-03-15 23:43:06',NULL),(2142,'New Vendor About Created [37]','2019-03-15 23:43:06',NULL),(2143,'New Vendor Wroks Created [37]','2019-03-15 23:43:06',NULL),(2144,'New Vendor Locations Created [37]','2019-03-15 23:43:06',NULL),(2145,'New Vendor Account Created [37]','2019-03-15 23:43:06',NULL),(2146,'log_profile_info_updated','2019-03-15 23:44:24',NULL),(2147,'log_profile_info_updated','2019-03-15 23:48:08',NULL),(2148,'log_profile_info_updated','2019-03-15 23:48:37',NULL),(2149,'log_profile_info_updated','2019-03-15 23:48:39',NULL),(2150,'log_about_info_updated','2019-03-15 23:48:56',NULL),(2151,'log_works_info_updated','2019-03-15 23:49:39',NULL),(2152,'log_works_info_updated','2019-03-15 23:49:51',NULL),(2153,'log_locations_info_updated','2019-03-15 23:53:45',NULL),(2154,'log_user_info_updated','2019-03-15 23:53:55',NULL),(2155,'log_user_info_updated','2019-03-15 23:54:06',NULL),(2156,'log_user_info_updated','2019-03-15 23:54:17',NULL),(2157,'log_user_info_updated','2019-03-15 23:56:37','Admin Nadaf'),(2158,'log_user_info_updated','2019-03-15 23:56:38','Admin Nadaf'),(2159,'log_user_info_updated','2019-03-15 23:56:59',NULL),(2160,'log_user_info_updated','2019-03-15 23:57:17','Admin Nadaf'),(2161,'log_user_info_updated','2019-03-16 00:00:21',NULL),(2162,'log_user_info_updated','2019-03-16 00:00:22','Admin Nadaf'),(2163,'log_user_info_updated','2019-03-16 00:00:44',NULL),(2164,'log_user_info_updated','2019-03-16 00:02:44',NULL),(2165,'failed_login_attempt[mobile:7721037175, user_type:1, IP:49.35.54.88]','2019-03-16 00:03:30',NULL),(2166,'New Customer Created [7721037175]','2019-03-16 00:03:30',NULL),(2167,'New Member Created [7721037175]','2019-03-16 00:03:30',NULL),(2168,'log_user_info_updated','2019-03-16 10:11:17',NULL),(2169,'log_user_info_updated','2019-03-16 10:41:51',NULL),(2170,'log_locations_info_updated','2019-03-17 10:41:46',NULL),(2171,'log_user_info_updated','2019-03-17 10:41:48',NULL),(2172,'log_user_info_updated','2019-03-17 10:42:03',NULL),(2173,'log_user_info_updated','2019-03-17 10:45:59',NULL),(2174,'log_user_info_updated','2019-03-17 10:47:53',NULL),(2175,'log_user_info_updated','2019-03-17 10:47:57',NULL),(2176,'log_user_info_updated','2019-03-17 10:49:36',NULL),(2177,'log_user_info_updated','2019-03-17 10:49:49',NULL),(2178,'log_user_info_updated','2019-03-17 10:49:56',NULL),(2179,'log_user_info_updated','2019-03-17 10:50:55',NULL),(2180,'log_user_info_updated','2019-03-17 10:50:59',NULL),(2181,'log_user_info_updated','2019-03-17 10:51:04',NULL),(2182,'log_user_info_updated','2019-03-17 10:51:56',NULL),(2183,'log_user_info_updated','2019-03-17 10:52:45',NULL),(2184,'log_user_info_updated','2019-03-17 10:54:08',NULL),(2185,'log_user_info_updated','2019-03-17 10:54:10',NULL),(2186,'log_user_info_updated','2019-03-17 10:56:01',NULL),(2187,'log_user_info_updated','2019-03-17 10:56:30',NULL),(2188,'log_user_info_updated','2019-03-17 10:56:36',NULL),(2189,'log_user_info_updated','2019-03-17 11:14:07',NULL),(2190,'log_user_info_updated','2019-03-17 11:15:18',NULL),(2191,'log_user_info_updated','2019-03-17 11:15:20',NULL),(2192,'log_user_info_updated','2019-03-17 11:16:34',NULL),(2193,'log_user_info_updated','2019-03-17 11:18:06',NULL),(2194,'log_user_info_updated','2019-03-17 11:28:00',NULL),(2195,'log_user_info_updated','2019-03-17 11:28:38',NULL),(2196,'log_user_info_updated','2019-03-17 11:29:47',NULL),(2197,'log_user_info_updated','2019-03-17 11:30:37',NULL),(2198,'log_user_info_updated','2019-03-17 11:31:11',NULL),(2199,'log_user_info_updated','2019-03-17 11:32:00',NULL),(2200,'log_user_info_updated','2019-03-17 11:32:02',NULL),(2201,'log_user_info_updated','2019-03-17 11:33:06',NULL),(2202,'log_user_info_updated','2019-03-17 11:37:42',NULL),(2203,'log_user_info_updated','2019-03-17 11:42:52',NULL),(2204,'log_user_info_updated','2019-03-17 11:43:38',NULL),(2205,'log_user_info_updated','2019-03-17 11:44:36',NULL),(2206,'log_user_info_updated','2019-03-17 11:45:43',NULL),(2207,'log_user_info_updated','2019-03-17 11:47:08',NULL),(2208,'log_user_info_updated','2019-03-17 11:50:33',NULL),(2209,'log_user_info_updated','2019-03-17 11:55:06',NULL),(2210,'log_user_info_updated','2019-03-17 12:06:58',NULL),(2211,'log_user_info_updated','2019-03-17 12:12:28',NULL),(2212,'log_user_info_updated','2019-03-17 12:12:28',NULL),(2213,'log_user_info_updated','2019-03-17 12:28:34',NULL),(2214,'log_user_info_updated','2019-03-17 12:28:43',NULL),(2215,'log_user_info_updated','2019-03-17 12:45:01',NULL),(2216,'New Cart Product Created [49]','2019-03-17 12:45:09',NULL),(2217,'New Cart Product Details Created [49]','2019-03-17 12:45:09',NULL),(2218,'Cart Product Info Updated [49]','2019-03-17 12:45:09',NULL),(2219,'log_user_info_updated','2019-03-17 12:45:20',NULL),(2220,'log_user_info_updated','2019-03-17 12:46:52',NULL),(2221,'log_user_info_updated','2019-03-17 12:46:53',NULL),(2222,'log_user_info_updated','2019-03-17 12:47:23',NULL),(2223,'New Cart Product Created [50]','2019-03-17 12:48:32',NULL),(2224,'New Cart Product Details Created [50]','2019-03-17 12:48:32',NULL),(2225,'Cart Product Info Updated [50]','2019-03-17 12:48:32',NULL),(2226,'log_user_info_updated','2019-03-17 12:54:12',NULL),(2227,'New Cart Product Created [51]','2019-03-17 12:59:30',NULL),(2228,'New Cart Product Details Created [51]','2019-03-17 12:59:30',NULL),(2229,'Cart Product Info Updated [51]','2019-03-17 12:59:30',NULL),(2230,'log_account_info_updated','2019-03-17 13:04:25',NULL),(2231,'log_account_info_updated','2019-03-17 13:04:27',NULL),(2232,'log_account_info_updated','2019-03-17 13:04:29',NULL),(2233,'log_account_info_updated','2019-03-17 13:04:39',NULL),(2234,'log_account_info_updated','2019-03-17 13:04:41',NULL),(2235,'log_user_info_updated','2019-03-17 13:18:58',NULL),(2236,'log_user_info_updated','2019-03-17 13:19:13',NULL),(2237,'log_user_info_updated','2019-03-17 13:20:25',NULL),(2238,'log_user_info_updated','2019-03-17 13:25:04',NULL),(2239,'log_user_info_updated','2019-03-17 13:30:11',NULL),(2240,'log_user_info_updated','2019-03-17 13:30:11',NULL),(2241,'log_account_info_updated','2019-03-17 13:31:27',NULL),(2242,'log_account_info_updated','2019-03-17 13:31:29',NULL),(2243,'log_account_info_updated','2019-03-17 13:31:30',NULL),(2244,'log_account_info_updated','2019-03-17 13:31:30',NULL),(2245,'log_account_info_updated','2019-03-17 13:31:34',NULL),(2246,'log_account_info_updated','2019-03-17 13:31:35',NULL),(2247,'log_account_info_updated','2019-03-17 13:31:41',NULL),(2248,'log_account_info_updated','2019-03-17 13:31:44',NULL),(2249,'log_account_info_updated','2019-03-17 13:31:50',NULL),(2250,'log_account_info_updated','2019-03-17 13:31:50',NULL),(2251,'log_user_info_updated','2019-03-17 13:36:19',NULL),(2252,'log_user_info_updated','2019-03-17 13:43:54',NULL),(2253,'log_user_info_updated','2019-03-17 13:45:38',NULL),(2254,'New Cart Product Created [52]','2019-03-17 13:45:52',NULL),(2255,'New Cart Product Details Created [52]','2019-03-17 13:45:52',NULL),(2256,'Cart Product Info Updated [52]','2019-03-17 13:45:52',NULL),(2257,'New Cart Product Created [53]','2019-03-17 13:46:26',NULL),(2258,'New Cart Product Details Created [53]','2019-03-17 13:46:26',NULL),(2259,'Cart Product Info Updated [53]','2019-03-17 13:46:26',NULL),(2260,'New Cart Product Created [54]','2019-03-17 13:46:52',NULL),(2261,'New Cart Product Details Created [54]','2019-03-17 13:46:52',NULL),(2262,'Cart Product Info Updated [54]','2019-03-17 13:46:52',NULL),(2263,'New Cart Product Created [55]','2019-03-17 13:49:54',NULL),(2264,'New Cart Product Details Created [55]','2019-03-17 13:49:54',NULL),(2265,'Cart Product Info Updated [55]','2019-03-17 13:49:54',NULL),(2266,'New Cart Product Created [56]','2019-03-17 13:57:02',NULL),(2267,'New Cart Product Details Created [56]','2019-03-17 13:57:02',NULL),(2268,'Cart Product Info Updated [56]','2019-03-17 13:57:02',NULL),(2269,'log_user_info_updated','2019-03-17 15:22:00',NULL),(2270,'log_user_info_updated','2019-03-17 15:22:00',NULL),(2271,'New Cart Product Created [57]','2019-03-17 15:29:47',NULL),(2272,'New Cart Product Details Created [57]','2019-03-17 15:29:47',NULL),(2273,'Cart Product Info Updated [57]','2019-03-17 15:29:47',NULL),(2274,'log_user_info_updated','2019-03-17 15:30:28',NULL),(2275,'New Cart Product Created [58]','2019-03-17 15:30:47',NULL),(2276,'New Cart Product Details Created [58]','2019-03-17 15:30:47',NULL),(2277,'Cart Product Info Updated [58]','2019-03-17 15:30:47',NULL),(2278,'log_user_info_updated','2019-03-17 15:30:50',NULL),(2279,'log_account_info_updated','2019-03-17 15:31:17',NULL),(2280,'log_account_info_updated','2019-03-17 15:31:20',NULL),(2281,'log_account_info_updated','2019-03-17 15:31:26',NULL),(2282,'log_account_info_updated','2019-03-17 15:31:27',NULL),(2283,'log_account_info_updated','2019-03-17 15:31:27',NULL),(2284,'log_account_info_updated','2019-03-17 15:31:28',NULL),(2285,'log_account_info_updated','2019-03-17 15:31:29',NULL),(2286,'log_account_info_updated','2019-03-17 15:31:36',NULL),(2287,'log_user_info_updated','2019-03-17 15:32:09',NULL),(2288,'log_user_info_updated','2019-03-17 15:32:13',NULL),(2289,'log_account_info_updated','2019-03-17 15:32:25',NULL),(2290,'log_account_info_updated','2019-03-17 15:32:26',NULL),(2291,'log_account_info_updated','2019-03-17 15:32:27',NULL),(2292,'log_account_info_updated','2019-03-17 15:32:33',NULL),(2293,'log_account_info_updated','2019-03-17 15:32:34',NULL),(2294,'log_account_info_updated','2019-03-17 15:32:35',NULL),(2295,'New Cart Product Created [59]','2019-03-17 15:32:40',NULL),(2296,'New Cart Product Details Created [59]','2019-03-17 15:32:40',NULL),(2297,'Cart Product Info Updated [59]','2019-03-17 15:32:40',NULL),(2298,'log_account_info_updated','2019-03-17 15:32:41',NULL),(2299,'log_user_info_updated','2019-03-17 15:33:15',NULL),(2300,'log_account_info_updated','2019-03-17 15:33:57',NULL),(2301,'log_account_info_updated','2019-03-17 15:34:07',NULL),(2302,'New Cart Product Created [60]','2019-03-17 15:34:59',NULL),(2303,'New Cart Product Details Created [60]','2019-03-17 15:34:59',NULL),(2304,'Cart Product Info Updated [60]','2019-03-17 15:34:59',NULL),(2305,'New Cart Product Created [61]','2019-03-17 15:36:01',NULL),(2306,'New Cart Product Details Created [61]','2019-03-17 15:36:01',NULL),(2307,'Cart Product Info Updated [61]','2019-03-17 15:36:01',NULL),(2308,'New Cart Product Created [62]','2019-03-17 15:40:19',NULL),(2309,'New Cart Product Details Created [62]','2019-03-17 15:40:19',NULL),(2310,'Cart Product Info Updated [62]','2019-03-17 15:40:19',NULL),(2311,'New Cart Product Created [63]','2019-03-17 15:52:05',NULL),(2312,'New Cart Product Details Created [63]','2019-03-17 15:52:05',NULL),(2313,'Cart Product Info Updated [63]','2019-03-17 15:52:05',NULL),(2314,'New Cart Product Created [64]','2019-03-17 15:54:26',NULL),(2315,'New Cart Product Details Created [64]','2019-03-17 15:54:26',NULL),(2316,'Cart Product Info Updated [64]','2019-03-17 15:54:26',NULL),(2317,'New Cart Product Created [65]','2019-03-17 15:54:40',NULL),(2318,'New Cart Product Details Created [65]','2019-03-17 15:54:40',NULL),(2319,'Cart Product Info Updated [65]','2019-03-17 15:54:40',NULL),(2320,'New Cart Product Created [66]','2019-03-17 15:56:27',NULL),(2321,'New Cart Product Details Created [66]','2019-03-17 15:56:27',NULL),(2322,'Cart Product Info Updated [66]','2019-03-17 15:56:27',NULL),(2323,'New Cart Product Created [67]','2019-03-17 15:59:38',NULL),(2324,'New Cart Product Details Created [67]','2019-03-17 15:59:38',NULL),(2325,'Cart Product Info Updated [67]','2019-03-17 15:59:38',NULL),(2326,'New Cart Product Created [68]','2019-03-17 16:24:24',NULL),(2327,'New Cart Product Details Created [68]','2019-03-17 16:24:24',NULL),(2328,'Cart Product Info Updated [68]','2019-03-17 16:24:24',NULL),(2329,'New Cart Product Created [69]','2019-03-17 16:27:10',NULL),(2330,'New Cart Product Details Created [69]','2019-03-17 16:27:10',NULL),(2331,'Cart Product Info Updated [69]','2019-03-17 16:27:10',NULL),(2332,'New Cart Product Created [70]','2019-03-17 16:29:51',NULL),(2333,'New Cart Product Details Created [70]','2019-03-17 16:29:51',NULL),(2334,'Cart Product Info Updated [70]','2019-03-17 16:29:51',NULL),(2335,'vendor_deleted [53]','2019-03-17 16:31:48','Admin Nadaf'),(2336,'member_deleted [71]','2019-03-17 16:31:48','Admin Nadaf'),(2337,'vendor_deleted [54]','2019-03-17 16:31:56','Admin Nadaf'),(2338,'member_deleted [72]','2019-03-17 16:31:56','Admin Nadaf'),(2339,'log_user_info_updated','2019-03-17 16:32:13',NULL),(2340,'failed_login_attempt[mobile:9503008804, user_type:2, IP:157.33.218.69]','2019-03-17 16:33:05',NULL),(2341,'New Vendor Created [9503008804]','2019-03-17 16:33:05',NULL),(2342,'New Member Created [9503008804]','2019-03-17 16:33:05',NULL),(2343,'log_user_info_updated','2019-03-17 16:35:58',NULL),(2344,'New Profile Created [38]','2019-03-17 16:35:58',NULL),(2345,'New Vendor About Created [38]','2019-03-17 16:35:58',NULL),(2346,'New Vendor Wroks Created [38]','2019-03-17 16:35:58',NULL),(2347,'New Vendor Locations Created [38]','2019-03-17 16:35:58',NULL),(2348,'New Vendor Account Created [38]','2019-03-17 16:35:58',NULL),(2349,'log_profile_info_updated','2019-03-17 16:37:52',NULL),(2350,'log_profile_info_updated','2019-03-17 16:39:14',NULL),(2351,'New Cart Product Created [71]','2019-03-17 16:40:04',NULL),(2352,'New Cart Product Details Created [71]','2019-03-17 16:40:04',NULL),(2353,'Cart Product Info Updated [71]','2019-03-17 16:40:04',NULL),(2354,'log_profile_info_updated','2019-03-17 16:40:06',NULL),(2355,'log_profile_info_updated','2019-03-17 16:40:12',NULL),(2356,'log_about_info_updated','2019-03-17 16:41:21',NULL),(2357,'log_about_info_updated','2019-03-17 16:42:26',NULL),(2358,'log_works_info_updated','2019-03-18 11:17:02',NULL),(2359,'log_works_info_updated','2019-03-18 11:18:29',NULL),(2360,'log_locations_info_updated','2019-03-18 12:04:54',NULL),(2361,'log_user_info_updated','2019-03-18 12:04:55',NULL),(2362,'log_user_info_updated','2019-03-18 18:22:09',NULL),(2363,'log_user_info_updated','2019-03-18 22:48:54',NULL),(2364,'log_user_info_updated','2019-03-18 22:48:57',NULL),(2365,'log_user_info_updated','2019-03-18 22:48:57',NULL),(2366,'log_user_info_updated','2019-03-18 22:51:18',NULL),(2367,'New Cart Product Created [72]','2019-03-18 22:53:48',NULL),(2368,'New Cart Product Details Created [72]','2019-03-18 22:53:48',NULL),(2369,'Cart Product Info Updated [72]','2019-03-18 22:53:48',NULL),(2370,'log_user_info_updated','2019-03-18 22:55:39',NULL),(2371,'log_user_info_updated','2019-03-18 22:55:42',NULL),(2372,'failed_login_attempt[mobile:9503008804, user_type:3, IP:49.35.14.241]','2019-03-18 23:01:33',NULL),(2373,'New Vendor Created [9503008804]','2019-03-18 23:01:33',NULL),(2374,'New Member Created [9503008804]','2019-03-18 23:01:33',NULL),(2375,'New Cart Product Created [73]','2019-03-18 23:03:14',NULL),(2376,'New Cart Product Details Created [73]','2019-03-18 23:03:14',NULL),(2377,'Cart Product Info Updated [73]','2019-03-18 23:03:14',NULL),(2378,'log_user_info_updated','2019-03-18 23:03:23',NULL),(2379,'New Vendor Account Created [7]','2019-03-18 23:03:23',NULL),(2380,'New Cart Product Created [74]','2019-03-18 23:13:18',NULL),(2381,'New Cart Product Details Created [74]','2019-03-18 23:13:18',NULL),(2382,'Cart Product Info Updated [74]','2019-03-18 23:13:18',NULL),(2383,'New Cart Product Created [75]','2019-03-18 23:15:03',NULL),(2384,'New Cart Product Details Created [75]','2019-03-18 23:15:03',NULL),(2385,'Cart Product Info Updated [75]','2019-03-18 23:15:03',NULL),(2386,'New Cart Product Created [76]','2019-03-18 23:22:58',NULL),(2387,'New Cart Product Details Created [76]','2019-03-18 23:22:58',NULL),(2388,'Cart Product Info Updated [76]','2019-03-18 23:22:58',NULL),(2389,'New Cart Product Created [77]','2019-03-18 23:27:47',NULL),(2390,'New Cart Product Details Created [77]','2019-03-18 23:27:47',NULL),(2391,'Cart Product Info Updated [77]','2019-03-18 23:27:47',NULL),(2392,'New Cart Product Created [78]','2019-03-18 23:32:09',NULL),(2393,'New Cart Product Details Created [78]','2019-03-18 23:32:09',NULL),(2394,'Cart Product Info Updated [78]','2019-03-18 23:32:09',NULL),(2395,'New Cart Product Created [79]','2019-03-18 23:33:40',NULL),(2396,'New Cart Product Details Created [79]','2019-03-18 23:33:40',NULL),(2397,'Cart Product Info Updated [79]','2019-03-18 23:33:40',NULL),(2398,'log_user_info_updated','2019-03-18 23:40:06',NULL),(2399,'log_user_info_updated','2019-03-18 23:41:33',NULL),(2400,'log_user_info_updated','2019-03-18 23:41:45',NULL),(2401,'log_user_info_updated','2019-03-18 23:42:06',NULL),(2402,'log_user_info_updated','2019-03-18 23:42:12',NULL),(2403,'log_user_info_updated','2019-03-18 23:42:14',NULL),(2404,'log_user_info_updated','2019-03-18 23:58:49',NULL),(2405,'log_user_info_updated','2019-03-19 00:08:08',NULL),(2406,'log_user_info_updated','2019-03-19 00:23:40',NULL),(2407,'log_user_info_updated','2019-03-19 10:35:57',NULL),(2408,'log_user_info_updated','2019-03-19 22:42:41',NULL),(2409,'log_user_info_updated','2019-03-19 22:44:00',NULL),(2410,'log_user_info_updated','2019-03-19 23:14:41','Admin Nadaf'),(2411,'failed_login_attempt[mobile:7721037175, user_type:2, IP:103.204.119.222]','2019-03-20 00:09:30',NULL),(2412,'New Vendor Created [7721037175]','2019-03-20 00:09:30',NULL),(2413,'New Member Created [7721037175]','2019-03-20 00:09:30',NULL),(2414,'failed_login_attempt[mobile:7721037175, user_type:2, IP:103.204.119.222]','2019-03-20 00:09:53',NULL),(2415,'New Vendor Created [7721037175]','2019-03-20 00:09:53',NULL),(2416,'New Member Created [7721037175]','2019-03-20 00:09:53',NULL),(2417,'log_user_info_updated','2019-03-20 00:18:05',NULL),(2418,'New Profile Created [39]','2019-03-20 00:18:05',NULL),(2419,'New Vendor About Created [39]','2019-03-20 00:18:05',NULL),(2420,'New Vendor Wroks Created [39]','2019-03-20 00:18:05',NULL),(2421,'New Vendor Locations Created [39]','2019-03-20 00:18:05',NULL),(2422,'New Vendor Account Created [39]','2019-03-20 00:18:05',NULL),(2423,'log_profile_info_updated','2019-03-20 00:19:56',NULL),(2424,'log_user_info_updated','2019-03-20 18:03:13',NULL),(2425,'New Cart Product Created [80]','2019-03-21 23:56:47',NULL),(2426,'New Cart Product Details Created [80]','2019-03-21 23:56:47',NULL),(2427,'Cart Product Info Updated [80]','2019-03-21 23:56:47',NULL),(2428,'log_user_info_updated','2019-03-23 00:36:09',NULL),(2429,'log_user_info_updated','2019-03-23 23:13:23',NULL),(2430,'Failed Login Attempt [Email:nil@gmail.com,is admin memberYes, IP:103.204.119.213]','2019-03-26 22:17:46',NULL),(2431,'Failed Login Attempt [Email:nil@gmail.com,is admin memberYes, IP:103.204.119.213]','2019-03-26 22:17:48',NULL),(2432,'Failed Login Attempt [Email:disha.intorque@gmail.com,is admin memberYes, IP:103.204.119.213]','2019-03-26 22:22:05',NULL),(2433,'New Category Created [Plumber From Staff: 1]','2019-03-26 22:52:02','Admin Nadaf'),(2434,'Category Info Updated [77]','2019-03-26 22:52:07','Admin Nadaf'),(2435,'Category Info Updated [77]','2019-03-26 22:52:10','Admin Nadaf'),(2436,'New Service Created [ From Staff: 1]','2019-03-26 22:53:01','Admin Nadaf'),(2437,'log_user_info_updated','2019-03-28 11:04:47',NULL),(2438,'log_user_info_updated','2019-03-28 11:06:59',NULL),(2439,'log_account_info_updated','2019-03-28 11:08:31',NULL),(2440,'log_account_info_updated','2019-03-28 11:08:34',NULL),(2441,'log_account_info_updated','2019-03-28 11:08:35',NULL),(2442,'vendor_deleted [46]','2019-03-28 11:11:40','Admin Nadaf'),(2443,'member_deleted [58]','2019-03-28 11:11:40','Admin Nadaf'),(2444,'failed_login_attempt[mobile:8421118351, user_type:2, IP:42.107.78.7]','2019-03-28 11:12:48',NULL),(2445,'New Vendor Created [8421118351]','2019-03-28 11:12:48',NULL),(2446,'New Member Created [8421118351]','2019-03-28 11:12:48',NULL),(2447,'vendor_deleted [58]','2019-03-28 11:15:49','Admin Nadaf'),(2448,'member_deleted [78]','2019-03-28 11:15:49','Admin Nadaf'),(2449,'failed_login_attempt[mobile:8421118351, user_type:2, IP:42.107.78.7]','2019-03-28 11:18:14',NULL),(2450,'New Vendor Created [8421118351]','2019-03-28 11:18:14',NULL),(2451,'New Member Created [8421118351]','2019-03-28 11:18:14',NULL),(2452,'log_user_info_updated','2019-03-28 12:34:53',NULL),(2453,'log_user_info_updated','2019-03-28 12:48:50',NULL),(2454,'log_user_info_updated','2019-03-28 12:57:53',NULL),(2455,'log_user_info_updated','2019-03-28 12:58:36',NULL),(2456,'log_user_info_updated','2019-03-28 23:33:48',NULL),(2457,'log_user_info_updated','2019-03-28 23:42:47',NULL),(2458,'log_user_info_updated','2019-03-29 00:14:11',NULL),(2459,'log_user_info_updated','2019-03-29 00:24:17',NULL),(2460,'failed_login_attempt[mobile:8668682966, user_type:2, IP:103.26.58.2]','2019-03-29 00:31:17',NULL),(2461,'New Vendor Created [8668682966]','2019-03-29 00:31:17',NULL),(2462,'New Member Created [8668682966]','2019-03-29 00:31:17',NULL),(2463,'log_user_info_updated','2019-03-29 22:24:53',NULL),(2464,'failed_login_attempt[mobile:7721037175, user_type:3, IP:103.26.58.2]','2019-03-30 01:07:39',NULL),(2465,'New Vendor Created [7721037175]','2019-03-30 01:07:39',NULL),(2466,'New Member Created [7721037175]','2019-03-30 01:07:39',NULL),(2467,'failed_login_attempt[mobile:7721037175, user_type:3, IP:103.26.58.2]','2019-03-30 01:33:01',NULL),(2468,'New Vendor Created [7721037175]','2019-03-30 01:33:01',NULL),(2469,'New Member Created [7721037175]','2019-03-30 01:33:01',NULL),(2470,'log_user_info_updated','2019-03-30 01:34:47',NULL),(2471,'log_user_info_updated','2019-03-30 01:35:23',NULL),(2472,'New Vendor Account Created [8]','2019-03-30 01:35:23',NULL),(2473,'failed_login_attempt[mobile:9503008804, user_type:1, IP:103.26.58.2]','2019-03-30 01:47:12',NULL),(2474,'New Customer Created [9503008804]','2019-03-30 01:47:12',NULL),(2475,'New Member Created [9503008804]','2019-03-30 01:47:12',NULL),(2476,'log_user_info_updated','2019-03-30 01:48:54',NULL),(2477,'New Cart Product Created [81]','2019-03-30 22:40:27',NULL),(2478,'New Cart Product Details Created [81]','2019-03-30 22:40:27',NULL),(2479,'Cart Product Info Updated [81]','2019-03-30 22:40:27',NULL),(2480,'New Cart Product Created [82]','2019-03-30 22:42:10',NULL),(2481,'New Cart Product Details Created [82]','2019-03-30 22:42:10',NULL),(2482,'Cart Product Info Updated [82]','2019-03-30 22:42:10',NULL),(2483,'New Cart Product Created [83]','2019-03-30 22:50:37',NULL),(2484,'New Cart Product Details Created [83]','2019-03-30 22:50:37',NULL),(2485,'Cart Product Info Updated [83]','2019-03-30 22:50:37',NULL),(2486,'log_user_info_updated','2019-03-31 15:54:29',NULL),(2487,'New Profile Created [40]','2019-03-31 15:54:29',NULL),(2488,'New Vendor About Created [40]','2019-03-31 15:54:29',NULL),(2489,'New Vendor Wroks Created [40]','2019-03-31 15:54:29',NULL),(2490,'New Vendor Locations Created [40]','2019-03-31 15:54:29',NULL),(2491,'New Vendor Account Created [40]','2019-03-31 15:54:29',NULL),(2492,'log_profile_info_updated','2019-03-31 15:56:41',NULL),(2493,'log_profile_info_updated','2019-03-31 15:57:26',NULL),(2494,'log_profile_info_updated','2019-03-31 15:57:51',NULL),(2495,'log_profile_info_updated','2019-03-31 15:57:53',NULL),(2496,'log_about_info_updated','2019-03-31 15:58:44',NULL),(2497,'log_works_info_updated','2019-03-31 15:59:06',NULL),(2498,'log_locations_info_updated','2019-03-31 16:00:21',NULL),(2499,'log_user_info_updated','2019-03-31 16:00:23',NULL),(2500,'log_user_info_updated','2019-03-31 16:08:48',NULL),(2501,'failed_login_attempt[mobile:8668682966, user_type:2, IP:103.26.58.2]','2019-03-31 16:12:00',NULL),(2502,'New Vendor Created [8668682966]','2019-03-31 16:12:00',NULL),(2503,'New Member Created [8668682966]','2019-03-31 16:12:00',NULL),(2504,'Cart Product Info Updated [1]','2019-03-31 16:12:16',NULL),(2505,'New Cart Product Details Created [84]','2019-03-31 16:12:16',NULL),(2506,'Cart Product Info Updated [1]','2019-03-31 16:12:16',NULL),(2507,'log_user_info_updated','2019-03-31 16:12:29',NULL),(2508,'vendor_deleted [60]','2019-03-31 16:16:06','Admin Nadaf'),(2509,'member_deleted [80]','2019-03-31 16:16:06','Admin Nadaf'),(2510,'vendor_deleted [57]','2019-03-31 16:16:13','Admin Nadaf'),(2511,'member_deleted [77]','2019-03-31 16:16:13','Admin Nadaf'),(2512,'vendor_deleted [55]','2019-03-31 16:16:17','Admin Nadaf'),(2513,'member_deleted [74]','2019-03-31 16:16:17','Admin Nadaf'),(2514,'failed_login_attempt[mobile:9503008804, user_type:2, IP:103.26.58.2]','2019-03-31 16:19:42',NULL),(2515,'New Vendor Created [9503008804]','2019-03-31 16:19:42',NULL),(2516,'New Member Created [9503008804]','2019-03-31 16:19:42',NULL),(2517,'log_user_info_updated','2019-03-31 16:21:03',NULL),(2518,'New Profile Created [41]','2019-03-31 16:21:03',NULL),(2519,'New Vendor About Created [41]','2019-03-31 16:21:03',NULL),(2520,'New Vendor Wroks Created [41]','2019-03-31 16:21:03',NULL),(2521,'New Vendor Locations Created [41]','2019-03-31 16:21:03',NULL),(2522,'New Vendor Account Created [41]','2019-03-31 16:21:03',NULL),(2523,'log_profile_info_updated','2019-03-31 16:21:51',NULL),(2524,'log_profile_info_updated','2019-03-31 16:31:27',NULL),(2525,'log_profile_info_updated','2019-03-31 16:32:43',NULL),(2526,'log_profile_info_updated','2019-03-31 16:32:45',NULL),(2527,'log_about_info_updated','2019-03-31 16:33:22',NULL),(2528,'log_works_info_updated','2019-03-31 16:33:29',NULL),(2529,'log_locations_info_updated','2019-03-31 16:34:05',NULL),(2530,'log_user_info_updated','2019-03-31 16:34:06',NULL),(2531,'log_user_info_updated','2019-03-31 16:35:08',NULL),(2532,'failed_login_attempt[mobile:9503008804, user_type:2, IP:103.26.58.2]','2019-03-31 16:35:32',NULL),(2533,'New Vendor Created [9503008804]','2019-03-31 16:35:32',NULL),(2534,'New Member Created [9503008804]','2019-03-31 16:35:32',NULL),(2535,'log_user_info_updated','2019-03-31 16:36:38',NULL),(2536,'failed_login_attempt[mobile:9326003570, user_type:2, IP:106.78.189.191]','2019-03-31 18:12:50',NULL),(2537,'New Vendor Created [9326003570]','2019-03-31 18:12:50',NULL),(2538,'New Member Created [9326003570]','2019-03-31 18:12:50',NULL),(2539,'log_user_info_updated','2019-03-31 18:13:29',NULL),(2540,'New Profile Created [42]','2019-03-31 18:13:29',NULL),(2541,'New Vendor About Created [42]','2019-03-31 18:13:29',NULL),(2542,'New Vendor Wroks Created [42]','2019-03-31 18:13:29',NULL),(2543,'New Vendor Locations Created [42]','2019-03-31 18:13:29',NULL),(2544,'New Vendor Account Created [42]','2019-03-31 18:13:29',NULL),(2545,'log_profile_info_updated','2019-03-31 18:14:56',NULL),(2546,'log_profile_info_updated','2019-03-31 18:15:22',NULL),(2547,'log_profile_info_updated','2019-03-31 18:15:41',NULL),(2548,'log_profile_info_updated','2019-03-31 18:15:45',NULL),(2549,'log_about_info_updated','2019-03-31 18:17:01',NULL),(2550,'log_locations_info_updated','2019-03-31 18:17:34',NULL),(2551,'log_works_info_updated','2019-03-31 18:17:42',NULL),(2552,'log_works_info_updated','2019-03-31 18:17:49',NULL),(2553,'log_works_info_updated','2019-03-31 18:18:04',NULL),(2554,'log_user_info_updated','2019-03-31 18:18:22',NULL),(2555,'log_works_info_updated','2019-03-31 18:18:58',NULL),(2556,'failed_login_attempt[mobile:9975420480, user_type:1, IP:103.26.58.2]','2019-03-31 18:22:14',NULL),(2557,'New Customer Created [9975420480]','2019-03-31 18:22:14',NULL),(2558,'New Member Created [9975420480]','2019-03-31 18:22:14',NULL),(2559,'log_user_info_updated','2019-03-31 19:30:16',NULL),(2560,'New Profile Created [43]','2019-03-31 19:30:16',NULL),(2561,'New Vendor About Created [43]','2019-03-31 19:30:16',NULL),(2562,'New Vendor Wroks Created [43]','2019-03-31 19:30:16',NULL),(2563,'New Vendor Locations Created [43]','2019-03-31 19:30:16',NULL),(2564,'New Vendor Account Created [43]','2019-03-31 19:30:16',NULL),(2565,'log_profile_info_updated','2019-03-31 19:33:25',NULL),(2566,'log_profile_info_updated','2019-03-31 19:34:27',NULL),(2567,'log_profile_info_updated','2019-03-31 19:35:10',NULL),(2568,'log_profile_info_updated','2019-03-31 19:35:13',NULL),(2569,'log_about_info_updated','2019-03-31 19:36:38',NULL),(2570,'log_locations_info_updated','2019-03-31 19:39:14',NULL),(2571,'log_works_info_updated','2019-03-31 19:40:24',NULL),(2572,'log_works_info_updated','2019-03-31 19:40:39',NULL),(2573,'log_user_info_updated','2019-03-31 19:40:59',NULL),(2574,'log_user_info_updated','2019-03-31 19:41:54',NULL),(2575,'log_works_info_updated','2019-03-31 19:42:36',NULL),(2576,'log_works_info_updated','2019-03-31 19:44:15',NULL),(2577,'log_account_info_updated','2019-03-31 19:50:40',NULL),(2578,'failed_login_attempt[mobile:8421118351, user_type:1, IP:42.107.87.145]','2019-03-31 19:52:28',NULL),(2579,'New Customer Created [8421118351]','2019-03-31 19:52:28',NULL),(2580,'New Member Created [8421118351]','2019-03-31 19:52:28',NULL),(2581,'failed_login_attempt[mobile:7028668351, user_type:1, IP:42.106.238.63]','2019-03-31 19:59:28',NULL),(2582,'New Customer Created [7028668351]','2019-03-31 19:59:28',NULL),(2583,'New Member Created [7028668351]','2019-03-31 19:59:28',NULL),(2584,'log_user_info_updated','2019-03-31 20:01:26',NULL),(2585,'log_user_info_updated','2019-03-31 20:05:46',NULL),(2586,'log_user_info_updated','2019-03-31 20:06:59',NULL),(2587,'log_user_info_updated','2019-03-31 20:19:35','Admin Nadaf'),(2588,'log_user_info_updated','2019-03-31 20:20:34','Admin Nadaf'),(2589,'log_user_info_updated','2019-03-31 22:05:11',NULL),(2590,'log_account_info_updated','2019-03-31 22:06:59',NULL),(2591,'log_user_info_updated','2019-03-31 22:09:33','Admin Nadaf'),(2592,'log_user_info_updated','2019-03-31 22:11:18','Admin Nadaf'),(2593,'vendor_deleted [63]','2019-03-31 22:20:42','Admin Nadaf'),(2594,'member_deleted [86]','2019-03-31 22:20:42','Admin Nadaf'),(2595,'log_user_info_updated','2019-03-31 22:21:18','Admin Nadaf'),(2596,'log_user_info_updated','2019-03-31 22:32:55','Admin Nadaf'),(2597,'failed_login_attempt[mobile:8600645478, user_type:2, IP:103.26.58.2]','2019-03-31 23:00:54',NULL),(2598,'New Vendor Created [8600645478]','2019-03-31 23:00:54',NULL),(2599,'New Member Created [8600645478]','2019-03-31 23:00:54',NULL),(2600,'log_user_info_updated','2019-04-01 10:33:28',NULL),(2601,'log_user_info_updated','2019-04-01 12:05:58',NULL),(2602,'failed_login_attempt[mobile:7769999468, user_type:2, IP:51.39.117.26]','2019-04-01 16:27:12',NULL),(2603,'New Vendor Created [7769999468]','2019-04-01 16:27:12',NULL),(2604,'New Member Created [7769999468]','2019-04-01 16:27:13',NULL),(2605,'log_user_info_updated','2019-04-01 17:06:17',NULL),(2606,'failed_login_attempt[mobile:8600645478, user_type:1, IP:106.220.148.214]','2019-04-01 17:07:51',NULL),(2607,'New Customer Created [8600645478]','2019-04-01 17:07:51',NULL),(2608,'New Member Created [8600645478]','2019-04-01 17:07:51',NULL),(2609,'log_user_info_updated','2019-04-01 17:08:30',NULL),(2610,'New Address Created [7]','2019-04-01 17:11:35',NULL),(2611,'New Cart Created [16]','2019-04-01 17:13:27',NULL),(2612,'failed_login_attempt[mobile:9579729595, user_type:2, IP:103.26.58.2]','2019-04-01 17:21:52',NULL),(2613,'New Vendor Created [9579729595]','2019-04-01 17:21:52',NULL),(2614,'New Member Created [9579729595]','2019-04-01 17:21:52',NULL),(2615,'log_user_info_updated','2019-04-01 17:24:23',NULL),(2616,'Cart Product Info Updated [1]','2019-04-01 19:27:47',NULL),(2617,'New Cart Product Details Created [85]','2019-04-01 19:27:47',NULL),(2618,'Cart Product Info Updated [1]','2019-04-01 19:27:47',NULL),(2619,'Cart Product Info Updated [1]','2019-04-01 19:27:53',NULL),(2620,'cart_product_details_deleted [1]','2019-04-01 19:27:53',NULL),(2621,'Cart Product Info Updated [1]','2019-04-01 19:27:55',NULL),(2622,'cart_product_details_deleted [84]','2019-04-01 19:27:55',NULL),(2623,'Cart Product Info Updated [1]','2019-04-01 19:29:34',NULL),(2624,'New Cart Product Details Created [86]','2019-04-01 19:29:34',NULL),(2625,'Cart Product Info Updated [1]','2019-04-01 19:29:34',NULL),(2626,'Cart Product Info Updated [1]','2019-04-01 19:29:51',NULL),(2627,'cart_product_details_deleted [86]','2019-04-01 19:29:51',NULL),(2628,'New Address Created [8]','2019-04-01 19:30:52',NULL),(2629,'Cart Product Info Updated [1]','2019-04-01 19:31:26',NULL),(2630,'Cart Product Info Updated [1]','2019-04-01 19:31:54',NULL),(2631,'Cart Product Info Updated [1]','2019-04-01 19:31:58',NULL),(2632,'failed_login_attempt[mobile:0598974465, user_type:2, IP:51.36.209.204]','2019-04-01 22:21:48',NULL),(2633,'New Vendor Created [0598974465]','2019-04-01 22:21:48',NULL),(2634,'New Member Created [0598974465]','2019-04-01 22:21:48',NULL),(2635,'failed_login_attempt[mobile:9370071116, user_type:2, IP:51.36.209.204]','2019-04-01 22:24:02',NULL),(2636,'New Vendor Created [9370071116]','2019-04-01 22:24:02',NULL),(2637,'New Member Created [9370071116]','2019-04-01 22:24:02',NULL),(2638,'log_user_info_updated','2019-04-01 22:27:55',NULL),(2639,'New Profile Created [44]','2019-04-01 22:27:55',NULL),(2640,'New Vendor About Created [44]','2019-04-01 22:27:55',NULL),(2641,'New Vendor Wroks Created [44]','2019-04-01 22:27:55',NULL),(2642,'New Vendor Locations Created [44]','2019-04-01 22:27:55',NULL),(2643,'New Vendor Account Created [44]','2019-04-01 22:27:55',NULL),(2644,'log_profile_info_updated','2019-04-01 22:28:39',NULL),(2645,'log_user_info_updated','2019-04-01 23:04:25',NULL),(2646,'vendor_deleted [62]','2019-04-01 23:20:18','Admin Nadaf'),(2647,'member_deleted [85]','2019-04-01 23:20:18','Admin Nadaf'),(2648,'failed_login_attempt[mobile:9503008804, user_type:2, IP:157.33.160.112]','2019-04-01 23:20:44',NULL),(2649,'New Vendor Created [9503008804]','2019-04-01 23:20:44',NULL),(2650,'New Member Created [9503008804]','2019-04-01 23:20:44',NULL),(2651,'log_user_info_updated','2019-04-01 23:21:57',NULL),(2652,'New Profile Created [45]','2019-04-01 23:21:57',NULL),(2653,'New Vendor About Created [45]','2019-04-01 23:21:57',NULL),(2654,'New Vendor Wroks Created [45]','2019-04-01 23:21:57',NULL),(2655,'New Vendor Locations Created [45]','2019-04-01 23:21:57',NULL),(2656,'New Vendor Account Created [45]','2019-04-01 23:21:57',NULL),(2657,'log_profile_info_updated','2019-04-01 23:23:44',NULL),(2658,'log_profile_info_updated','2019-04-01 23:25:16',NULL),(2659,'log_profile_info_updated','2019-04-01 23:25:20',NULL),(2660,'log_profile_info_updated','2019-04-01 23:25:22',NULL),(2661,'log_profile_info_updated','2019-04-01 23:26:00',NULL),(2662,'log_profile_info_updated','2019-04-01 23:26:03',NULL),(2663,'log_profile_info_updated','2019-04-01 23:26:05',NULL),(2664,'log_profile_info_updated','2019-04-01 23:26:07',NULL),(2665,'log_profile_info_updated','2019-04-01 23:26:09',NULL),(2666,'log_profile_info_updated','2019-04-01 23:26:11',NULL),(2667,'log_about_info_updated','2019-04-01 23:27:30',NULL),(2668,'log_about_info_updated','2019-04-01 23:27:37',NULL),(2669,'log_works_info_updated','2019-04-01 23:28:14',NULL),(2670,'log_locations_info_updated','2019-04-01 23:29:34',NULL),(2671,'log_user_info_updated','2019-04-01 23:29:36',NULL),(2672,'log_user_info_updated','2019-04-01 23:47:14',NULL),(2673,'log_user_info_updated','2019-04-01 23:49:28','Admin Nadaf'),(2674,'log_user_info_updated','2019-04-01 23:49:32','Admin Nadaf'),(2675,'log_user_info_updated','2019-04-01 23:49:32','Admin Nadaf'),(2676,'log_user_info_updated','2019-04-01 23:49:33','Admin Nadaf'),(2677,'log_user_info_updated','2019-04-01 23:49:35','Admin Nadaf'),(2678,'log_user_info_updated','2019-04-01 23:49:37','Admin Nadaf'),(2679,'log_user_info_updated','2019-04-01 23:49:38','Admin Nadaf'),(2680,'log_user_info_updated','2019-04-01 23:49:38','Admin Nadaf'),(2681,'log_user_info_updated','2019-04-01 23:49:38','Admin Nadaf'),(2682,'log_user_info_updated','2019-04-02 00:00:10','Admin Nadaf'),(2683,'log_user_info_updated','2019-04-02 00:00:10','Admin Nadaf'),(2684,'log_user_info_updated','2019-04-02 00:00:11','Admin Nadaf'),(2685,'log_user_info_updated','2019-04-02 00:00:11','Admin Nadaf'),(2686,'log_user_info_updated','2019-04-02 00:00:13','Admin Nadaf'),(2687,'log_user_info_updated','2019-04-02 00:00:14','Admin Nadaf'),(2688,'log_user_info_updated','2019-04-02 00:03:14','Admin Nadaf'),(2689,'log_user_info_updated','2019-04-02 00:09:15','Admin Nadaf'),(2690,'log_user_info_updated','2019-04-02 00:09:17','Admin Nadaf'),(2691,'log_profile_info_updated','2019-04-02 00:48:58',NULL),(2692,'log_profile_info_updated','2019-04-02 00:49:21',NULL),(2693,'log_profile_info_updated','2019-04-02 00:49:24',NULL),(2694,'log_about_info_updated','2019-04-02 00:50:16',NULL),(2695,'log_works_info_updated','2019-04-02 00:50:36',NULL),(2696,'log_works_info_updated','2019-04-02 00:50:43',NULL),(2697,'log_locations_info_updated','2019-04-02 00:50:53',NULL),(2698,'log_user_info_updated','2019-04-02 00:50:56',NULL),(2699,'log_user_info_updated','2019-04-02 08:42:14',NULL),(2700,'log_user_info_updated','2019-04-02 10:30:08',NULL),(2701,'log_user_info_updated','2019-04-02 20:55:14',NULL),(2702,'log_user_info_updated','2019-04-02 22:12:19',NULL),(2703,'log_user_info_updated','2019-04-03 18:21:35',NULL),(2704,'Restaurant Info Updated [14]','2019-04-03 19:35:21','Admin Nadaf'),(2705,'Restaurant Info Updated [14]','2019-04-03 19:35:22','Admin Nadaf'),(2706,'log_user_info_updated','2019-04-03 19:36:02','Admin Nadaf'),(2707,'log_user_info_updated','2019-04-03 19:36:03','Admin Nadaf'),(2708,'New Cart Created [17]','2019-04-03 23:02:28',NULL),(2709,'failed_login_attempt[mobile:8668682966, user_type:2, IP:49.35.125.141]','2019-04-03 23:20:26',NULL),(2710,'New Vendor Created [8668682966]','2019-04-03 23:20:26',NULL),(2711,'New Member Created [8668682966]','2019-04-03 23:20:26',NULL),(2712,'Staff profile detail updated [ID: 1]','2019-04-04 11:38:11','Admin Tonse'),(2713,'Category Info Updated [77]','2019-04-04 11:39:06','Admin Tonse'),(2714,'Category Info Updated [9]','2019-04-04 11:42:32','Admin Tonse'),(2715,'Category Info Updated [77]','2019-04-04 11:42:57','Admin Tonse'),(2716,'Category Info Updated [77]','2019-04-04 11:42:58','Admin Tonse'),(2717,'Category Info Updated [8]','2019-04-04 11:44:48','Admin Tonse'),(2718,'Category Info Updated [74]','2019-04-04 11:55:58','Admin Tonse'),(2719,'New Service Created [ From Staff: 1]','2019-04-04 11:57:55','Admin Tonse'),(2720,'Service Info Updated [9]','2019-04-04 11:59:14','Admin Tonse'),(2721,'Service Info Updated [8]','2019-04-04 11:59:15','Admin Tonse'),(2722,'Restaurant Info Updated [14]','2019-04-04 12:01:38','Admin Tonse'),(2723,'Restaurant Info Updated [13]','2019-04-04 12:01:39','Admin Tonse'),(2724,'Restaurant Info Updated [10]','2019-04-04 12:01:40','Admin Tonse'),(2725,'Restaurant Info Updated [9]','2019-04-04 12:01:41','Admin Tonse'),(2726,'restaurant_deleted [13]','2019-04-04 12:02:36','Admin Tonse'),(2727,'New Category Created [Legal & Financial Services From Staff: 1]','2019-04-04 12:09:13','Admin Tonse'),(2728,'New Category Created [Aadhar Card Agents From Staff: 1]','2019-04-04 12:10:47','Admin Tonse'),(2729,'Category Info Updated [79]','2019-04-04 12:12:26','Admin Tonse'),(2730,'New Category Created [Non - Govt Agent From Staff: 1]','2019-04-04 12:13:54','Admin Tonse'),(2731,'failed_login_attempt[mobile:7721037175, user_type:2, IP:157.33.230.233]','2019-04-04 18:04:36',NULL),(2732,'New Vendor Created [7721037175]','2019-04-04 18:04:36',NULL),(2733,'New Member Created [7721037175]','2019-04-04 18:04:36',NULL),(2734,'log_user_info_updated','2019-04-04 18:05:52',NULL),(2735,'New Profile Created [46]','2019-04-04 18:05:52',NULL),(2736,'New Vendor About Created [46]','2019-04-04 18:05:52',NULL),(2737,'New Vendor Wroks Created [46]','2019-04-04 18:05:52',NULL),(2738,'New Vendor Locations Created [46]','2019-04-04 18:05:52',NULL),(2739,'New Vendor Account Created [46]','2019-04-04 18:05:52',NULL),(2740,'failed_login_attempt[mobile:7721037178, user_type:2, IP:157.33.253.62]','2019-04-04 18:45:03',NULL),(2741,'New Vendor Created [7721037178]','2019-04-04 18:45:03',NULL),(2742,'New Member Created [7721037178]','2019-04-04 18:45:03',NULL),(2743,'log_user_info_updated','2019-04-04 22:17:01','Admin Tonse'),(2744,'log_user_info_updated','2019-04-04 22:17:03','Admin Tonse'),(2745,'New Cart Created [18]','2019-04-04 23:35:15',NULL),(2746,'Cart Product Info Updated [1]','2019-04-04 23:36:57',NULL),(2747,'log_user_info_updated','2019-04-05 19:43:51',NULL),(2748,'New Cart Created [19]','2019-04-05 19:46:09',NULL),(2749,'log_user_info_updated','2019-04-06 23:49:30',NULL),(2750,'log_address_info_updated','2019-04-06 23:49:35',NULL),(2751,'log_user_info_updated','2019-04-07 10:12:42','Admin Tonse'),(2752,'Cart Product Info Updated [1]','2019-04-07 10:40:58','Admin Tonse'),(2753,'New Cart Product Details Created [87 From Staff: 1]','2019-04-07 10:40:58','Admin Tonse'),(2754,'Cart Product Info Updated [1]','2019-04-07 10:40:58','Admin Tonse'),(2755,'log_user_info_updated','2019-04-07 11:37:02',NULL),(2756,'New Address Created [9]','2019-04-07 11:38:13',NULL),(2757,'Cart Product Info Updated [1]','2019-04-07 11:38:48',NULL),(2758,'Cart Product Info Updated [1]','2019-04-07 11:40:20','Admin Tonse'),(2759,'New Cart Created [20]','2019-04-07 11:44:08',NULL),(2760,'New Cart Created [21 From Staff: 1]','2019-04-07 11:47:30','Admin Tonse'),(2761,'Cart Product Info Updated [1]','2019-04-07 11:49:13','Admin Tonse'),(2762,'Cart Product Info Updated [1]','2019-04-07 11:49:47',NULL),(2763,'cart_product_details_deleted [87]','2019-04-07 11:49:47',NULL),(2764,'New Address Created [10]','2019-04-07 13:42:49',NULL),(2765,'New Cart Created [22]','2019-04-07 13:43:20',NULL),(2766,'Cart Product Info Updated [1]','2019-04-07 13:50:20',NULL),(2767,'New Cart Product Details Created [88]','2019-04-07 13:50:20',NULL),(2768,'Cart Product Info Updated [1]','2019-04-07 13:50:20',NULL),(2769,'Cart Product Info Updated [1]','2019-04-07 13:50:25',NULL),(2770,'Cart Product Detail Info Updated [85]','2019-04-07 13:50:25',NULL),(2771,'Cart Product Info Updated [1]','2019-04-07 13:50:41',NULL),(2772,'failed_login_attempt[mobile:8904817656, user_type:1, IP:157.45.255.199]','2019-04-07 14:42:39',NULL),(2773,'New Member Created [8904817656]','2019-04-07 14:42:39',NULL),(2774,'failed_login_attempt[mobile:9900413744, user_type:1, IP:223.186.247.207]','2019-04-07 15:05:42',NULL),(2775,'New Customer Created [9900413744]','2019-04-07 15:05:42',NULL),(2776,'New Member Created [9900413744]','2019-04-07 15:05:42',NULL),(2777,'log_user_info_updated','2019-04-07 15:08:08',NULL),(2778,'New Address Created [11]','2019-04-07 15:09:49',NULL),(2779,'New Cart Created [23]','2019-04-07 15:10:00',NULL),(2780,'New Cart Created [24]','2019-04-07 16:18:39',NULL),(2781,'New Cart Created [25]','2019-04-07 16:20:08',NULL),(2782,'failed_login_attempt[mobile:8421730213, user_type:1, IP:51.36.89.91]','2019-04-07 16:36:12',NULL),(2783,'New Customer Created [8421730213]','2019-04-07 16:36:13',NULL),(2784,'New Member Created [8421730213]','2019-04-07 16:36:13',NULL),(2785,'Cart Product Info Updated [1]','2019-04-07 16:49:26',NULL),(2786,'New Cart Product Details Created [89]','2019-04-07 16:49:26',NULL),(2787,'Cart Product Info Updated [1]','2019-04-07 16:49:26',NULL),(2788,'Cart Product Info Updated [1]','2019-04-07 16:49:37',NULL),(2789,'New Cart Created [26]','2019-04-08 11:42:36',NULL),(2790,'log_user_info_updated','2019-04-08 12:32:31',NULL),(2791,'log_user_info_updated','2019-04-08 12:32:43',NULL),(2792,'log_user_info_updated','2019-04-08 12:32:50',NULL),(2793,'log_user_info_updated','2019-04-08 12:32:57',NULL),(2794,'New Vendor Account Created [9]','2019-04-08 12:32:57',NULL),(2795,'log_user_info_updated','2019-04-08 12:33:05',NULL),(2796,'log_user_info_updated','2019-04-08 12:33:12',NULL),(2797,'New Vendor Account Created [10]','2019-04-08 12:33:12',NULL),(2798,'log_user_info_updated','2019-04-08 12:33:20',NULL),(2799,'log_user_info_updated','2019-04-08 12:33:27',NULL),(2800,'log_user_info_updated','2019-04-08 12:33:29',NULL),(2801,'log_user_info_updated','2019-04-08 12:33:38',NULL),(2802,'New Vendor Account Created [11]','2019-04-08 12:33:38',NULL),(2803,'log_user_info_updated','2019-04-08 12:33:45',NULL),(2804,'New Vendor Account Created [12]','2019-04-08 12:33:45',NULL),(2805,'log_user_info_updated','2019-04-08 12:33:52',NULL),(2806,'log_user_info_updated','2019-04-08 12:34:00',NULL),(2807,'log_user_info_updated','2019-04-08 12:34:06',NULL),(2808,'log_user_info_updated','2019-04-08 12:34:14',NULL),(2809,'log_user_info_updated','2019-04-08 12:35:08',NULL),(2810,'failed_login_attempt[mobile:7276477850, user_type:1, IP:103.26.58.2]','2019-04-08 12:44:05',NULL),(2811,'New Customer Created [7276477850]','2019-04-08 12:44:05',NULL),(2812,'New Member Created [7276477850]','2019-04-08 12:44:05',NULL),(2813,'log_user_info_updated','2019-04-08 12:50:32',NULL),(2814,'New Address Created [12]','2019-04-08 12:58:32',NULL),(2815,'New Cart Created [27]','2019-04-08 13:00:00',NULL),(2816,'Cart Product Info Updated [1]','2019-04-08 13:06:52',NULL),(2817,'New Cart Product Details Created [90]','2019-04-08 13:06:52',NULL),(2818,'Cart Product Info Updated [1]','2019-04-08 13:06:52',NULL),(2819,'Cart Product Info Updated [1]','2019-04-08 13:08:24',NULL),(2820,'failed_login_attempt[mobile:7276477850, user_type:2, IP:103.26.58.2]','2019-04-08 14:26:09',NULL),(2821,'New Vendor Created [7276477850]','2019-04-08 14:26:09',NULL),(2822,'New Member Created [7276477850]','2019-04-08 14:26:09',NULL),(2823,'log_user_info_updated','2019-04-08 14:32:49',NULL),(2824,'New Profile Created [47]','2019-04-08 14:32:49',NULL),(2825,'New Vendor About Created [47]','2019-04-08 14:32:49',NULL),(2826,'New Vendor Wroks Created [47]','2019-04-08 14:32:49',NULL),(2827,'New Vendor Locations Created [47]','2019-04-08 14:32:49',NULL),(2828,'New Vendor Account Created [47]','2019-04-08 14:32:49',NULL),(2829,'log_works_info_updated','2019-04-08 14:33:23',NULL),(2830,'New Cart Created [28]','2019-04-08 14:43:48',NULL),(2831,'log_profile_info_updated','2019-04-08 14:45:08',NULL),(2832,'log_profile_info_updated','2019-04-08 14:46:14',NULL),(2833,'log_profile_info_updated','2019-04-08 14:46:49',NULL),(2834,'log_profile_info_updated','2019-04-08 14:46:53',NULL),(2835,'log_about_info_updated','2019-04-08 14:48:33',NULL),(2836,'log_locations_info_updated','2019-04-08 14:49:23',NULL),(2837,'log_user_info_updated','2019-04-08 14:50:06',NULL),(2838,'log_user_info_updated','2019-04-08 14:50:23',NULL),(2839,'log_user_info_updated','2019-04-08 14:50:52',NULL),(2840,'log_user_info_updated','2019-04-08 21:07:30',NULL),(2841,'failed_login_attempt[mobile:9503426152, user_type:2, IP:103.26.58.2]','2019-04-08 21:09:44',NULL),(2842,'New Vendor Created [9503426152]','2019-04-08 21:09:44',NULL),(2843,'New Member Created [9503426152]','2019-04-08 21:09:44',NULL),(2844,'Cart Product Info Updated [1]','2019-04-08 22:19:59',NULL),(2845,'New Cart Product Details Created [91]','2019-04-08 22:19:59',NULL),(2846,'Cart Product Info Updated [1]','2019-04-08 22:19:59',NULL),(2847,'New Cart Created [29]','2019-04-08 22:20:03',NULL),(2848,'Cart Product Info Updated [1]','2019-04-08 22:20:19',NULL),(2849,'failed_login_attempt[mobile:9503426152, user_type:1, IP:103.26.58.2]','2019-04-08 22:42:34',NULL),(2850,'New Customer Created [9503426152]','2019-04-08 22:42:35',NULL),(2851,'New Member Created [9503426152]','2019-04-08 22:42:35',NULL),(2852,'log_user_info_updated','2019-04-08 23:37:56',NULL),(2853,'log_user_info_updated','2019-04-09 10:35:52',NULL),(2854,'log_user_info_updated','2019-04-09 11:45:39',NULL),(2855,'New Profile Created [48]','2019-04-09 11:45:39',NULL),(2856,'New Vendor About Created [48]','2019-04-09 11:45:39',NULL),(2857,'New Vendor Wroks Created [48]','2019-04-09 11:45:39',NULL),(2858,'New Vendor Locations Created [48]','2019-04-09 11:45:39',NULL),(2859,'New Vendor Account Created [48]','2019-04-09 11:45:39',NULL),(2860,'failed_login_attempt[mobile:9975420480, user_type:2, IP:103.26.58.2]','2019-04-09 11:47:15',NULL),(2861,'New Vendor Created [9975420480]','2019-04-09 11:47:15',NULL),(2862,'New Member Created [9975420480]','2019-04-09 11:47:15',NULL),(2863,'log_user_info_updated','2019-04-09 11:48:00',NULL),(2864,'New Profile Created [49]','2019-04-09 11:48:00',NULL),(2865,'New Vendor About Created [49]','2019-04-09 11:48:00',NULL),(2866,'New Vendor Wroks Created [49]','2019-04-09 11:48:00',NULL),(2867,'New Vendor Locations Created [49]','2019-04-09 11:48:00',NULL),(2868,'New Vendor Account Created [49]','2019-04-09 11:48:00',NULL),(2869,'log_user_info_updated','2019-04-09 15:25:02',NULL),(2870,'log_user_info_updated','2019-04-09 16:13:34',NULL),(2871,'Category Info Updated [13]','2019-04-09 16:21:46','Admin Tonse'),(2872,'Category Info Updated [12]','2019-04-09 16:22:07','Admin Tonse'),(2873,'Category Info Updated [10]','2019-04-09 16:22:29','Admin Tonse'),(2874,'New Category Created [Women\'s Fashion From Staff: 1]','2019-04-09 16:22:59','Admin Tonse'),(2875,'Category Info Updated [11]','2019-04-09 16:23:17','Admin Tonse'),(2876,'Category Info Updated [13]','2019-04-09 16:23:24','Admin Tonse'),(2877,'Category Info Updated [12]','2019-04-09 16:23:25','Admin Tonse'),(2878,'Category Info Updated [11]','2019-04-09 16:23:25','Admin Tonse'),(2879,'Category Info Updated [10]','2019-04-09 16:23:26','Admin Tonse'),(2880,'New Category Created [Beauty , Health & Grocery From Staff: 1]','2019-04-09 16:23:46','Admin Tonse'),(2881,'New Category Created [Sports, Fitness, Bags, Luggage From Staff: 1]','2019-04-09 16:24:09','Admin Tonse'),(2882,'New Category Created [Toys, Baby Products, Kids\' Fashion From Staff: 1]','2019-04-09 16:24:27','Admin Tonse'),(2883,'New Category Created [Car, Motorbike, Industrial From Staff: 1]','2019-04-09 16:24:45','Admin Tonse'),(2884,'New Category Created [Books & Audible From Staff: 1]','2019-04-09 16:24:56','Admin Tonse'),(2885,'New Category Created [Movies, Music & Video Games From Staff: 1]','2019-04-09 16:25:07','Admin Tonse'),(2886,'New Category Created [Gift Cards & Mobile Recharges From Staff: 1]','2019-04-09 16:25:18','Admin Tonse'),(2887,'New Category Created [Mobile Phones From Staff: 1]','2019-04-09 16:26:59','Admin Tonse'),(2888,'New Category Created [Mobile Categories From Staff: 1]','2019-04-09 16:27:14','Admin Tonse'),(2889,'category_deleted [16]','2019-04-09 16:27:19','Admin Tonse'),(2890,'New Category Created [Cases & Covers From Staff: 1]','2019-04-09 16:27:31','Admin Tonse'),(2891,'New Category Created [Screen Protectors From Staff: 1]','2019-04-09 16:27:41','Admin Tonse'),(2892,'New Category Created [Power Banks From Staff: 1]','2019-04-09 16:27:50','Admin Tonse'),(2893,'New Category Created [Certified Refurbished From Staff: 1]','2019-04-09 16:28:13','Admin Tonse'),(2894,'New Category Created [Tablets From Staff: 1]','2019-04-09 16:28:24','Admin Tonse'),(2895,'New Category Created [Wearable Devices From Staff: 1]','2019-04-09 16:28:33','Admin Tonse'),(2896,'New Category Created [Smart home From Staff: 1]','2019-04-09 16:28:42','Admin Tonse'),(2897,'New Category Created [Office Supplies & Stationary From Staff: 1]','2019-04-09 16:28:53','Admin Tonse'),(2898,'New Category Created [Software From Staff: 1]','2019-04-09 16:29:00','Admin Tonse'),(2899,'New Category Created [Computers & Accessories From Staff: 1]','2019-04-09 16:29:12','Admin Tonse'),(2900,'New Category Created [Laptop From Staff: 1]','2019-04-09 16:29:21','Admin Tonse'),(2901,'Category Info Updated [101]','2019-04-09 16:29:28','Admin Tonse'),(2902,'New Category Created [Drives & Storage From Staff: 1]','2019-04-09 16:29:38','Admin Tonse'),(2903,'New Category Created [Printers & Ink From Staff: 1]','2019-04-09 16:29:51','Admin Tonse'),(2904,'New Category Created [Networking Devices From Staff: 1]','2019-04-09 16:30:00','Admin Tonse'),(2905,'New Category Created [Computer Accesories From Staff: 1]','2019-04-09 16:30:13','Admin Tonse'),(2906,'New Category Created [Game Zone From Staff: 1]','2019-04-09 16:30:21','Admin Tonse'),(2907,'New Category Created [Monitors From Staff: 1]','2019-04-09 16:30:30','Admin Tonse'),(2908,'New Category Created [Desktops From Staff: 1]','2019-04-09 16:30:43','Admin Tonse'),(2909,'New Category Created [Miscellaneous From Staff: 1]','2019-04-09 16:31:07','Admin Tonse'),(2910,'New Category Created [Miscellaneous From Staff: 1]','2019-04-09 16:31:31','Admin Tonse'),(2911,'New Category Created [Televisions From Staff: 1]','2019-04-09 16:31:44','Admin Tonse'),(2912,'New Category Created [Home Entertainment Systems From Staff: 1]','2019-04-09 16:31:56','Admin Tonse'),(2913,'New Category Created [Headphones From Staff: 1]','2019-04-09 16:32:07','Admin Tonse'),(2914,'New Category Created [Speakers From Staff: 1]','2019-04-09 16:32:14','Admin Tonse'),(2915,'New Category Created [Home Audio & Theater From Staff: 1]','2019-04-09 16:32:25','Admin Tonse'),(2916,'New Category Created [Cameras From Staff: 1]','2019-04-09 16:32:34','Admin Tonse'),(2917,'New Category Created [DSLR Cameras From Staff: 1]','2019-04-09 16:32:44','Admin Tonse'),(2918,'New Category Created [Security Cameras From Staff: 1]','2019-04-09 16:32:53','Admin Tonse'),(2919,'New Category Created [Camera Accesories From Staff: 1]','2019-04-09 16:33:05','Admin Tonse'),(2920,'New Category Created [Musical Instruments & Professional Audio From Staff: 1]','2019-04-09 16:33:23','Admin Tonse'),(2921,'New Category Created [Gaming Consoles From Staff: 1]','2019-04-09 16:33:34','Admin Tonse'),(2922,'New Category Created [All electronics From Staff: 1]','2019-04-09 16:33:44','Admin Tonse'),(2923,'New Category Created [Air Conditioners From Staff: 1]','2019-04-09 16:33:58','Admin Tonse'),(2924,'New Category Created [Refrigerators From Staff: 1]','2019-04-09 16:34:11','Admin Tonse'),(2925,'New Category Created [Washing Machines From Staff: 1]','2019-04-09 16:34:21','Admin Tonse'),(2926,'New Category Created [Kitchen & Home Appliances From Staff: 1]','2019-04-09 16:34:34','Admin Tonse'),(2927,'New Category Created [Heating & Cooling Appliances From Staff: 1]','2019-04-09 16:34:48','Admin Tonse'),(2928,'New Category Created [All Appliances From Staff: 1]','2019-04-09 16:34:58','Admin Tonse'),(2929,'category_deleted [14]','2019-04-09 16:35:24','Admin Tonse'),(2930,'category_deleted [15]','2019-04-09 16:35:27','Admin Tonse'),(2931,'category_deleted [39]','2019-04-09 16:35:30','Admin Tonse'),(2932,'category_deleted [33]','2019-04-09 16:35:32','Admin Tonse'),(2933,'category_deleted [32]','2019-04-09 16:35:35','Admin Tonse'),(2934,'New Category Created [Miscellaneous From Staff: 1]','2019-04-09 16:35:41','Admin Tonse'),(2935,'New Category Created [Clothing From Staff: 1]','2019-04-09 16:35:52','Admin Tonse'),(2936,'New Category Created [T-Shirts & Polo From Staff: 1]','2019-04-09 16:36:06','Admin Tonse'),(2937,'New Category Created [Shirts From Staff: 1]','2019-04-09 16:36:20','Admin Tonse'),(2938,'New Category Created [Jeans From Staff: 1]','2019-04-09 16:36:26','Admin Tonse'),(2939,'New Category Created [Innerwear From Staff: 1]','2019-04-09 16:36:32','Admin Tonse'),(2940,'New Category Created [Watchman From Staff: 1]','2019-04-09 16:36:41','Admin Tonse'),(2941,'Category Info Updated [135]','2019-04-09 16:37:03','Admin Tonse'),(2942,'New Category Created [Bugs & Luggage From Staff: 1]','2019-04-09 16:37:12','Admin Tonse'),(2943,'New Category Created [Sunglasses From Staff: 1]','2019-04-09 16:37:22','Admin Tonse'),(2944,'New Category Created [Jewellery From Staff: 1]','2019-04-09 16:37:32','Admin Tonse'),(2945,'New Category Created [Wallets From Staff: 1]','2019-04-09 16:37:38','Admin Tonse'),(2946,'New Category Created [Shoes From Staff: 1]','2019-04-09 16:37:48','Admin Tonse'),(2947,'New Category Created [Sports Shoes From Staff: 1]','2019-04-09 16:37:55','Admin Tonse'),(2948,'New Category Created [Formal Shoes From Staff: 1]','2019-04-09 16:38:03','Admin Tonse'),(2949,'New Category Created [Casual Shoes From Staff: 1]','2019-04-09 16:38:11','Admin Tonse'),(2950,'New Category Created [Sportswear From Staff: 1]','2019-04-09 16:38:21','Admin Tonse'),(2951,'New Category Created [The Designer Boutique From Staff: 1]','2019-04-09 16:38:32','Admin Tonse'),(2952,'New Category Created [Amazon Fashion From Staff: 1]','2019-04-09 16:38:51','Admin Tonse'),(2953,'New Category Created [Sales & Deals From Staff: 1]','2019-04-09 16:39:01','Admin Tonse'),(2954,'Category Info Updated [81]','2019-04-09 16:39:31','Admin Tonse'),(2955,'New Category Created [Miscellaneous From Staff: 1]','2019-04-09 16:39:41','Admin Tonse'),(2956,'New Category Created [Clothing From Staff: 1]','2019-04-09 16:39:48','Admin Tonse'),(2957,'New Category Created [Western Wear From Staff: 1]','2019-04-09 16:39:56','Admin Tonse'),(2958,'New Category Created [Ethnic Wear From Staff: 1]','2019-04-09 16:40:06','Admin Tonse'),(2959,'New Category Created [Lingerie & Nightwear From Staff: 1]','2019-04-09 16:40:17','Admin Tonse'),(2960,'New Category Created [Top Brands From Staff: 1]','2019-04-09 16:40:23','Admin Tonse'),(2961,'New Category Created [Watches From Staff: 1]','2019-04-09 16:40:32','Admin Tonse'),(2962,'New Category Created [Handbags & Clutches From Staff: 1]','2019-04-09 16:40:43','Admin Tonse'),(2963,'New Category Created [Gold & Diamond Jewellery From Staff: 1]','2019-04-09 16:40:53','Admin Tonse'),(2964,'New Category Created [Fashion & Silver Jewelry From Staff: 1]','2019-04-09 16:41:10','Admin Tonse'),(2965,'New Category Created [Sunglasses From Staff: 1]','2019-04-09 16:41:21','Admin Tonse'),(2966,'New Category Created [Shoes From Staff: 1]','2019-04-09 16:41:39','Admin Tonse'),(2967,'New Category Created [Fashion Shoes From Staff: 1]','2019-04-09 16:41:53','Admin Tonse'),(2968,'New Category Created [Ballerinas From Staff: 1]','2019-04-09 16:42:06','Admin Tonse'),(2969,'Category Info Updated [160]','2019-04-09 16:42:23','Admin Tonse'),(2970,'New Category Created [Designer Boutiques From Staff: 1]','2019-04-09 16:42:36','Admin Tonse'),(2971,'New Category Created [Handlooms & handicrafts From Staff: 1]','2019-04-09 16:42:52','Admin Tonse'),(2972,'New Category Created [Sportswear From Staff: 1]','2019-04-09 16:43:04','Admin Tonse'),(2973,'New Category Created [Amazon Fashion From Staff: 1]','2019-04-09 16:43:15','Admin Tonse'),(2974,'New Category Created [Sales & Deals From Staff: 1]','2019-04-09 16:43:29','Admin Tonse'),(2975,'New Category Created [Kitchen & Dining From Staff: 1]','2019-04-09 16:44:18','Admin Tonse'),(2976,'New Category Created [Kitchen Storage & Containers From Staff: 1]','2019-04-09 16:44:32','Admin Tonse'),(2977,'New Category Created [Furniture From Staff: 1]','2019-04-09 16:44:44','Admin Tonse'),(2978,'New Category Created [Fine Art From Staff: 1]','2019-04-09 16:44:54','Admin Tonse'),(2979,'New Category Created [Home Furnishing From Staff: 1]','2019-04-09 16:45:05','Admin Tonse'),(2980,'New Category Created [Bedroom linen From Staff: 1]','2019-04-09 16:45:18','Admin Tonse'),(2981,'New Category Created [Home Decor From Staff: 1]','2019-04-09 16:45:39','Admin Tonse'),(2982,'New Category Created [Garden & Outdoors From Staff: 1]','2019-04-09 16:45:53','Admin Tonse'),(2983,'New Category Created [Home Storage From Staff: 1]','2019-04-09 16:46:05','Admin Tonse'),(2984,'New Category Created [Home Improvement From Staff: 1]','2019-04-09 16:46:20','Admin Tonse'),(2985,'New Category Created [Sewing & Craft Supplies From Staff: 1]','2019-04-09 16:46:35','Admin Tonse'),(2986,'New Category Created [All Home & Kitchen From Staff: 1]','2019-04-09 16:46:48','Admin Tonse'),(2987,'New Category Created [Shop by Room From Staff: 1]','2019-04-09 16:47:01','Admin Tonse'),(2988,'New Category Created [Home & Kitchen Deals From Staff: 1]','2019-04-09 16:47:14','Admin Tonse'),(2989,'New Category Created [Certified Refurbished From Staff: 1]','2019-04-09 16:47:23','Admin Tonse'),(2990,'New Category Created [All Pet Supplies From Staff: 1]','2019-04-09 16:47:38','Admin Tonse'),(2991,'New Category Created [Dog Supplies From Staff: 1]','2019-04-09 16:48:00','Admin Tonse'),(2992,'New Category Created [Miscellaneous From Staff: 1]','2019-04-09 16:48:09','Admin Tonse'),(2993,'New Category Created [Beauty & Grooming From Staff: 1]','2019-04-09 16:48:58','Admin Tonse'),(2994,'New Category Created [Luxury Beauty From Staff: 1]','2019-04-09 16:49:36','Admin Tonse'),(2995,'New Category Created [Makeup From Staff: 1]','2019-04-09 16:49:46','Admin Tonse'),(2996,'New Category Created [Health & Personal Care From Staff: 1]','2019-04-09 16:49:57','Admin Tonse'),(2997,'New Category Created [Household Supplies From Staff: 1]','2019-04-09 16:50:07','Admin Tonse'),(2998,'New Category Created [Personal Care Appliances From Staff: 1]','2019-04-09 16:50:18','Admin Tonse'),(2999,'New Category Created [Diet & Nutrition From Staff: 1]','2019-04-09 16:50:30','Admin Tonse'),(3000,'New Category Created [Subscribe & Save From Staff: 1]','2019-04-09 16:50:41','Admin Tonse'),(3001,'New Category Created [Value Bazaar From Staff: 1]','2019-04-09 16:51:01','Admin Tonse'),(3002,'New Category Created [All Grocery  From Staff: 1]','2019-04-09 16:51:18','Admin Tonse'),(3003,'New Category Created [Coffee, Tea & Beverages From Staff: 1]','2019-04-09 16:51:34','Admin Tonse'),(3004,'New Category Created [Snacks From Staff: 1]','2019-04-09 16:51:41','Admin Tonse'),(3005,'New Category Created [Cricket From Staff: 1]','2019-04-09 16:52:10','Admin Tonse'),(3006,'New Category Created [Badminton From Staff: 1]','2019-04-09 16:52:18','Admin Tonse'),(3007,'New Category Created [Cycling From Staff: 1]','2019-04-09 16:52:26','Admin Tonse'),(3008,'New Category Created [Football From Staff: 1]','2019-04-09 16:52:35','Admin Tonse'),(3009,'New Category Created [Camping From Staff: 1]','2019-04-09 16:52:45','Admin Tonse'),(3010,'Category Info Updated [201]','2019-04-09 16:52:59','Admin Tonse'),(3011,'New Category Created [Fitness Accessories From Staff: 1]','2019-04-09 16:53:10','Admin Tonse'),(3012,'New Category Created [Yoga From Staff: 1]','2019-04-09 16:53:17','Admin Tonse'),(3013,'New Category Created [Strength Training From Staff: 1]','2019-04-09 16:53:59','Admin Tonse'),(3014,'New Category Created [Cardio Equipment From Staff: 1]','2019-04-09 16:54:08','Admin Tonse'),(3015,'New Category Created [Sports Collectibles From Staff: 1]','2019-04-09 16:54:18','Admin Tonse'),(3016,'New Category Created [Certified Refurbished From Staff: 1]','2019-04-09 16:54:26','Admin Tonse'),(3017,'New Category Created [All Exercises & Fitness From Staff: 1]','2019-04-09 16:54:45','Admin Tonse'),(3018,'New Category Created [All Sports, Fitness & Outdoors From Staff: 1]','2019-04-09 16:55:04','Admin Tonse'),(3019,'New Category Created [Backpacks From Staff: 1]','2019-04-09 16:55:12','Admin Tonse'),(3020,'New Category Created [Rucksacks From Staff: 1]','2019-04-09 16:55:23','Admin Tonse'),(3021,'New Category Created [Suitcases & Trolleys From Staff: 1]','2019-04-09 16:55:35','Admin Tonse'),(3022,'New Category Created [Travel Duffles From Staff: 1]','2019-04-09 16:55:46','Admin Tonse'),(3023,'New Category Created [Travel Accessories From Staff: 1]','2019-04-09 16:56:02','Admin Tonse'),(3024,'New Category Created [Wallets From Staff: 1]','2019-04-09 16:56:12','Admin Tonse'),(3025,'New Category Created [Toys & Games From Staff: 1]','2019-04-09 16:56:35','Admin Tonse'),(3026,'New Category Created [Baby Products From Staff: 1]','2019-04-09 16:56:47','Admin Tonse'),(3027,'New Category Created [Diapers From Staff: 1]','2019-04-09 16:56:54','Admin Tonse'),(3028,'New Category Created [Baby Wish List From Staff: 1]','2019-04-09 16:57:06','Admin Tonse'),(3029,'New Category Created [Toys Gifting Store From Staff: 1]','2019-04-09 16:57:16','Admin Tonse'),(3030,'New Category Created [International Toys Store From Staff: 1]','2019-04-09 16:57:42','Admin Tonse'),(3031,'New Category Created [Baby Bath, Skin & Grooming From Staff: 1]','2019-04-09 16:57:53','Admin Tonse'),(3032,'New Category Created [Strollers & Prams From Staff: 1]','2019-04-09 16:58:01','Admin Tonse'),(3033,'New Category Created [Nursing & Feeding From Staff: 1]','2019-04-09 16:58:12','Admin Tonse'),(3034,'New Category Created [Kids\' Clothing From Staff: 1]','2019-04-09 16:58:23','Admin Tonse'),(3035,'New Category Created [Kids\' Shoes From Staff: 1]','2019-04-09 16:58:37','Admin Tonse'),(3036,'New Category Created [School Bags From Staff: 1]','2019-04-09 16:58:48','Admin Tonse'),(3037,'New Category Created [Kids\' Watches From Staff: 1]','2019-04-09 16:58:57','Admin Tonse'),(3038,'New Category Created [Kids\' Fashion From Staff: 1]','2019-04-09 16:59:06','Admin Tonse'),(3039,'New Category Created [Baby Fashion From Staff: 1]','2019-04-09 16:59:17','Admin Tonse'),(3040,'New Category Created [Miscellaneous From Staff: 1]','2019-04-09 16:59:24','Admin Tonse'),(3041,'New Category Created [Motorbike Accessories & Parts From Staff: 1]','2019-04-09 16:59:55','Admin Tonse'),(3042,'New Category Created [Car Accessories From Staff: 1]','2019-04-09 17:00:05','Admin Tonse'),(3043,'New Category Created [Car Electronics From Staff: 1]','2019-04-09 17:00:15','Admin Tonse'),(3044,'New Category Created [Car Parts From Staff: 1]','2019-04-09 17:00:23','Admin Tonse'),(3045,'New Category Created [Car & Bike Care From Staff: 1]','2019-04-09 17:00:31','Admin Tonse'),(3046,'New Category Created [All Car & Motorbike Products From Staff: 1]','2019-04-09 17:00:42','Admin Tonse'),(3047,'New Category Created [Industrial & Scientific Supplies From Staff: 1]','2019-04-09 17:00:50','Admin Tonse'),(3048,'New Category Created [Test, Measure & Inspect From Staff: 1]','2019-04-09 17:00:57','Admin Tonse'),(3049,'New Category Created [Lab & Scientific From Staff: 1]','2019-04-09 17:01:11','Admin Tonse'),(3050,'New Category Created [Janitorial & Sanitation Supplies From Staff: 1]','2019-04-09 17:01:25','Admin Tonse'),(3051,'New Category Created [All Books From Staff: 1]','2019-04-09 17:03:28','Admin Tonse'),(3052,'New Category Created [Fiction Books From Staff: 1]','2019-04-09 17:03:46','Admin Tonse'),(3053,'New Category Created [Editor\'s Corner From Staff: 1]','2019-04-09 17:03:55','Admin Tonse'),(3054,'New Category Created [School Textbooks From Staff: 1]','2019-04-09 17:04:05','Admin Tonse'),(3055,'New Category Created [Children\'s Books From Staff: 1]','2019-04-09 17:04:20','Admin Tonse'),(3056,'New Category Created [Exam Central From Staff: 1]','2019-04-09 17:04:29','Admin Tonse'),(3057,'New Category Created [Textbooks From Staff: 1]','2019-04-09 17:04:38','Admin Tonse'),(3058,'New Category Created [Indian Language Books From Staff: 1]','2019-04-09 17:04:48','Admin Tonse'),(3059,'New Category Created [Used Books From Staff: 1]','2019-04-09 17:04:55','Admin Tonse'),(3060,'New Category Created [Kindle eBooks From Staff: 1]','2019-04-09 17:05:03','Admin Tonse'),(3061,'New Category Created [Audible Audiobooks & more From Staff: 1]','2019-04-09 17:05:12','Admin Tonse'),(3062,'category_deleted [252]','2019-04-09 17:05:24','Admin Tonse'),(3063,'category_deleted [251]','2019-04-09 17:05:27','Admin Tonse'),(3064,'Category Info Updated [86]','2019-04-09 17:05:44','Admin Tonse'),(3065,'New Category Created [All Movies & TV Shows From Staff: 1]','2019-04-09 17:06:09','Admin Tonse'),(3066,'New Category Created [Blu-ray From Staff: 1]','2019-04-09 17:06:19','Admin Tonse'),(3067,'New Category Created [All English From Staff: 1]','2019-04-09 17:06:29','Admin Tonse'),(3068,'New Category Created [All Hindi From Staff: 1]','2019-04-09 17:06:38','Admin Tonse'),(3069,'New Category Created [Entertainment Collectibles From Staff: 1]','2019-04-09 17:06:47','Admin Tonse'),(3070,'New Category Created [Gaming Consoles From Staff: 1]','2019-04-09 17:06:56','Admin Tonse'),(3071,'New Category Created [Latest Video Games From Staff: 1]','2019-04-09 17:07:04','Admin Tonse'),(3072,'New Category Created [Gaming Accessories From Staff: 1]','2019-04-09 17:07:12','Admin Tonse'),(3073,'New Category Created [PC Games From Staff: 1]','2019-04-09 17:07:24','Admin Tonse'),(3074,'New Category Created [Video Games Deals From Staff: 1]','2019-04-09 17:07:34','Admin Tonse'),(3075,'New Category Created [All Video Games From Staff: 1]','2019-04-09 17:07:42','Admin Tonse'),(3076,'New Category Created [All Music From Staff: 1]','2019-04-09 17:07:50','Admin Tonse'),(3077,'New Category Created [International Music From Staff: 1]','2019-04-09 17:08:04','Admin Tonse'),(3078,'New Category Created [Film Songs From Staff: 1]','2019-04-09 17:08:14','Admin Tonse'),(3079,'New Category Created [Musical Instruments & Professional Audio From Staff: 1]','2019-04-09 17:08:23','Admin Tonse'),(3080,'New Category Created [Popular Gift Cards From Staff: 1]','2019-04-09 17:08:56','Admin Tonse'),(3081,'New Category Created [Gift Boxes, Gift Tags, Greeting Cards From Staff: 1]','2019-04-09 17:09:04','Admin Tonse'),(3082,'New Category Created [Popular Brand Gift Vouchers From Staff: 1]','2019-04-09 17:09:13','Admin Tonse'),(3083,'New Category Created [Birthday Gift Cards From Staff: 1]','2019-04-09 17:09:20','Admin Tonse'),(3084,'New Category Created [Wedding & Anniversary From Staff: 1]','2019-04-09 17:09:28','Admin Tonse'),(3085,'New Category Created [Best Wishes & Thank You From Staff: 1]','2019-04-09 17:09:36','Admin Tonse'),(3086,'New Category Created [Corporate Gift Cards From Staff: 1]','2019-04-09 17:09:45','Admin Tonse'),(3087,'category_deleted [90]','2019-04-09 17:13:46','Admin Tonse'),(3088,'New Category Created [MI From Staff: 1]','2019-04-09 17:18:18','Admin Tonse'),(3089,'New Category Created [Realtime From Staff: 1]','2019-04-09 17:18:27','Admin Tonse'),(3090,'Category Info Updated [276]','2019-04-09 17:18:41','Admin Tonse'),(3091,'New Category Created [Samsung From Staff: 1]','2019-04-09 17:18:48','Admin Tonse'),(3092,'New Category Created [Infinix From Staff: 1]','2019-04-09 17:18:56','Admin Tonse'),(3093,'New Category Created [Oppo From Staff: 1]','2019-04-09 17:19:03','Admin Tonse'),(3094,'New Category Created [Apple From Staff: 1]','2019-04-09 17:19:10','Admin Tonse'),(3095,'New Category Created [VIVO From Staff: 1]','2019-04-09 17:19:17','Admin Tonse'),(3096,'New Category Created [Honor From Staff: 1]','2019-04-09 17:19:27','Admin Tonse'),(3097,'New Category Created [Asus From Staff: 1]','2019-04-09 17:19:34','Admin Tonse'),(3098,'New Category Created [Samsung From Staff: 1]','2019-04-09 17:19:46','Admin Tonse'),(3099,'Category Info Updated [281]','2019-04-09 17:20:04','Admin Tonse'),(3100,'category_deleted [100]','2019-04-09 17:20:23','Admin Tonse'),(3101,'New Category Created [Mobile Accesories From Staff: 1]','2019-04-09 17:20:43','Admin Tonse'),(3102,'New Category Created [Mobile Cases From Staff: 1]','2019-04-09 17:21:05','Admin Tonse'),(3103,'New Category Created [Headphones & Headsets From Staff: 1]','2019-04-09 17:21:16','Admin Tonse'),(3104,'New Category Created [Powerbanks From Staff: 1]','2019-04-09 17:21:28','Admin Tonse'),(3105,'New Category Created [Screenguards From Staff: 1]','2019-04-09 17:21:38','Admin Tonse'),(3106,'New Category Created [Memory cards From Staff: 1]','2019-04-09 17:21:46','Admin Tonse'),(3107,'New Category Created [Smart Headphones From Staff: 1]','2019-04-09 17:21:56','Admin Tonse'),(3108,'New Category Created [Mobile Cables From Staff: 1]','2019-04-09 17:22:08','Admin Tonse'),(3109,'New Category Created [Mobile Chargers From Staff: 1]','2019-04-09 17:22:21','Admin Tonse'),(3110,'New Category Created [Mobile Holders From Staff: 1]','2019-04-09 17:22:39','Admin Tonse'),(3111,'New Category Created [Smart Wearable Tech From Staff: 1]','2019-04-09 17:28:00','Admin Tonse'),(3112,'New Category Created [Smart Watches From Staff: 1]','2019-04-09 17:28:19','Admin Tonse'),(3113,'New Category Created [Smart Glasses VR From Staff: 1]','2019-04-09 17:28:35','Admin Tonse'),(3114,'New Category Created [Smart Bands From Staff: 1]','2019-04-09 17:28:47','Admin Tonse'),(3115,'New Category Created [Healthcare Appliances From Staff: 1]','2019-04-09 17:29:27','Admin Tonse'),(3116,'New Category Created [BP Monitors From Staff: 1]','2019-04-09 17:29:45','Admin Tonse'),(3117,'New Category Created [Weighing Scale From Staff: 1]','2019-04-09 17:29:58','Admin Tonse'),(3118,'New Category Created [Laptops From Staff: 1]','2019-04-09 17:30:31','Admin Tonse'),(3119,'category_deleted [302]','2019-04-09 17:30:39','Admin Tonse'),(3120,'New Category Created [Gaming Laptops From Staff: 1]','2019-04-09 17:30:54','Admin Tonse'),(3121,'New Category Created [External HDDs From Staff: 1]','2019-04-09 17:31:22','Admin Tonse'),(3122,'New Category Created [Internal HDDs From Staff: 1]','2019-04-09 17:31:32','Admin Tonse'),(3123,'New Category Created [Pendrives From Staff: 1]','2019-04-09 17:31:40','Admin Tonse'),(3124,'New Category Created [Laptops Skins & Decals From Staff: 1]','2019-04-09 17:31:54','Admin Tonse'),(3125,'New Category Created [Laptop Bags From Staff: 1]','2019-04-09 17:32:06','Admin Tonse'),(3126,'New Category Created [Mouse From Staff: 1]','2019-04-09 17:32:13','Admin Tonse'),(3127,'New Category Created [Apple iPads From Staff: 1]','2019-04-09 17:34:07','Admin Tonse'),(3128,'New Category Created [Televisions From Staff: 1]','2019-04-09 17:34:38','Admin Tonse'),(3129,'New Category Created [Home Audio Speakers From Staff: 1]','2019-04-09 17:36:11','Admin Tonse'),(3130,'New Category Created [Home Theaters From Staff: 1]','2019-04-09 17:36:23','Admin Tonse'),(3131,'New Category Created [Bluetooth Speakers From Staff: 1]','2019-04-09 17:36:34','Admin Tonse'),(3132,'New Category Created [DTH Setup Top Box From Staff: 1]','2019-04-09 17:37:01','Admin Tonse'),(3133,'New Category Created [Smart Home Automation From Staff: 1]','2019-04-09 17:38:03','Admin Tonse'),(3134,'New Category Created [Google Home From Staff: 1]','2019-04-09 17:38:17','Admin Tonse'),(3135,'New Category Created [Lens From Staff: 1]','2019-04-09 17:38:40','Admin Tonse'),(3136,'New Category Created [Tripod From Staff: 1]','2019-04-09 17:38:49','Admin Tonse'),(3137,'Category Info Updated [319]','2019-04-09 17:38:59','Admin Tonse'),(3138,'New Category Created [Routers From Staff: 1]','2019-04-09 17:39:35','Admin Tonse'),(3139,'Category Info Updated [78]','2019-04-09 17:42:38','Admin Tonse'),(3140,'New Category Created [Financial From Staff: 1]','2019-04-09 17:42:55','Admin Tonse'),(3141,'New Service Created [ From Staff: 1]','2019-04-09 17:48:16','Admin Tonse'),(3142,'New Service Created [ From Staff: 1]','2019-04-09 17:48:36','Admin Tonse'),(3143,'New Service Created [ From Staff: 1]','2019-04-09 17:49:06','Admin Tonse'),(3144,'New Service Created [ From Staff: 1]','2019-04-09 17:49:13','Admin Tonse'),(3145,'New Service Created [ From Staff: 1]','2019-04-09 17:49:39','Admin Tonse'),(3146,'New Service Created [ From Staff: 1]','2019-04-09 17:49:52','Admin Tonse'),(3147,'New Service Created [ From Staff: 1]','2019-04-09 17:50:40','Admin Tonse'),(3148,'Service Info Updated [40]','2019-04-09 17:50:49','Admin Tonse'),(3149,'Service Info Updated [26]','2019-04-09 17:52:03','Admin Tonse'),(3150,'New Service Created [ From Staff: 1]','2019-04-09 17:52:31','Admin Tonse'),(3151,'New Service Created [ From Staff: 1]','2019-04-09 17:52:47','Admin Tonse'),(3152,'Service Info Updated [28]','2019-04-09 17:52:58','Admin Tonse'),(3153,'New Service Created [ From Staff: 1]','2019-04-09 17:53:12','Admin Tonse'),(3154,'New Service Created [ From Staff: 1]','2019-04-09 17:53:26','Admin Tonse'),(3155,'New Service Created [ From Staff: 1]','2019-04-09 17:53:48','Admin Tonse'),(3156,'New Service Created [ From Staff: 1]','2019-04-09 17:54:03','Admin Tonse'),(3157,'New Service Created [ From Staff: 1]','2019-04-09 17:54:20','Admin Tonse'),(3158,'New Service Created [ From Staff: 1]','2019-04-09 17:54:40','Admin Tonse'),(3159,'New Category Created [Personal Finance From Staff: 1]','2019-04-09 17:55:27','Admin Tonse'),(3160,'New Service Created [ From Staff: 1]','2019-04-09 17:55:53','Admin Tonse'),(3161,'New Service Created [ From Staff: 1]','2019-04-09 17:56:00','Admin Tonse'),(3162,'New Service Created [ From Staff: 1]','2019-04-09 17:56:15','Admin Tonse'),(3163,'New Service Created [ From Staff: 1]','2019-04-09 17:56:30','Admin Tonse'),(3164,'Service Info Updated [4]','2019-04-09 17:58:58','Admin Tonse'),(3165,'Service Info Updated [2]','2019-04-09 17:58:59','Admin Tonse'),(3166,'Service Info Updated [1]','2019-04-09 17:59:00','Admin Tonse'),(3167,'service_deleted [37]','2019-04-09 17:59:04','Admin Tonse'),(3168,'Service Info Updated [7]','2019-04-09 17:59:18','Admin Tonse'),(3169,'Service Info Updated [6]','2019-04-09 17:59:19','Admin Tonse'),(3170,'Service Info Updated [5]','2019-04-09 17:59:20','Admin Tonse'),(3171,'category_deleted [77]','2019-04-09 18:00:39','Admin Tonse'),(3172,'Category Info Updated [3]','2019-04-09 18:00:56','Admin Tonse'),(3173,'New Category Created [Electricians From Staff: 1]','2019-04-09 18:01:45','Admin Tonse'),(3174,'New Category Created [Plumbers From Staff: 1]','2019-04-09 18:01:56','Admin Tonse'),(3175,'New Category Created [Carpenters From Staff: 1]','2019-04-09 18:02:07','Admin Tonse'),(3176,'New Category Created [Bathroom Deep Cleaning From Staff: 1]','2019-04-09 18:02:18','Admin Tonse'),(3177,'New Category Created [Carpet Cleaning From Staff: 1]','2019-04-09 18:02:29','Admin Tonse'),(3178,'New Category Created [Home Deep Cleaning From Staff: 1]','2019-04-09 18:02:40','Admin Tonse'),(3179,'New Category Created [Kitchen Deep Cleaning From Staff: 1]','2019-04-09 18:02:52','Admin Tonse'),(3180,'New Category Created [Car Cleaning From Staff: 1]','2019-04-09 18:03:00','Admin Tonse'),(3181,'New Category Created [Pest Control From Staff: 1]','2019-04-09 18:03:12','Admin Tonse'),(3182,'category_deleted [6]','2019-04-09 18:03:31','Admin Tonse'),(3183,'Category Info Updated [4]','2019-04-09 18:04:00','Admin Tonse'),(3184,'New Service Created [ From Staff: 1]','2019-04-09 18:04:45','Admin Tonse'),(3185,'category_deleted [331]','2019-04-09 18:05:08','Admin Tonse'),(3186,'category_deleted [330]','2019-04-09 18:05:11','Admin Tonse'),(3187,'category_deleted [329]','2019-04-09 18:05:13','Admin Tonse'),(3188,'category_deleted [328]','2019-04-09 18:05:16','Admin Tonse'),(3189,'category_deleted [327]','2019-04-09 18:05:19','Admin Tonse'),(3190,'category_deleted [326]','2019-04-09 18:05:22','Admin Tonse'),(3191,'category_deleted [325]','2019-04-09 18:05:25','Admin Tonse'),(3192,'category_deleted [324]','2019-04-09 18:05:28','Admin Tonse'),(3193,'category_deleted [323]','2019-04-09 18:05:31','Admin Tonse'),(3194,'Category Info Updated [3]','2019-04-09 18:06:04','Admin Tonse'),(3195,'New Service Created [ From Staff: 1]','2019-04-09 18:06:35','Admin Tonse'),(3196,'New Service Created [ From Staff: 1]','2019-04-09 18:06:48','Admin Tonse'),(3197,'New Service Created [ From Staff: 1]','2019-04-09 18:06:59','Admin Tonse'),(3198,'New Service Created [ From Staff: 1]','2019-04-09 18:07:14','Admin Tonse'),(3199,'New Service Created [ From Staff: 1]','2019-04-09 18:07:34','Admin Tonse'),(3200,'service_deleted [10]','2019-04-09 18:07:42','Admin Tonse'),(3201,'Category Info Updated [3]','2019-04-09 18:08:42','Admin Tonse'),(3202,'category_deleted [4]','2019-04-09 18:09:24','Admin Tonse'),(3203,'Category Info Updated [1]','2019-04-09 18:09:51','Admin Tonse'),(3204,'category_deleted [78]','2019-04-09 18:12:36','Admin Tonse'),(3205,'Category Info Updated [321]','2019-04-09 18:12:47','Admin Tonse'),(3206,'New Service Created [ From Staff: 1]','2019-04-09 18:14:24','Admin Tonse'),(3207,'Service Info Updated [2]','2019-04-09 18:14:42','Admin Tonse'),(3208,'Service Info Updated [2]','2019-04-09 18:14:56','Admin Tonse'),(3209,'New Service Created [ From Staff: 1]','2019-04-09 18:15:07','Admin Tonse'),(3210,'New Service Created [ From Staff: 1]','2019-04-09 18:15:24','Admin Tonse'),(3211,'New Service Created [ From Staff: 1]','2019-04-09 18:16:54','Admin Tonse'),(3212,'New Service Created [ From Staff: 1]','2019-04-09 18:17:09','Admin Tonse'),(3213,'New Service Created [ From Staff: 1]','2019-04-09 18:17:50','Admin Tonse'),(3214,'New Service Created [ From Staff: 1]','2019-04-09 18:18:01','Admin Tonse'),(3215,'New Service Created [ From Staff: 1]','2019-04-09 18:18:17','Admin Tonse'),(3216,'New Service Created [ From Staff: 1]','2019-04-09 18:18:28','Admin Tonse'),(3217,'New Service Created [ From Staff: 1]','2019-04-09 18:18:53','Admin Tonse'),(3218,'New Service Created [ From Staff: 1]','2019-04-09 18:19:14','Admin Tonse'),(3219,'Service Info Updated [75]','2019-04-09 18:19:29','Admin Tonse'),(3220,'New Service Created [ From Staff: 1]','2019-04-09 18:19:49','Admin Tonse'),(3221,'Service Info Updated [56]','2019-04-09 18:20:28','Admin Tonse'),(3222,'Service Info Updated [55]','2019-04-09 18:20:41','Admin Tonse'),(3223,'log_user_info_updated','2019-04-09 18:22:20','Admin Tonse'),(3224,'log_user_info_updated','2019-04-09 18:22:21','Admin Tonse'),(3225,'New Category Created [Beverages From Staff: 1]','2019-04-09 18:24:27','Admin Tonse'),(3226,'New Category Created [Best Sellers From Staff: 1]','2019-04-09 18:24:37','Admin Tonse'),(3227,'category_deleted [23]','2019-04-09 18:26:36','Admin Tonse'),(3228,'New Category Created [Arabian From Staff: 1]','2019-04-09 18:26:47','Admin Tonse'),(3229,'New Category Created [Hyderabadi From Staff: 1]','2019-04-09 18:26:59','Admin Tonse'),(3230,'New Category Created [Bakery From Staff: 1]','2019-04-09 18:27:09','Admin Tonse'),(3231,'New Category Created [Kerala From Staff: 1]','2019-04-09 18:27:17','Admin Tonse'),(3232,'New Category Created [Indian From Staff: 1]','2019-04-09 18:27:32','Admin Tonse'),(3233,'New Category Created [Seafood From Staff: 1]','2019-04-09 18:27:40','Admin Tonse'),(3234,'New Category Created [Tea From Staff: 1]','2019-04-09 18:27:52','Admin Tonse'),(3235,'New Category Created [Sweets From Staff: 1]','2019-04-09 18:28:10','Admin Tonse'),(3236,'New Category Created [Desserts From Staff: 1]','2019-04-09 18:28:17','Admin Tonse'),(3237,'New Category Created [Ice-cream From Staff: 1]','2019-04-09 18:28:30','Admin Tonse'),(3238,'New Category Created [All Day Breakfast From Staff: 1]','2019-04-09 18:28:56','Admin Tonse'),(3239,'New Category Created [Quick Bites From Staff: 1]','2019-04-09 18:29:12','Admin Tonse'),(3240,'New Category Created [Burgers From Staff: 1]','2019-04-09 18:29:31','Admin Tonse'),(3241,'New Category Created [Pizza From Staff: 1]','2019-04-09 18:29:42','Admin Tonse'),(3242,'restaurant_deleted [7]','2019-04-09 18:33:27','Admin Tonse'),(3243,'deliveryboy_deleted [12]','2019-04-09 18:33:46','Admin Tonse'),(3244,'member_deleted [81]','2019-04-09 18:33:46','Admin Tonse'),(3245,'log_user_info_updated','2019-04-09 19:29:02',NULL),(3246,'log_user_info_updated','2019-04-09 19:30:01',NULL),(3247,'Category Info Updated [10]','2019-04-10 12:15:17','Admin Tonse'),(3248,'Category Info Updated [244]','2019-04-10 12:16:26','Admin Tonse'),(3249,'Category Info Updated [246]','2019-04-10 12:17:25','Admin Tonse'),(3250,'log_user_info_updated','2019-04-10 12:17:54',NULL),(3251,'Category Info Updated [84]','2019-04-10 12:19:54','Admin Tonse'),(3252,'log_user_info_updated','2019-04-10 12:44:26',NULL),(3253,'log_user_info_updated','2019-04-10 12:46:43',NULL),(3254,'log_user_info_updated','2019-04-10 12:56:38',NULL),(3255,'log_user_info_updated','2019-04-10 14:01:35',NULL),(3256,'New Cart Created [30]','2019-04-10 16:50:01',NULL),(3257,'log_locations_info_updated','2019-04-10 23:18:57',NULL),(3258,'log_works_info_updated','2019-04-10 23:20:19',NULL),(3259,'log_profile_info_updated','2019-04-10 23:25:33',NULL),(3260,'failed_login_attempt[mobile:9909198711, user_type:1, IP:103.106.20.165]','2019-04-11 11:16:18',NULL),(3261,'New Member Created [9909198711]','2019-04-11 11:16:18',NULL),(3262,'New Cart Created [31]','2019-04-11 11:17:12',NULL),(3263,'log_user_info_updated','2019-04-11 11:23:02',NULL),(3264,'Category Info Updated [88]','2019-04-11 12:06:29','Admin Tonse'),(3265,'Category Info Updated [87]','2019-04-11 12:08:23','Admin Tonse'),(3266,'Category Info Updated [86]','2019-04-11 12:08:40','Admin Tonse'),(3267,'Category Info Updated [85]','2019-04-11 12:08:55','Admin Tonse'),(3268,'Category Info Updated [84]','2019-04-11 12:09:24','Admin Tonse'),(3269,'Category Info Updated [83]','2019-04-11 12:09:36','Admin Tonse'),(3270,'Category Info Updated [82]','2019-04-11 12:09:48','Admin Tonse'),(3271,'Category Info Updated [81]','2019-04-11 12:10:02','Admin Tonse'),(3272,'Category Info Updated [13]','2019-04-11 12:10:19','Admin Tonse'),(3273,'Category Info Updated [12]','2019-04-11 12:10:32','Admin Tonse'),(3274,'Category Info Updated [11]','2019-04-11 12:11:15','Admin Tonse'),(3275,'Category Info Updated [10]','2019-04-11 12:11:28','Admin Tonse'),(3276,'Category Info Updated [10]','2019-04-11 12:15:21','Admin Tonse'),(3277,'Category Info Updated [322]','2019-04-11 12:16:19','Admin Tonse'),(3278,'Category Info Updated [321]','2019-04-11 12:16:34','Admin Tonse'),(3279,'Category Info Updated [9]','2019-04-11 12:16:54','Admin Tonse'),(3280,'Category Info Updated [8]','2019-04-11 12:17:08','Admin Tonse'),(3281,'Category Info Updated [7]','2019-04-11 12:17:20','Admin Tonse'),(3282,'Category Info Updated [5]','2019-04-11 12:17:38','Admin Tonse'),(3283,'Category Info Updated [3]','2019-04-11 12:17:54','Admin Tonse'),(3284,'Category Info Updated [2]','2019-04-11 12:18:07','Admin Tonse'),(3285,'Category Info Updated [1]','2019-04-11 12:18:21','Admin Tonse'),(3286,'Category Info Updated [87]','2019-04-11 12:19:58','Admin Tonse'),(3287,'Category Info Updated [274]','2019-04-11 12:20:45','Admin Tonse'),(3288,'Category Info Updated [273]','2019-04-11 12:20:57','Admin Tonse'),(3289,'Category Info Updated [272]','2019-04-11 12:21:08','Admin Tonse'),(3290,'Category Info Updated [271]','2019-04-11 12:21:20','Admin Tonse'),(3291,'Category Info Updated [270]','2019-04-11 12:21:33','Admin Tonse'),(3292,'Category Info Updated [268]','2019-04-11 12:22:16','Admin Tonse'),(3293,'Category Info Updated [267]','2019-04-11 12:22:48','Admin Tonse'),(3294,'Category Info Updated [266]','2019-04-11 12:23:04','Admin Tonse'),(3295,'Category Info Updated [265]','2019-04-11 12:23:15','Admin Tonse'),(3296,'Category Info Updated [264]','2019-04-11 12:23:27','Admin Tonse'),(3297,'Category Info Updated [263]','2019-04-11 12:23:40','Admin Tonse'),(3298,'New Restaurant Created [ From Staff: 1]','2019-04-11 12:28:48','Admin Tonse'),(3299,'Restaurant Info Updated [15]','2019-04-11 12:29:39','Admin Tonse'),(3300,'Restaurant Info Updated [15]','2019-04-11 12:29:43','Admin Tonse'),(3301,'New Restaurant Food Created [Fruit Biscuits From Staff: 1]','2019-04-11 12:31:56','Admin Tonse'),(3302,'Restaurant Food Info Updated [21]','2019-04-11 12:32:07','Admin Tonse'),(3303,'log_user_info_updated','2019-04-11 12:50:51',NULL),(3304,'Cart Product Info Updated [1]','2019-04-11 12:57:11',NULL),(3305,'Cart Product Detail Info Updated [85]','2019-04-11 12:57:11',NULL),(3306,'Cart Product Info Updated [1]','2019-04-11 12:57:12',NULL),(3307,'Cart Product Detail Info Updated [85]','2019-04-11 12:57:12',NULL),(3308,'Cart Product Info Updated [1]','2019-04-11 12:57:13',NULL),(3309,'Cart Product Detail Info Updated [88]','2019-04-11 12:57:13',NULL),(3310,'Cart Product Info Updated [1]','2019-04-11 12:57:20',NULL),(3311,'cart_product_details_deleted [91]','2019-04-11 12:57:20',NULL),(3312,'Cart Product Info Updated [1]','2019-04-11 12:57:21',NULL),(3313,'cart_product_details_deleted [90]','2019-04-11 12:57:21',NULL),(3314,'Cart Product Info Updated [1]','2019-04-11 12:57:23',NULL),(3315,'cart_product_details_deleted [88]','2019-04-11 12:57:23',NULL),(3316,'Cart Product Info Updated [1]','2019-04-11 12:57:28',NULL),(3317,'Cart Product Detail Info Updated [89]','2019-04-11 12:57:28',NULL),(3318,'Cart Product Info Updated [1]','2019-04-11 12:57:45',NULL),(3319,'Cart Product Info Updated [1]','2019-04-11 12:59:08',NULL),(3320,'Cart Product Detail Info Updated [85]','2019-04-11 12:59:08',NULL),(3321,'Cart Product Info Updated [1]','2019-04-11 12:59:08',NULL),(3322,'Cart Product Detail Info Updated [85]','2019-04-11 12:59:08',NULL),(3323,'Cart Product Info Updated [1]','2019-04-11 12:59:08',NULL),(3324,'Cart Product Detail Info Updated [85]','2019-04-11 12:59:08',NULL),(3325,'Cart Product Info Updated [1]','2019-04-11 12:59:13',NULL),(3326,'Cart Product Detail Info Updated [89]','2019-04-11 12:59:13',NULL),(3327,'Cart Product Info Updated [1]','2019-04-11 12:59:14',NULL),(3328,'Cart Product Detail Info Updated [89]','2019-04-11 12:59:14',NULL),(3329,'Cart Product Info Updated [1]','2019-04-11 12:59:15',NULL),(3330,'Cart Product Detail Info Updated [89]','2019-04-11 12:59:15',NULL),(3331,'Cart Product Info Updated [1]','2019-04-11 12:59:15',NULL),(3332,'Cart Product Detail Info Updated [89]','2019-04-11 12:59:15',NULL),(3333,'Cart Product Info Updated [1]','2019-04-11 12:59:16',NULL),(3334,'Cart Product Detail Info Updated [89]','2019-04-11 12:59:16',NULL),(3335,'Cart Product Info Updated [1]','2019-04-11 12:59:18',NULL),(3336,'cart_product_details_deleted [89]','2019-04-11 12:59:18',NULL),(3337,'cart_product_deleted [1]','2019-04-11 12:59:21',NULL),(3338,'cart_product_details_deleted [85]','2019-04-11 12:59:21',NULL),(3339,'New Cart Product Created [84]','2019-04-11 12:59:23',NULL),(3340,'New Cart Product Details Created [92]','2019-04-11 12:59:23',NULL),(3341,'Cart Product Info Updated [84]','2019-04-11 12:59:23',NULL),(3342,'New Cart Product Created [85]','2019-04-11 13:00:21',NULL),(3343,'New Cart Product Details Created [93]','2019-04-11 13:00:21',NULL),(3344,'Cart Product Info Updated [85]','2019-04-11 13:00:21',NULL),(3345,'New Cart Product Created [86]','2019-04-11 13:01:40',NULL),(3346,'New Cart Product Details Created [94]','2019-04-11 13:01:40',NULL),(3347,'Cart Product Info Updated [86]','2019-04-11 13:01:40',NULL),(3348,'log_user_info_updated','2019-04-11 13:06:53',NULL),(3349,'New Address Created [13]','2019-04-11 13:07:00',NULL),(3350,'log_user_info_updated','2019-04-11 13:07:07',NULL),(3351,'New Address Created [14]','2019-04-11 13:07:17',NULL),(3352,'log_user_info_updated','2019-04-11 13:07:34',NULL),(3353,'New Address Created [15]','2019-04-11 13:07:39',NULL),(3354,'address_deleted [15]','2019-04-11 13:07:52',NULL),(3355,'address_deleted [14]','2019-04-11 13:07:53',NULL),(3356,'address_deleted [13]','2019-04-11 13:07:55',NULL),(3357,'New Address Created [16]','2019-04-11 13:08:04',NULL),(3358,'address_deleted [16]','2019-04-11 13:08:09',NULL),(3359,'New Cart Created [32]','2019-04-11 13:08:44',NULL),(3360,'log_user_info_updated','2019-04-11 13:39:31',NULL),(3361,'log_user_info_updated','2019-04-11 21:29:50',NULL),(3362,'New Cart Product Created [87]','2019-04-11 21:41:54',NULL),(3363,'New Cart Product Details Created [95]','2019-04-11 21:41:54',NULL),(3364,'Cart Product Info Updated [87]','2019-04-11 21:41:54',NULL),(3365,'New Cart Created [33]','2019-04-12 20:30:28',NULL),(3366,'New Cart Created [34]','2019-04-13 04:56:38',NULL),(3367,'log_user_info_updated','2019-04-20 17:05:53',NULL),(3368,'log_user_info_updated','2019-04-20 17:38:00',NULL),(3369,'Restaurant Info Updated [8]','2019-04-20 18:05:33','Admin Tonse'),(3370,'Restaurant Info Updated [4]','2019-04-20 18:05:34','Admin Tonse'),(3371,'New Restaurant Created [ From Staff: 1]','2019-04-20 18:09:26','Admin Tonse'),(3372,'Restaurant Info Updated [16]','2019-04-20 18:09:30','Admin Tonse'),(3373,'failed_login_attempt[mobile:9673363253, user_type:2, IP:103.26.58.2]','2019-04-20 18:15:36',NULL),(3374,'New Vendor Created [9673363253]','2019-04-20 18:15:36',NULL),(3375,'New Member Created [9673363253]','2019-04-20 18:15:36',NULL),(3376,'failed_login_attempt[mobile:7721037175, user_type:3, IP:103.26.58.2]','2019-04-20 18:16:50',NULL),(3377,'New Vendor Created [7721037175]','2019-04-20 18:16:50',NULL),(3378,'New Member Created [7721037175]','2019-04-20 18:16:50',NULL),(3379,'New Restaurant Food Created [Big Burger From Staff: 1]','2019-04-20 18:17:29','Admin Tonse'),(3380,'Restaurant Food Info Updated [22]','2019-04-20 18:17:32','Admin Tonse'),(3381,'log_user_info_updated','2019-04-20 18:18:27',NULL),(3382,'New Vendor Account Created [1]','2019-04-20 18:18:27',NULL),(3383,'log_user_info_updated','2019-04-20 18:18:44',NULL),(3384,'New Profile Created [1]','2019-04-20 18:18:45',NULL),(3385,'New Vendor About Created [1]','2019-04-20 18:18:45',NULL),(3386,'New Vendor Wroks Created [1]','2019-04-20 18:18:45',NULL),(3387,'New Vendor Locations Created [1]','2019-04-20 18:18:45',NULL),(3388,'New Vendor Account Created [1]','2019-04-20 18:18:45',NULL),(3389,'log_profile_info_updated','2019-04-20 18:19:44',NULL),(3390,'log_profile_info_updated','2019-04-20 18:20:35',NULL),(3391,'log_profile_info_updated','2019-04-20 18:21:21',NULL),(3392,'log_profile_info_updated','2019-04-20 18:21:24',NULL),(3393,'log_about_info_updated','2019-04-20 18:23:00',NULL),(3394,'log_works_info_updated','2019-04-20 18:23:09',NULL),(3395,'log_locations_info_updated','2019-04-20 18:23:23',NULL),(3396,'New Restaurant Food Created [Crispy Chicken Balls From Staff: 1]','2019-04-20 18:29:02','Admin Tonse'),(3397,'failed_login_attempt[mobile:9673363253, user_type:2, IP:103.26.58.2]','2019-04-20 18:32:51',NULL),(3398,'New Vendor Created [9673363253]','2019-04-20 18:32:51',NULL),(3399,'New Member Created [9673363253]','2019-04-20 18:32:51',NULL),(3400,'vendor_deleted [2]','2019-04-20 18:33:04','Admin Tonse'),(3401,'member_deleted [2]','2019-04-20 18:33:04','Admin Tonse'),(3402,'log_user_info_updated','2019-04-20 18:35:25',NULL),(3403,'log_user_info_updated','2019-04-20 18:38:41',NULL),(3404,'failed_login_attempt[mobile:9673363253, user_type:2, IP:103.26.58.2]','2019-04-20 18:40:37',NULL),(3405,'New Vendor Created [9673363253]','2019-04-20 18:40:37',NULL),(3406,'New Member Created [9673363253]','2019-04-20 18:40:37',NULL),(3407,'New Product Created [Xiaomi Mi 9 SE From Staff: 1]','2019-04-20 18:43:48','Admin Tonse'),(3408,'Product Info Updated [13]','2019-04-20 18:43:52','Admin Tonse'),(3409,'failed_login_attempt[mobile:9503008804, user_type:1, IP:103.26.58.2]','2019-04-20 18:44:32',NULL),(3410,'New Customer Created [9503008804]','2019-04-20 18:44:32',NULL),(3411,'New Member Created [9503008804]','2019-04-20 18:44:32',NULL),(3412,'log_user_info_updated','2019-04-20 18:45:32',NULL),(3413,'New Profile Created [1]','2019-04-20 18:45:32',NULL),(3414,'New Vendor About Created [1]','2019-04-20 18:45:32',NULL),(3415,'New Vendor Locations Created [1]','2019-04-20 18:45:32',NULL),(3416,'New Vendor Account Created [1]','2019-04-20 18:45:32',NULL),(3417,'log_profile_info_updated','2019-04-20 18:46:13',NULL),(3418,'log_user_info_updated','2019-04-20 18:47:00',NULL),(3419,'log_profile_info_updated','2019-04-20 18:47:26',NULL),(3420,'log_user_info_updated','2019-04-20 18:47:40',NULL),(3421,'log_profile_info_updated','2019-04-20 18:49:54',NULL),(3422,'log_profile_info_updated','2019-04-20 18:49:56',NULL),(3423,'log_about_info_updated','2019-04-20 18:50:42',NULL),(3424,'log_locations_info_updated','2019-04-20 18:50:52',NULL),(3425,'log_account_info_updated','2019-04-20 18:53:34',NULL),(3426,'log_user_info_updated','2019-04-20 19:44:31',NULL),(3427,'log_user_info_updated','2019-04-20 19:44:41',NULL),(3428,'failed_login_attempt[mobile:7721037175, user_type:1, IP:103.26.58.2]','2019-04-20 19:49:15',NULL),(3429,'New Customer Created [7721037175]','2019-04-20 19:49:15',NULL),(3430,'New Member Created [7721037175]','2019-04-20 19:49:15',NULL),(3431,'log_user_info_updated','2019-04-20 19:49:26',NULL),(3432,'New Restaurant Food Created [Happy Meal From Staff: 1]','2019-04-20 19:49:55','Admin Tonse'),(3433,'Restaurant Food Info Updated [24]','2019-04-20 19:49:59','Admin Tonse'),(3434,'failed_login_attempt[mobile:9673363253, user_type:2, IP:103.26.58.2]','2019-04-20 21:30:40',NULL),(3435,'New Vendor Created [9673363253]','2019-04-20 21:30:40',NULL),(3436,'New Member Created [9673363253]','2019-04-20 21:30:40',NULL),(3437,'log_user_info_updated','2019-04-20 21:34:37',NULL),(3438,'New Profile Created [1]','2019-04-20 21:34:37',NULL),(3439,'New Vendor About Created [1]','2019-04-20 21:34:37',NULL),(3440,'New Vendor Wroks Created [1]','2019-04-20 21:34:37',NULL),(3441,'New Vendor Locations Created [1]','2019-04-20 21:34:37',NULL),(3442,'New Vendor Account Created [1]','2019-04-20 21:34:37',NULL),(3443,'log_profile_info_updated','2019-04-20 21:35:30',NULL),(3444,'log_profile_info_updated','2019-04-20 21:36:09',NULL),(3445,'log_profile_info_updated','2019-04-20 21:36:31',NULL),(3446,'log_profile_info_updated','2019-04-20 21:36:35',NULL),(3447,'log_about_info_updated','2019-04-20 21:38:05',NULL),(3448,'log_works_info_updated','2019-04-20 21:38:14',NULL),(3449,'log_locations_info_updated','2019-04-20 21:38:20',NULL),(3450,'failed_login_attempt[mobile:9922690466, user_type:3, IP:49.35.96.145]','2019-04-20 21:38:45',NULL),(3451,'New Vendor Created [9922690466]','2019-04-20 21:38:45',NULL),(3452,'New Member Created [9922690466]','2019-04-20 21:38:45',NULL),(3453,'log_user_info_updated','2019-04-20 21:39:39',NULL),(3454,'New Vendor Account Created [1]','2019-04-20 21:39:39',NULL),(3455,'log_account_info_updated','2019-04-20 21:40:47',NULL),(3456,'failed_login_attempt[mobile:7721037175, user_type:1, IP:49.35.218.230]','2019-04-20 21:42:44',NULL),(3457,'New Member Created [7721037175]','2019-04-20 21:42:44',NULL),(3458,'log_user_info_updated','2019-04-20 21:43:39',NULL),(3459,'failed_login_attempt[mobile:8904817656, user_type:1, IP:157.45.92.243]','2019-04-20 23:12:21',NULL),(3460,'New Customer Created [8904817656]','2019-04-20 23:12:21',NULL),(3461,'New Member Created [8904817656]','2019-04-20 23:12:21',NULL),(3462,'log_user_info_updated','2019-04-20 23:12:30',NULL),(3463,'New Cart Restaurant Created [1]','2019-04-20 23:14:58',NULL),(3464,'New Cart Restaurant Details Created [1]','2019-04-20 23:14:58',NULL),(3465,'Cart Restaurant Info Updated [1]','2019-04-20 23:14:58',NULL),(3466,'failed_login_attempt[mobile:9503008804, user_type:1, IP:106.210.186.106]','2019-04-21 11:53:19',NULL),(3467,'New Member Created [9503008804]','2019-04-21 11:53:20',NULL),(3468,'log_user_info_updated','2019-04-21 12:06:11',NULL),(3469,'Product Info Updated [11]','2019-04-21 12:09:56','Admin Tonse'),(3470,'New Cart Restaurant Created [2]','2019-04-21 12:35:29',NULL),(3471,'New Cart Restaurant Details Created [2]','2019-04-21 12:35:29',NULL),(3472,'Cart Restaurant Info Updated [2]','2019-04-21 12:35:29',NULL),(3473,'cart_product_deleted [2]','2019-04-21 13:45:58',NULL),(3474,'cart_product_details_deleted [2]','2019-04-21 13:45:58',NULL),(3475,'New Cart Restaurant Created [3]','2019-04-21 13:46:04',NULL),(3476,'New Cart Restaurant Details Created [3]','2019-04-21 13:46:04',NULL),(3477,'Cart Restaurant Info Updated [3]','2019-04-21 13:46:04',NULL),(3478,'Cart Restaurant Info Updated [3]','2019-04-21 13:47:02',NULL),(3479,'Cart Restaurant Detail Info Updated [3]','2019-04-21 13:47:02',NULL),(3480,'Cart Restaurant Info Updated [3]','2019-04-21 13:47:04',NULL),(3481,'Cart Restaurant Detail Info Updated [3]','2019-04-21 13:47:04',NULL),(3482,'Cart Restaurant Info Updated [3]','2019-04-21 13:47:05',NULL),(3483,'Cart Restaurant Detail Info Updated [3]','2019-04-21 13:47:05',NULL),(3484,'Cart Restaurant Info Updated [3]','2019-04-21 13:47:06',NULL),(3485,'Cart Restaurant Detail Info Updated [3]','2019-04-21 13:47:06',NULL),(3486,'Cart Restaurant Info Updated [3]','2019-04-21 13:47:07',NULL),(3487,'Cart Restaurant Detail Info Updated [3]','2019-04-21 13:47:07',NULL),(3488,'Cart Restaurant Info Updated [3]','2019-04-21 13:47:07',NULL),(3489,'Cart Restaurant Detail Info Updated [3]','2019-04-21 13:47:07',NULL),(3490,'New Cart Product Created [1]','2019-04-21 13:50:29',NULL),(3491,'New Cart Product Details Created [1]','2019-04-21 13:50:29',NULL),(3492,'Cart Product Info Updated [1]','2019-04-21 13:50:29',NULL),(3493,'Cart Product Info Updated [1]','2019-04-21 13:52:36',NULL),(3494,'New Cart Product Details Created [2]','2019-04-21 13:52:36',NULL),(3495,'Cart Product Info Updated [1]','2019-04-21 13:52:36',NULL),(3496,'New Address Created [1]','2019-04-21 13:54:07',NULL),(3497,'failed_login_attempt[mobile:9673363253, user_type:1, IP:157.33.154.112]','2019-04-21 14:35:43',NULL),(3498,'New Customer Created [9673363253]','2019-04-21 14:35:43',NULL),(3499,'New Member Created [9673363253]','2019-04-21 14:35:43',NULL),(3500,'log_user_info_updated','2019-04-21 14:35:59',NULL),(3501,'failed_login_attempt[mobile:9673363253, user_type:3, IP:157.33.154.112]','2019-04-21 15:05:05',NULL),(3502,'New Vendor Created [9673363253]','2019-04-21 15:05:05',NULL),(3503,'New Member Created [9673363253]','2019-04-21 15:05:05',NULL),(3504,'log_user_info_updated','2019-04-21 15:06:04',NULL),(3505,'New Vendor Account Created [2]','2019-04-21 15:06:04',NULL),(3506,'failed_login_attempt[mobile:7028668351, user_type:1, IP:42.108.253.209]','2019-04-21 16:11:59',NULL),(3507,'New Customer Created [7028668351]','2019-04-21 16:11:59',NULL),(3508,'New Member Created [7028668351]','2019-04-21 16:11:59',NULL),(3509,'log_user_info_updated','2019-04-21 16:12:19',NULL),(3510,'New Cart Restaurant Created [4]','2019-04-21 16:13:16',NULL),(3511,'New Cart Restaurant Details Created [4]','2019-04-21 16:13:16',NULL),(3512,'Cart Restaurant Info Updated [4]','2019-04-21 16:13:16',NULL),(3513,'New Address Created [2]','2019-04-21 16:13:35',NULL),(3514,'log_user_info_updated','2019-04-21 16:21:36',NULL),(3515,'New Cart Product Created [2]','2019-04-21 16:25:14',NULL),(3516,'New Cart Product Details Created [3]','2019-04-21 16:25:14',NULL),(3517,'Cart Product Info Updated [2]','2019-04-21 16:25:14',NULL),(3518,'New Cart Product Created [3]','2019-04-21 16:25:36',NULL),(3519,'New Cart Product Details Created [4]','2019-04-21 16:25:36',NULL),(3520,'Cart Product Info Updated [3]','2019-04-21 16:25:36',NULL),(3521,'Cart Product Info Updated [3]','2019-04-21 16:25:39',NULL),(3522,'New Cart Created [1]','2019-04-21 16:26:13',NULL),(3523,'New Cart Created [2]','2019-04-21 16:27:34',NULL),(3524,'New Cart Product Created [4]','2019-04-21 16:36:26',NULL),(3525,'New Cart Product Details Created [5]','2019-04-21 16:36:26',NULL),(3526,'Cart Product Info Updated [4]','2019-04-21 16:36:26',NULL),(3527,'cart_product_deleted [4]','2019-04-21 16:36:29',NULL),(3528,'cart_product_details_deleted [5]','2019-04-21 16:36:29',NULL),(3529,'New Cart Product Created [5]','2019-04-21 16:36:32',NULL),(3530,'New Cart Product Details Created [6]','2019-04-21 16:36:32',NULL),(3531,'Cart Product Info Updated [5]','2019-04-21 16:36:32',NULL),(3532,'log_user_info_updated','2019-04-21 17:13:02',NULL),(3533,'cart_product_deleted [1]','2019-04-21 17:13:26',NULL),(3534,'cart_product_details_deleted [1]','2019-04-21 17:13:26',NULL),(3535,'New Cart Restaurant Created [5]','2019-04-21 17:13:29',NULL),(3536,'New Cart Restaurant Details Created [5]','2019-04-21 17:13:29',NULL),(3537,'Cart Restaurant Info Updated [5]','2019-04-21 17:13:29',NULL),(3538,'Cart Restaurant Info Updated [5]','2019-04-21 17:13:30',NULL),(3539,'Cart Restaurant Detail Info Updated [5]','2019-04-21 17:13:30',NULL),(3540,'New Address Created [3]','2019-04-21 17:13:44',NULL),(3541,'Cart Restaurant Info Updated [5]','2019-04-21 17:13:53',NULL),(3542,'Cart Restaurant Info Updated [5]','2019-04-21 17:14:20',NULL),(3543,'New Cart Product Created [6]','2019-04-21 17:15:12',NULL),(3544,'New Cart Product Details Created [7]','2019-04-21 17:15:12',NULL),(3545,'Cart Product Info Updated [6]','2019-04-21 17:15:12',NULL),(3546,'New Cart Product Created [7]','2019-04-21 17:20:23',NULL),(3547,'New Cart Product Details Created [8]','2019-04-21 17:20:23',NULL),(3548,'Cart Product Info Updated [7]','2019-04-21 17:20:23',NULL),(3549,'New Cart Created [3]','2019-04-21 17:22:17',NULL),(3550,'New Cart Product Created [8]','2019-04-21 17:27:46',NULL),(3551,'New Cart Product Details Created [9]','2019-04-21 17:27:46',NULL),(3552,'Cart Product Info Updated [8]','2019-04-21 17:27:46',NULL),(3553,'log_user_info_updated','2019-04-21 20:18:50',NULL),(3554,'Product Info Updated [11]','2019-04-22 11:57:39','Admin Tonse'),(3555,'Product Info Updated [11]','2019-04-22 11:57:40','Admin Tonse'),(3556,'Cart Product Info Updated [5]','2019-04-22 12:00:17',NULL),(3557,'New Cart Product Details Created [10]','2019-04-22 12:00:17',NULL),(3558,'Cart Product Info Updated [5]','2019-04-22 12:00:17',NULL),(3559,'Cart Product Info Updated [5]','2019-04-22 12:00:22',NULL),(3560,'New Cart Created [4]','2019-04-22 12:03:50',NULL),(3561,'failed_login_attempt[mobile:8657387317, user_type:3, IP:157.33.147.43]','2019-04-22 12:27:17',NULL),(3562,'New Vendor Created [8657387317]','2019-04-22 12:27:17',NULL),(3563,'New Member Created [8657387317]','2019-04-22 12:27:17',NULL),(3564,'failed_login_attempt[mobile:8657387317, user_type:2, IP:157.33.131.162]','2019-04-22 12:38:51',NULL),(3565,'New Vendor Created [8657387317]','2019-04-22 12:38:51',NULL),(3566,'New Member Created [8657387317]','2019-04-22 12:38:52',NULL),(3567,'log_user_info_updated','2019-04-22 12:42:48',NULL),(3568,'New Vendor Account Created [3]','2019-04-22 12:42:48',NULL),(3569,'log_user_info_updated','2019-04-22 12:52:00',NULL),(3570,'New Profile Created [2]','2019-04-22 12:52:00',NULL),(3571,'New Vendor About Created [2]','2019-04-22 12:52:00',NULL),(3572,'New Vendor Wroks Created [2]','2019-04-22 12:52:00',NULL),(3573,'New Vendor Locations Created [2]','2019-04-22 12:52:00',NULL),(3574,'New Vendor Account Created [2]','2019-04-22 12:52:00',NULL),(3575,'failed_login_attempt[mobile:8657387317, user_type:1, IP:157.33.131.162]','2019-04-22 12:55:59',NULL),(3576,'New Customer Created [8657387317]','2019-04-22 12:55:59',NULL),(3577,'New Member Created [8657387317]','2019-04-22 12:55:59',NULL),(3578,'log_user_info_updated','2019-04-22 12:56:42',NULL),(3579,'Cart Product Info Updated [6]','2019-04-22 15:02:20',NULL),(3580,'New Cart Product Details Created [11]','2019-04-22 15:02:20',NULL),(3581,'Cart Product Info Updated [6]','2019-04-22 15:02:20',NULL),(3582,'log_locations_info_updated','2019-04-22 15:07:12',NULL),(3583,'log_profile_info_updated','2019-04-22 15:07:30',NULL),(3584,'New Address Created [4]','2019-04-22 15:07:35',NULL),(3585,'New Cart Created [5]','2019-04-22 15:07:42',NULL),(3586,'Cart Info Updated [5]','2019-04-22 15:11:26',NULL),(3587,'Cart Info Updated [5]','2019-04-22 15:13:36',NULL),(3588,'Cart Info Updated [5]','2019-04-22 15:21:49',NULL),(3589,'log_user_info_updated','2019-04-22 15:32:50',NULL),(3590,'New Address Created [5]','2019-04-22 15:37:36',NULL),(3591,'log_user_info_updated','2019-04-22 15:38:25',NULL),(3592,'Cart Product Info Updated [6]','2019-04-22 15:39:20',NULL),(3593,'Cart Product Info Updated [6]','2019-04-22 15:39:48',NULL),(3594,'log_user_info_updated','2019-04-22 15:51:05',NULL),(3595,'log_user_info_updated','2019-04-22 15:53:07',NULL),(3596,'log_user_info_updated','2019-04-22 15:53:24',NULL),(3597,'log_user_info_updated','2019-04-22 16:07:59',NULL),(3598,'log_user_info_updated','2019-04-22 16:16:52',NULL),(3599,'New Cart Product Created [9]','2019-04-22 16:24:41',NULL),(3600,'New Cart Product Details Created [12]','2019-04-22 16:24:41',NULL),(3601,'Cart Product Info Updated [9]','2019-04-22 16:24:41',NULL),(3602,'Cart Product Info Updated [9]','2019-04-22 16:24:50',NULL),(3603,'failed_login_attempt[mobile:8421118381, user_type:2, IP:42.107.77.111]','2019-04-22 16:33:59',NULL),(3604,'New Vendor Created [8421118381]','2019-04-22 16:33:59',NULL),(3605,'New Member Created [8421118381]','2019-04-22 16:33:59',NULL),(3606,'failed_login_attempt[mobile:7028668351, user_type:2, IP:42.107.77.111]','2019-04-22 16:34:15',NULL),(3607,'New Vendor Created [7028668351]','2019-04-22 16:34:15',NULL),(3608,'New Member Created [7028668351]','2019-04-22 16:34:15',NULL),(3609,'Cart Product Info Updated [9]','2019-04-22 16:34:52',NULL),(3610,'log_user_info_updated','2019-04-22 16:35:26',NULL),(3611,'New Profile Created [3]','2019-04-22 16:35:26',NULL),(3612,'New Vendor About Created [3]','2019-04-22 16:35:26',NULL),(3613,'New Vendor Wroks Created [3]','2019-04-22 16:35:26',NULL),(3614,'New Vendor Locations Created [3]','2019-04-22 16:35:26',NULL),(3615,'New Vendor Account Created [3]','2019-04-22 16:35:26',NULL),(3616,'New Cart Product Created [10]','2019-04-22 16:38:13',NULL),(3617,'New Cart Product Details Created [13]','2019-04-22 16:38:13',NULL),(3618,'Cart Product Info Updated [10]','2019-04-22 16:38:13',NULL),(3619,'New Cart Product Created [11]','2019-04-22 16:38:36',NULL),(3620,'New Cart Product Details Created [14]','2019-04-22 16:38:36',NULL),(3621,'Cart Product Info Updated [11]','2019-04-22 16:38:36',NULL),(3622,'Cart Product Info Updated [11]','2019-04-22 16:38:39',NULL),(3623,'Cart Product Detail Info Updated [14]','2019-04-22 16:38:39',NULL),(3624,'Cart Product Info Updated [11]','2019-04-22 16:38:44',NULL),(3625,'Cart Product Info Updated [5]','2019-04-22 16:40:23',NULL),(3626,'New Cart Product Details Created [15]','2019-04-22 16:40:23',NULL),(3627,'Cart Product Info Updated [5]','2019-04-22 16:40:23',NULL),(3628,'cart_product_deleted [3]','2019-04-22 16:41:00',NULL),(3629,'cart_product_details_deleted [4]','2019-04-22 16:41:00',NULL),(3630,'Cart Product Info Updated [5]','2019-04-22 16:41:44',NULL),(3631,'cart_product_details_deleted [6]','2019-04-22 16:41:44',NULL),(3632,'Cart Product Info Updated [5]','2019-04-22 16:41:45',NULL),(3633,'cart_product_details_deleted [10]','2019-04-22 16:41:45',NULL),(3634,'cart_product_deleted [5]','2019-04-22 16:41:46',NULL),(3635,'cart_product_details_deleted [15]','2019-04-22 16:41:46',NULL),(3636,'New Cart Product Created [12]','2019-04-22 16:42:26',NULL),(3637,'New Cart Product Details Created [16]','2019-04-22 16:42:26',NULL),(3638,'Cart Product Info Updated [12]','2019-04-22 16:42:26',NULL),(3639,'New Cart Product Created [13]','2019-04-22 16:43:02',NULL),(3640,'New Cart Product Details Created [17]','2019-04-22 16:43:02',NULL),(3641,'Cart Product Info Updated [13]','2019-04-22 16:43:02',NULL),(3642,'New Cart Product Created [14]','2019-04-22 16:43:22',NULL),(3643,'New Cart Product Details Created [18]','2019-04-22 16:43:22',NULL),(3644,'Cart Product Info Updated [14]','2019-04-22 16:43:22',NULL),(3645,'Cart Product Info Updated [11]','2019-04-22 16:44:08',NULL),(3646,'New Cart Product Created [15]','2019-04-22 16:44:27',NULL),(3647,'New Cart Product Details Created [19]','2019-04-22 16:44:27',NULL),(3648,'Cart Product Info Updated [15]','2019-04-22 16:44:27',NULL),(3649,'New Cart Product Created [16]','2019-04-22 16:45:52',NULL),(3650,'New Cart Product Details Created [20]','2019-04-22 16:45:52',NULL),(3651,'Cart Product Info Updated [16]','2019-04-22 16:45:52',NULL),(3652,'Cart Product Info Updated [16]','2019-04-22 16:45:57',NULL),(3653,'Cart Product Detail Info Updated [20]','2019-04-22 16:45:57',NULL),(3654,'Cart Product Info Updated [6]','2019-04-22 16:49:00',NULL),(3655,'New Cart Product Details Created [21]','2019-04-22 16:49:00',NULL),(3656,'Cart Product Info Updated [6]','2019-04-22 16:49:00',NULL),(3657,'New Cart Product Created [17]','2019-04-22 16:51:02',NULL),(3658,'New Cart Product Details Created [22]','2019-04-22 16:51:02',NULL),(3659,'Cart Product Info Updated [17]','2019-04-22 16:51:02',NULL),(3660,'cart_product_deleted [2]','2019-04-22 16:51:23',NULL),(3661,'cart_product_details_deleted [3]','2019-04-22 16:51:23',NULL),(3662,'New Cart Product Created [18]','2019-04-22 16:51:48',NULL),(3663,'New Cart Product Details Created [23]','2019-04-22 16:51:48',NULL),(3664,'Cart Product Info Updated [18]','2019-04-22 16:51:48',NULL),(3665,'cart_product_deleted [12]','2019-04-22 16:52:09',NULL),(3666,'cart_product_details_deleted [16]','2019-04-22 16:52:09',NULL),(3667,'New Cart Product Created [19]','2019-04-22 16:52:31',NULL),(3668,'New Cart Product Details Created [24]','2019-04-22 16:52:31',NULL),(3669,'Cart Product Info Updated [19]','2019-04-22 16:52:31',NULL),(3670,'New Cart Product Created [20]','2019-04-22 16:52:52',NULL),(3671,'New Cart Product Details Created [25]','2019-04-22 16:52:52',NULL),(3672,'Cart Product Info Updated [20]','2019-04-22 16:52:52',NULL),(3673,'cart_product_deleted [13]','2019-04-22 16:52:55',NULL),(3674,'cart_product_details_deleted [17]','2019-04-22 16:52:55',NULL),(3675,'New Cart Product Created [21]','2019-04-22 16:53:14',NULL),(3676,'New Cart Product Details Created [26]','2019-04-22 16:53:14',NULL),(3677,'Cart Product Info Updated [21]','2019-04-22 16:53:14',NULL),(3678,'cart_product_deleted [15]','2019-04-22 16:53:20',NULL),(3679,'cart_product_details_deleted [19]','2019-04-22 16:53:20',NULL),(3680,'cart_product_deleted [14]','2019-04-22 16:53:50',NULL),(3681,'cart_product_details_deleted [18]','2019-04-22 16:53:50',NULL),(3682,'New Cart Product Created [22]','2019-04-22 16:56:18',NULL),(3683,'New Cart Product Details Created [27]','2019-04-22 16:56:18',NULL),(3684,'Cart Product Info Updated [22]','2019-04-22 16:56:18',NULL),(3685,'New Cart Product Created [23]','2019-04-22 16:56:41',NULL),(3686,'New Cart Product Details Created [28]','2019-04-22 16:56:41',NULL),(3687,'Cart Product Info Updated [23]','2019-04-22 16:56:41',NULL),(3688,'New Cart Product Created [24]','2019-04-22 16:57:08',NULL),(3689,'New Cart Product Details Created [29]','2019-04-22 16:57:08',NULL),(3690,'Cart Product Info Updated [24]','2019-04-22 16:57:08',NULL),(3691,'Cart Product Info Updated [24]','2019-04-22 16:57:13',NULL),(3692,'New Cart Product Created [25]','2019-04-22 16:57:40',NULL),(3693,'New Cart Product Details Created [30]','2019-04-22 16:57:40',NULL),(3694,'Cart Product Info Updated [25]','2019-04-22 16:57:40',NULL),(3695,'New Cart Product Created [26]','2019-04-22 16:58:53',NULL),(3696,'New Cart Product Details Created [31]','2019-04-22 16:58:53',NULL),(3697,'Cart Product Info Updated [26]','2019-04-22 16:58:53',NULL),(3698,'New Cart Product Created [27]','2019-04-22 16:59:23',NULL),(3699,'New Cart Product Details Created [32]','2019-04-22 16:59:23',NULL),(3700,'Cart Product Info Updated [27]','2019-04-22 16:59:23',NULL),(3701,'log_user_info_updated','2019-04-22 16:59:25','Admin Tonse'),(3702,'log_user_info_updated','2019-04-22 16:59:26','Admin Tonse'),(3703,'log_user_info_updated','2019-04-22 16:59:26','Admin Tonse'),(3704,'New Cart Product Created [28]','2019-04-22 16:59:52',NULL),(3705,'New Cart Product Details Created [33]','2019-04-22 16:59:52',NULL),(3706,'Cart Product Info Updated [28]','2019-04-22 16:59:52',NULL),(3707,'New Cart Product Created [29]','2019-04-22 17:00:17',NULL),(3708,'New Cart Product Details Created [34]','2019-04-22 17:00:17',NULL),(3709,'Cart Product Info Updated [29]','2019-04-22 17:00:17',NULL),(3710,'New Category Created [Groceries From Staff: 1]','2019-04-22 17:05:53','Admin Tonse'),(3711,'New Category Created [Vegetables  From Staff: 1]','2019-04-22 17:06:34','Admin Tonse'),(3712,'New Category Created [Grains From Staff: 1]','2019-04-22 17:08:25','Admin Tonse'),(3713,'New Cart Product Created [30]','2019-04-22 17:08:28',NULL),(3714,'New Cart Product Details Created [35]','2019-04-22 17:08:28',NULL),(3715,'Cart Product Info Updated [30]','2019-04-22 17:08:28',NULL),(3716,'New Product Created [Rice From Staff: 1]','2019-04-22 17:09:47','Admin Tonse'),(3717,'Product Info Updated [21]','2019-04-22 17:09:59','Admin Tonse'),(3718,'New Cart Product Created [31]','2019-04-22 17:10:22',NULL),(3719,'New Cart Product Details Created [36]','2019-04-22 17:10:22',NULL),(3720,'Cart Product Info Updated [31]','2019-04-22 17:10:22',NULL),(3721,'New Cart Product Created [32]','2019-04-22 17:10:38',NULL),(3722,'New Cart Product Details Created [37]','2019-04-22 17:10:38',NULL),(3723,'Cart Product Info Updated [32]','2019-04-22 17:10:38',NULL),(3724,'Cart Product Info Updated [6]','2019-04-22 17:10:57',NULL),(3725,'cart_product_details_deleted [11]','2019-04-22 17:10:57',NULL),(3726,'Cart Product Info Updated [6]','2019-04-22 17:10:59',NULL),(3727,'cart_product_details_deleted [7]','2019-04-22 17:10:59',NULL),(3728,'New Category Created [Rice From Staff: 1]','2019-04-22 17:11:06','Admin Tonse'),(3729,'New Product Created [Rice From Staff: 1]','2019-04-22 17:11:41','Admin Tonse'),(3730,'New Category Created [Green Leafy Vegetables From Staff: 1]','2019-04-22 17:13:59','Admin Tonse'),(3731,'New Category Created [Organic From Staff: 1]','2019-04-22 17:15:19','Admin Tonse'),(3732,'New Product Created [Cabbage From Staff: 1]','2019-04-22 17:16:44','Admin Tonse'),(3733,'Product Info Updated [24]','2019-04-22 17:16:48','Admin Tonse'),(3734,'Product Info Updated [22]','2019-04-22 17:16:56','Admin Tonse'),(3735,'cart_product_deleted [6]','2019-04-22 17:56:16',NULL),(3736,'cart_product_details_deleted [21]','2019-04-22 17:56:16',NULL),(3737,'New Cart Product Created [33]','2019-04-22 17:57:49',NULL),(3738,'New Cart Product Details Created [38]','2019-04-22 17:57:49',NULL),(3739,'Cart Product Info Updated [33]','2019-04-22 17:57:49',NULL),(3740,'New Cart Product Created [34]','2019-04-22 17:58:26',NULL),(3741,'New Cart Product Details Created [39]','2019-04-22 17:58:26',NULL),(3742,'Cart Product Info Updated [34]','2019-04-22 17:58:26',NULL),(3743,'New Cart Product Created [35]','2019-04-22 18:00:36',NULL),(3744,'New Cart Product Details Created [40]','2019-04-22 18:00:36',NULL),(3745,'Cart Product Info Updated [35]','2019-04-22 18:00:36',NULL),(3746,'failed_login_attempt[mobile:9370649300, user_type:2, IP:157.33.172.198]','2019-04-22 18:30:46',NULL),(3747,'New Vendor Created [9370649300]','2019-04-22 18:30:46',NULL),(3748,'New Member Created [9370649300]','2019-04-22 18:30:46',NULL),(3749,'log_user_info_updated','2019-04-22 18:31:50',NULL),(3750,'New Profile Created [4]','2019-04-22 18:31:50',NULL),(3751,'New Vendor About Created [4]','2019-04-22 18:31:50',NULL),(3752,'New Vendor Wroks Created [4]','2019-04-22 18:31:50',NULL),(3753,'New Vendor Locations Created [4]','2019-04-22 18:31:50',NULL),(3754,'New Vendor Account Created [4]','2019-04-22 18:31:50',NULL),(3755,'New Cart Created [6]','2019-04-22 18:46:29',NULL),(3756,'New Cart Created [7]','2019-04-22 18:48:16',NULL),(3757,'New Cart Created [8]','2019-04-22 18:53:55',NULL),(3758,'New Cart Created [9]','2019-04-22 18:55:19',NULL),(3759,'New Cart Created [10]','2019-04-22 18:57:59',NULL),(3760,'New Cart Created [11]','2019-04-22 18:58:45',NULL),(3761,'New Cart Product Created [36]','2019-04-22 19:01:21',NULL),(3762,'New Cart Product Details Created [41]','2019-04-22 19:01:21',NULL),(3763,'Cart Product Info Updated [36]','2019-04-22 19:01:21',NULL),(3764,'Cart Product Info Updated [9]','2019-04-22 19:04:42',NULL),(3765,'Cart Product Detail Info Updated [12]','2019-04-22 19:04:42',NULL),(3766,'cart_product_deleted [9]','2019-04-22 19:08:58',NULL),(3767,'cart_product_details_deleted [12]','2019-04-22 19:08:58',NULL),(3768,'New Cart Product Created [37]','2019-04-22 19:09:08',NULL),(3769,'New Cart Product Details Created [42]','2019-04-22 19:09:08',NULL),(3770,'Cart Product Info Updated [37]','2019-04-22 19:09:08',NULL),(3771,'New Cart Product Created [38]','2019-04-22 19:09:30',NULL),(3772,'New Cart Product Details Created [43]','2019-04-22 19:09:30',NULL),(3773,'Cart Product Info Updated [38]','2019-04-22 19:09:30',NULL),(3774,'New Cart Product Created [39]','2019-04-22 19:10:30',NULL),(3775,'New Cart Product Details Created [44]','2019-04-22 19:10:30',NULL),(3776,'Cart Product Info Updated [39]','2019-04-22 19:10:30',NULL),(3777,'New Cart Product Created [40]','2019-04-22 19:10:47',NULL),(3778,'New Cart Product Details Created [45]','2019-04-22 19:10:47',NULL),(3779,'Cart Product Info Updated [40]','2019-04-22 19:10:47',NULL),(3780,'New Cart Product Created [41]','2019-04-22 19:11:26',NULL),(3781,'New Cart Product Details Created [46]','2019-04-22 19:11:26',NULL),(3782,'Cart Product Info Updated [41]','2019-04-22 19:11:26',NULL),(3783,'cart_product_deleted [10]','2019-04-22 19:13:19',NULL),(3784,'cart_product_details_deleted [13]','2019-04-22 19:13:19',NULL),(3785,'cart_product_details_deleted [14]','2019-04-22 19:13:58',NULL),(3786,'cart_product_deleted [11]','2019-04-22 19:13:58',NULL),(3787,'cart_product_details_deleted [20]','2019-04-22 19:14:09',NULL),(3788,'cart_product_deleted [16]','2019-04-22 19:14:09',NULL),(3789,'Cart Restaurant Info Updated [4]','2019-04-22 19:14:45',NULL),(3790,'Cart Restaurant Detail Info Updated [4]','2019-04-22 19:14:45',NULL),(3791,'Cart Restaurant Info Updated [4]','2019-04-22 19:14:54',NULL),(3792,'cart_product_details_deleted [45]','2019-04-22 19:15:45',NULL),(3793,'cart_product_deleted [40]','2019-04-22 19:15:45',NULL),(3794,'log_user_info_updated','2019-04-22 19:18:15',NULL),(3795,'log_user_info_updated','2019-04-22 19:18:30',NULL),(3796,'New Address Created [6]','2019-04-22 19:18:39',NULL),(3797,'New Cart Created [12]','2019-04-22 19:18:47',NULL),(3798,'New Cart Restaurant Created [6]','2019-04-22 19:27:42',NULL),(3799,'New Cart Restaurant Details Created [6]','2019-04-22 19:27:42',NULL),(3800,'Cart Restaurant Info Updated [6]','2019-04-22 19:27:42',NULL),(3801,'New Cart Created [13]','2019-04-23 00:03:09',NULL),(3802,'Cart Product Info Updated [1]','2019-04-23 00:03:36',NULL),(3803,'New Cart Product Details Created [47]','2019-04-23 00:03:36',NULL),(3804,'Cart Product Info Updated [1]','2019-04-23 00:03:36',NULL),(3805,'New Cart Created [14]','2019-04-24 23:06:04',NULL),(3806,'New Cart Product Created [42]','2019-04-24 23:11:09',NULL),(3807,'New Cart Product Details Created [48]','2019-04-24 23:11:09',NULL),(3808,'Cart Product Info Updated [42]','2019-04-24 23:11:10',NULL),(3809,'New Cart Product Created [43]','2019-04-24 23:11:56',NULL),(3810,'New Cart Product Details Created [49]','2019-04-24 23:11:56',NULL),(3811,'Cart Product Info Updated [43]','2019-04-24 23:11:56',NULL),(3812,'New Cart Product Created [44]','2019-04-24 23:12:12',NULL),(3813,'New Cart Product Details Created [50]','2019-04-24 23:12:12',NULL),(3814,'Cart Product Info Updated [44]','2019-04-24 23:12:12',NULL),(3815,'New Cart Product Created [45]','2019-04-24 23:12:36',NULL),(3816,'New Cart Product Details Created [51]','2019-04-24 23:12:36',NULL),(3817,'Cart Product Info Updated [45]','2019-04-24 23:12:36',NULL),(3818,'New Cart Product Created [46]','2019-04-24 23:13:12',NULL),(3819,'New Cart Product Details Created [52]','2019-04-24 23:13:12',NULL),(3820,'Cart Product Info Updated [46]','2019-04-24 23:13:12',NULL),(3821,'New Cart Product Created [47]','2019-04-24 23:13:25',NULL),(3822,'New Cart Product Details Created [53]','2019-04-24 23:13:25',NULL),(3823,'Cart Product Info Updated [47]','2019-04-24 23:13:25',NULL),(3824,'New Cart Product Created [48]','2019-04-24 23:14:01',NULL),(3825,'New Cart Product Details Created [54]','2019-04-24 23:14:01',NULL),(3826,'Cart Product Info Updated [48]','2019-04-24 23:14:01',NULL),(3827,'New Cart Product Created [49]','2019-04-24 23:15:05',NULL),(3828,'New Cart Product Details Created [55]','2019-04-24 23:15:05',NULL),(3829,'Cart Product Info Updated [49]','2019-04-24 23:15:05',NULL),(3830,'New Cart Product Created [50]','2019-04-24 23:16:00',NULL),(3831,'New Cart Product Details Created [56]','2019-04-24 23:16:00',NULL),(3832,'Cart Product Info Updated [50]','2019-04-24 23:16:00',NULL),(3833,'New Cart Product Created [51]','2019-04-24 23:18:55',NULL),(3834,'New Cart Product Details Created [57]','2019-04-24 23:18:55',NULL),(3835,'Cart Product Info Updated [51]','2019-04-24 23:18:55',NULL),(3836,'New Cart Product Created [52]','2019-04-24 23:19:10',NULL),(3837,'New Cart Product Details Created [58]','2019-04-24 23:19:10',NULL),(3838,'Cart Product Info Updated [52]','2019-04-24 23:19:10',NULL),(3839,'New Cart Product Created [53]','2019-04-24 23:19:29',NULL),(3840,'New Cart Product Details Created [59]','2019-04-24 23:19:29',NULL),(3841,'Cart Product Info Updated [53]','2019-04-24 23:19:29',NULL),(3842,'New Cart Product Created [54]','2019-04-24 23:19:47',NULL),(3843,'New Cart Product Details Created [60]','2019-04-24 23:19:47',NULL),(3844,'Cart Product Info Updated [54]','2019-04-24 23:19:47',NULL),(3845,'New Cart Product Created [55]','2019-04-24 23:20:37',NULL),(3846,'New Cart Product Details Created [61]','2019-04-24 23:20:37',NULL),(3847,'Cart Product Info Updated [55]','2019-04-24 23:20:37',NULL),(3848,'New Cart Product Created [56]','2019-04-24 23:24:46',NULL),(3849,'New Cart Product Details Created [62]','2019-04-24 23:24:46',NULL),(3850,'Cart Product Info Updated [56]','2019-04-24 23:24:46',NULL),(3851,'New Cart Product Created [57]','2019-04-24 23:25:10',NULL),(3852,'New Cart Product Details Created [63]','2019-04-24 23:25:10',NULL),(3853,'Cart Product Info Updated [57]','2019-04-24 23:25:10',NULL),(3854,'New Cart Product Created [58]','2019-04-24 23:25:21',NULL),(3855,'New Cart Product Details Created [64]','2019-04-24 23:25:21',NULL),(3856,'Cart Product Info Updated [58]','2019-04-24 23:25:21',NULL),(3857,'New Cart Product Created [59]','2019-04-24 23:26:00',NULL),(3858,'New Cart Product Details Created [65]','2019-04-24 23:26:00',NULL),(3859,'Cart Product Info Updated [59]','2019-04-24 23:26:00',NULL),(3860,'New Cart Product Created [60]','2019-04-24 23:27:08',NULL),(3861,'New Cart Product Details Created [66]','2019-04-24 23:27:08',NULL),(3862,'Cart Product Info Updated [60]','2019-04-24 23:27:08',NULL),(3863,'New Cart Product Created [61]','2019-04-24 23:32:01',NULL),(3864,'New Cart Product Details Created [67]','2019-04-24 23:32:01',NULL),(3865,'Cart Product Info Updated [61]','2019-04-24 23:32:01',NULL),(3866,'New Cart Product Created [62]','2019-04-24 23:34:18',NULL),(3867,'New Cart Product Details Created [68]','2019-04-24 23:34:18',NULL),(3868,'Cart Product Info Updated [62]','2019-04-24 23:34:18',NULL),(3869,'New Cart Product Created [63]','2019-04-24 23:34:58',NULL),(3870,'New Cart Product Details Created [69]','2019-04-24 23:34:58',NULL),(3871,'Cart Product Info Updated [63]','2019-04-24 23:34:58',NULL),(3872,'New Cart Product Created [64]','2019-04-24 23:36:55',NULL),(3873,'New Cart Product Details Created [70]','2019-04-24 23:36:55',NULL),(3874,'Cart Product Info Updated [64]','2019-04-24 23:36:55',NULL),(3875,'New Cart Product Created [65]','2019-04-24 23:37:22',NULL),(3876,'New Cart Product Details Created [71]','2019-04-24 23:37:22',NULL),(3877,'Cart Product Info Updated [65]','2019-04-24 23:37:22',NULL),(3878,'New Cart Product Created [66]','2019-04-24 23:39:02',NULL),(3879,'New Cart Product Details Created [72]','2019-04-24 23:39:02',NULL),(3880,'Cart Product Info Updated [66]','2019-04-24 23:39:02',NULL),(3881,'Cart Product Info Updated [1]','2019-04-24 23:40:08',NULL),(3882,'New Cart Product Details Created [73]','2019-04-24 23:40:08',NULL),(3883,'Cart Product Info Updated [1]','2019-04-24 23:40:08',NULL),(3884,'New Cart Product Created [67]','2019-04-24 23:54:35',NULL),(3885,'New Cart Product Details Created [74]','2019-04-24 23:54:35',NULL),(3886,'Cart Product Info Updated [67]','2019-04-24 23:54:35',NULL),(3887,'New Cart Product Created [68]','2019-04-25 00:00:01',NULL),(3888,'New Cart Product Details Created [75]','2019-04-25 00:00:05',NULL),(3889,'Cart Product Info Updated [68]','2019-04-25 00:00:07',NULL),(3890,'New Cart Product Created [69]','2019-04-25 00:01:29',NULL),(3891,'New Cart Product Details Created [76]','2019-04-25 00:01:29',NULL),(3892,'Cart Product Info Updated [69]','2019-04-25 00:01:29',NULL),(3893,'New Cart Product Created [70]','2019-04-25 00:02:02',NULL),(3894,'New Cart Product Details Created [77]','2019-04-25 00:02:02',NULL),(3895,'Cart Product Info Updated [70]','2019-04-25 00:02:02',NULL),(3896,'New Cart Product Created [71]','2019-04-25 00:02:21',NULL),(3897,'New Cart Product Details Created [78]','2019-04-25 00:02:21',NULL),(3898,'Cart Product Info Updated [71]','2019-04-25 00:02:21',NULL),(3899,'New Cart Product Created [72]','2019-04-25 00:11:07',NULL),(3900,'New Cart Product Details Created [79]','2019-04-25 00:11:18',NULL),(3901,'Cart Product Info Updated [72]','2019-04-25 00:11:18',NULL),(3902,'Cart Product Info Updated [72]','2019-04-25 00:14:34',NULL),(3903,'New Cart Product Details Created [80]','2019-04-25 00:14:34',NULL),(3904,'Cart Product Info Updated [72]','2019-04-25 00:14:34',NULL),(3905,'New Cart Product Created [73]','2019-04-25 00:22:22',NULL),(3906,'New Cart Product Details Created [81]','2019-04-25 00:22:23',NULL),(3907,'Cart Product Info Updated [73]','2019-04-25 00:22:23',NULL),(3908,'Cart Product Info Updated [73]','2019-04-25 00:29:58',NULL),(3909,'New Cart Product Details Created [82]','2019-04-25 00:29:58',NULL),(3910,'Cart Product Info Updated [73]','2019-04-25 00:29:58',NULL),(3911,'Cart Product Info Updated [73]','2019-04-25 00:32:16',NULL),(3912,'New Cart Product Details Created [83]','2019-04-25 00:32:16',NULL),(3913,'Cart Product Info Updated [73]','2019-04-25 00:32:16',NULL),(3914,'Cart Product Info Updated [73]','2019-04-25 00:32:59',NULL),(3915,'New Cart Product Details Created [84]','2019-04-25 00:32:59',NULL),(3916,'Cart Product Info Updated [73]','2019-04-25 00:32:59',NULL),(3917,'Cart Product Info Updated [73]','2019-04-25 00:33:48',NULL),(3918,'New Cart Product Details Created [85]','2019-04-25 00:33:48',NULL),(3919,'Cart Product Info Updated [73]','2019-04-25 00:33:48',NULL),(3920,'New Cart Product Created [74]','2019-04-25 00:34:35',NULL),(3921,'New Cart Product Details Created [86]','2019-04-25 00:34:36',NULL),(3922,'Cart Product Info Updated [74]','2019-04-25 00:34:36',NULL),(3923,'Cart Product Info Updated [74]','2019-04-25 00:34:54',NULL),(3924,'New Cart Product Details Created [87]','2019-04-25 00:34:54',NULL),(3925,'Cart Product Info Updated [74]','2019-04-25 00:34:54',NULL),(3926,'New Cart Created [15]','2019-04-25 00:55:12',NULL),(3927,'New Cart Created [16]','2019-04-25 00:58:18',NULL),(3928,'New Cart Created [17]','2019-04-25 01:00:34',NULL),(3929,'New Cart Restaurant Created [7]','2019-04-25 01:24:52',NULL),(3930,'New Cart Restaurant Details Created [7]','2019-04-25 01:24:52',NULL),(3931,'Cart Restaurant Info Updated [7]','2019-04-25 01:24:52',NULL),(3932,'Cart Restaurant Info Updated [7]','2019-04-25 01:25:23',NULL),(3933,'New Cart Restaurant Details Created [8]','2019-04-25 01:25:24',NULL),(3934,'Cart Restaurant Info Updated [7]','2019-04-25 01:25:24',NULL),(3935,'failed_login_attempt[mobile:9503008804, user_type:2, IP:::1]','2019-05-09 00:23:04',NULL),(3936,'New Vendor Created [9503008804]','2019-05-09 00:23:04',NULL),(3937,'New Member Created [9503008804]','2019-05-09 00:23:04',NULL),(3938,'New Cart Restaurant Created [8]','2019-05-09 00:45:54',NULL),(3939,'New Cart Restaurant Details Created [9]','2019-05-09 00:45:54',NULL),(3940,'Cart Restaurant Info Updated [8]','2019-05-09 00:45:54',NULL),(3941,'Cart Restaurant Info Updated [8]','2019-05-09 00:47:46',NULL),(3942,'New Cart Restaurant Details Created [10]','2019-05-09 00:47:51',NULL),(3943,'Cart Restaurant Info Updated [8]','2019-05-09 00:47:52',NULL),(3944,'Cart Restaurant Info Updated [8]','2019-05-09 00:49:43',NULL),(3945,'New Cart Restaurant Details Created [11]','2019-05-09 00:49:43',NULL),(3946,'Cart Restaurant Info Updated [8]','2019-05-09 00:49:43',NULL),(3947,'New Cart Restaurant Created [9]','2019-05-09 09:41:04',NULL),(3948,'New Cart Restaurant Details Created [12]','2019-05-09 09:41:04',NULL),(3949,'Cart Restaurant Info Updated [9]','2019-05-09 09:41:04',NULL),(3950,'New Cart Restaurant Created [10]','2019-05-09 10:21:08',NULL),(3951,'New Cart Restaurant Details Created [13]','2019-05-09 10:21:08',NULL),(3952,'Cart Restaurant Info Updated [10]','2019-05-09 10:21:08',NULL),(3953,'New Cart Restaurant Created [11]','2019-05-09 10:21:58',NULL),(3954,'New Cart Restaurant Details Created [14]','2019-05-09 10:21:58',NULL),(3955,'Cart Restaurant Info Updated [11]','2019-05-09 10:21:58',NULL);
-/*!40000 ALTER TABLE `1w_tbl_activity_log` ENABLE KEYS */;
-UNLOCK TABLES;
+insert  into `1w_tbl_activity_log`(`Activity_ID`,`AL_Description`,`AL_Date`,`AL_StaffID`) values
+(615,'Profile updated[ StaffID3]','2019-01-30 11:04:59','Admin Nadaf'),
+(616,'Profile updated[ StaffID3]','2019-01-30 11:05:00','Admin Nadaf'),
+(617,'log_user_info_updated','2019-01-30 22:42:14','Admin Nadaf'),
+(618,'log_user_info_updated','2019-01-30 22:42:18','Admin Nadaf'),
+(619,'New Service Created [ From Staff: 1]','2019-02-01 21:44:22','Admin Nadaf'),
+(620,'New Service Created [ From Staff: 1]','2019-02-01 21:44:59','Admin Nadaf'),
+(621,'New Service Work Created [Work 3 From Staff: 1]','2019-02-01 21:46:55','Admin Nadaf'),
+(622,'service_work_deleted [7]','2019-02-01 21:46:59','Admin Nadaf'),
+(623,'service_deleted [32]','2019-02-01 22:11:43','Admin Nadaf'),
+(624,'New Category Created [cdfdf From Staff: 1]','2019-02-01 22:12:06','Admin Nadaf'),
+(625,'Category Info Updated [71]','2019-02-01 22:12:10','Admin Nadaf'),
+(626,'Category Info Updated [75]','2019-02-01 22:12:11','Admin Nadaf'),
+(627,'category_deleted [75]','2019-02-01 22:12:14','Admin Nadaf'),
+(628,'category_deleted [71]','2019-02-01 22:12:16','Admin Nadaf'),
+(629,'category_deleted [68]','2019-02-01 22:12:24','Admin Nadaf'),
+(630,'service_deleted [30]','2019-02-01 22:13:07','Admin Nadaf'),
+(631,'service_deleted [31]','2019-02-01 22:13:28','Admin Nadaf'),
+(632,'service_deleted [29]','2019-02-01 22:13:38','Admin Nadaf'),
+(633,'failed_login_attempt[mobile:9112110507, user_type:1, IP:106.220.66.32]','2019-02-03 17:39:07',NULL),
+(634,'New Customer Created [9112110507]','2019-02-03 17:39:07',NULL),
+(635,'New Member Created [9112110507]','2019-02-03 17:39:07',NULL),
+(636,'failed_login_attempt[mobile:9096751185, user_type:2, IP:106.220.66.32]','2019-02-03 17:40:59',NULL),
+(637,'New Vendor Created [9096751185]','2019-02-03 17:40:59',NULL),
+(638,'New Member Created [9096751185]','2019-02-03 17:40:59',NULL),
+(639,'log_user_info_updated','2019-02-03 17:42:46',NULL),
+(640,'New Profile Created [3]','2019-02-03 17:42:46',NULL),
+(641,'New Vendor About Created [3]','2019-02-03 17:42:46',NULL),
+(642,'New Vendor Wroks Created [3]','2019-02-03 17:42:46',NULL),
+(643,'New Vendor Locations Created [3]','2019-02-03 17:42:46',NULL),
+(644,'New Vendor Account Created [3]','2019-02-03 17:42:46',NULL),
+(645,'log_profile_info_updated','2019-02-03 17:43:49',NULL),
+(646,'failed_login_attempt[mobile:9096751185, user_type:3, IP:106.220.66.32]','2019-02-03 17:44:42',NULL),
+(647,'New Vendor Created [9096751185]','2019-02-03 17:44:42',NULL),
+(648,'New Member Created [9096751185]','2019-02-03 17:44:42',NULL),
+(649,'log_user_info_updated','2019-02-03 17:45:30',NULL),
+(650,'New Vendor Account Created [3]','2019-02-03 17:45:30',NULL),
+(651,'New Cart Product Created [2]','2019-02-04 17:14:18',NULL),
+(652,'New Cart Product Details Created [2]','2019-02-04 17:14:18',NULL),
+(653,'Cart Product Info Updated [2]','2019-02-04 17:14:19',NULL),
+(654,'New Category Created [Test From Staff: 1]','2019-02-04 19:56:08','Admin Nadaf'),
+(655,'Category Info Updated [76]','2019-02-04 19:56:29','Admin Nadaf'),
+(656,'Category Info Updated [76]','2019-02-04 19:56:31','Admin Nadaf'),
+(657,'New Service Created [ From Staff: 1]','2019-02-04 20:12:20','Admin Nadaf'),
+(658,'failed_login_attempt[mobile:7769999468, user_type:3, IP:42.106.237.42]','2019-02-06 09:14:08',NULL),
+(659,'New Vendor Created [7769999468]','2019-02-06 09:14:08',NULL),
+(660,'New Member Created [7769999468]','2019-02-06 09:14:08',NULL),
+(661,'failed_login_attempt[mobile:9146031522, user_type:3, IP:42.106.237.42]','2019-02-06 09:14:36',NULL),
+(662,'New Vendor Created [9146031522]','2019-02-06 09:14:36',NULL),
+(663,'New Member Created [9146031522]','2019-02-06 09:14:36',NULL),
+(664,'log_user_info_updated','2019-02-06 09:15:36',NULL),
+(665,'New Vendor Account Created [4]','2019-02-06 09:15:36',NULL),
+(666,'failed_login_attempt[mobile:8796256084, user_type:2, IP:27.97.141.143]','2019-02-06 15:24:05',NULL),
+(667,'New Vendor Created [8796256084]','2019-02-06 15:24:05',NULL),
+(668,'New Member Created [8796256084]','2019-02-06 15:24:05',NULL),
+(669,'New Cart Created [3]','2019-02-06 17:44:39',NULL),
+(670,'New Cart Created [4]','2019-02-06 18:56:38',NULL),
+(671,'log_user_info_updated','2019-02-07 11:35:52',NULL),
+(672,'New Profile Created [4]','2019-02-07 11:35:52',NULL),
+(673,'New Vendor About Created [4]','2019-02-07 11:35:52',NULL),
+(674,'New Vendor Wroks Created [4]','2019-02-07 11:35:52',NULL),
+(675,'New Vendor Locations Created [4]','2019-02-07 11:35:52',NULL),
+(676,'New Vendor Account Created [4]','2019-02-07 11:35:52',NULL),
+(677,'log_user_info_updated','2019-02-07 11:35:57',NULL),
+(678,'log_profile_info_updated','2019-02-07 13:00:35',NULL),
+(679,'log_profile_info_updated','2019-02-07 13:02:34',NULL),
+(680,'log_profile_info_updated','2019-02-07 13:02:58',NULL),
+(681,'log_profile_info_updated','2019-02-07 13:04:51',NULL),
+(682,'log_profile_info_updated','2019-02-07 13:06:35',NULL),
+(683,'log_profile_info_updated','2019-02-07 13:08:17',NULL),
+(684,'failed_login_attempt[mobile:9146031522, user_type:1, IP:42.106.238.128]','2019-02-08 01:05:05',NULL),
+(685,'New Customer Created [9146031522]','2019-02-08 01:05:05',NULL),
+(686,'New Member Created [9146031522]','2019-02-08 01:05:05',NULL),
+(687,'log_user_info_updated','2019-02-08 17:25:02',NULL),
+(688,'failed_login_attempt[mobile:9146031522, user_type:2, IP:42.106.238.39]','2019-02-08 17:27:02',NULL),
+(689,'New Vendor Created [9146031522]','2019-02-08 17:27:02',NULL),
+(690,'New Member Created [9146031522]','2019-02-08 17:27:02',NULL),
+(691,'log_user_info_updated','2019-02-08 17:28:54',NULL),
+(692,'New Profile Created [5]','2019-02-08 17:28:54',NULL),
+(693,'New Vendor About Created [5]','2019-02-08 17:28:54',NULL),
+(694,'New Vendor Wroks Created [5]','2019-02-08 17:28:54',NULL),
+(695,'New Vendor Locations Created [5]','2019-02-08 17:28:54',NULL),
+(696,'New Vendor Account Created [5]','2019-02-08 17:28:54',NULL),
+(697,'log_locations_info_updated','2019-02-08 17:36:05',NULL),
+(698,'log_works_info_updated','2019-02-08 17:36:44',NULL),
+(699,'log_works_info_updated','2019-02-08 17:36:51',NULL),
+(700,'log_works_info_updated','2019-02-08 17:37:00',NULL),
+(701,'log_about_info_updated','2019-02-08 17:48:45',NULL),
+(702,'log_profile_info_updated','2019-02-08 17:49:40',NULL),
+(703,'log_profile_info_updated','2019-02-08 17:50:39',NULL),
+(704,'log_profile_info_updated','2019-02-08 17:51:06',NULL),
+(705,'log_profile_info_updated','2019-02-08 17:51:10',NULL),
+(706,'log_user_info_updated','2019-02-08 17:51:16',NULL),
+(707,'failed_login_attempt[mobile:9844532816, user_type:3, IP:122.171.78.230]','2019-02-10 09:11:29',NULL),
+(708,'New Vendor Created [9844532816]','2019-02-10 09:11:29',NULL),
+(709,'New Member Created [9844532816]','2019-02-10 09:11:29',NULL),
+(710,'failed_login_attempt[mobile:9844532816, user_type:2, IP:122.171.78.230]','2019-02-10 09:58:31',NULL),
+(711,'New Vendor Created [9844532816]','2019-02-10 09:58:31',NULL),
+(712,'New Member Created [9844532816]','2019-02-10 09:58:31',NULL),
+(713,'failed_login_attempt[mobile:7774812090, user_type:2, IP:103.72.140.67]','2019-02-12 10:27:01',NULL),
+(714,'New Vendor Created [7774812090]','2019-02-12 10:27:01',NULL),
+(715,'New Member Created [7774812090]','2019-02-12 10:27:01',NULL),
+(716,'log_user_info_updated','2019-02-12 10:34:54',NULL),
+(717,'New Profile Created [6]','2019-02-12 10:34:54',NULL),
+(718,'New Vendor About Created [6]','2019-02-12 10:34:54',NULL),
+(719,'New Vendor Wroks Created [6]','2019-02-12 10:34:54',NULL),
+(720,'New Vendor Locations Created [6]','2019-02-12 10:34:54',NULL),
+(721,'New Vendor Account Created [6]','2019-02-12 10:34:54',NULL),
+(722,'log_profile_info_updated','2019-02-12 11:53:56',NULL),
+(723,'log_user_info_updated','2019-02-13 09:47:25',NULL),
+(724,'New Cart Product Created [3]','2019-02-13 19:45:25',NULL),
+(725,'New Cart Product Details Created [3]','2019-02-13 19:45:25',NULL),
+(726,'Cart Product Info Updated [3]','2019-02-13 19:45:25',NULL),
+(727,'New Cart Product Created [4]','2019-02-13 19:49:41',NULL),
+(728,'New Cart Product Details Created [4]','2019-02-13 19:49:41',NULL),
+(729,'Cart Product Info Updated [4]','2019-02-13 19:49:41',NULL),
+(730,'log_profile_info_updated','2019-02-13 20:03:17',NULL),
+(731,'log_profile_info_updated','2019-02-13 20:05:51',NULL),
+(732,'log_profile_info_updated','2019-02-13 20:05:56',NULL),
+(733,'log_profile_info_updated','2019-02-13 20:25:06',NULL),
+(734,'log_about_info_updated','2019-02-13 20:25:38',NULL),
+(735,'log_works_info_updated','2019-02-13 20:25:52',NULL),
+(736,'log_locations_info_updated','2019-02-13 20:26:10',NULL),
+(737,'log_user_info_updated','2019-02-13 20:26:12',NULL),
+(738,'log_user_info_updated','2019-02-13 20:26:31',NULL),
+(739,'log_user_info_updated','2019-02-13 21:27:14',NULL),
+(740,'failed_login_attempt[mobile:8421118351, user_type:2, IP:42.107.65.254]','2019-02-13 21:34:25',NULL),
+(741,'New Vendor Created [8421118351]','2019-02-13 21:34:25',NULL),
+(742,'New Member Created [8421118351]','2019-02-13 21:34:25',NULL),
+(743,'log_user_info_updated','2019-02-13 21:35:02',NULL),
+(744,'New Profile Created [7]','2019-02-13 21:35:02',NULL),
+(745,'New Vendor About Created [7]','2019-02-13 21:35:02',NULL),
+(746,'New Vendor Wroks Created [7]','2019-02-13 21:35:02',NULL),
+(747,'New Vendor Locations Created [7]','2019-02-13 21:35:02',NULL),
+(748,'New Vendor Account Created [7]','2019-02-13 21:35:02',NULL),
+(749,'log_profile_info_updated','2019-02-13 21:36:00',NULL),
+(750,'log_profile_info_updated','2019-02-13 21:36:41',NULL),
+(751,'log_profile_info_updated','2019-02-13 21:37:03',NULL),
+(752,'log_profile_info_updated','2019-02-13 21:37:07',NULL),
+(753,'log_profile_info_updated','2019-02-13 21:37:11',NULL),
+(754,'log_locations_info_updated','2019-02-13 21:37:38',NULL),
+(755,'log_works_info_updated','2019-02-13 21:37:53',NULL),
+(756,'log_about_info_updated','2019-02-13 21:38:27',NULL),
+(757,'log_user_info_updated','2019-02-13 21:38:29',NULL),
+(758,'log_user_info_updated','2019-02-13 21:38:42',NULL),
+(759,'log_user_info_updated','2019-02-13 21:39:32',NULL),
+(760,'failed_login_attempt[mobile:8310455343, user_type:2, IP:106.51.22.72]','2019-02-13 22:05:14',NULL),
+(761,'New Vendor Created [8310455343]','2019-02-13 22:05:14',NULL),
+(762,'New Member Created [8310455343]','2019-02-13 22:05:14',NULL),
+(763,'failed_login_attempt[mobile:8600645478, user_type:2, IP:103.72.140.67]','2019-02-14 10:28:31',NULL),
+(764,'New Vendor Created [8600645478]','2019-02-14 10:28:31',NULL),
+(765,'New Member Created [8600645478]','2019-02-14 10:28:31',NULL),
+(766,'log_user_info_updated','2019-02-14 11:25:46',NULL),
+(767,'log_user_info_updated','2019-02-14 11:31:10',NULL),
+(768,'log_user_info_updated','2019-02-14 11:31:24',NULL),
+(769,'log_user_info_updated','2019-02-14 11:44:58',NULL),
+(770,'log_user_info_updated','2019-02-14 11:45:10',NULL),
+(771,'failed_login_attempt[mobile:9623070446, user_type:2, IP:103.72.140.67]','2019-02-14 11:52:06',NULL),
+(772,'New Vendor Created [9623070446]','2019-02-14 11:52:06',NULL),
+(773,'New Member Created [9623070446]','2019-02-14 11:52:06',NULL),
+(774,'log_user_info_updated','2019-02-14 12:58:34',NULL),
+(775,'log_user_info_updated','2019-02-14 12:59:03',NULL),
+(776,'log_user_info_updated','2019-02-14 13:22:51',NULL),
+(777,'log_user_info_updated','2019-02-14 14:42:46',NULL),
+(778,'log_user_info_updated','2019-02-14 14:43:47',NULL),
+(779,'log_user_info_updated','2019-02-14 14:44:45',NULL),
+(780,'log_user_info_updated','2019-02-14 14:44:58',NULL),
+(781,'log_user_info_updated','2019-02-16 10:13:36',NULL),
+(782,'log_user_info_updated','2019-02-16 10:14:35',NULL),
+(783,'log_user_info_updated','2019-02-16 10:24:37',NULL),
+(784,'log_user_info_updated','2019-02-16 10:38:10',NULL),
+(785,'log_user_info_updated','2019-02-16 11:29:39','Admin Nadaf'),
+(786,'log_user_info_updated','2019-02-16 11:29:45','Admin Nadaf'),
+(787,'log_user_info_updated','2019-02-16 11:29:47','Admin Nadaf'),
+(788,'log_user_info_updated','2019-02-16 11:29:58',NULL),
+(789,'log_user_info_updated','2019-02-16 11:30:04','Admin Nadaf'),
+(790,'log_user_info_updated','2019-02-16 11:30:06',NULL),
+(791,'log_user_info_updated','2019-02-16 11:30:20',NULL),
+(792,'log_user_info_updated','2019-02-16 11:34:00',NULL),
+(793,'log_user_info_updated','2019-02-16 11:34:06',NULL),
+(794,'log_user_info_updated','2019-02-16 12:03:46',NULL),
+(795,'log_user_info_updated','2019-02-16 12:15:55',NULL),
+(796,'log_user_info_updated','2019-02-16 12:23:20',NULL),
+(797,'log_user_info_updated','2019-02-16 16:42:58',NULL),
+(798,'log_user_info_updated','2019-02-16 16:54:12',NULL),
+(799,'log_user_info_updated','2019-02-16 19:06:25',NULL),
+(800,'log_user_info_updated','2019-02-16 19:06:49',NULL),
+(801,'log_user_info_updated','2019-02-16 19:20:31',NULL),
+(802,'log_user_info_updated','2019-02-16 19:20:39',NULL),
+(803,'log_user_info_updated','2019-02-18 10:20:38',NULL),
+(804,'log_user_info_updated','2019-02-18 10:30:42',NULL),
+(805,'log_user_info_updated','2019-02-18 10:32:50',NULL),
+(806,'log_user_info_updated','2019-02-18 10:35:40',NULL),
+(807,'log_user_info_updated','2019-02-18 10:36:49',NULL),
+(808,'log_user_info_updated','2019-02-18 10:40:39',NULL),
+(809,'log_user_info_updated','2019-02-18 10:41:54',NULL),
+(810,'log_user_info_updated','2019-02-18 10:51:18',NULL),
+(811,'log_user_info_updated','2019-02-18 11:00:56',NULL),
+(812,'log_user_info_updated','2019-02-18 11:04:41',NULL),
+(813,'log_user_info_updated','2019-02-18 11:07:39',NULL),
+(814,'log_user_info_updated','2019-02-18 11:11:16',NULL),
+(815,'log_user_info_updated','2019-02-18 11:13:26',NULL),
+(816,'log_user_info_updated','2019-02-18 11:15:22',NULL),
+(817,'log_user_info_updated','2019-02-18 11:15:48',NULL),
+(818,'log_user_info_updated','2019-02-18 11:17:18',NULL),
+(819,'log_user_info_updated','2019-02-18 11:22:28',NULL),
+(820,'log_user_info_updated','2019-02-18 11:25:54',NULL),
+(821,'log_user_info_updated','2019-02-18 11:34:05',NULL),
+(822,'New Product Created [Shirt From Staff: 1]','2019-02-18 11:54:42','Admin Nadaf'),
+(823,'Product Info Updated [12]','2019-02-18 11:54:45','Admin Nadaf'),
+(824,'log_user_info_updated','2019-02-18 11:57:01',NULL),
+(825,'log_user_info_updated','2019-02-18 11:57:59',NULL),
+(826,'log_user_info_updated','2019-02-18 11:58:11',NULL),
+(827,'log_user_info_updated','2019-02-18 12:00:26','Admin Nadaf'),
+(828,'log_user_info_updated','2019-02-18 12:01:13',NULL),
+(829,'log_user_info_updated','2019-02-18 12:03:04',NULL),
+(830,'log_user_info_updated','2019-02-18 12:04:15',NULL),
+(831,'failed_login_attempt[mobile:9999999999, user_type:2, IP:42.107.80.53]','2019-02-18 12:30:01',NULL),
+(832,'New Vendor Created [9999999999]','2019-02-18 12:30:01',NULL),
+(833,'New Member Created [9999999999]','2019-02-18 12:30:01',NULL),
+(834,'log_user_info_updated','2019-02-18 12:30:22',NULL),
+(835,'log_user_info_updated','2019-02-18 12:58:13',NULL),
+(836,'log_user_info_updated','2019-02-18 13:01:02',NULL),
+(837,'log_user_info_updated','2019-02-18 13:01:05',NULL),
+(838,'log_user_info_updated','2019-02-18 13:02:39',NULL),
+(839,'log_user_info_updated','2019-02-18 15:09:44',NULL),
+(840,'log_user_info_updated','2019-02-18 15:15:14',NULL),
+(841,'log_user_info_updated','2019-02-18 15:15:14',NULL),
+(842,'log_user_info_updated','2019-02-18 15:16:10',NULL),
+(843,'log_user_info_updated','2019-02-18 15:18:30',NULL),
+(844,'log_user_info_updated','2019-02-18 15:19:19',NULL),
+(845,'log_user_info_updated','2019-02-18 15:21:44',NULL),
+(846,'log_user_info_updated','2019-02-18 15:22:27',NULL),
+(847,'log_user_info_updated','2019-02-18 15:26:01',NULL),
+(848,'log_user_info_updated','2019-02-18 15:29:32',NULL),
+(849,'log_user_info_updated','2019-02-18 15:36:14',NULL),
+(850,'log_user_info_updated','2019-02-18 15:38:18',NULL),
+(851,'log_account_info_updated','2019-02-18 15:56:54',NULL),
+(852,'log_account_info_updated','2019-02-18 15:58:01',NULL),
+(853,'log_user_info_updated','2019-02-18 16:14:56',NULL),
+(854,'log_user_info_updated','2019-02-18 16:33:38',NULL),
+(855,'log_account_info_updated','2019-02-18 16:42:28',NULL),
+(856,'log_account_info_updated','2019-02-18 16:42:53',NULL),
+(857,'log_user_info_updated','2019-02-19 09:42:22',NULL),
+(858,'log_user_info_updated','2019-02-19 09:45:13',NULL),
+(859,'log_user_info_updated','2019-02-19 10:08:51',NULL),
+(860,'log_user_info_updated','2019-02-19 10:51:43',NULL),
+(861,'failed_login_attempt[mobile:9146544486, user_type:2, IP:103.72.142.241]','2019-02-19 10:54:46',NULL),
+(862,'New Vendor Created [9146544486]','2019-02-19 10:54:46',NULL),
+(863,'New Member Created [9146544486]','2019-02-19 10:54:46',NULL),
+(864,'Category Info Updated [8]','2019-02-19 16:44:56','Admin Nadaf'),
+(865,'Category Info Updated [6]','2019-02-19 16:44:59','Admin Nadaf'),
+(866,'Category Info Updated [73]','2019-02-19 16:47:15','Admin Nadaf'),
+(867,'Category Info Updated [72]','2019-02-19 16:48:29','Admin Nadaf'),
+(868,'Category Info Updated [13]','2019-02-19 16:51:56','Admin Nadaf'),
+(869,'Category Info Updated [12]','2019-02-19 16:51:57','Admin Nadaf'),
+(870,'Category Info Updated [11]','2019-02-19 16:51:58','Admin Nadaf'),
+(871,'Category Info Updated [10]','2019-02-19 16:52:00','Admin Nadaf'),
+(872,'Category Info Updated [25]','2019-02-19 16:53:15','Admin Nadaf'),
+(873,'Category Info Updated [24]','2019-02-19 16:53:17','Admin Nadaf'),
+(874,'Category Info Updated [23]','2019-02-19 16:53:19','Admin Nadaf'),
+(875,'Category Info Updated [22]','2019-02-19 16:53:20','Admin Nadaf'),
+(876,'Category Info Updated [21]','2019-02-19 16:53:21','Admin Nadaf'),
+(877,'Category Info Updated [25]','2019-02-19 16:54:10','Admin Nadaf'),
+(878,'Category Info Updated [24]','2019-02-19 16:54:23','Admin Nadaf'),
+(879,'Category Info Updated [24]','2019-02-19 16:54:26','Admin Nadaf'),
+(880,'Category Info Updated [25]','2019-02-19 16:54:28','Admin Nadaf'),
+(881,'log_user_info_updated','2019-02-19 17:19:54',NULL),
+(882,'log_user_info_updated','2019-02-19 17:20:38',NULL),
+(883,'log_user_info_updated','2019-02-19 17:23:04',NULL),
+(884,'log_user_info_updated','2019-02-19 17:23:13',NULL),
+(885,'log_user_info_updated','2019-02-19 17:23:41',NULL),
+(886,'log_user_info_updated','2019-02-19 17:23:55',NULL),
+(887,'log_user_info_updated','2019-02-19 17:24:01',NULL),
+(888,'log_user_info_updated','2019-02-19 21:37:11',NULL),
+(889,'log_user_info_updated','2019-02-19 21:37:26',NULL),
+(890,'log_user_info_updated','2019-02-19 21:39:01',NULL),
+(891,'log_account_info_updated','2019-02-19 21:39:41',NULL),
+(892,'log_user_info_updated','2019-02-19 21:41:03',NULL),
+(893,'log_user_info_updated','2019-02-20 14:18:34',NULL),
+(894,'log_user_info_updated','2019-02-20 14:18:38',NULL),
+(895,'failed_login_attempt[mobile:8975003570, user_type:2, IP:103.72.142.241]','2019-02-20 17:30:29',NULL),
+(896,'New Vendor Created [8975003570]','2019-02-20 17:30:29',NULL),
+(897,'New Member Created [8975003570]','2019-02-20 17:30:29',NULL),
+(898,'log_user_info_updated','2019-02-20 17:41:57',NULL),
+(899,'log_user_info_updated','2019-02-20 17:48:20',NULL),
+(900,'Category Info Updated [9]','2019-02-21 10:15:55','Admin Nadaf'),
+(901,'Category Info Updated [8]','2019-02-21 10:15:56','Admin Nadaf'),
+(902,'Category Info Updated [7]','2019-02-21 10:15:57','Admin Nadaf'),
+(903,'Category Info Updated [6]','2019-02-21 10:15:58','Admin Nadaf'),
+(904,'Category Info Updated [5]','2019-02-21 10:15:59','Admin Nadaf'),
+(905,'Category Info Updated [4]','2019-02-21 10:16:00','Admin Nadaf'),
+(906,'Category Info Updated [3]','2019-02-21 10:16:02','Admin Nadaf'),
+(907,'Category Info Updated [2]','2019-02-21 10:16:02','Admin Nadaf'),
+(908,'Category Info Updated [1]','2019-02-21 10:16:03','Admin Nadaf'),
+(909,'Category Info Updated [25]','2019-02-21 10:16:29','Admin Nadaf'),
+(910,'Category Info Updated [24]','2019-02-21 10:16:29','Admin Nadaf'),
+(911,'Category Info Updated [23]','2019-02-21 10:16:30','Admin Nadaf'),
+(912,'Category Info Updated [22]','2019-02-21 10:16:31','Admin Nadaf'),
+(913,'Category Info Updated [21]','2019-02-21 10:16:32','Admin Nadaf'),
+(914,'log_user_info_updated','2019-02-21 10:50:18',NULL),
+(915,'failed_login_attempt[mobile:7083234537, user_type:2, IP:103.72.142.244]','2019-02-21 12:22:28',NULL),
+(916,'New Vendor Created [7083234537]','2019-02-21 12:22:28',NULL),
+(917,'New Member Created [7083234537]','2019-02-21 12:22:28',NULL),
+(918,'log_user_info_updated','2019-02-21 12:58:58',NULL),
+(919,'New Profile Created [8]','2019-02-21 12:58:58',NULL),
+(920,'New Vendor About Created [8]','2019-02-21 12:58:58',NULL),
+(921,'New Vendor Wroks Created [8]','2019-02-21 12:58:58',NULL),
+(922,'New Vendor Locations Created [8]','2019-02-21 12:58:58',NULL),
+(923,'New Vendor Account Created [8]','2019-02-21 12:58:58',NULL),
+(924,'log_user_info_updated','2019-02-21 14:19:45',NULL),
+(925,'log_user_info_updated','2019-02-21 14:20:15',NULL),
+(926,'log_user_info_updated','2019-02-21 14:30:34',NULL),
+(927,'log_user_info_updated','2019-02-21 14:56:57',NULL),
+(928,'vendor_deleted [8]','2019-02-21 15:12:09','Admin Nadaf'),
+(929,'member_deleted [17]','2019-02-21 15:12:09','Admin Nadaf'),
+(930,'vendor_deleted [12]','2019-02-21 15:12:14','Admin Nadaf'),
+(931,'member_deleted [21]','2019-02-21 15:12:14','Admin Nadaf'),
+(932,'failed_login_attempt[mobile:9764326905, user_type:2, IP:103.72.142.251]','2019-02-21 15:23:46',NULL),
+(933,'New Vendor Created [9764326905]','2019-02-21 15:23:46',NULL),
+(934,'New Member Created [9764326905]','2019-02-21 15:23:46',NULL),
+(935,'failed_login_attempt[mobile:8421118351, user_type:2, IP:42.107.79.204]','2019-02-21 15:54:25',NULL),
+(936,'New Vendor Created [8421118351]','2019-02-21 15:54:25',NULL),
+(937,'New Member Created [8421118351]','2019-02-21 15:54:25',NULL),
+(938,'failed_login_attempt[mobile:7028668351, user_type:2, IP:42.107.79.204]','2019-02-21 15:58:27',NULL),
+(939,'New Vendor Created [7028668351]','2019-02-21 15:58:27',NULL),
+(940,'New Member Created [7028668351]','2019-02-21 15:58:27',NULL),
+(941,'log_user_info_updated','2019-02-21 16:03:08',NULL),
+(942,'New Profile Created [9]','2019-02-21 16:03:08',NULL),
+(943,'New Vendor About Created [9]','2019-02-21 16:03:08',NULL),
+(944,'New Vendor Wroks Created [9]','2019-02-21 16:03:08',NULL),
+(945,'New Vendor Locations Created [9]','2019-02-21 16:03:08',NULL),
+(946,'New Vendor Account Created [9]','2019-02-21 16:03:08',NULL),
+(947,'log_profile_info_updated','2019-02-21 16:09:49',NULL),
+(948,'log_profile_info_updated','2019-02-21 16:12:04',NULL),
+(949,'log_profile_info_updated','2019-02-21 16:12:38',NULL),
+(950,'log_profile_info_updated','2019-02-21 16:12:43',NULL),
+(951,'log_profile_info_updated','2019-02-21 16:12:49',NULL),
+(952,'log_about_info_updated','2019-02-21 16:13:44',NULL),
+(953,'log_about_info_updated','2019-02-21 16:13:51',NULL),
+(954,'log_about_info_updated','2019-02-21 16:14:10',NULL),
+(955,'log_works_info_updated','2019-02-21 16:14:51',NULL),
+(956,'log_works_info_updated','2019-02-21 16:14:52',NULL),
+(957,'log_locations_info_updated','2019-02-21 16:22:04',NULL),
+(958,'log_locations_info_updated','2019-02-21 16:30:24',NULL),
+(959,'log_user_info_updated','2019-02-21 16:30:52',NULL),
+(960,'log_user_info_updated','2019-02-21 16:36:41',NULL),
+(961,'log_user_info_updated','2019-02-21 16:37:08','Admin Nadaf'),
+(962,'failed_login_attempt[mobile:8628646243, user_type:2, IP:42.107.79.204]','2019-02-21 16:39:05',NULL),
+(963,'New Vendor Created [8628646243]','2019-02-21 16:39:05',NULL),
+(964,'New Member Created [8628646243]','2019-02-21 16:39:05',NULL),
+(965,'log_user_info_updated','2019-02-21 16:39:12',NULL),
+(966,'log_user_info_updated','2019-02-21 18:39:38',NULL),
+(967,'log_user_info_updated','2019-02-21 19:17:36',NULL),
+(968,'New Profile Created [10]','2019-02-21 19:17:36',NULL),
+(969,'New Vendor About Created [10]','2019-02-21 19:17:36',NULL),
+(970,'New Vendor Wroks Created [10]','2019-02-21 19:17:36',NULL),
+(971,'New Vendor Locations Created [10]','2019-02-21 19:17:36',NULL),
+(972,'New Vendor Account Created [10]','2019-02-21 19:17:36',NULL),
+(973,'log_profile_info_updated','2019-02-21 19:18:13',NULL),
+(974,'log_profile_info_updated','2019-02-21 19:18:40',NULL),
+(975,'log_profile_info_updated','2019-02-21 19:18:56',NULL),
+(976,'log_profile_info_updated','2019-02-21 19:18:58',NULL),
+(977,'log_about_info_updated','2019-02-21 19:19:26',NULL),
+(978,'log_works_info_updated','2019-02-21 19:19:30',NULL),
+(979,'log_locations_info_updated','2019-02-21 19:20:14',NULL),
+(980,'log_user_info_updated','2019-02-21 19:20:16',NULL),
+(981,'log_user_info_updated','2019-02-21 19:29:22',NULL),
+(982,'log_user_info_updated','2019-02-21 19:29:36',NULL),
+(983,'log_user_info_updated','2019-02-21 19:30:11',NULL),
+(984,'log_user_info_updated','2019-02-21 19:32:15',NULL),
+(985,'log_user_info_updated','2019-02-21 19:33:09',NULL),
+(986,'log_user_info_updated','2019-02-21 19:35:05',NULL),
+(987,'log_user_info_updated','2019-02-21 19:51:19',NULL),
+(988,'log_user_info_updated','2019-02-21 20:06:07','Admin Nadaf'),
+(989,'log_user_info_updated','2019-02-21 20:06:09','Admin Nadaf'),
+(990,'log_user_info_updated','2019-02-21 20:11:41','Admin Nadaf'),
+(991,'failed_login_attempt[mobile:9503664444, user_type:1, IP:49.14.65.193]','2019-02-21 21:05:39',NULL),
+(992,'New Customer Created [9503664444]','2019-02-21 21:05:40',NULL),
+(993,'New Member Created [9503664444]','2019-02-21 21:05:40',NULL),
+(994,'log_user_info_updated','2019-02-22 10:31:48',NULL),
+(995,'log_user_info_updated','2019-02-22 10:35:26',NULL),
+(996,'log_user_info_updated','2019-02-22 10:38:01',NULL),
+(997,'log_user_info_updated','2019-02-22 10:39:14',NULL),
+(998,'log_user_info_updated','2019-02-22 10:40:04',NULL),
+(999,'log_user_info_updated','2019-02-22 10:40:41',NULL),
+(1000,'log_user_info_updated','2019-02-22 10:41:00',NULL),
+(1001,'log_user_info_updated','2019-02-22 10:42:41',NULL),
+(1002,'log_user_info_updated','2019-02-22 10:47:34',NULL),
+(1003,'log_user_info_updated','2019-02-22 10:50:32',NULL),
+(1004,'log_user_info_updated','2019-02-22 10:51:22',NULL),
+(1005,'log_user_info_updated','2019-02-22 10:53:34',NULL),
+(1006,'log_user_info_updated','2019-02-22 10:57:35',NULL),
+(1007,'log_user_info_updated','2019-02-22 10:57:45',NULL),
+(1008,'log_user_info_updated','2019-02-22 10:58:58',NULL),
+(1009,'log_user_info_updated','2019-02-22 11:00:52',NULL),
+(1010,'log_user_info_updated','2019-02-22 11:01:34',NULL),
+(1011,'log_user_info_updated','2019-02-22 11:11:03',NULL),
+(1012,'log_user_info_updated','2019-02-22 11:13:06',NULL),
+(1013,'log_user_info_updated','2019-02-22 11:15:14',NULL),
+(1014,'log_user_info_updated','2019-02-22 11:35:50',NULL),
+(1015,'log_user_info_updated','2019-02-22 11:36:56',NULL),
+(1016,'log_user_info_updated','2019-02-22 11:37:16',NULL),
+(1017,'log_user_info_updated','2019-02-22 11:37:33',NULL),
+(1018,'log_user_info_updated','2019-02-22 11:44:31',NULL),
+(1019,'log_user_info_updated','2019-02-22 11:48:11',NULL),
+(1020,'log_user_info_updated','2019-02-22 11:53:59',NULL),
+(1021,'log_user_info_updated','2019-02-22 11:57:44',NULL),
+(1022,'log_user_info_updated','2019-02-22 12:05:15',NULL),
+(1023,'log_user_info_updated','2019-02-22 12:05:29',NULL),
+(1024,'log_profile_info_updated','2019-02-22 12:30:57',NULL),
+(1025,'log_profile_info_updated','2019-02-22 12:31:39',NULL),
+(1026,'log_profile_info_updated','2019-02-22 12:32:00',NULL),
+(1027,'log_profile_info_updated','2019-02-22 12:32:05',NULL),
+(1028,'log_profile_info_updated','2019-02-22 12:32:15',NULL),
+(1029,'log_about_info_updated','2019-02-22 12:36:16',NULL),
+(1030,'log_works_info_updated','2019-02-22 12:36:24',NULL),
+(1031,'log_locations_info_updated','2019-02-22 12:36:45',NULL),
+(1032,'log_user_info_updated','2019-02-22 12:37:25',NULL),
+(1033,'log_user_info_updated','2019-02-22 12:39:22',NULL),
+(1034,'log_user_info_updated','2019-02-22 12:39:50','Admin Nadaf'),
+(1035,'log_user_info_updated','2019-02-22 12:40:05',NULL),
+(1036,'log_user_info_updated','2019-02-22 12:40:33','Admin Nadaf'),
+(1037,'log_user_info_updated','2019-02-22 12:41:04',NULL),
+(1038,'log_user_info_updated','2019-02-22 12:41:51',NULL),
+(1039,'log_user_info_updated','2019-02-22 12:42:27',NULL),
+(1040,'log_user_info_updated','2019-02-22 12:42:47',NULL),
+(1041,'log_user_info_updated','2019-02-22 12:43:18',NULL),
+(1042,'log_user_info_updated','2019-02-22 12:45:48',NULL),
+(1043,'log_user_info_updated','2019-02-22 12:46:28',NULL),
+(1044,'log_about_info_updated','2019-02-22 12:48:25',NULL),
+(1045,'log_works_info_updated','2019-02-22 12:48:37',NULL),
+(1046,'log_locations_info_updated','2019-02-22 12:48:55',NULL),
+(1047,'log_locations_info_updated','2019-02-22 12:49:03',NULL),
+(1048,'log_user_info_updated','2019-02-22 12:49:14',NULL),
+(1049,'log_user_info_updated','2019-02-22 12:49:24',NULL),
+(1050,'log_user_info_updated','2019-02-22 12:50:34','Admin Nadaf'),
+(1051,'log_user_info_updated','2019-02-22 12:50:37',NULL),
+(1052,'log_user_info_updated','2019-02-22 12:50:43',NULL),
+(1053,'log_user_info_updated','2019-02-22 12:51:21','Admin Nadaf'),
+(1054,'log_user_info_updated','2019-02-22 12:51:36',NULL),
+(1055,'log_user_info_updated','2019-02-22 12:53:22',NULL),
+(1056,'log_user_info_updated','2019-02-22 12:54:09',NULL),
+(1057,'log_user_info_updated','2019-02-22 12:54:17',NULL),
+(1058,'log_user_info_updated','2019-02-22 12:54:53',NULL),
+(1059,'log_user_info_updated','2019-02-22 12:55:33',NULL),
+(1060,'log_user_info_updated','2019-02-22 12:58:16',NULL),
+(1061,'log_user_info_updated','2019-02-22 12:58:43',NULL),
+(1062,'log_user_info_updated','2019-02-22 12:59:17',NULL),
+(1063,'log_user_info_updated','2019-02-22 13:02:06',NULL),
+(1064,'log_user_info_updated','2019-02-22 13:05:58',NULL),
+(1065,'log_user_info_updated','2019-02-22 13:07:04',NULL),
+(1066,'log_user_info_updated','2019-02-22 13:08:11','Admin Nadaf'),
+(1067,'log_user_info_updated','2019-02-22 13:08:15',NULL),
+(1068,'log_user_info_updated','2019-02-22 13:08:18',NULL),
+(1069,'log_user_info_updated','2019-02-22 13:09:16',NULL),
+(1070,'log_user_info_updated','2019-02-22 13:09:37',NULL),
+(1071,'log_user_info_updated','2019-02-22 13:09:44',NULL),
+(1072,'log_user_info_updated','2019-02-22 13:10:21','Admin Nadaf'),
+(1073,'failed_login_attempt[mobile:8657387317, user_type:2, IP:42.108.229.166]','2019-02-22 13:10:28',NULL),
+(1074,'New Vendor Created [8657387317]','2019-02-22 13:10:28',NULL),
+(1075,'New Member Created [8657387317]','2019-02-22 13:10:28',NULL),
+(1076,'log_user_info_updated','2019-02-22 13:10:37',NULL),
+(1077,'failed_login_attempt[mobile:9370649300, user_type:2, IP:42.108.229.166]','2019-02-22 13:11:43',NULL),
+(1078,'New Vendor Created [9370649300]','2019-02-22 13:11:43',NULL),
+(1079,'New Member Created [9370649300]','2019-02-22 13:11:43',NULL),
+(1080,'log_user_info_updated','2019-02-22 13:12:16','Admin Nadaf'),
+(1081,'log_user_info_updated','2019-02-22 13:12:26',NULL),
+(1082,'New Profile Created [11]','2019-02-22 13:12:26',NULL),
+(1083,'New Vendor About Created [11]','2019-02-22 13:12:26',NULL),
+(1084,'New Vendor Wroks Created [11]','2019-02-22 13:12:26',NULL),
+(1085,'New Vendor Locations Created [11]','2019-02-22 13:12:26',NULL),
+(1086,'New Vendor Account Created [11]','2019-02-22 13:12:26',NULL),
+(1087,'log_user_info_updated','2019-02-22 13:12:30','Admin Nadaf'),
+(1088,'log_user_info_updated','2019-02-22 13:12:43',NULL),
+(1089,'log_user_info_updated','2019-02-22 13:13:11','Admin Nadaf'),
+(1090,'log_profile_info_updated','2019-02-22 13:13:12',NULL),
+(1091,'log_user_info_updated','2019-02-22 13:13:28',NULL),
+(1092,'log_profile_info_updated','2019-02-22 13:13:50',NULL),
+(1093,'log_profile_info_updated','2019-02-22 13:14:13',NULL),
+(1094,'log_profile_info_updated','2019-02-22 13:14:15',NULL),
+(1095,'log_about_info_updated','2019-02-22 13:15:05',NULL),
+(1096,'log_works_info_updated','2019-02-22 13:15:14',NULL),
+(1097,'log_works_info_updated','2019-02-22 13:15:22',NULL),
+(1098,'log_locations_info_updated','2019-02-22 13:16:27',NULL),
+(1099,'log_user_info_updated','2019-02-22 13:16:30',NULL),
+(1100,'log_user_info_updated','2019-02-22 13:16:52',NULL),
+(1101,'log_user_info_updated','2019-02-22 13:17:56',NULL),
+(1102,'log_user_info_updated','2019-02-22 13:18:19','Admin Nadaf'),
+(1103,'log_user_info_updated','2019-02-22 13:18:38',NULL),
+(1104,'log_user_info_updated','2019-02-22 13:19:15',NULL),
+(1105,'log_user_info_updated','2019-02-22 14:01:54',NULL),
+(1106,'log_user_info_updated','2019-02-22 14:02:53',NULL),
+(1107,'log_user_info_updated','2019-02-22 14:03:00',NULL),
+(1108,'log_user_info_updated','2019-02-22 14:03:06',NULL),
+(1109,'log_user_info_updated','2019-02-22 14:04:36','Admin Nadaf'),
+(1110,'log_user_info_updated','2019-02-22 14:04:44',NULL),
+(1111,'log_user_info_updated','2019-02-22 14:05:09',NULL),
+(1112,'log_user_info_updated','2019-02-22 14:17:13',NULL),
+(1113,'log_user_info_updated','2019-02-22 14:19:40',NULL),
+(1114,'log_user_info_updated','2019-02-22 14:20:04','Admin Nadaf'),
+(1115,'log_user_info_updated','2019-02-22 14:20:09',NULL),
+(1116,'log_user_info_updated','2019-02-22 14:20:21',NULL),
+(1117,'log_user_info_updated','2019-02-22 14:21:15',NULL),
+(1118,'log_user_info_updated','2019-02-22 14:21:25','Admin Nadaf'),
+(1119,'log_user_info_updated','2019-02-22 14:21:30',NULL),
+(1120,'log_user_info_updated','2019-02-22 14:21:46',NULL),
+(1121,'log_user_info_updated','2019-02-22 14:24:56',NULL),
+(1122,'log_user_info_updated','2019-02-22 14:27:50',NULL),
+(1123,'log_user_info_updated','2019-02-22 14:28:46',NULL),
+(1124,'log_user_info_updated','2019-02-22 14:30:01',NULL),
+(1125,'log_user_info_updated','2019-02-22 14:30:50',NULL),
+(1126,'log_user_info_updated','2019-02-22 14:31:43',NULL),
+(1127,'log_user_info_updated','2019-02-22 14:33:18',NULL),
+(1128,'log_user_info_updated','2019-02-22 14:33:58',NULL),
+(1129,'log_user_info_updated','2019-02-22 14:34:40',NULL),
+(1130,'log_user_info_updated','2019-02-22 14:38:20',NULL),
+(1131,'log_user_info_updated','2019-02-22 14:39:05',NULL),
+(1132,'log_user_info_updated','2019-02-22 14:39:24','Admin Nadaf'),
+(1133,'log_user_info_updated','2019-02-22 14:39:41',NULL),
+(1134,'log_user_info_updated','2019-02-22 14:40:19',NULL),
+(1135,'failed_login_attempt[mobile:9449827434, user_type:2, IP:157.45.47.116]','2019-02-22 14:42:03',NULL),
+(1136,'New Vendor Created [9449827434]','2019-02-22 14:42:03',NULL),
+(1137,'New Member Created [9449827434]','2019-02-22 14:42:03',NULL),
+(1138,'log_user_info_updated','2019-02-22 14:45:26',NULL),
+(1139,'log_user_info_updated','2019-02-22 14:45:52',NULL),
+(1140,'New Profile Created [12]','2019-02-22 14:45:52',NULL),
+(1141,'New Vendor About Created [12]','2019-02-22 14:45:52',NULL),
+(1142,'New Vendor Wroks Created [12]','2019-02-22 14:45:52',NULL),
+(1143,'New Vendor Locations Created [12]','2019-02-22 14:45:52',NULL),
+(1144,'New Vendor Account Created [12]','2019-02-22 14:45:52',NULL),
+(1145,'log_user_info_updated','2019-02-22 14:48:11','Admin Nadaf'),
+(1146,'log_user_info_updated','2019-02-22 14:48:41',NULL),
+(1147,'failed_login_attempt[mobile:9999999999, user_type:2, IP:157.45.47.116]','2019-02-22 14:50:58',NULL),
+(1148,'New Vendor Created [9999999999]','2019-02-22 14:50:58',NULL),
+(1149,'New Member Created [9999999999]','2019-02-22 14:50:58',NULL),
+(1150,'vendor_deleted [4]','2019-02-22 14:56:18','Admin Nadaf'),
+(1151,'member_deleted [11]','2019-02-22 14:56:18','Admin Nadaf'),
+(1152,'failed_login_attempt[mobile:8796256084, user_type:2, IP:103.72.142.241]','2019-02-22 14:56:30',NULL),
+(1153,'New Vendor Created [8796256084]','2019-02-22 14:56:30',NULL),
+(1154,'New Member Created [8796256084]','2019-02-22 14:56:30',NULL),
+(1155,'log_user_info_updated','2019-02-22 14:57:53',NULL),
+(1156,'New Profile Created [13]','2019-02-22 14:57:53',NULL),
+(1157,'New Vendor About Created [13]','2019-02-22 14:57:53',NULL),
+(1158,'New Vendor Wroks Created [13]','2019-02-22 14:57:53',NULL),
+(1159,'New Vendor Locations Created [13]','2019-02-22 14:57:53',NULL),
+(1160,'New Vendor Account Created [13]','2019-02-22 14:57:53',NULL),
+(1161,'log_profile_info_updated','2019-02-22 14:58:49',NULL),
+(1162,'log_profile_info_updated','2019-02-22 14:59:43',NULL),
+(1163,'log_profile_info_updated','2019-02-22 15:00:28',NULL),
+(1164,'log_profile_info_updated','2019-02-22 15:00:42',NULL),
+(1165,'log_profile_info_updated','2019-02-22 15:01:19',NULL),
+(1166,'log_about_info_updated','2019-02-22 15:01:47',NULL),
+(1167,'log_works_info_updated','2019-02-22 15:01:59',NULL),
+(1168,'log_locations_info_updated','2019-02-22 15:02:10',NULL),
+(1169,'log_user_info_updated','2019-02-22 15:08:57',NULL),
+(1170,'log_user_info_updated','2019-02-22 15:09:28',NULL),
+(1171,'log_user_info_updated','2019-02-22 15:10:01',NULL),
+(1172,'log_user_info_updated','2019-02-22 15:11:44',NULL),
+(1173,'log_user_info_updated','2019-02-22 15:16:40',NULL),
+(1174,'log_user_info_updated','2019-02-22 15:17:16',NULL),
+(1175,'log_user_info_updated','2019-02-22 15:18:24',NULL),
+(1176,'log_user_info_updated','2019-02-22 15:19:11',NULL),
+(1177,'log_user_info_updated','2019-02-22 15:22:13',NULL),
+(1178,'log_user_info_updated','2019-02-22 15:22:55',NULL),
+(1179,'log_user_info_updated','2019-02-22 15:24:34',NULL),
+(1180,'log_user_info_updated','2019-02-22 15:25:53','Admin Nadaf'),
+(1181,'log_user_info_updated','2019-02-22 15:26:00',NULL),
+(1182,'log_user_info_updated','2019-02-22 15:26:44',NULL),
+(1183,'log_user_info_updated','2019-02-22 15:27:16',NULL),
+(1184,'log_user_info_updated','2019-02-22 15:27:46',NULL),
+(1185,'log_user_info_updated','2019-02-22 15:28:42',NULL),
+(1186,'log_user_info_updated','2019-02-22 15:28:45','Admin Nadaf'),
+(1187,'log_user_info_updated','2019-02-22 15:29:29',NULL),
+(1188,'log_user_info_updated','2019-02-22 15:29:51',NULL),
+(1189,'log_user_info_updated','2019-02-22 15:33:04',NULL),
+(1190,'log_user_info_updated','2019-02-22 15:33:52',NULL),
+(1191,'vendor_deleted [24]','2019-02-22 15:36:12','Admin Nadaf'),
+(1192,'member_deleted [34]','2019-02-22 15:36:12','Admin Nadaf'),
+(1193,'failed_login_attempt[mobile:8796256084, user_type:2, IP:103.72.142.241]','2019-02-22 15:36:25',NULL),
+(1194,'New Vendor Created [8796256084]','2019-02-22 15:36:25',NULL),
+(1195,'New Member Created [8796256084]','2019-02-22 15:36:25',NULL),
+(1196,'log_user_info_updated','2019-02-22 15:37:18',NULL),
+(1197,'New Profile Created [14]','2019-02-22 15:37:18',NULL),
+(1198,'New Vendor About Created [14]','2019-02-22 15:37:18',NULL),
+(1199,'New Vendor Wroks Created [14]','2019-02-22 15:37:18',NULL),
+(1200,'New Vendor Locations Created [14]','2019-02-22 15:37:18',NULL),
+(1201,'New Vendor Account Created [14]','2019-02-22 15:37:18',NULL),
+(1202,'log_profile_info_updated','2019-02-22 15:40:49',NULL),
+(1203,'log_profile_info_updated','2019-02-22 15:41:13',NULL),
+(1204,'log_profile_info_updated','2019-02-22 15:41:39',NULL),
+(1205,'log_profile_info_updated','2019-02-22 15:41:42',NULL),
+(1206,'log_profile_info_updated','2019-02-22 15:42:23',NULL),
+(1207,'vendor_deleted [25]','2019-02-22 15:43:55','Admin Nadaf'),
+(1208,'member_deleted [35]','2019-02-22 15:43:55','Admin Nadaf'),
+(1209,'failed_login_attempt[mobile:8796256084, user_type:2, IP:103.72.142.241]','2019-02-22 15:44:41',NULL),
+(1210,'New Vendor Created [8796256084]','2019-02-22 15:44:41',NULL),
+(1211,'New Member Created [8796256084]','2019-02-22 15:44:41',NULL),
+(1212,'log_user_info_updated','2019-02-22 15:45:17',NULL),
+(1213,'New Profile Created [15]','2019-02-22 15:45:17',NULL),
+(1214,'New Vendor About Created [15]','2019-02-22 15:45:17',NULL),
+(1215,'New Vendor Wroks Created [15]','2019-02-22 15:45:17',NULL),
+(1216,'New Vendor Locations Created [15]','2019-02-22 15:45:17',NULL),
+(1217,'New Vendor Account Created [15]','2019-02-22 15:45:17',NULL),
+(1218,'log_user_info_updated','2019-02-22 15:45:20',NULL),
+(1219,'log_user_info_updated','2019-02-22 15:45:31',NULL),
+(1220,'vendor_deleted [26]','2019-02-22 15:47:12','Admin Nadaf'),
+(1221,'member_deleted [36]','2019-02-22 15:47:12','Admin Nadaf'),
+(1222,'failed_login_attempt[mobile:8796256084, user_type:2, IP:103.72.142.241]','2019-02-22 15:47:42',NULL),
+(1223,'New Vendor Created [8796256084]','2019-02-22 15:47:42',NULL),
+(1224,'New Member Created [8796256084]','2019-02-22 15:47:42',NULL),
+(1225,'log_user_info_updated','2019-02-22 15:48:19',NULL),
+(1226,'New Profile Created [16]','2019-02-22 15:48:19',NULL),
+(1227,'New Vendor About Created [16]','2019-02-22 15:48:19',NULL),
+(1228,'New Vendor Wroks Created [16]','2019-02-22 15:48:19',NULL),
+(1229,'New Vendor Locations Created [16]','2019-02-22 15:48:19',NULL),
+(1230,'New Vendor Account Created [16]','2019-02-22 15:48:19',NULL),
+(1231,'log_profile_info_updated','2019-02-22 15:53:04',NULL),
+(1232,'log_profile_info_updated','2019-02-22 15:53:33',NULL),
+(1233,'log_profile_info_updated','2019-02-22 15:54:00',NULL),
+(1234,'log_profile_info_updated','2019-02-22 15:54:30',NULL),
+(1235,'log_about_info_updated','2019-02-22 15:55:58',NULL),
+(1236,'log_works_info_updated','2019-02-22 15:56:10',NULL),
+(1237,'log_locations_info_updated','2019-02-22 15:56:22',NULL),
+(1238,'log_user_info_updated','2019-02-22 15:56:24',NULL),
+(1239,'log_user_info_updated','2019-02-22 15:57:52',NULL),
+(1240,'log_user_info_updated','2019-02-22 15:58:42',NULL),
+(1241,'log_user_info_updated','2019-02-22 15:59:20',NULL),
+(1242,'log_user_info_updated','2019-02-22 16:00:42',NULL),
+(1243,'log_user_info_updated','2019-02-22 16:01:03',NULL),
+(1244,'log_user_info_updated','2019-02-22 16:02:30',NULL),
+(1245,'log_user_info_updated','2019-02-22 16:40:00',NULL),
+(1246,'log_user_info_updated','2019-02-22 16:40:57',NULL),
+(1247,'log_user_info_updated','2019-02-22 16:41:39',NULL),
+(1248,'log_user_info_updated','2019-02-22 16:42:24',NULL),
+(1249,'vendor_deleted [27]','2019-02-22 16:43:19','Admin Nadaf'),
+(1250,'member_deleted [37]','2019-02-22 16:43:19','Admin Nadaf'),
+(1251,'failed_login_attempt[mobile:8796256084, user_type:2, IP:103.72.142.241]','2019-02-22 16:43:27',NULL),
+(1252,'New Vendor Created [8796256084]','2019-02-22 16:43:27',NULL),
+(1253,'New Member Created [8796256084]','2019-02-22 16:43:27',NULL),
+(1254,'log_user_info_updated','2019-02-22 16:43:59',NULL),
+(1255,'New Profile Created [17]','2019-02-22 16:43:59',NULL),
+(1256,'New Vendor About Created [17]','2019-02-22 16:43:59',NULL),
+(1257,'New Vendor Wroks Created [17]','2019-02-22 16:43:59',NULL),
+(1258,'New Vendor Locations Created [17]','2019-02-22 16:43:59',NULL),
+(1259,'New Vendor Account Created [17]','2019-02-22 16:43:59',NULL),
+(1260,'log_profile_info_updated','2019-02-22 16:44:41',NULL),
+(1261,'log_profile_info_updated','2019-02-22 16:45:06',NULL),
+(1262,'log_profile_info_updated','2019-02-22 16:45:21',NULL),
+(1263,'log_profile_info_updated','2019-02-22 16:45:23',NULL),
+(1264,'log_about_info_updated','2019-02-22 16:46:02',NULL),
+(1265,'log_works_info_updated','2019-02-22 16:46:13',NULL),
+(1266,'log_locations_info_updated','2019-02-22 16:46:28',NULL),
+(1267,'log_about_info_updated','2019-02-22 16:47:39',NULL),
+(1268,'log_user_info_updated','2019-02-22 16:48:16',NULL),
+(1269,'vendor_deleted [28]','2019-02-22 16:48:25','Admin Nadaf'),
+(1270,'member_deleted [38]','2019-02-22 16:48:25','Admin Nadaf'),
+(1271,'failed_login_attempt[mobile:8796256084, user_type:2, IP:103.72.142.241]','2019-02-22 16:48:33',NULL),
+(1272,'New Vendor Created [8796256084]','2019-02-22 16:48:33',NULL),
+(1273,'New Member Created [8796256084]','2019-02-22 16:48:33',NULL),
+(1274,'log_user_info_updated','2019-02-22 16:49:10',NULL),
+(1275,'New Profile Created [18]','2019-02-22 16:49:10',NULL),
+(1276,'New Vendor About Created [18]','2019-02-22 16:49:10',NULL),
+(1277,'New Vendor Wroks Created [18]','2019-02-22 16:49:10',NULL),
+(1278,'New Vendor Locations Created [18]','2019-02-22 16:49:10',NULL),
+(1279,'New Vendor Account Created [18]','2019-02-22 16:49:10',NULL),
+(1280,'log_profile_info_updated','2019-02-22 16:49:50',NULL),
+(1281,'log_profile_info_updated','2019-02-22 16:50:17',NULL),
+(1282,'log_profile_info_updated','2019-02-22 16:50:32',NULL),
+(1283,'log_profile_info_updated','2019-02-22 16:50:37',NULL),
+(1284,'log_about_info_updated','2019-02-22 16:51:33',NULL),
+(1285,'log_works_info_updated','2019-02-22 16:51:42',NULL),
+(1286,'log_locations_info_updated','2019-02-22 16:51:54',NULL),
+(1287,'log_user_info_updated','2019-02-22 16:52:03',NULL),
+(1288,'log_user_info_updated','2019-02-22 16:53:25',NULL),
+(1289,'log_user_info_updated','2019-02-22 16:53:48',NULL),
+(1290,'log_user_info_updated','2019-02-22 16:56:09',NULL),
+(1291,'log_user_info_updated','2019-02-22 16:56:32',NULL),
+(1292,'log_user_info_updated','2019-02-22 17:00:28',NULL),
+(1293,'log_user_info_updated','2019-02-22 17:07:52',NULL),
+(1294,'vendor_deleted [7]','2019-02-22 17:09:16','Admin Nadaf'),
+(1295,'member_deleted [16]','2019-02-22 17:09:16','Admin Nadaf'),
+(1296,'failed_login_attempt[mobile:7774812090, user_type:2, IP:103.72.142.241]','2019-02-22 17:10:34',NULL),
+(1297,'New Vendor Created [7774812090]','2019-02-22 17:10:34',NULL),
+(1298,'New Member Created [7774812090]','2019-02-22 17:10:34',NULL),
+(1299,'log_user_info_updated','2019-02-22 17:11:07',NULL),
+(1300,'New Profile Created [19]','2019-02-22 17:11:07',NULL),
+(1301,'New Vendor About Created [19]','2019-02-22 17:11:07',NULL),
+(1302,'New Vendor Wroks Created [19]','2019-02-22 17:11:07',NULL),
+(1303,'New Vendor Locations Created [19]','2019-02-22 17:11:07',NULL),
+(1304,'New Vendor Account Created [19]','2019-02-22 17:11:07',NULL),
+(1305,'log_profile_info_updated','2019-02-22 17:11:30',NULL),
+(1306,'log_profile_info_updated','2019-02-22 17:11:51',NULL),
+(1307,'log_profile_info_updated','2019-02-22 17:12:06',NULL),
+(1308,'log_profile_info_updated','2019-02-22 17:12:08',NULL),
+(1309,'log_about_info_updated','2019-02-22 17:12:42',NULL),
+(1310,'log_works_info_updated','2019-02-22 17:12:53',NULL),
+(1311,'log_locations_info_updated','2019-02-22 17:13:04',NULL),
+(1312,'log_user_info_updated','2019-02-22 17:13:07',NULL),
+(1313,'log_user_info_updated','2019-02-22 17:21:23',NULL),
+(1314,'log_user_info_updated','2019-02-22 23:47:31','Admin Nadaf'),
+(1315,'log_user_info_updated','2019-02-22 23:47:34','Admin Nadaf'),
+(1316,'vendor_deleted [23]','2019-02-22 23:47:50','Admin Nadaf'),
+(1317,'member_deleted [33]','2019-02-22 23:47:50','Admin Nadaf'),
+(1318,'log_user_info_updated','2019-02-22 23:47:59','Admin Nadaf'),
+(1319,'vendor_deleted [9]','2019-02-22 23:48:29','Admin Nadaf'),
+(1320,'member_deleted [18]','2019-02-22 23:48:29','Admin Nadaf'),
+(1321,'vendor_deleted [22]','2019-02-22 23:48:38','Admin Nadaf'),
+(1322,'member_deleted [32]','2019-02-22 23:48:38','Admin Nadaf'),
+(1323,'log_user_info_updated','2019-02-22 23:48:50','Admin Nadaf'),
+(1324,'log_user_info_updated','2019-02-22 23:48:52','Admin Nadaf'),
+(1325,'vendor_deleted [13]','2019-02-22 23:49:02','Admin Nadaf'),
+(1326,'member_deleted [22]','2019-02-22 23:49:02','Admin Nadaf'),
+(1327,'log_user_info_updated','2019-02-22 23:49:13','Admin Nadaf'),
+(1328,'log_user_info_updated','2019-02-22 23:49:15','Admin Nadaf'),
+(1329,'vendor_deleted [1]','2019-02-22 23:49:20','Admin Nadaf'),
+(1330,'member_deleted [2]','2019-02-22 23:49:20','Admin Nadaf'),
+(1331,'log_user_info_updated','2019-02-22 23:55:45',NULL),
+(1332,'log_user_info_updated','2019-02-22 23:57:45',NULL),
+(1333,'failed_login_attempt[mobile:8904817656, user_type:2, IP:49.35.44.180]','2019-02-23 00:39:35',NULL),
+(1334,'New Vendor Created [8904817656]','2019-02-23 00:39:35',NULL),
+(1335,'New Member Created [8904817656]','2019-02-23 00:39:35',NULL),
+(1336,'log_user_info_updated','2019-02-23 00:40:34',NULL),
+(1337,'New Profile Created [20]','2019-02-23 00:40:34',NULL),
+(1338,'New Vendor About Created [20]','2019-02-23 00:40:34',NULL),
+(1339,'New Vendor Wroks Created [20]','2019-02-23 00:40:34',NULL),
+(1340,'New Vendor Locations Created [20]','2019-02-23 00:40:34',NULL),
+(1341,'New Vendor Account Created [20]','2019-02-23 00:40:34',NULL),
+(1342,'log_user_info_updated','2019-02-23 10:20:55',NULL),
+(1343,'log_user_info_updated','2019-02-23 10:22:23',NULL),
+(1344,'vendor_deleted [30]','2019-02-23 10:27:35','Admin Nadaf'),
+(1345,'member_deleted [40]','2019-02-23 10:27:35','Admin Nadaf'),
+(1346,'failed_login_attempt[mobile:7774812090, user_type:2, IP:103.72.142.236]','2019-02-23 10:27:51',NULL),
+(1347,'New Vendor Created [7774812090]','2019-02-23 10:27:51',NULL),
+(1348,'New Member Created [7774812090]','2019-02-23 10:27:51',NULL),
+(1349,'New Address Created [2]','2019-02-23 11:02:44',NULL),
+(1350,'New Cart Created [5]','2019-02-23 11:02:50',NULL),
+(1351,'New Cart Product Created [5]','2019-02-23 11:03:28',NULL),
+(1352,'New Cart Product Details Created [5]','2019-02-23 11:03:28',NULL),
+(1353,'Cart Product Info Updated [5]','2019-02-23 11:03:28',NULL),
+(1354,'Category Info Updated [9]','2019-02-23 12:56:06','Admin Nadaf'),
+(1355,'Category Info Updated [8]','2019-02-23 12:56:07','Admin Nadaf'),
+(1356,'Category Info Updated [9]','2019-02-23 12:56:39','Admin Nadaf'),
+(1357,'Category Info Updated [8]','2019-02-23 12:56:41','Admin Nadaf'),
+(1358,'log_profile_info_updated','2019-02-23 13:44:12',NULL),
+(1359,'log_profile_info_updated','2019-02-23 13:44:51',NULL),
+(1360,'log_profile_info_updated','2019-02-23 13:45:06',NULL),
+(1361,'log_profile_info_updated','2019-02-23 13:45:09',NULL),
+(1362,'log_about_info_updated','2019-02-23 13:45:25',NULL),
+(1363,'log_locations_info_updated','2019-02-23 13:45:52',NULL),
+(1364,'log_works_info_updated','2019-02-23 13:46:26',NULL),
+(1365,'log_works_info_updated','2019-02-23 13:46:53',NULL),
+(1366,'log_user_info_updated','2019-02-23 13:46:53',NULL),
+(1367,'log_works_info_updated','2019-02-23 13:46:56',NULL),
+(1368,'log_user_info_updated','2019-02-23 13:47:05',NULL),
+(1369,'failed_login_attempt[mobile:8796235652, user_type:2, IP:106.78.207.225]','2019-02-23 15:41:18',NULL),
+(1370,'New Vendor Created [8796235652]','2019-02-23 15:41:18',NULL),
+(1371,'New Member Created [8796235652]','2019-02-23 15:41:18',NULL),
+(1372,'failed_login_attempt[mobile:9900413744, user_type:2, IP:27.59.209.40]','2019-02-24 10:53:55',NULL),
+(1373,'New Vendor Created [9900413744]','2019-02-24 10:53:55',NULL),
+(1374,'New Member Created [9900413744]','2019-02-24 10:53:55',NULL),
+(1375,'failed_login_attempt[mobile:7774812090, user_type:1, IP:106.79.64.46]','2019-02-25 12:03:37',NULL),
+(1376,'New Customer Created [7774812090]','2019-02-25 12:03:37',NULL),
+(1377,'New Member Created [7774812090]','2019-02-25 12:03:37',NULL),
+(1378,'log_user_info_updated','2019-02-25 12:06:49',NULL),
+(1379,'log_user_info_updated','2019-02-25 12:06:58',NULL),
+(1380,'log_user_info_updated','2019-02-25 12:09:41',NULL),
+(1381,'log_user_info_updated','2019-02-25 12:13:24',NULL),
+(1382,'log_user_info_updated','2019-02-25 12:14:03',NULL),
+(1383,'log_user_info_updated','2019-02-25 12:21:15',NULL),
+(1384,'New Cart Product Created [6]','2019-02-25 12:21:24',NULL),
+(1385,'New Cart Product Details Created [6]','2019-02-25 12:21:24',NULL),
+(1386,'Cart Product Info Updated [6]','2019-02-25 12:21:24',NULL),
+(1387,'New Cart Product Created [7]','2019-02-25 12:23:33',NULL),
+(1388,'New Cart Product Details Created [7]','2019-02-25 12:23:33',NULL),
+(1389,'Cart Product Info Updated [7]','2019-02-25 12:23:33',NULL),
+(1390,'log_user_info_updated','2019-02-25 12:32:19',NULL),
+(1391,'log_user_info_updated','2019-02-25 12:33:13','Admin Nadaf'),
+(1392,'log_user_info_updated','2019-02-25 12:35:49','Admin Nadaf'),
+(1393,'log_user_info_updated','2019-02-25 12:43:29',NULL),
+(1394,'log_user_info_updated','2019-02-25 12:43:51',NULL),
+(1395,'log_user_info_updated','2019-02-25 12:56:16',NULL),
+(1396,'log_user_info_updated','2019-02-25 13:03:06',NULL),
+(1397,'log_user_info_updated','2019-02-25 13:24:27',NULL),
+(1398,'New Cart Product Created [8]','2019-02-25 14:34:48',NULL),
+(1399,'New Cart Product Details Created [8]','2019-02-25 14:34:48',NULL),
+(1400,'Cart Product Info Updated [8]','2019-02-25 14:34:48',NULL),
+(1401,'log_user_info_updated','2019-02-25 14:51:03',NULL),
+(1402,'log_user_info_updated','2019-02-25 14:51:09',NULL),
+(1403,'log_user_info_updated','2019-02-25 14:53:14',NULL),
+(1404,'New Cart Product Created [9]','2019-02-25 15:13:33',NULL),
+(1405,'New Cart Product Details Created [9]','2019-02-25 15:13:33',NULL),
+(1406,'Cart Product Info Updated [9]','2019-02-25 15:13:33',NULL),
+(1407,'New Cart Product Created [10]','2019-02-25 15:28:59',NULL),
+(1408,'New Cart Product Details Created [10]','2019-02-25 15:28:59',NULL),
+(1409,'Cart Product Info Updated [10]','2019-02-25 15:28:59',NULL),
+(1410,'New Cart Product Created [11]','2019-02-25 15:35:46',NULL),
+(1411,'New Cart Product Details Created [11]','2019-02-25 15:35:46',NULL),
+(1412,'Cart Product Info Updated [11]','2019-02-25 15:35:46',NULL),
+(1413,'New Cart Product Created [12]','2019-02-25 15:40:44',NULL),
+(1414,'New Cart Product Details Created [12]','2019-02-25 15:40:44',NULL),
+(1415,'Cart Product Info Updated [12]','2019-02-25 15:40:44',NULL),
+(1416,'log_user_info_updated','2019-02-25 15:44:34',NULL),
+(1417,'New Cart Product Created [13]','2019-02-25 15:54:19',NULL),
+(1418,'New Cart Product Details Created [13]','2019-02-25 15:54:19',NULL),
+(1419,'Cart Product Info Updated [13]','2019-02-25 15:54:19',NULL),
+(1420,'New Cart Product Created [14]','2019-02-25 16:05:26',NULL),
+(1421,'New Cart Product Details Created [14]','2019-02-25 16:05:26',NULL),
+(1422,'Cart Product Info Updated [14]','2019-02-25 16:05:26',NULL),
+(1423,'log_user_info_updated','2019-02-25 16:12:57',NULL),
+(1424,'log_user_info_updated','2019-02-25 16:13:35',NULL),
+(1425,'log_user_info_updated','2019-02-25 16:24:27',NULL),
+(1426,'New Cart Product Created [15]','2019-02-25 16:43:45',NULL),
+(1427,'New Cart Product Details Created [15]','2019-02-25 16:43:45',NULL),
+(1428,'Cart Product Info Updated [15]','2019-02-25 16:43:45',NULL),
+(1429,'New Cart Product Created [16]','2019-02-25 16:47:13',NULL),
+(1430,'New Cart Product Details Created [16]','2019-02-25 16:47:13',NULL),
+(1431,'Cart Product Info Updated [16]','2019-02-25 16:47:13',NULL),
+(1432,'New Cart Product Created [17]','2019-02-25 17:00:45',NULL),
+(1433,'New Cart Product Details Created [17]','2019-02-25 17:00:45',NULL),
+(1434,'Cart Product Info Updated [17]','2019-02-25 17:00:45',NULL),
+(1435,'log_user_info_updated','2019-02-25 17:25:05',NULL),
+(1436,'log_user_info_updated','2019-02-25 17:46:12',NULL),
+(1437,'log_user_info_updated','2019-02-25 18:06:15',NULL),
+(1438,'log_user_info_updated','2019-02-25 18:43:03',NULL),
+(1439,'log_user_info_updated','2019-02-25 18:43:20',NULL),
+(1440,'New Cart Product Created [18]','2019-02-26 09:57:14',NULL),
+(1441,'New Cart Product Details Created [18]','2019-02-26 09:57:14',NULL),
+(1442,'Cart Product Info Updated [18]','2019-02-26 09:57:14',NULL),
+(1443,'log_user_info_updated','2019-02-26 09:59:16','Admin Nadaf'),
+(1444,'New Cart Product Created [19]','2019-02-26 09:59:43',NULL),
+(1445,'New Cart Product Details Created [19]','2019-02-26 09:59:43',NULL),
+(1446,'Cart Product Info Updated [19]','2019-02-26 09:59:43',NULL),
+(1447,'log_user_info_updated','2019-02-26 10:00:00','Admin Nadaf'),
+(1448,'customer_deleted [8]','2019-02-26 10:00:03','Admin Nadaf'),
+(1449,'member_deleted [45]','2019-02-26 10:00:03','Admin Nadaf'),
+(1450,'failed_login_attempt[mobile:8796256084, user_type:1, IP:103.72.142.248]','2019-02-26 10:17:54',NULL),
+(1451,'New Customer Created [8796256084]','2019-02-26 10:17:54',NULL),
+(1452,'New Member Created [8796256084]','2019-02-26 10:17:54',NULL),
+(1453,'log_user_info_updated','2019-02-26 10:24:39',NULL),
+(1454,'New Cart Product Created [20]','2019-02-26 10:24:57',NULL),
+(1455,'New Cart Product Details Created [20]','2019-02-26 10:24:57',NULL),
+(1456,'Cart Product Info Updated [20]','2019-02-26 10:24:57',NULL),
+(1457,'New Cart Product Created [21]','2019-02-26 10:43:54',NULL),
+(1458,'New Cart Product Details Created [21]','2019-02-26 10:43:54',NULL),
+(1459,'Cart Product Info Updated [21]','2019-02-26 10:43:54',NULL),
+(1460,'log_user_info_updated','2019-02-26 10:45:11',NULL),
+(1461,'New Cart Product Created [22]','2019-02-26 10:46:48',NULL),
+(1462,'New Cart Product Details Created [22]','2019-02-26 10:46:48',NULL),
+(1463,'Cart Product Info Updated [22]','2019-02-26 10:46:48',NULL),
+(1464,'log_user_info_updated','2019-02-26 10:47:47',NULL),
+(1465,'log_user_info_updated','2019-02-26 10:50:48',NULL),
+(1466,'New Cart Product Created [23]','2019-02-26 10:50:58',NULL),
+(1467,'New Cart Product Details Created [23]','2019-02-26 10:50:58',NULL),
+(1468,'Cart Product Info Updated [23]','2019-02-26 10:50:58',NULL),
+(1469,'New Cart Product Created [24]','2019-02-26 10:52:29',NULL),
+(1470,'New Cart Product Details Created [24]','2019-02-26 10:52:29',NULL),
+(1471,'Cart Product Info Updated [24]','2019-02-26 10:52:29',NULL),
+(1472,'New Cart Product Created [25]','2019-02-26 10:54:06',NULL),
+(1473,'New Cart Product Details Created [25]','2019-02-26 10:54:06',NULL),
+(1474,'Cart Product Info Updated [25]','2019-02-26 10:54:06',NULL),
+(1475,'New Cart Product Created [26]','2019-02-26 10:56:01',NULL),
+(1476,'New Cart Product Details Created [26]','2019-02-26 10:56:01',NULL),
+(1477,'Cart Product Info Updated [26]','2019-02-26 10:56:01',NULL),
+(1478,'log_user_info_updated','2019-02-26 11:02:42',NULL),
+(1479,'log_user_info_updated','2019-02-26 11:04:19',NULL),
+(1480,'log_user_info_updated','2019-02-26 11:05:20',NULL),
+(1481,'log_user_info_updated','2019-02-26 11:05:45',NULL),
+(1482,'log_user_info_updated','2019-02-26 11:56:01',NULL),
+(1483,'New Profile Created [21]','2019-02-26 11:56:01',NULL),
+(1484,'New Vendor About Created [21]','2019-02-26 11:56:01',NULL),
+(1485,'New Vendor Wroks Created [21]','2019-02-26 11:56:01',NULL),
+(1486,'New Vendor Locations Created [21]','2019-02-26 11:56:01',NULL),
+(1487,'New Vendor Account Created [21]','2019-02-26 11:56:01',NULL),
+(1488,'vendor_deleted [32]','2019-02-26 12:37:58','Admin Nadaf'),
+(1489,'member_deleted [42]','2019-02-26 12:37:58','Admin Nadaf'),
+(1490,'failed_login_attempt[mobile:7774812890, user_type:2, IP:103.72.142.248]','2019-02-26 12:38:33',NULL),
+(1491,'New Vendor Created [7774812890]','2019-02-26 12:38:33',NULL),
+(1492,'New Member Created [7774812890]','2019-02-26 12:38:33',NULL),
+(1493,'failed_login_attempt[mobile:7774812090, user_type:2, IP:103.72.142.248]','2019-02-26 12:38:49',NULL),
+(1494,'New Vendor Created [7774812090]','2019-02-26 12:38:49',NULL),
+(1495,'New Member Created [7774812090]','2019-02-26 12:38:49',NULL),
+(1496,'log_user_info_updated','2019-02-26 12:49:57',NULL),
+(1497,'log_user_info_updated','2019-02-26 12:50:25','Admin Nadaf'),
+(1498,'log_user_info_updated','2019-02-26 12:50:59','Admin Nadaf'),
+(1499,'log_user_info_updated','2019-02-26 12:56:41',NULL),
+(1500,'log_user_info_updated','2019-02-26 12:57:23','Admin Nadaf'),
+(1501,'log_user_info_updated','2019-02-26 12:57:39',NULL),
+(1502,'log_user_info_updated','2019-02-26 13:02:04','Admin Nadaf'),
+(1503,'log_user_info_updated','2019-02-26 13:08:30',NULL),
+(1504,'log_user_info_updated','2019-02-26 13:27:32',NULL),
+(1505,'log_user_info_updated','2019-02-26 14:06:21',NULL),
+(1506,'log_user_info_updated','2019-02-26 14:08:40',NULL),
+(1507,'log_user_info_updated','2019-02-26 14:08:58','Admin Nadaf'),
+(1508,'log_user_info_updated','2019-02-26 14:09:13',NULL),
+(1509,'log_user_info_updated','2019-02-26 14:13:57',NULL),
+(1510,'vendor_deleted [36]','2019-02-26 14:14:22','Admin Nadaf'),
+(1511,'member_deleted [48]','2019-02-26 14:14:22','Admin Nadaf'),
+(1512,'failed_login_attempt[mobile:7774812090, user_type:2, IP:103.72.142.248]','2019-02-26 14:15:41',NULL),
+(1513,'New Vendor Created [7774812090]','2019-02-26 14:15:41',NULL),
+(1514,'New Member Created [7774812090]','2019-02-26 14:15:41',NULL),
+(1515,'log_user_info_updated','2019-02-26 14:16:25',NULL),
+(1516,'New Profile Created [22]','2019-02-26 14:16:25',NULL),
+(1517,'New Vendor About Created [22]','2019-02-26 14:16:25',NULL),
+(1518,'New Vendor Wroks Created [22]','2019-02-26 14:16:25',NULL),
+(1519,'New Vendor Locations Created [22]','2019-02-26 14:16:25',NULL),
+(1520,'New Vendor Account Created [22]','2019-02-26 14:16:25',NULL),
+(1521,'log_profile_info_updated','2019-02-26 14:17:20',NULL),
+(1522,'log_profile_info_updated','2019-02-26 14:17:47',NULL),
+(1523,'log_profile_info_updated','2019-02-26 14:18:07',NULL),
+(1524,'log_profile_info_updated','2019-02-26 14:18:14',NULL),
+(1525,'log_about_info_updated','2019-02-26 14:19:03',NULL),
+(1526,'log_works_info_updated','2019-02-26 14:19:18',NULL),
+(1527,'log_locations_info_updated','2019-02-26 14:19:56',NULL),
+(1528,'log_user_info_updated','2019-02-26 14:20:47',NULL),
+(1529,'log_user_info_updated','2019-02-26 14:21:42',NULL),
+(1530,'log_user_info_updated','2019-02-26 14:21:46',NULL),
+(1531,'log_user_info_updated','2019-02-26 14:21:51','Admin Nadaf'),
+(1532,'log_user_info_updated','2019-02-26 14:21:54',NULL),
+(1533,'log_user_info_updated','2019-02-26 14:22:37',NULL),
+(1534,'log_user_info_updated','2019-02-26 14:22:53',NULL),
+(1535,'log_user_info_updated','2019-02-26 14:23:04','Admin Nadaf'),
+(1536,'log_user_info_updated','2019-02-26 14:23:09',NULL),
+(1537,'log_user_info_updated','2019-02-26 14:27:06',NULL),
+(1538,'log_user_info_updated','2019-02-26 14:27:26',NULL),
+(1539,'log_user_info_updated','2019-02-26 14:29:34','Admin Nadaf'),
+(1540,'log_user_info_updated','2019-02-26 14:29:36','Admin Nadaf'),
+(1541,'log_user_info_updated','2019-02-26 14:31:45',NULL),
+(1542,'log_user_info_updated','2019-02-26 14:32:48',NULL),
+(1543,'log_user_info_updated','2019-02-26 14:37:06',NULL),
+(1544,'log_user_info_updated','2019-02-26 14:38:33',NULL),
+(1545,'log_user_info_updated','2019-02-26 14:38:45',NULL),
+(1546,'log_user_info_updated','2019-02-26 14:39:07',NULL),
+(1547,'log_user_info_updated','2019-02-26 15:06:13',NULL),
+(1548,'vendor_deleted [37]','2019-02-26 15:10:25','Admin Nadaf'),
+(1549,'member_deleted [49]','2019-02-26 15:10:25','Admin Nadaf'),
+(1550,'vendor_deleted [35]','2019-02-26 15:10:36','Admin Nadaf'),
+(1551,'member_deleted [47]','2019-02-26 15:10:36','Admin Nadaf'),
+(1552,'log_user_info_updated','2019-02-26 15:12:31',NULL),
+(1553,'log_user_info_updated','2019-02-26 15:12:32',NULL),
+(1554,'failed_login_attempt[mobile:7774812090, user_type:2, IP:103.72.142.248]','2019-02-26 15:13:43',NULL),
+(1555,'New Vendor Created [7774812090]','2019-02-26 15:13:43',NULL),
+(1556,'New Member Created [7774812090]','2019-02-26 15:13:43',NULL),
+(1557,'log_user_info_updated','2019-02-26 15:14:44',NULL),
+(1558,'Category Info Updated [25]','2019-02-26 15:20:36','Admin Nadaf'),
+(1559,'Category Info Updated [24]','2019-02-26 15:20:37','Admin Nadaf'),
+(1560,'Category Info Updated [23]','2019-02-26 15:20:38','Admin Nadaf'),
+(1561,'Category Info Updated [22]','2019-02-26 15:20:38','Admin Nadaf'),
+(1562,'Category Info Updated [21]','2019-02-26 15:20:39','Admin Nadaf'),
+(1563,'Category Info Updated [25]','2019-02-26 15:21:07','Admin Nadaf'),
+(1564,'Category Info Updated [24]','2019-02-26 15:21:08','Admin Nadaf'),
+(1565,'Category Info Updated [23]','2019-02-26 15:21:09','Admin Nadaf'),
+(1566,'Category Info Updated [22]','2019-02-26 15:21:10','Admin Nadaf'),
+(1567,'Category Info Updated [21]','2019-02-26 15:21:11','Admin Nadaf'),
+(1568,'Category Info Updated [73]','2019-02-26 15:22:23','Admin Nadaf'),
+(1569,'Category Info Updated [72]','2019-02-26 15:22:24','Admin Nadaf'),
+(1570,'Category Info Updated [73]','2019-02-26 15:22:39','Admin Nadaf'),
+(1571,'Category Info Updated [72]','2019-02-26 15:22:40','Admin Nadaf'),
+(1572,'log_user_info_updated','2019-02-26 15:54:49',NULL),
+(1573,'vendor_deleted [38]','2019-02-26 15:55:21','Admin Nadaf'),
+(1574,'member_deleted [50]','2019-02-26 15:55:21','Admin Nadaf'),
+(1575,'log_user_info_updated','2019-02-26 15:58:23',NULL),
+(1576,'failed_login_attempt[mobile:7774812090, user_type:2, IP:103.72.142.248]','2019-02-26 15:59:19',NULL),
+(1577,'New Vendor Created [7774812090]','2019-02-26 15:59:19',NULL),
+(1578,'New Member Created [7774812090]','2019-02-26 15:59:19',NULL),
+(1579,'log_user_info_updated','2019-02-26 17:21:56',NULL),
+(1580,'log_user_info_updated','2019-02-26 17:23:34',NULL),
+(1581,'New Cart Product Created [27]','2019-02-27 10:21:11',NULL),
+(1582,'New Cart Product Details Created [27]','2019-02-27 10:21:11',NULL),
+(1583,'Cart Product Info Updated [27]','2019-02-27 10:21:11',NULL),
+(1584,'log_user_info_updated','2019-02-27 10:28:13','Admin Nadaf'),
+(1585,'New Cart Product Created [28]','2019-02-27 10:29:05',NULL),
+(1586,'New Cart Product Details Created [28]','2019-02-27 10:29:05',NULL),
+(1587,'Cart Product Info Updated [28]','2019-02-27 10:29:05',NULL),
+(1588,'log_user_info_updated','2019-02-27 10:32:33','Admin Nadaf'),
+(1589,'New Cart Product Created [29]','2019-02-27 10:34:16',NULL),
+(1590,'New Cart Product Details Created [29]','2019-02-27 10:34:16',NULL),
+(1591,'Cart Product Info Updated [29]','2019-02-27 10:34:16',NULL),
+(1592,'New Cart Product Created [30]','2019-02-27 10:35:27',NULL),
+(1593,'New Cart Product Details Created [30]','2019-02-27 10:35:27',NULL),
+(1594,'Cart Product Info Updated [30]','2019-02-27 10:35:27',NULL),
+(1595,'log_user_info_updated','2019-02-27 14:19:14',NULL),
+(1596,'New Profile Created [23]','2019-02-27 14:19:14',NULL),
+(1597,'New Vendor About Created [23]','2019-02-27 14:19:14',NULL),
+(1598,'New Vendor Wroks Created [23]','2019-02-27 14:19:14',NULL),
+(1599,'New Vendor Locations Created [23]','2019-02-27 14:19:14',NULL),
+(1600,'New Vendor Account Created [23]','2019-02-27 14:19:14',NULL),
+(1601,'log_profile_info_updated','2019-02-27 14:20:49',NULL),
+(1602,'log_profile_info_updated','2019-02-27 14:21:22',NULL),
+(1603,'log_profile_info_updated','2019-02-27 14:21:38',NULL),
+(1604,'log_profile_info_updated','2019-02-27 14:21:43',NULL),
+(1605,'log_about_info_updated','2019-02-27 14:22:25',NULL),
+(1606,'log_works_info_updated','2019-02-27 14:22:36',NULL),
+(1607,'log_works_info_updated','2019-02-27 14:22:41',NULL),
+(1608,'log_works_info_updated','2019-02-27 14:22:49',NULL),
+(1609,'log_works_info_updated','2019-02-27 14:30:44',NULL),
+(1610,'log_works_info_updated','2019-02-27 14:31:03',NULL),
+(1611,'log_works_info_updated','2019-02-27 14:31:09',NULL),
+(1612,'log_about_info_updated','2019-02-27 14:31:17',NULL),
+(1613,'log_works_info_updated','2019-02-27 14:32:15',NULL),
+(1614,'log_works_info_updated','2019-02-27 14:32:40',NULL),
+(1615,'log_works_info_updated','2019-02-27 14:33:40',NULL),
+(1616,'log_works_info_updated','2019-02-27 14:34:02',NULL),
+(1617,'log_works_info_updated','2019-02-27 14:34:44',NULL),
+(1618,'log_works_info_updated','2019-02-27 14:35:54',NULL),
+(1619,'log_works_info_updated','2019-02-27 14:36:08',NULL),
+(1620,'log_user_info_updated','2019-02-27 14:56:49',NULL),
+(1621,'log_locations_info_updated','2019-02-27 15:00:02',NULL),
+(1622,'log_works_info_updated','2019-02-27 15:00:41',NULL),
+(1623,'log_locations_info_updated','2019-02-27 15:18:18',NULL),
+(1624,'log_locations_info_updated','2019-02-27 15:27:00',NULL),
+(1625,'log_user_info_updated','2019-02-27 15:32:29',NULL),
+(1626,'log_user_info_updated','2019-02-27 15:32:52','Admin Nadaf'),
+(1627,'log_user_info_updated','2019-02-27 15:33:00',NULL),
+(1628,'log_user_info_updated','2019-02-27 15:33:19','Admin Nadaf'),
+(1629,'log_user_info_updated','2019-02-27 15:33:33',NULL),
+(1630,'log_user_info_updated','2019-02-27 15:35:16',NULL),
+(1631,'log_user_info_updated','2019-02-27 15:37:16',NULL),
+(1632,'log_user_info_updated','2019-02-27 15:37:17',NULL),
+(1633,'log_user_info_updated','2019-02-27 15:37:21',NULL),
+(1634,'log_user_info_updated','2019-02-27 15:38:20',NULL),
+(1635,'log_user_info_updated','2019-02-27 15:39:41',NULL),
+(1636,'log_user_info_updated','2019-02-27 15:40:19','Admin Nadaf'),
+(1637,'log_user_info_updated','2019-02-27 15:40:43',NULL),
+(1638,'log_user_info_updated','2019-02-27 15:42:30',NULL),
+(1639,'log_user_info_updated','2019-02-27 15:43:16',NULL),
+(1640,'log_user_info_updated','2019-02-27 15:43:17','Admin Nadaf'),
+(1641,'log_user_info_updated','2019-02-27 15:43:33',NULL),
+(1642,'log_user_info_updated','2019-02-27 15:46:25',NULL),
+(1643,'vendor_deleted [39]','2019-02-27 15:47:32','Admin Nadaf'),
+(1644,'member_deleted [51]','2019-02-27 15:47:32','Admin Nadaf'),
+(1645,'log_user_info_updated','2019-02-27 15:47:53',NULL),
+(1646,'log_user_info_updated','2019-02-27 15:49:04',NULL),
+(1647,'failed_login_attempt[mobile:7774812090, user_type:2, IP:103.72.142.248]','2019-02-27 15:49:42',NULL),
+(1648,'New Vendor Created [7774812090]','2019-02-27 15:49:42',NULL),
+(1649,'New Member Created [7774812090]','2019-02-27 15:49:42',NULL),
+(1650,'log_user_info_updated','2019-02-27 16:02:19',NULL),
+(1651,'log_user_info_updated','2019-02-27 16:20:27',NULL),
+(1652,'log_user_info_updated','2019-02-27 16:20:28',NULL),
+(1653,'log_user_info_updated','2019-02-27 16:55:50',NULL),
+(1654,'log_user_info_updated','2019-02-27 16:59:59',NULL),
+(1655,'log_user_info_updated','2019-02-27 17:09:31',NULL),
+(1656,'New Profile Created [24]','2019-02-27 17:09:31',NULL),
+(1657,'New Vendor About Created [24]','2019-02-27 17:09:31',NULL),
+(1658,'New Vendor Wroks Created [24]','2019-02-27 17:09:31',NULL),
+(1659,'New Vendor Locations Created [24]','2019-02-27 17:09:31',NULL),
+(1660,'New Vendor Account Created [24]','2019-02-27 17:09:31',NULL),
+(1661,'log_user_info_updated','2019-02-27 17:13:05',NULL),
+(1662,'log_user_info_updated','2019-02-27 17:14:57',NULL),
+(1663,'log_user_info_updated','2019-02-27 17:15:34',NULL),
+(1664,'log_user_info_updated','2019-02-27 17:16:10',NULL),
+(1665,'log_user_info_updated','2019-02-27 17:16:22','Admin Nadaf'),
+(1666,'log_user_info_updated','2019-02-27 17:16:30',NULL),
+(1667,'log_user_info_updated','2019-02-27 17:17:33',NULL),
+(1668,'log_user_info_updated','2019-02-27 17:19:41',NULL),
+(1669,'log_user_info_updated','2019-02-27 17:19:51',NULL),
+(1670,'vendor_deleted [40]','2019-02-28 09:47:03','Admin Nadaf'),
+(1671,'member_deleted [52]','2019-02-28 09:47:03','Admin Nadaf'),
+(1672,'failed_login_attempt[mobile:7774812090, user_type:2, IP:106.66.246.86]','2019-02-28 09:48:44',NULL),
+(1673,'New Vendor Created [7774812090]','2019-02-28 09:48:44',NULL),
+(1674,'New Member Created [7774812090]','2019-02-28 09:48:44',NULL),
+(1675,'log_user_info_updated','2019-02-28 10:52:21',NULL),
+(1676,'log_user_info_updated','2019-02-28 10:53:37',NULL),
+(1677,'New Profile Created [25]','2019-02-28 10:53:37',NULL),
+(1678,'New Vendor About Created [25]','2019-02-28 10:53:37',NULL),
+(1679,'New Vendor Wroks Created [25]','2019-02-28 10:53:37',NULL),
+(1680,'New Vendor Locations Created [25]','2019-02-28 10:53:37',NULL),
+(1681,'New Vendor Account Created [25]','2019-02-28 10:53:37',NULL),
+(1682,'log_profile_info_updated','2019-02-28 10:54:08',NULL),
+(1683,'log_profile_info_updated','2019-02-28 10:54:25',NULL),
+(1684,'log_profile_info_updated','2019-02-28 10:54:35',NULL),
+(1685,'log_profile_info_updated','2019-02-28 10:54:37',NULL),
+(1686,'log_about_info_updated','2019-02-28 10:55:30',NULL),
+(1687,'log_works_info_updated','2019-02-28 10:55:55',NULL),
+(1688,'log_locations_info_updated','2019-02-28 10:56:33',NULL),
+(1689,'vendor_deleted [10]','2019-02-28 10:57:37','Admin Nadaf'),
+(1690,'member_deleted [19]','2019-02-28 10:57:37','Admin Nadaf'),
+(1691,'log_user_info_updated','2019-02-28 11:00:34',NULL),
+(1692,'log_user_info_updated','2019-02-28 11:02:37',NULL),
+(1693,'log_user_info_updated','2019-02-28 11:02:50',NULL),
+(1694,'log_user_info_updated','2019-02-28 11:11:24',NULL),
+(1695,'log_user_info_updated','2019-02-28 11:14:23',NULL),
+(1696,'log_user_info_updated','2019-02-28 11:14:32',NULL),
+(1697,'log_user_info_updated','2019-02-28 11:14:42',NULL),
+(1698,'log_user_info_updated','2019-02-28 11:14:45',NULL),
+(1699,'log_user_info_updated','2019-02-28 11:16:00',NULL),
+(1700,'log_user_info_updated','2019-02-28 11:23:19',NULL),
+(1701,'log_user_info_updated','2019-02-28 11:23:43',NULL),
+(1702,'log_user_info_updated','2019-02-28 11:24:12',NULL),
+(1703,'log_user_info_updated','2019-02-28 11:25:25',NULL),
+(1704,'log_user_info_updated','2019-02-28 11:26:53',NULL),
+(1705,'log_user_info_updated','2019-02-28 11:28:53',NULL),
+(1706,'log_user_info_updated','2019-02-28 11:30:43','Admin Nadaf'),
+(1707,'log_user_info_updated','2019-02-28 11:31:01',NULL),
+(1708,'log_user_info_updated','2019-02-28 11:33:35',NULL),
+(1709,'log_user_info_updated','2019-02-28 11:42:18',NULL),
+(1710,'log_user_info_updated','2019-02-28 11:47:11',NULL),
+(1711,'log_user_info_updated','2019-02-28 11:49:00',NULL),
+(1712,'log_user_info_updated','2019-02-28 11:53:55','Admin Nadaf'),
+(1713,'log_user_info_updated','2019-02-28 11:54:32',NULL),
+(1714,'log_user_info_updated','2019-02-28 11:54:43','Admin Nadaf'),
+(1715,'log_user_info_updated','2019-02-28 11:54:51',NULL),
+(1716,'log_user_info_updated','2019-02-28 11:55:03',NULL),
+(1717,'log_user_info_updated','2019-02-28 11:57:59',NULL),
+(1718,'log_user_info_updated','2019-02-28 12:01:31','Admin Nadaf'),
+(1719,'log_user_info_updated','2019-02-28 12:04:26',NULL),
+(1720,'log_user_info_updated','2019-02-28 12:04:43','Admin Nadaf'),
+(1721,'log_user_info_updated','2019-02-28 12:05:24',NULL),
+(1722,'log_user_info_updated','2019-02-28 12:07:11',NULL),
+(1723,'log_user_info_updated','2019-02-28 12:09:43',NULL),
+(1724,'log_user_info_updated','2019-02-28 12:13:24',NULL),
+(1725,'log_user_info_updated','2019-02-28 12:16:07',NULL),
+(1726,'log_user_info_updated','2019-02-28 12:16:23',NULL),
+(1727,'log_user_info_updated','2019-02-28 12:16:34',NULL),
+(1728,'log_user_info_updated','2019-02-28 12:20:29',NULL),
+(1729,'log_user_info_updated','2019-02-28 12:20:37',NULL),
+(1730,'log_user_info_updated','2019-02-28 12:21:57',NULL),
+(1731,'log_user_info_updated','2019-02-28 12:30:08',NULL),
+(1732,'log_user_info_updated','2019-02-28 12:33:25',NULL),
+(1733,'log_user_info_updated','2019-02-28 12:48:53',NULL),
+(1734,'log_user_info_updated','2019-02-28 14:48:40',NULL),
+(1735,'log_user_info_updated','2019-02-28 14:50:53',NULL),
+(1736,'vendor_deleted [41]','2019-02-28 14:52:26','Admin Nadaf'),
+(1737,'member_deleted [53]','2019-02-28 14:52:26','Admin Nadaf'),
+(1738,'failed_login_attempt[mobile:7774812090, user_type:2, IP:103.72.142.232]','2019-02-28 14:56:22',NULL),
+(1739,'New Vendor Created [7774812090]','2019-02-28 14:56:22',NULL),
+(1740,'New Member Created [7774812090]','2019-02-28 14:56:22',NULL),
+(1741,'log_user_info_updated','2019-02-28 14:56:47',NULL),
+(1742,'New Profile Created [26]','2019-02-28 14:56:47',NULL),
+(1743,'New Vendor About Created [26]','2019-02-28 14:56:47',NULL),
+(1744,'New Vendor Wroks Created [26]','2019-02-28 14:56:47',NULL),
+(1745,'New Vendor Locations Created [26]','2019-02-28 14:56:47',NULL),
+(1746,'New Vendor Account Created [26]','2019-02-28 14:56:47',NULL),
+(1747,'log_profile_info_updated','2019-02-28 14:57:10',NULL),
+(1748,'log_profile_info_updated','2019-02-28 14:57:30',NULL),
+(1749,'log_profile_info_updated','2019-02-28 14:57:45',NULL),
+(1750,'log_profile_info_updated','2019-02-28 14:57:48',NULL),
+(1751,'log_about_info_updated','2019-02-28 15:00:00',NULL),
+(1752,'log_works_info_updated','2019-02-28 15:00:23',NULL),
+(1753,'log_locations_info_updated','2019-02-28 15:01:07',NULL),
+(1754,'log_user_info_updated','2019-02-28 15:21:49',NULL),
+(1755,'log_user_info_updated','2019-02-28 15:22:10','Admin Nadaf'),
+(1756,'log_user_info_updated','2019-02-28 15:22:18',NULL),
+(1757,'log_user_info_updated','2019-02-28 15:22:40',NULL),
+(1758,'log_user_info_updated','2019-02-28 15:23:52',NULL),
+(1759,'log_user_info_updated','2019-02-28 15:25:24',NULL),
+(1760,'log_user_info_updated','2019-02-28 15:25:58','Admin Nadaf'),
+(1761,'log_user_info_updated','2019-02-28 15:26:55',NULL),
+(1762,'log_user_info_updated','2019-02-28 15:32:48',NULL),
+(1763,'log_user_info_updated','2019-02-28 15:32:48',NULL),
+(1764,'log_user_info_updated','2019-02-28 15:33:32','Admin Nadaf'),
+(1765,'log_user_info_updated','2019-02-28 15:33:41',NULL),
+(1766,'log_user_info_updated','2019-02-28 15:33:43',NULL),
+(1767,'log_user_info_updated','2019-02-28 15:33:52','Admin Nadaf'),
+(1768,'log_user_info_updated','2019-02-28 15:34:14',NULL),
+(1769,'log_user_info_updated','2019-02-28 15:34:25',NULL),
+(1770,'log_user_info_updated','2019-02-28 15:35:25',NULL),
+(1771,'log_user_info_updated','2019-02-28 15:35:30',NULL),
+(1772,'log_user_info_updated','2019-02-28 15:36:06',NULL),
+(1773,'log_user_info_updated','2019-02-28 15:36:49',NULL),
+(1774,'log_user_info_updated','2019-02-28 15:41:17',NULL),
+(1775,'log_user_info_updated','2019-02-28 15:41:24',NULL),
+(1776,'log_user_info_updated','2019-02-28 15:42:39','Admin Nadaf'),
+(1777,'log_user_info_updated','2019-02-28 15:42:46',NULL),
+(1778,'log_user_info_updated','2019-02-28 15:42:53',NULL),
+(1779,'vendor_deleted [42]','2019-02-28 15:43:05','Admin Nadaf'),
+(1780,'member_deleted [54]','2019-02-28 15:43:05','Admin Nadaf'),
+(1781,'failed_login_attempt[mobile:7774812090, user_type:2, IP:103.72.142.232]','2019-02-28 15:43:50',NULL),
+(1782,'New Vendor Created [7774812090]','2019-02-28 15:43:50',NULL),
+(1783,'New Member Created [7774812090]','2019-02-28 15:43:50',NULL),
+(1784,'log_user_info_updated','2019-02-28 15:44:13',NULL),
+(1785,'New Profile Created [27]','2019-02-28 15:44:13',NULL),
+(1786,'New Vendor About Created [27]','2019-02-28 15:44:13',NULL),
+(1787,'New Vendor Wroks Created [27]','2019-02-28 15:44:13',NULL),
+(1788,'New Vendor Locations Created [27]','2019-02-28 15:44:13',NULL),
+(1789,'New Vendor Account Created [27]','2019-02-28 15:44:13',NULL),
+(1790,'log_profile_info_updated','2019-02-28 15:44:40',NULL),
+(1791,'log_profile_info_updated','2019-02-28 15:44:57',NULL),
+(1792,'log_profile_info_updated','2019-02-28 15:45:08',NULL),
+(1793,'log_profile_info_updated','2019-02-28 15:45:10',NULL),
+(1794,'log_about_info_updated','2019-02-28 15:45:39',NULL),
+(1795,'log_works_info_updated','2019-02-28 15:45:53',NULL),
+(1796,'log_locations_info_updated','2019-02-28 15:46:06',NULL),
+(1797,'log_user_info_updated','2019-02-28 15:47:42',NULL),
+(1798,'log_user_info_updated','2019-02-28 15:49:19',NULL),
+(1799,'log_user_info_updated','2019-02-28 15:49:25',NULL),
+(1800,'log_user_info_updated','2019-02-28 15:51:43',NULL),
+(1801,'log_user_info_updated','2019-02-28 15:51:45',NULL),
+(1802,'log_user_info_updated','2019-02-28 15:53:16',NULL),
+(1803,'log_user_info_updated','2019-02-28 15:53:44','Admin Nadaf'),
+(1804,'log_user_info_updated','2019-02-28 15:53:53',NULL),
+(1805,'log_user_info_updated','2019-02-28 15:54:14',NULL),
+(1806,'log_user_info_updated','2019-02-28 15:54:27','Admin Nadaf'),
+(1807,'log_user_info_updated','2019-02-28 15:57:28',NULL),
+(1808,'log_user_info_updated','2019-02-28 16:00:14',NULL),
+(1809,'log_user_info_updated','2019-02-28 16:02:13',NULL),
+(1810,'log_user_info_updated','2019-02-28 16:04:31',NULL),
+(1811,'log_user_info_updated','2019-02-28 16:50:00',NULL),
+(1812,'log_user_info_updated','2019-02-28 16:50:21',NULL),
+(1813,'log_user_info_updated','2019-02-28 16:50:36',NULL),
+(1814,'log_user_info_updated','2019-02-28 16:54:04',NULL),
+(1815,'log_user_info_updated','2019-02-28 16:54:36',NULL),
+(1816,'log_user_info_updated','2019-02-28 16:56:36',NULL),
+(1817,'log_user_info_updated','2019-02-28 16:57:13',NULL),
+(1818,'New Address Created [3]','2019-03-01 10:43:33',NULL),
+(1819,'New Cart Created [6]','2019-03-01 10:44:05',NULL),
+(1820,'New Address Created [4]','2019-03-01 15:05:18',NULL),
+(1821,'New Cart Created [7]','2019-03-01 15:05:33',NULL),
+(1822,'log_user_info_updated','2019-03-02 11:06:13',NULL),
+(1823,'log_user_info_updated','2019-03-02 11:11:50',NULL),
+(1824,'log_user_info_updated','2019-03-02 11:12:09',NULL),
+(1825,'log_user_info_updated','2019-03-02 11:18:51',NULL),
+(1826,'log_user_info_updated','2019-03-02 11:19:28','Admin Nadaf'),
+(1827,'log_user_info_updated','2019-03-02 11:19:40',NULL),
+(1828,'log_user_info_updated','2019-03-02 11:20:07',NULL),
+(1829,'log_user_info_updated','2019-03-02 11:22:54',NULL),
+(1830,'log_user_info_updated','2019-03-02 11:25:16',NULL),
+(1831,'log_user_info_updated','2019-03-02 11:26:00',NULL),
+(1832,'log_user_info_updated','2019-03-02 11:27:45',NULL),
+(1833,'log_user_info_updated','2019-03-02 11:27:47',NULL),
+(1834,'vendor_deleted [43]','2019-03-02 11:30:25','Admin Nadaf'),
+(1835,'member_deleted [55]','2019-03-02 11:30:25','Admin Nadaf'),
+(1836,'failed_login_attempt[mobile:7774812090, user_type:2, IP:103.72.142.236]','2019-03-02 11:31:05',NULL),
+(1837,'New Vendor Created [7774812090]','2019-03-02 11:31:05',NULL),
+(1838,'New Member Created [7774812090]','2019-03-02 11:31:05',NULL),
+(1839,'log_user_info_updated','2019-03-02 11:32:57',NULL),
+(1840,'log_user_info_updated','2019-03-02 11:34:51',NULL),
+(1841,'vendor_deleted [44]','2019-03-02 12:32:55','Admin Nadaf'),
+(1842,'member_deleted [56]','2019-03-02 12:32:55','Admin Nadaf'),
+(1843,'failed_login_attempt[mobile:7774812090, user_type:2, IP:103.72.142.236]','2019-03-02 12:33:10',NULL),
+(1844,'New Vendor Created [7774812090]','2019-03-02 12:33:10',NULL),
+(1845,'New Member Created [7774812090]','2019-03-02 12:33:10',NULL),
+(1846,'log_user_info_updated','2019-03-02 17:01:38',NULL),
+(1847,'New Profile Created [28]','2019-03-02 17:01:38',NULL),
+(1848,'New Vendor About Created [28]','2019-03-02 17:01:38',NULL),
+(1849,'New Vendor Wroks Created [28]','2019-03-02 17:01:38',NULL),
+(1850,'New Vendor Locations Created [28]','2019-03-02 17:01:38',NULL),
+(1851,'New Vendor Account Created [28]','2019-03-02 17:01:38',NULL),
+(1852,'log_user_info_updated','2019-03-02 17:17:24','Admin Nadaf'),
+(1853,'log_user_info_updated','2019-03-02 17:18:02',NULL),
+(1854,'New Profile Created [29]','2019-03-02 17:18:02',NULL),
+(1855,'New Vendor About Created [29]','2019-03-02 17:18:02',NULL),
+(1856,'New Vendor Wroks Created [29]','2019-03-02 17:18:02',NULL),
+(1857,'New Vendor Locations Created [29]','2019-03-02 17:18:02',NULL),
+(1858,'New Vendor Account Created [29]','2019-03-02 17:18:02',NULL),
+(1859,'log_user_info_updated','2019-03-02 17:26:59',NULL),
+(1860,'log_user_info_updated','2019-03-02 17:28:21',NULL),
+(1861,'log_user_info_updated','2019-03-02 17:28:39',NULL),
+(1862,'log_user_info_updated','2019-03-02 17:29:29',NULL),
+(1863,'log_user_info_updated','2019-03-02 17:30:16',NULL),
+(1864,'vendor_deleted [17]','2019-03-02 17:31:05','Admin Nadaf'),
+(1865,'member_deleted [26]','2019-03-02 17:31:05','Admin Nadaf'),
+(1866,'failed_login_attempt[mobile:8421118351, user_type:2, IP:42.107.81.255]','2019-03-02 17:31:48',NULL),
+(1867,'New Vendor Created [8421118351]','2019-03-02 17:31:48',NULL),
+(1868,'New Member Created [8421118351]','2019-03-02 17:31:48',NULL),
+(1869,'log_user_info_updated','2019-03-02 17:32:23',NULL),
+(1870,'New Profile Created [30]','2019-03-02 17:32:23',NULL),
+(1871,'New Vendor About Created [30]','2019-03-02 17:32:23',NULL),
+(1872,'New Vendor Wroks Created [30]','2019-03-02 17:32:23',NULL),
+(1873,'New Vendor Locations Created [30]','2019-03-02 17:32:23',NULL),
+(1874,'New Vendor Account Created [30]','2019-03-02 17:32:23',NULL),
+(1875,'log_profile_info_updated','2019-03-02 17:34:07',NULL),
+(1876,'log_profile_info_updated','2019-03-02 17:34:34',NULL),
+(1877,'log_profile_info_updated','2019-03-02 17:35:02',NULL),
+(1878,'log_profile_info_updated','2019-03-02 17:35:04',NULL),
+(1879,'log_about_info_updated','2019-03-02 17:35:27',NULL),
+(1880,'log_about_info_updated','2019-03-02 17:35:38',NULL),
+(1881,'log_works_info_updated','2019-03-02 17:35:51',NULL),
+(1882,'log_locations_info_updated','2019-03-02 17:36:39',NULL),
+(1883,'log_user_info_updated','2019-03-02 17:36:44',NULL),
+(1884,'log_user_info_updated','2019-03-02 19:03:00',NULL),
+(1885,'log_user_info_updated','2019-03-02 19:42:49',NULL),
+(1886,'log_profile_info_updated','2019-03-04 10:17:29',NULL),
+(1887,'log_profile_info_updated','2019-03-04 10:20:12',NULL),
+(1888,'log_profile_info_updated','2019-03-04 10:21:51',NULL),
+(1889,'log_profile_info_updated','2019-03-04 10:21:54',NULL),
+(1890,'log_about_info_updated','2019-03-04 10:24:22',NULL),
+(1891,'log_works_info_updated','2019-03-04 10:24:52',NULL),
+(1892,'log_works_info_updated','2019-03-04 10:25:16',NULL),
+(1893,'log_locations_info_updated','2019-03-04 10:27:21',NULL),
+(1894,'log_locations_info_updated','2019-03-04 10:27:56',NULL),
+(1895,'log_user_info_updated','2019-03-04 10:28:49',NULL),
+(1896,'log_account_info_updated','2019-03-04 11:39:04',NULL),
+(1897,'log_account_info_updated','2019-03-04 11:39:47',NULL),
+(1898,'log_user_info_updated','2019-03-04 12:24:51',NULL),
+(1899,'log_user_info_updated','2019-03-04 12:26:21',NULL),
+(1900,'New Cart Created [8]','2019-03-04 12:39:19',NULL),
+(1901,'New Cart Product Created [31]','2019-03-04 12:43:48',NULL),
+(1902,'New Cart Product Details Created [31]','2019-03-04 12:43:48',NULL),
+(1903,'Cart Product Info Updated [31]','2019-03-04 12:43:48',NULL),
+(1904,'New Cart Created [9]','2019-03-04 14:43:28',NULL),
+(1905,'failed_login_attempt[mobile:8796256084, user_type:3, IP:103.72.142.236]','2019-03-04 14:57:03',NULL),
+(1906,'New Vendor Created [8796256084]','2019-03-04 14:57:03',NULL),
+(1907,'New Member Created [8796256084]','2019-03-04 14:57:03',NULL),
+(1908,'log_user_info_updated','2019-03-04 15:02:26',NULL),
+(1909,'New Vendor Account Created [5]','2019-03-04 15:02:26',NULL),
+(1910,'log_user_info_updated','2019-03-04 15:02:54',NULL),
+(1911,'log_user_info_updated','2019-03-04 15:03:26','Admin Nadaf'),
+(1912,'log_user_info_updated','2019-03-04 15:07:58',NULL),
+(1913,'log_user_info_updated','2019-03-04 15:08:50',NULL),
+(1914,'log_user_info_updated','2019-03-04 15:08:52',NULL),
+(1915,'log_user_info_updated','2019-03-04 15:38:59',NULL),
+(1916,'log_account_info_updated','2019-03-04 15:41:11',NULL),
+(1917,'log_user_info_updated','2019-03-04 15:41:32','Admin Nadaf'),
+(1918,'log_account_info_updated','2019-03-04 15:41:44',NULL),
+(1919,'log_user_info_updated','2019-03-04 15:55:18',NULL),
+(1920,'failed_login_attempt[mobile:9130359496, user_type:2, IP:103.72.142.236]','2019-03-04 15:55:51',NULL),
+(1921,'New Vendor Created [9130359496]','2019-03-04 15:55:51',NULL),
+(1922,'New Member Created [9130359496]','2019-03-04 15:55:51',NULL),
+(1923,'log_user_info_updated','2019-03-04 15:56:56',NULL),
+(1924,'New Profile Created [31]','2019-03-04 15:56:56',NULL),
+(1925,'New Vendor About Created [31]','2019-03-04 15:56:56',NULL),
+(1926,'New Vendor Wroks Created [31]','2019-03-04 15:56:56',NULL),
+(1927,'New Vendor Locations Created [31]','2019-03-04 15:56:56',NULL),
+(1928,'New Vendor Account Created [31]','2019-03-04 15:56:56',NULL),
+(1929,'log_profile_info_updated','2019-03-04 15:59:45',NULL),
+(1930,'log_profile_info_updated','2019-03-04 16:01:05',NULL),
+(1931,'log_profile_info_updated','2019-03-04 16:01:27',NULL),
+(1932,'log_profile_info_updated','2019-03-04 16:01:48',NULL),
+(1933,'log_about_info_updated','2019-03-04 16:02:35',NULL),
+(1934,'log_works_info_updated','2019-03-04 16:03:10',NULL),
+(1935,'log_locations_info_updated','2019-03-04 16:03:24',NULL),
+(1936,'log_user_info_updated','2019-03-04 16:04:01',NULL),
+(1937,'log_user_info_updated','2019-03-05 09:36:56','Admin Nadaf'),
+(1938,'vendor_deleted [45]','2019-03-05 09:37:18','Admin Nadaf'),
+(1939,'member_deleted [57]','2019-03-05 09:37:18','Admin Nadaf'),
+(1940,'log_user_info_updated','2019-03-05 09:40:21',NULL),
+(1941,'failed_login_attempt[mobile:7774812090, user_type:2, IP:103.72.142.236]','2019-03-05 09:40:39',NULL),
+(1942,'New Vendor Created [7774812090]','2019-03-05 09:40:39',NULL),
+(1943,'New Member Created [7774812090]','2019-03-05 09:40:39',NULL),
+(1944,'log_user_info_updated','2019-03-05 09:42:27',NULL),
+(1945,'New Profile Created [32]','2019-03-05 09:42:27',NULL),
+(1946,'New Vendor About Created [32]','2019-03-05 09:42:27',NULL),
+(1947,'New Vendor Wroks Created [32]','2019-03-05 09:42:27',NULL),
+(1948,'New Vendor Locations Created [32]','2019-03-05 09:42:27',NULL),
+(1949,'New Vendor Account Created [32]','2019-03-05 09:42:27',NULL),
+(1950,'log_profile_info_updated','2019-03-05 10:32:30',NULL),
+(1951,'log_profile_info_updated','2019-03-05 10:54:11',NULL),
+(1952,'log_profile_info_updated','2019-03-05 11:02:01',NULL),
+(1953,'log_profile_info_updated','2019-03-05 11:03:29',NULL),
+(1954,'log_profile_info_updated','2019-03-05 11:14:00',NULL),
+(1955,'log_profile_info_updated','2019-03-05 11:26:09',NULL),
+(1956,'vendor_deleted [48]','2019-03-05 12:01:05','Admin Nadaf'),
+(1957,'member_deleted [61]','2019-03-05 12:01:05','Admin Nadaf'),
+(1958,'failed_login_attempt[mobile:7774812090, user_type:2, IP:103.72.142.236]','2019-03-05 12:07:30',NULL),
+(1959,'New Vendor Created [7774812090]','2019-03-05 12:07:30',NULL),
+(1960,'New Member Created [7774812090]','2019-03-05 12:07:30',NULL),
+(1961,'log_user_info_updated','2019-03-05 12:44:59',NULL),
+(1962,'New Profile Created [33]','2019-03-05 12:44:59',NULL),
+(1963,'New Vendor About Created [33]','2019-03-05 12:44:59',NULL),
+(1964,'New Vendor Wroks Created [33]','2019-03-05 12:44:59',NULL),
+(1965,'New Vendor Locations Created [33]','2019-03-05 12:44:59',NULL),
+(1966,'New Vendor Account Created [33]','2019-03-05 12:44:59',NULL),
+(1967,'log_profile_info_updated','2019-03-05 14:06:52',NULL),
+(1968,'log_profile_info_updated','2019-03-05 14:21:09',NULL),
+(1969,'log_profile_info_updated','2019-03-05 14:21:24',NULL),
+(1970,'log_profile_info_updated','2019-03-05 14:21:45',NULL),
+(1971,'log_about_info_updated','2019-03-05 14:29:15',NULL),
+(1972,'log_about_info_updated','2019-03-05 14:39:02',NULL),
+(1973,'log_works_info_updated','2019-03-05 14:44:41',NULL),
+(1974,'log_locations_info_updated','2019-03-05 14:49:58',NULL),
+(1975,'log_user_info_updated','2019-03-05 14:51:37',NULL),
+(1976,'log_user_info_updated','2019-03-05 14:51:44',NULL),
+(1977,'log_user_info_updated','2019-03-05 15:43:07',NULL),
+(1978,'log_user_info_updated','2019-03-05 16:55:53',NULL),
+(1979,'log_user_info_updated','2019-03-05 17:20:59',NULL),
+(1980,'log_user_info_updated','2019-03-05 17:27:03',NULL),
+(1981,'log_user_info_updated','2019-03-05 17:30:55',NULL),
+(1982,'log_user_info_updated','2019-03-05 17:38:21',NULL),
+(1983,'log_account_info_updated','2019-03-05 17:38:59',NULL),
+(1984,'customer_deleted [9]','2019-03-05 18:03:21','Admin Nadaf'),
+(1985,'member_deleted [46]','2019-03-05 18:03:21','Admin Nadaf'),
+(1986,'failed_login_attempt[mobile:8796256084, user_type:1, IP:103.204.119.220]','2019-03-05 18:03:30',NULL),
+(1987,'New Customer Created [8796256084]','2019-03-05 18:03:30',NULL),
+(1988,'New Member Created [8796256084]','2019-03-05 18:03:30',NULL),
+(1989,'log_user_info_updated','2019-03-05 18:21:57',NULL),
+(1990,'log_user_info_updated','2019-03-05 18:57:00',NULL),
+(1991,'New Address Created [5]','2019-03-05 19:46:00',NULL),
+(1992,'New Cart Created [10]','2019-03-05 19:52:42',NULL),
+(1993,'log_user_info_updated','2019-03-06 09:56:15',NULL),
+(1994,'log_user_info_updated','2019-03-06 09:57:38',NULL),
+(1995,'log_user_info_updated','2019-03-06 10:08:44',NULL),
+(1996,'log_user_info_updated','2019-03-06 10:09:28','Admin Nadaf'),
+(1997,'log_user_info_updated','2019-03-06 10:09:30','Admin Nadaf'),
+(1998,'vendor_deleted [49]','2019-03-06 10:09:34','Admin Nadaf'),
+(1999,'member_deleted [62]','2019-03-06 10:09:34','Admin Nadaf'),
+(2000,'log_user_info_updated','2019-03-06 10:12:52',NULL),
+(2001,'failed_login_attempt[mobile:7774812090, user_type:2, IP:103.26.58.2]','2019-03-06 10:15:29',NULL),
+(2002,'New Vendor Created [7774812090]','2019-03-06 10:15:29',NULL),
+(2003,'New Member Created [7774812090]','2019-03-06 10:15:29',NULL),
+(2004,'log_user_info_updated','2019-03-06 11:37:59',NULL),
+(2005,'New Profile Created [34]','2019-03-06 11:37:59',NULL),
+(2006,'New Vendor About Created [34]','2019-03-06 11:37:59',NULL),
+(2007,'New Vendor Wroks Created [34]','2019-03-06 11:37:59',NULL),
+(2008,'New Vendor Locations Created [34]','2019-03-06 11:37:59',NULL),
+(2009,'New Vendor Account Created [34]','2019-03-06 11:37:59',NULL),
+(2010,'log_about_info_updated','2019-03-06 11:42:02',NULL),
+(2011,'log_profile_info_updated','2019-03-06 11:42:35',NULL),
+(2012,'log_profile_info_updated','2019-03-06 11:43:00',NULL),
+(2013,'log_profile_info_updated','2019-03-06 11:43:15',NULL),
+(2014,'log_profile_info_updated','2019-03-06 11:43:19',NULL),
+(2015,'log_works_info_updated','2019-03-06 11:43:31',NULL),
+(2016,'log_user_info_updated','2019-03-06 11:45:02',NULL),
+(2017,'log_user_info_updated','2019-03-06 11:45:19',NULL),
+(2018,'log_locations_info_updated','2019-03-06 12:28:51',NULL),
+(2019,'log_user_info_updated','2019-03-06 12:28:54',NULL),
+(2020,'customer_deleted [10]','2019-03-06 13:12:33','Admin Nadaf'),
+(2021,'member_deleted [63]','2019-03-06 13:12:33','Admin Nadaf'),
+(2022,'log_user_info_updated','2019-03-06 13:23:00',NULL),
+(2023,'vendor_deleted [50]','2019-03-06 13:23:41','Admin Nadaf'),
+(2024,'member_deleted [64]','2019-03-06 13:23:41','Admin Nadaf'),
+(2025,'failed_login_attempt[mobile:7774812090, user_type:2, IP:103.26.58.2]','2019-03-06 13:24:31',NULL),
+(2026,'New Vendor Created [7774812090]','2019-03-06 13:24:31',NULL),
+(2027,'New Member Created [7774812090]','2019-03-06 13:24:31',NULL),
+(2028,'deliveryboy_deleted [7]','2019-03-06 13:37:56','Admin Nadaf'),
+(2029,'member_deleted [59]','2019-03-06 13:37:56','Admin Nadaf'),
+(2030,'failed_login_attempt[mobile:7774812090, user_type:3, IP:157.33.154.38]','2019-03-06 13:40:24',NULL),
+(2031,'New Vendor Created [7774812090]','2019-03-06 13:40:24',NULL),
+(2032,'New Member Created [7774812090]','2019-03-06 13:40:24',NULL),
+(2033,'failed_login_attempt[mobile:9146544486, user_type:3, IP:157.33.154.38]','2019-03-06 13:41:16',NULL),
+(2034,'New Vendor Created [9146544486]','2019-03-06 13:41:16',NULL),
+(2035,'New Member Created [9146544486]','2019-03-06 13:41:16',NULL),
+(2036,'failed_login_attempt[mobile:8308967060, user_type:2, IP:49.15.2.107]','2019-03-06 14:18:48',NULL),
+(2037,'New Vendor Created [8308967060]','2019-03-06 14:18:48',NULL),
+(2038,'New Member Created [8308967060]','2019-03-06 14:18:48',NULL),
+(2039,'failed_login_attempt[mobile:8796256084, user_type:3, IP:103.26.58.2]','2019-03-06 14:26:17',NULL),
+(2040,'New Vendor Created [8796256084]','2019-03-06 14:26:17',NULL),
+(2041,'New Member Created [8796256084]','2019-03-06 14:26:17',NULL),
+(2042,'log_user_info_updated','2019-03-06 14:28:13',NULL),
+(2043,'New Vendor Account Created [6]','2019-03-06 14:28:13',NULL),
+(2044,'failed_login_attempt[mobile:8796256084, user_type:1, IP:157.33.154.38]','2019-03-06 15:02:37',NULL),
+(2045,'New Customer Created [8796256084]','2019-03-06 15:02:37',NULL),
+(2046,'New Member Created [8796256084]','2019-03-06 15:02:37',NULL),
+(2047,'log_user_info_updated','2019-03-06 15:05:30',NULL),
+(2048,'log_user_info_updated','2019-03-06 16:54:10',NULL),
+(2049,'log_user_info_updated','2019-03-06 16:54:39',NULL),
+(2050,'log_user_info_updated','2019-03-06 17:03:51',NULL),
+(2051,'log_user_info_updated','2019-03-06 17:04:10',NULL),
+(2052,'log_user_info_updated','2019-03-06 17:07:40',NULL),
+(2053,'log_user_info_updated','2019-03-06 17:13:31',NULL),
+(2054,'New Profile Created [35]','2019-03-06 17:13:31',NULL),
+(2055,'New Vendor About Created [35]','2019-03-06 17:13:31',NULL),
+(2056,'New Vendor Wroks Created [35]','2019-03-06 17:13:31',NULL),
+(2057,'New Vendor Locations Created [35]','2019-03-06 17:13:31',NULL),
+(2058,'New Vendor Account Created [35]','2019-03-06 17:13:31',NULL),
+(2059,'New Cart Product Created [32]','2019-03-07 11:19:15',NULL),
+(2060,'New Cart Product Details Created [32]','2019-03-07 11:19:15',NULL),
+(2061,'Cart Product Info Updated [32]','2019-03-07 11:19:15',NULL),
+(2062,'New Cart Product Created [33]','2019-03-07 11:21:21',NULL),
+(2063,'New Cart Product Details Created [33]','2019-03-07 11:21:21',NULL),
+(2064,'Cart Product Info Updated [33]','2019-03-07 11:21:21',NULL),
+(2065,'New Cart Product Created [34]','2019-03-07 11:31:24',NULL),
+(2066,'New Cart Product Details Created [34]','2019-03-07 11:31:24',NULL),
+(2067,'Cart Product Info Updated [34]','2019-03-07 11:31:24',NULL),
+(2068,'New Cart Product Created [35]','2019-03-07 12:09:44',NULL),
+(2069,'New Cart Product Details Created [35]','2019-03-07 12:09:44',NULL),
+(2070,'Cart Product Info Updated [35]','2019-03-07 12:09:44',NULL),
+(2071,'New Cart Product Created [36]','2019-03-07 12:13:09',NULL),
+(2072,'New Cart Product Details Created [36]','2019-03-07 12:13:09',NULL),
+(2073,'Cart Product Info Updated [36]','2019-03-07 12:13:09',NULL),
+(2074,'New Cart Product Created [37]','2019-03-07 12:18:38',NULL),
+(2075,'New Cart Product Details Created [37]','2019-03-07 12:18:38',NULL),
+(2076,'Cart Product Info Updated [37]','2019-03-07 12:18:38',NULL),
+(2077,'New Cart Product Created [38]','2019-03-07 12:20:34',NULL),
+(2078,'New Cart Product Details Created [38]','2019-03-07 12:20:34',NULL),
+(2079,'Cart Product Info Updated [38]','2019-03-07 12:20:34',NULL),
+(2080,'New Cart Product Created [39]','2019-03-07 13:03:18',NULL),
+(2081,'New Cart Product Details Created [39]','2019-03-07 13:03:18',NULL),
+(2082,'Cart Product Info Updated [39]','2019-03-07 13:03:18',NULL),
+(2083,'New Cart Product Created [40]','2019-03-07 13:13:33',NULL),
+(2084,'New Cart Product Details Created [40]','2019-03-07 13:13:33',NULL),
+(2085,'Cart Product Info Updated [40]','2019-03-07 13:13:33',NULL),
+(2086,'log_user_info_updated','2019-03-07 18:22:52',NULL),
+(2087,'log_user_info_updated','2019-03-07 18:23:12',NULL),
+(2088,'New Cart Product Created [41]','2019-03-08 11:20:11',NULL),
+(2089,'New Cart Product Details Created [41]','2019-03-08 11:20:11',NULL),
+(2090,'Cart Product Info Updated [41]','2019-03-08 11:20:11',NULL),
+(2091,'New Cart Product Created [42]','2019-03-08 11:22:22',NULL),
+(2092,'New Cart Product Details Created [42]','2019-03-08 11:22:22',NULL),
+(2093,'Cart Product Info Updated [42]','2019-03-08 11:22:22',NULL),
+(2094,'New Cart Product Created [43]','2019-03-08 11:31:03',NULL),
+(2095,'New Cart Product Details Created [43]','2019-03-08 11:31:03',NULL),
+(2096,'Cart Product Info Updated [43]','2019-03-08 11:31:03',NULL),
+(2097,'New Address Created [6]','2019-03-08 11:44:24',NULL),
+(2098,'New Cart Created [11]','2019-03-08 11:44:48',NULL),
+(2099,'New Cart Product Created [44]','2019-03-08 12:59:13',NULL),
+(2100,'New Cart Product Details Created [44]','2019-03-08 12:59:13',NULL),
+(2101,'Cart Product Info Updated [44]','2019-03-08 12:59:13',NULL),
+(2102,'New Cart Product Created [45]','2019-03-08 13:00:11',NULL),
+(2103,'New Cart Product Details Created [45]','2019-03-08 13:00:11',NULL),
+(2104,'Cart Product Info Updated [45]','2019-03-08 13:00:11',NULL),
+(2105,'New Cart Product Created [46]','2019-03-08 13:04:32',NULL),
+(2106,'New Cart Product Details Created [46]','2019-03-08 13:04:32',NULL),
+(2107,'Cart Product Info Updated [46]','2019-03-08 13:04:32',NULL),
+(2108,'New Cart Product Created [47]','2019-03-08 14:59:58',NULL),
+(2109,'New Cart Product Details Created [47]','2019-03-08 14:59:58',NULL),
+(2110,'Cart Product Info Updated [47]','2019-03-08 14:59:58',NULL),
+(2111,'New Cart Product Created [48]','2019-03-08 16:03:21',NULL),
+(2112,'New Cart Product Details Created [48]','2019-03-08 16:03:21',NULL),
+(2113,'Cart Product Info Updated [48]','2019-03-08 16:03:21',NULL),
+(2114,'log_user_info_updated','2019-03-09 12:49:29',NULL),
+(2115,'log_account_info_updated','2019-03-09 12:49:53',NULL),
+(2116,'log_user_info_updated','2019-03-09 16:35:42',NULL),
+(2117,'log_user_info_updated','2019-03-12 11:12:39',NULL),
+(2118,'log_user_info_updated','2019-03-12 11:15:24',NULL),
+(2119,'log_user_info_updated','2019-03-12 18:16:34',NULL),
+(2120,'log_user_info_updated','2019-03-15 12:13:40',NULL),
+(2121,'failed_login_attempt[mobile:9503008804, user_type:2, IP:103.204.119.222]','2019-03-15 22:42:12',NULL),
+(2122,'New Vendor Created [9503008804]','2019-03-15 22:42:12',NULL),
+(2123,'New Member Created [9503008804]','2019-03-15 22:42:12',NULL),
+(2124,'log_user_info_updated','2019-03-15 22:54:15',NULL),
+(2125,'New Profile Created [36]','2019-03-15 22:54:15',NULL),
+(2126,'New Vendor About Created [36]','2019-03-15 22:54:15',NULL),
+(2127,'New Vendor Wroks Created [36]','2019-03-15 22:54:15',NULL),
+(2128,'New Vendor Locations Created [36]','2019-03-15 22:54:15',NULL),
+(2129,'New Vendor Account Created [36]','2019-03-15 22:54:15',NULL),
+(2130,'log_profile_info_updated','2019-03-15 22:55:50',NULL),
+(2131,'log_profile_info_updated','2019-03-15 22:57:06',NULL),
+(2132,'log_profile_info_updated','2019-03-15 22:57:37',NULL),
+(2133,'log_profile_info_updated','2019-03-15 22:57:51',NULL),
+(2134,'log_about_info_updated','2019-03-15 22:59:10',NULL),
+(2135,'log_works_info_updated','2019-03-15 22:59:15',NULL),
+(2136,'log_profile_info_updated','2019-03-15 23:28:15',NULL),
+(2137,'failed_login_attempt[mobile:7498863799, user_type:2, IP:49.35.64.76]','2019-03-15 23:41:21',NULL),
+(2138,'New Vendor Created [7498863799]','2019-03-15 23:41:21',NULL),
+(2139,'New Member Created [7498863799]','2019-03-15 23:41:21',NULL),
+(2140,'log_user_info_updated','2019-03-15 23:43:06',NULL),
+(2141,'New Profile Created [37]','2019-03-15 23:43:06',NULL),
+(2142,'New Vendor About Created [37]','2019-03-15 23:43:06',NULL),
+(2143,'New Vendor Wroks Created [37]','2019-03-15 23:43:06',NULL),
+(2144,'New Vendor Locations Created [37]','2019-03-15 23:43:06',NULL),
+(2145,'New Vendor Account Created [37]','2019-03-15 23:43:06',NULL),
+(2146,'log_profile_info_updated','2019-03-15 23:44:24',NULL),
+(2147,'log_profile_info_updated','2019-03-15 23:48:08',NULL),
+(2148,'log_profile_info_updated','2019-03-15 23:48:37',NULL),
+(2149,'log_profile_info_updated','2019-03-15 23:48:39',NULL),
+(2150,'log_about_info_updated','2019-03-15 23:48:56',NULL),
+(2151,'log_works_info_updated','2019-03-15 23:49:39',NULL),
+(2152,'log_works_info_updated','2019-03-15 23:49:51',NULL),
+(2153,'log_locations_info_updated','2019-03-15 23:53:45',NULL),
+(2154,'log_user_info_updated','2019-03-15 23:53:55',NULL),
+(2155,'log_user_info_updated','2019-03-15 23:54:06',NULL),
+(2156,'log_user_info_updated','2019-03-15 23:54:17',NULL),
+(2157,'log_user_info_updated','2019-03-15 23:56:37','Admin Nadaf'),
+(2158,'log_user_info_updated','2019-03-15 23:56:38','Admin Nadaf'),
+(2159,'log_user_info_updated','2019-03-15 23:56:59',NULL),
+(2160,'log_user_info_updated','2019-03-15 23:57:17','Admin Nadaf'),
+(2161,'log_user_info_updated','2019-03-16 00:00:21',NULL),
+(2162,'log_user_info_updated','2019-03-16 00:00:22','Admin Nadaf'),
+(2163,'log_user_info_updated','2019-03-16 00:00:44',NULL),
+(2164,'log_user_info_updated','2019-03-16 00:02:44',NULL),
+(2165,'failed_login_attempt[mobile:7721037175, user_type:1, IP:49.35.54.88]','2019-03-16 00:03:30',NULL),
+(2166,'New Customer Created [7721037175]','2019-03-16 00:03:30',NULL),
+(2167,'New Member Created [7721037175]','2019-03-16 00:03:30',NULL),
+(2168,'log_user_info_updated','2019-03-16 10:11:17',NULL),
+(2169,'log_user_info_updated','2019-03-16 10:41:51',NULL),
+(2170,'log_locations_info_updated','2019-03-17 10:41:46',NULL),
+(2171,'log_user_info_updated','2019-03-17 10:41:48',NULL),
+(2172,'log_user_info_updated','2019-03-17 10:42:03',NULL),
+(2173,'log_user_info_updated','2019-03-17 10:45:59',NULL),
+(2174,'log_user_info_updated','2019-03-17 10:47:53',NULL),
+(2175,'log_user_info_updated','2019-03-17 10:47:57',NULL),
+(2176,'log_user_info_updated','2019-03-17 10:49:36',NULL),
+(2177,'log_user_info_updated','2019-03-17 10:49:49',NULL),
+(2178,'log_user_info_updated','2019-03-17 10:49:56',NULL),
+(2179,'log_user_info_updated','2019-03-17 10:50:55',NULL),
+(2180,'log_user_info_updated','2019-03-17 10:50:59',NULL),
+(2181,'log_user_info_updated','2019-03-17 10:51:04',NULL),
+(2182,'log_user_info_updated','2019-03-17 10:51:56',NULL),
+(2183,'log_user_info_updated','2019-03-17 10:52:45',NULL),
+(2184,'log_user_info_updated','2019-03-17 10:54:08',NULL),
+(2185,'log_user_info_updated','2019-03-17 10:54:10',NULL),
+(2186,'log_user_info_updated','2019-03-17 10:56:01',NULL),
+(2187,'log_user_info_updated','2019-03-17 10:56:30',NULL),
+(2188,'log_user_info_updated','2019-03-17 10:56:36',NULL),
+(2189,'log_user_info_updated','2019-03-17 11:14:07',NULL),
+(2190,'log_user_info_updated','2019-03-17 11:15:18',NULL),
+(2191,'log_user_info_updated','2019-03-17 11:15:20',NULL),
+(2192,'log_user_info_updated','2019-03-17 11:16:34',NULL),
+(2193,'log_user_info_updated','2019-03-17 11:18:06',NULL),
+(2194,'log_user_info_updated','2019-03-17 11:28:00',NULL),
+(2195,'log_user_info_updated','2019-03-17 11:28:38',NULL),
+(2196,'log_user_info_updated','2019-03-17 11:29:47',NULL),
+(2197,'log_user_info_updated','2019-03-17 11:30:37',NULL),
+(2198,'log_user_info_updated','2019-03-17 11:31:11',NULL),
+(2199,'log_user_info_updated','2019-03-17 11:32:00',NULL),
+(2200,'log_user_info_updated','2019-03-17 11:32:02',NULL),
+(2201,'log_user_info_updated','2019-03-17 11:33:06',NULL),
+(2202,'log_user_info_updated','2019-03-17 11:37:42',NULL),
+(2203,'log_user_info_updated','2019-03-17 11:42:52',NULL),
+(2204,'log_user_info_updated','2019-03-17 11:43:38',NULL),
+(2205,'log_user_info_updated','2019-03-17 11:44:36',NULL),
+(2206,'log_user_info_updated','2019-03-17 11:45:43',NULL),
+(2207,'log_user_info_updated','2019-03-17 11:47:08',NULL),
+(2208,'log_user_info_updated','2019-03-17 11:50:33',NULL),
+(2209,'log_user_info_updated','2019-03-17 11:55:06',NULL),
+(2210,'log_user_info_updated','2019-03-17 12:06:58',NULL),
+(2211,'log_user_info_updated','2019-03-17 12:12:28',NULL),
+(2212,'log_user_info_updated','2019-03-17 12:12:28',NULL),
+(2213,'log_user_info_updated','2019-03-17 12:28:34',NULL),
+(2214,'log_user_info_updated','2019-03-17 12:28:43',NULL),
+(2215,'log_user_info_updated','2019-03-17 12:45:01',NULL),
+(2216,'New Cart Product Created [49]','2019-03-17 12:45:09',NULL),
+(2217,'New Cart Product Details Created [49]','2019-03-17 12:45:09',NULL),
+(2218,'Cart Product Info Updated [49]','2019-03-17 12:45:09',NULL),
+(2219,'log_user_info_updated','2019-03-17 12:45:20',NULL),
+(2220,'log_user_info_updated','2019-03-17 12:46:52',NULL),
+(2221,'log_user_info_updated','2019-03-17 12:46:53',NULL),
+(2222,'log_user_info_updated','2019-03-17 12:47:23',NULL),
+(2223,'New Cart Product Created [50]','2019-03-17 12:48:32',NULL),
+(2224,'New Cart Product Details Created [50]','2019-03-17 12:48:32',NULL),
+(2225,'Cart Product Info Updated [50]','2019-03-17 12:48:32',NULL),
+(2226,'log_user_info_updated','2019-03-17 12:54:12',NULL),
+(2227,'New Cart Product Created [51]','2019-03-17 12:59:30',NULL),
+(2228,'New Cart Product Details Created [51]','2019-03-17 12:59:30',NULL),
+(2229,'Cart Product Info Updated [51]','2019-03-17 12:59:30',NULL),
+(2230,'log_account_info_updated','2019-03-17 13:04:25',NULL),
+(2231,'log_account_info_updated','2019-03-17 13:04:27',NULL),
+(2232,'log_account_info_updated','2019-03-17 13:04:29',NULL),
+(2233,'log_account_info_updated','2019-03-17 13:04:39',NULL),
+(2234,'log_account_info_updated','2019-03-17 13:04:41',NULL),
+(2235,'log_user_info_updated','2019-03-17 13:18:58',NULL),
+(2236,'log_user_info_updated','2019-03-17 13:19:13',NULL),
+(2237,'log_user_info_updated','2019-03-17 13:20:25',NULL),
+(2238,'log_user_info_updated','2019-03-17 13:25:04',NULL),
+(2239,'log_user_info_updated','2019-03-17 13:30:11',NULL),
+(2240,'log_user_info_updated','2019-03-17 13:30:11',NULL),
+(2241,'log_account_info_updated','2019-03-17 13:31:27',NULL),
+(2242,'log_account_info_updated','2019-03-17 13:31:29',NULL),
+(2243,'log_account_info_updated','2019-03-17 13:31:30',NULL),
+(2244,'log_account_info_updated','2019-03-17 13:31:30',NULL),
+(2245,'log_account_info_updated','2019-03-17 13:31:34',NULL),
+(2246,'log_account_info_updated','2019-03-17 13:31:35',NULL),
+(2247,'log_account_info_updated','2019-03-17 13:31:41',NULL),
+(2248,'log_account_info_updated','2019-03-17 13:31:44',NULL),
+(2249,'log_account_info_updated','2019-03-17 13:31:50',NULL),
+(2250,'log_account_info_updated','2019-03-17 13:31:50',NULL),
+(2251,'log_user_info_updated','2019-03-17 13:36:19',NULL),
+(2252,'log_user_info_updated','2019-03-17 13:43:54',NULL),
+(2253,'log_user_info_updated','2019-03-17 13:45:38',NULL),
+(2254,'New Cart Product Created [52]','2019-03-17 13:45:52',NULL),
+(2255,'New Cart Product Details Created [52]','2019-03-17 13:45:52',NULL),
+(2256,'Cart Product Info Updated [52]','2019-03-17 13:45:52',NULL),
+(2257,'New Cart Product Created [53]','2019-03-17 13:46:26',NULL),
+(2258,'New Cart Product Details Created [53]','2019-03-17 13:46:26',NULL),
+(2259,'Cart Product Info Updated [53]','2019-03-17 13:46:26',NULL),
+(2260,'New Cart Product Created [54]','2019-03-17 13:46:52',NULL),
+(2261,'New Cart Product Details Created [54]','2019-03-17 13:46:52',NULL),
+(2262,'Cart Product Info Updated [54]','2019-03-17 13:46:52',NULL),
+(2263,'New Cart Product Created [55]','2019-03-17 13:49:54',NULL),
+(2264,'New Cart Product Details Created [55]','2019-03-17 13:49:54',NULL),
+(2265,'Cart Product Info Updated [55]','2019-03-17 13:49:54',NULL),
+(2266,'New Cart Product Created [56]','2019-03-17 13:57:02',NULL),
+(2267,'New Cart Product Details Created [56]','2019-03-17 13:57:02',NULL),
+(2268,'Cart Product Info Updated [56]','2019-03-17 13:57:02',NULL),
+(2269,'log_user_info_updated','2019-03-17 15:22:00',NULL),
+(2270,'log_user_info_updated','2019-03-17 15:22:00',NULL),
+(2271,'New Cart Product Created [57]','2019-03-17 15:29:47',NULL),
+(2272,'New Cart Product Details Created [57]','2019-03-17 15:29:47',NULL),
+(2273,'Cart Product Info Updated [57]','2019-03-17 15:29:47',NULL),
+(2274,'log_user_info_updated','2019-03-17 15:30:28',NULL),
+(2275,'New Cart Product Created [58]','2019-03-17 15:30:47',NULL),
+(2276,'New Cart Product Details Created [58]','2019-03-17 15:30:47',NULL),
+(2277,'Cart Product Info Updated [58]','2019-03-17 15:30:47',NULL),
+(2278,'log_user_info_updated','2019-03-17 15:30:50',NULL),
+(2279,'log_account_info_updated','2019-03-17 15:31:17',NULL),
+(2280,'log_account_info_updated','2019-03-17 15:31:20',NULL),
+(2281,'log_account_info_updated','2019-03-17 15:31:26',NULL),
+(2282,'log_account_info_updated','2019-03-17 15:31:27',NULL),
+(2283,'log_account_info_updated','2019-03-17 15:31:27',NULL),
+(2284,'log_account_info_updated','2019-03-17 15:31:28',NULL),
+(2285,'log_account_info_updated','2019-03-17 15:31:29',NULL),
+(2286,'log_account_info_updated','2019-03-17 15:31:36',NULL),
+(2287,'log_user_info_updated','2019-03-17 15:32:09',NULL),
+(2288,'log_user_info_updated','2019-03-17 15:32:13',NULL),
+(2289,'log_account_info_updated','2019-03-17 15:32:25',NULL),
+(2290,'log_account_info_updated','2019-03-17 15:32:26',NULL),
+(2291,'log_account_info_updated','2019-03-17 15:32:27',NULL),
+(2292,'log_account_info_updated','2019-03-17 15:32:33',NULL),
+(2293,'log_account_info_updated','2019-03-17 15:32:34',NULL),
+(2294,'log_account_info_updated','2019-03-17 15:32:35',NULL),
+(2295,'New Cart Product Created [59]','2019-03-17 15:32:40',NULL),
+(2296,'New Cart Product Details Created [59]','2019-03-17 15:32:40',NULL),
+(2297,'Cart Product Info Updated [59]','2019-03-17 15:32:40',NULL),
+(2298,'log_account_info_updated','2019-03-17 15:32:41',NULL),
+(2299,'log_user_info_updated','2019-03-17 15:33:15',NULL),
+(2300,'log_account_info_updated','2019-03-17 15:33:57',NULL),
+(2301,'log_account_info_updated','2019-03-17 15:34:07',NULL),
+(2302,'New Cart Product Created [60]','2019-03-17 15:34:59',NULL),
+(2303,'New Cart Product Details Created [60]','2019-03-17 15:34:59',NULL),
+(2304,'Cart Product Info Updated [60]','2019-03-17 15:34:59',NULL),
+(2305,'New Cart Product Created [61]','2019-03-17 15:36:01',NULL),
+(2306,'New Cart Product Details Created [61]','2019-03-17 15:36:01',NULL),
+(2307,'Cart Product Info Updated [61]','2019-03-17 15:36:01',NULL),
+(2308,'New Cart Product Created [62]','2019-03-17 15:40:19',NULL),
+(2309,'New Cart Product Details Created [62]','2019-03-17 15:40:19',NULL),
+(2310,'Cart Product Info Updated [62]','2019-03-17 15:40:19',NULL),
+(2311,'New Cart Product Created [63]','2019-03-17 15:52:05',NULL),
+(2312,'New Cart Product Details Created [63]','2019-03-17 15:52:05',NULL),
+(2313,'Cart Product Info Updated [63]','2019-03-17 15:52:05',NULL),
+(2314,'New Cart Product Created [64]','2019-03-17 15:54:26',NULL),
+(2315,'New Cart Product Details Created [64]','2019-03-17 15:54:26',NULL),
+(2316,'Cart Product Info Updated [64]','2019-03-17 15:54:26',NULL),
+(2317,'New Cart Product Created [65]','2019-03-17 15:54:40',NULL),
+(2318,'New Cart Product Details Created [65]','2019-03-17 15:54:40',NULL),
+(2319,'Cart Product Info Updated [65]','2019-03-17 15:54:40',NULL),
+(2320,'New Cart Product Created [66]','2019-03-17 15:56:27',NULL),
+(2321,'New Cart Product Details Created [66]','2019-03-17 15:56:27',NULL),
+(2322,'Cart Product Info Updated [66]','2019-03-17 15:56:27',NULL),
+(2323,'New Cart Product Created [67]','2019-03-17 15:59:38',NULL),
+(2324,'New Cart Product Details Created [67]','2019-03-17 15:59:38',NULL),
+(2325,'Cart Product Info Updated [67]','2019-03-17 15:59:38',NULL),
+(2326,'New Cart Product Created [68]','2019-03-17 16:24:24',NULL),
+(2327,'New Cart Product Details Created [68]','2019-03-17 16:24:24',NULL),
+(2328,'Cart Product Info Updated [68]','2019-03-17 16:24:24',NULL),
+(2329,'New Cart Product Created [69]','2019-03-17 16:27:10',NULL),
+(2330,'New Cart Product Details Created [69]','2019-03-17 16:27:10',NULL),
+(2331,'Cart Product Info Updated [69]','2019-03-17 16:27:10',NULL),
+(2332,'New Cart Product Created [70]','2019-03-17 16:29:51',NULL),
+(2333,'New Cart Product Details Created [70]','2019-03-17 16:29:51',NULL),
+(2334,'Cart Product Info Updated [70]','2019-03-17 16:29:51',NULL),
+(2335,'vendor_deleted [53]','2019-03-17 16:31:48','Admin Nadaf'),
+(2336,'member_deleted [71]','2019-03-17 16:31:48','Admin Nadaf'),
+(2337,'vendor_deleted [54]','2019-03-17 16:31:56','Admin Nadaf'),
+(2338,'member_deleted [72]','2019-03-17 16:31:56','Admin Nadaf'),
+(2339,'log_user_info_updated','2019-03-17 16:32:13',NULL),
+(2340,'failed_login_attempt[mobile:9503008804, user_type:2, IP:157.33.218.69]','2019-03-17 16:33:05',NULL),
+(2341,'New Vendor Created [9503008804]','2019-03-17 16:33:05',NULL),
+(2342,'New Member Created [9503008804]','2019-03-17 16:33:05',NULL),
+(2343,'log_user_info_updated','2019-03-17 16:35:58',NULL),
+(2344,'New Profile Created [38]','2019-03-17 16:35:58',NULL),
+(2345,'New Vendor About Created [38]','2019-03-17 16:35:58',NULL),
+(2346,'New Vendor Wroks Created [38]','2019-03-17 16:35:58',NULL),
+(2347,'New Vendor Locations Created [38]','2019-03-17 16:35:58',NULL),
+(2348,'New Vendor Account Created [38]','2019-03-17 16:35:58',NULL),
+(2349,'log_profile_info_updated','2019-03-17 16:37:52',NULL),
+(2350,'log_profile_info_updated','2019-03-17 16:39:14',NULL),
+(2351,'New Cart Product Created [71]','2019-03-17 16:40:04',NULL),
+(2352,'New Cart Product Details Created [71]','2019-03-17 16:40:04',NULL),
+(2353,'Cart Product Info Updated [71]','2019-03-17 16:40:04',NULL),
+(2354,'log_profile_info_updated','2019-03-17 16:40:06',NULL),
+(2355,'log_profile_info_updated','2019-03-17 16:40:12',NULL),
+(2356,'log_about_info_updated','2019-03-17 16:41:21',NULL),
+(2357,'log_about_info_updated','2019-03-17 16:42:26',NULL),
+(2358,'log_works_info_updated','2019-03-18 11:17:02',NULL),
+(2359,'log_works_info_updated','2019-03-18 11:18:29',NULL),
+(2360,'log_locations_info_updated','2019-03-18 12:04:54',NULL),
+(2361,'log_user_info_updated','2019-03-18 12:04:55',NULL),
+(2362,'log_user_info_updated','2019-03-18 18:22:09',NULL),
+(2363,'log_user_info_updated','2019-03-18 22:48:54',NULL),
+(2364,'log_user_info_updated','2019-03-18 22:48:57',NULL),
+(2365,'log_user_info_updated','2019-03-18 22:48:57',NULL),
+(2366,'log_user_info_updated','2019-03-18 22:51:18',NULL),
+(2367,'New Cart Product Created [72]','2019-03-18 22:53:48',NULL),
+(2368,'New Cart Product Details Created [72]','2019-03-18 22:53:48',NULL),
+(2369,'Cart Product Info Updated [72]','2019-03-18 22:53:48',NULL),
+(2370,'log_user_info_updated','2019-03-18 22:55:39',NULL),
+(2371,'log_user_info_updated','2019-03-18 22:55:42',NULL),
+(2372,'failed_login_attempt[mobile:9503008804, user_type:3, IP:49.35.14.241]','2019-03-18 23:01:33',NULL),
+(2373,'New Vendor Created [9503008804]','2019-03-18 23:01:33',NULL),
+(2374,'New Member Created [9503008804]','2019-03-18 23:01:33',NULL),
+(2375,'New Cart Product Created [73]','2019-03-18 23:03:14',NULL),
+(2376,'New Cart Product Details Created [73]','2019-03-18 23:03:14',NULL),
+(2377,'Cart Product Info Updated [73]','2019-03-18 23:03:14',NULL),
+(2378,'log_user_info_updated','2019-03-18 23:03:23',NULL),
+(2379,'New Vendor Account Created [7]','2019-03-18 23:03:23',NULL),
+(2380,'New Cart Product Created [74]','2019-03-18 23:13:18',NULL),
+(2381,'New Cart Product Details Created [74]','2019-03-18 23:13:18',NULL),
+(2382,'Cart Product Info Updated [74]','2019-03-18 23:13:18',NULL),
+(2383,'New Cart Product Created [75]','2019-03-18 23:15:03',NULL),
+(2384,'New Cart Product Details Created [75]','2019-03-18 23:15:03',NULL),
+(2385,'Cart Product Info Updated [75]','2019-03-18 23:15:03',NULL),
+(2386,'New Cart Product Created [76]','2019-03-18 23:22:58',NULL),
+(2387,'New Cart Product Details Created [76]','2019-03-18 23:22:58',NULL),
+(2388,'Cart Product Info Updated [76]','2019-03-18 23:22:58',NULL),
+(2389,'New Cart Product Created [77]','2019-03-18 23:27:47',NULL),
+(2390,'New Cart Product Details Created [77]','2019-03-18 23:27:47',NULL),
+(2391,'Cart Product Info Updated [77]','2019-03-18 23:27:47',NULL),
+(2392,'New Cart Product Created [78]','2019-03-18 23:32:09',NULL),
+(2393,'New Cart Product Details Created [78]','2019-03-18 23:32:09',NULL),
+(2394,'Cart Product Info Updated [78]','2019-03-18 23:32:09',NULL),
+(2395,'New Cart Product Created [79]','2019-03-18 23:33:40',NULL),
+(2396,'New Cart Product Details Created [79]','2019-03-18 23:33:40',NULL),
+(2397,'Cart Product Info Updated [79]','2019-03-18 23:33:40',NULL),
+(2398,'log_user_info_updated','2019-03-18 23:40:06',NULL),
+(2399,'log_user_info_updated','2019-03-18 23:41:33',NULL),
+(2400,'log_user_info_updated','2019-03-18 23:41:45',NULL),
+(2401,'log_user_info_updated','2019-03-18 23:42:06',NULL),
+(2402,'log_user_info_updated','2019-03-18 23:42:12',NULL),
+(2403,'log_user_info_updated','2019-03-18 23:42:14',NULL),
+(2404,'log_user_info_updated','2019-03-18 23:58:49',NULL),
+(2405,'log_user_info_updated','2019-03-19 00:08:08',NULL),
+(2406,'log_user_info_updated','2019-03-19 00:23:40',NULL),
+(2407,'log_user_info_updated','2019-03-19 10:35:57',NULL),
+(2408,'log_user_info_updated','2019-03-19 22:42:41',NULL),
+(2409,'log_user_info_updated','2019-03-19 22:44:00',NULL),
+(2410,'log_user_info_updated','2019-03-19 23:14:41','Admin Nadaf'),
+(2411,'failed_login_attempt[mobile:7721037175, user_type:2, IP:103.204.119.222]','2019-03-20 00:09:30',NULL),
+(2412,'New Vendor Created [7721037175]','2019-03-20 00:09:30',NULL),
+(2413,'New Member Created [7721037175]','2019-03-20 00:09:30',NULL),
+(2414,'failed_login_attempt[mobile:7721037175, user_type:2, IP:103.204.119.222]','2019-03-20 00:09:53',NULL),
+(2415,'New Vendor Created [7721037175]','2019-03-20 00:09:53',NULL),
+(2416,'New Member Created [7721037175]','2019-03-20 00:09:53',NULL),
+(2417,'log_user_info_updated','2019-03-20 00:18:05',NULL),
+(2418,'New Profile Created [39]','2019-03-20 00:18:05',NULL),
+(2419,'New Vendor About Created [39]','2019-03-20 00:18:05',NULL),
+(2420,'New Vendor Wroks Created [39]','2019-03-20 00:18:05',NULL),
+(2421,'New Vendor Locations Created [39]','2019-03-20 00:18:05',NULL),
+(2422,'New Vendor Account Created [39]','2019-03-20 00:18:05',NULL),
+(2423,'log_profile_info_updated','2019-03-20 00:19:56',NULL),
+(2424,'log_user_info_updated','2019-03-20 18:03:13',NULL),
+(2425,'New Cart Product Created [80]','2019-03-21 23:56:47',NULL),
+(2426,'New Cart Product Details Created [80]','2019-03-21 23:56:47',NULL),
+(2427,'Cart Product Info Updated [80]','2019-03-21 23:56:47',NULL),
+(2428,'log_user_info_updated','2019-03-23 00:36:09',NULL),
+(2429,'log_user_info_updated','2019-03-23 23:13:23',NULL),
+(2430,'Failed Login Attempt [Email:nil@gmail.com,is admin memberYes, IP:103.204.119.213]','2019-03-26 22:17:46',NULL),
+(2431,'Failed Login Attempt [Email:nil@gmail.com,is admin memberYes, IP:103.204.119.213]','2019-03-26 22:17:48',NULL),
+(2432,'Failed Login Attempt [Email:disha.intorque@gmail.com,is admin memberYes, IP:103.204.119.213]','2019-03-26 22:22:05',NULL),
+(2433,'New Category Created [Plumber From Staff: 1]','2019-03-26 22:52:02','Admin Nadaf'),
+(2434,'Category Info Updated [77]','2019-03-26 22:52:07','Admin Nadaf'),
+(2435,'Category Info Updated [77]','2019-03-26 22:52:10','Admin Nadaf'),
+(2436,'New Service Created [ From Staff: 1]','2019-03-26 22:53:01','Admin Nadaf'),
+(2437,'log_user_info_updated','2019-03-28 11:04:47',NULL),
+(2438,'log_user_info_updated','2019-03-28 11:06:59',NULL),
+(2439,'log_account_info_updated','2019-03-28 11:08:31',NULL),
+(2440,'log_account_info_updated','2019-03-28 11:08:34',NULL),
+(2441,'log_account_info_updated','2019-03-28 11:08:35',NULL),
+(2442,'vendor_deleted [46]','2019-03-28 11:11:40','Admin Nadaf'),
+(2443,'member_deleted [58]','2019-03-28 11:11:40','Admin Nadaf'),
+(2444,'failed_login_attempt[mobile:8421118351, user_type:2, IP:42.107.78.7]','2019-03-28 11:12:48',NULL),
+(2445,'New Vendor Created [8421118351]','2019-03-28 11:12:48',NULL),
+(2446,'New Member Created [8421118351]','2019-03-28 11:12:48',NULL),
+(2447,'vendor_deleted [58]','2019-03-28 11:15:49','Admin Nadaf'),
+(2448,'member_deleted [78]','2019-03-28 11:15:49','Admin Nadaf'),
+(2449,'failed_login_attempt[mobile:8421118351, user_type:2, IP:42.107.78.7]','2019-03-28 11:18:14',NULL),
+(2450,'New Vendor Created [8421118351]','2019-03-28 11:18:14',NULL),
+(2451,'New Member Created [8421118351]','2019-03-28 11:18:14',NULL),
+(2452,'log_user_info_updated','2019-03-28 12:34:53',NULL),
+(2453,'log_user_info_updated','2019-03-28 12:48:50',NULL),
+(2454,'log_user_info_updated','2019-03-28 12:57:53',NULL),
+(2455,'log_user_info_updated','2019-03-28 12:58:36',NULL),
+(2456,'log_user_info_updated','2019-03-28 23:33:48',NULL),
+(2457,'log_user_info_updated','2019-03-28 23:42:47',NULL),
+(2458,'log_user_info_updated','2019-03-29 00:14:11',NULL),
+(2459,'log_user_info_updated','2019-03-29 00:24:17',NULL),
+(2460,'failed_login_attempt[mobile:8668682966, user_type:2, IP:103.26.58.2]','2019-03-29 00:31:17',NULL),
+(2461,'New Vendor Created [8668682966]','2019-03-29 00:31:17',NULL),
+(2462,'New Member Created [8668682966]','2019-03-29 00:31:17',NULL),
+(2463,'log_user_info_updated','2019-03-29 22:24:53',NULL),
+(2464,'failed_login_attempt[mobile:7721037175, user_type:3, IP:103.26.58.2]','2019-03-30 01:07:39',NULL),
+(2465,'New Vendor Created [7721037175]','2019-03-30 01:07:39',NULL),
+(2466,'New Member Created [7721037175]','2019-03-30 01:07:39',NULL),
+(2467,'failed_login_attempt[mobile:7721037175, user_type:3, IP:103.26.58.2]','2019-03-30 01:33:01',NULL),
+(2468,'New Vendor Created [7721037175]','2019-03-30 01:33:01',NULL),
+(2469,'New Member Created [7721037175]','2019-03-30 01:33:01',NULL),
+(2470,'log_user_info_updated','2019-03-30 01:34:47',NULL),
+(2471,'log_user_info_updated','2019-03-30 01:35:23',NULL),
+(2472,'New Vendor Account Created [8]','2019-03-30 01:35:23',NULL),
+(2473,'failed_login_attempt[mobile:9503008804, user_type:1, IP:103.26.58.2]','2019-03-30 01:47:12',NULL),
+(2474,'New Customer Created [9503008804]','2019-03-30 01:47:12',NULL),
+(2475,'New Member Created [9503008804]','2019-03-30 01:47:12',NULL),
+(2476,'log_user_info_updated','2019-03-30 01:48:54',NULL),
+(2477,'New Cart Product Created [81]','2019-03-30 22:40:27',NULL),
+(2478,'New Cart Product Details Created [81]','2019-03-30 22:40:27',NULL),
+(2479,'Cart Product Info Updated [81]','2019-03-30 22:40:27',NULL),
+(2480,'New Cart Product Created [82]','2019-03-30 22:42:10',NULL),
+(2481,'New Cart Product Details Created [82]','2019-03-30 22:42:10',NULL),
+(2482,'Cart Product Info Updated [82]','2019-03-30 22:42:10',NULL),
+(2483,'New Cart Product Created [83]','2019-03-30 22:50:37',NULL),
+(2484,'New Cart Product Details Created [83]','2019-03-30 22:50:37',NULL),
+(2485,'Cart Product Info Updated [83]','2019-03-30 22:50:37',NULL),
+(2486,'log_user_info_updated','2019-03-31 15:54:29',NULL),
+(2487,'New Profile Created [40]','2019-03-31 15:54:29',NULL),
+(2488,'New Vendor About Created [40]','2019-03-31 15:54:29',NULL),
+(2489,'New Vendor Wroks Created [40]','2019-03-31 15:54:29',NULL),
+(2490,'New Vendor Locations Created [40]','2019-03-31 15:54:29',NULL),
+(2491,'New Vendor Account Created [40]','2019-03-31 15:54:29',NULL),
+(2492,'log_profile_info_updated','2019-03-31 15:56:41',NULL),
+(2493,'log_profile_info_updated','2019-03-31 15:57:26',NULL),
+(2494,'log_profile_info_updated','2019-03-31 15:57:51',NULL),
+(2495,'log_profile_info_updated','2019-03-31 15:57:53',NULL),
+(2496,'log_about_info_updated','2019-03-31 15:58:44',NULL),
+(2497,'log_works_info_updated','2019-03-31 15:59:06',NULL),
+(2498,'log_locations_info_updated','2019-03-31 16:00:21',NULL),
+(2499,'log_user_info_updated','2019-03-31 16:00:23',NULL),
+(2500,'log_user_info_updated','2019-03-31 16:08:48',NULL),
+(2501,'failed_login_attempt[mobile:8668682966, user_type:2, IP:103.26.58.2]','2019-03-31 16:12:00',NULL),
+(2502,'New Vendor Created [8668682966]','2019-03-31 16:12:00',NULL),
+(2503,'New Member Created [8668682966]','2019-03-31 16:12:00',NULL),
+(2504,'Cart Product Info Updated [1]','2019-03-31 16:12:16',NULL),
+(2505,'New Cart Product Details Created [84]','2019-03-31 16:12:16',NULL),
+(2506,'Cart Product Info Updated [1]','2019-03-31 16:12:16',NULL),
+(2507,'log_user_info_updated','2019-03-31 16:12:29',NULL),
+(2508,'vendor_deleted [60]','2019-03-31 16:16:06','Admin Nadaf'),
+(2509,'member_deleted [80]','2019-03-31 16:16:06','Admin Nadaf'),
+(2510,'vendor_deleted [57]','2019-03-31 16:16:13','Admin Nadaf'),
+(2511,'member_deleted [77]','2019-03-31 16:16:13','Admin Nadaf'),
+(2512,'vendor_deleted [55]','2019-03-31 16:16:17','Admin Nadaf'),
+(2513,'member_deleted [74]','2019-03-31 16:16:17','Admin Nadaf'),
+(2514,'failed_login_attempt[mobile:9503008804, user_type:2, IP:103.26.58.2]','2019-03-31 16:19:42',NULL),
+(2515,'New Vendor Created [9503008804]','2019-03-31 16:19:42',NULL),
+(2516,'New Member Created [9503008804]','2019-03-31 16:19:42',NULL),
+(2517,'log_user_info_updated','2019-03-31 16:21:03',NULL),
+(2518,'New Profile Created [41]','2019-03-31 16:21:03',NULL),
+(2519,'New Vendor About Created [41]','2019-03-31 16:21:03',NULL),
+(2520,'New Vendor Wroks Created [41]','2019-03-31 16:21:03',NULL),
+(2521,'New Vendor Locations Created [41]','2019-03-31 16:21:03',NULL),
+(2522,'New Vendor Account Created [41]','2019-03-31 16:21:03',NULL),
+(2523,'log_profile_info_updated','2019-03-31 16:21:51',NULL),
+(2524,'log_profile_info_updated','2019-03-31 16:31:27',NULL),
+(2525,'log_profile_info_updated','2019-03-31 16:32:43',NULL),
+(2526,'log_profile_info_updated','2019-03-31 16:32:45',NULL),
+(2527,'log_about_info_updated','2019-03-31 16:33:22',NULL),
+(2528,'log_works_info_updated','2019-03-31 16:33:29',NULL),
+(2529,'log_locations_info_updated','2019-03-31 16:34:05',NULL),
+(2530,'log_user_info_updated','2019-03-31 16:34:06',NULL),
+(2531,'log_user_info_updated','2019-03-31 16:35:08',NULL),
+(2532,'failed_login_attempt[mobile:9503008804, user_type:2, IP:103.26.58.2]','2019-03-31 16:35:32',NULL),
+(2533,'New Vendor Created [9503008804]','2019-03-31 16:35:32',NULL),
+(2534,'New Member Created [9503008804]','2019-03-31 16:35:32',NULL),
+(2535,'log_user_info_updated','2019-03-31 16:36:38',NULL),
+(2536,'failed_login_attempt[mobile:9326003570, user_type:2, IP:106.78.189.191]','2019-03-31 18:12:50',NULL),
+(2537,'New Vendor Created [9326003570]','2019-03-31 18:12:50',NULL),
+(2538,'New Member Created [9326003570]','2019-03-31 18:12:50',NULL),
+(2539,'log_user_info_updated','2019-03-31 18:13:29',NULL),
+(2540,'New Profile Created [42]','2019-03-31 18:13:29',NULL),
+(2541,'New Vendor About Created [42]','2019-03-31 18:13:29',NULL),
+(2542,'New Vendor Wroks Created [42]','2019-03-31 18:13:29',NULL),
+(2543,'New Vendor Locations Created [42]','2019-03-31 18:13:29',NULL),
+(2544,'New Vendor Account Created [42]','2019-03-31 18:13:29',NULL),
+(2545,'log_profile_info_updated','2019-03-31 18:14:56',NULL),
+(2546,'log_profile_info_updated','2019-03-31 18:15:22',NULL),
+(2547,'log_profile_info_updated','2019-03-31 18:15:41',NULL),
+(2548,'log_profile_info_updated','2019-03-31 18:15:45',NULL),
+(2549,'log_about_info_updated','2019-03-31 18:17:01',NULL),
+(2550,'log_locations_info_updated','2019-03-31 18:17:34',NULL),
+(2551,'log_works_info_updated','2019-03-31 18:17:42',NULL),
+(2552,'log_works_info_updated','2019-03-31 18:17:49',NULL),
+(2553,'log_works_info_updated','2019-03-31 18:18:04',NULL),
+(2554,'log_user_info_updated','2019-03-31 18:18:22',NULL),
+(2555,'log_works_info_updated','2019-03-31 18:18:58',NULL),
+(2556,'failed_login_attempt[mobile:9975420480, user_type:1, IP:103.26.58.2]','2019-03-31 18:22:14',NULL),
+(2557,'New Customer Created [9975420480]','2019-03-31 18:22:14',NULL),
+(2558,'New Member Created [9975420480]','2019-03-31 18:22:14',NULL),
+(2559,'log_user_info_updated','2019-03-31 19:30:16',NULL),
+(2560,'New Profile Created [43]','2019-03-31 19:30:16',NULL),
+(2561,'New Vendor About Created [43]','2019-03-31 19:30:16',NULL),
+(2562,'New Vendor Wroks Created [43]','2019-03-31 19:30:16',NULL),
+(2563,'New Vendor Locations Created [43]','2019-03-31 19:30:16',NULL),
+(2564,'New Vendor Account Created [43]','2019-03-31 19:30:16',NULL),
+(2565,'log_profile_info_updated','2019-03-31 19:33:25',NULL),
+(2566,'log_profile_info_updated','2019-03-31 19:34:27',NULL),
+(2567,'log_profile_info_updated','2019-03-31 19:35:10',NULL),
+(2568,'log_profile_info_updated','2019-03-31 19:35:13',NULL),
+(2569,'log_about_info_updated','2019-03-31 19:36:38',NULL),
+(2570,'log_locations_info_updated','2019-03-31 19:39:14',NULL),
+(2571,'log_works_info_updated','2019-03-31 19:40:24',NULL),
+(2572,'log_works_info_updated','2019-03-31 19:40:39',NULL),
+(2573,'log_user_info_updated','2019-03-31 19:40:59',NULL),
+(2574,'log_user_info_updated','2019-03-31 19:41:54',NULL),
+(2575,'log_works_info_updated','2019-03-31 19:42:36',NULL),
+(2576,'log_works_info_updated','2019-03-31 19:44:15',NULL),
+(2577,'log_account_info_updated','2019-03-31 19:50:40',NULL),
+(2578,'failed_login_attempt[mobile:8421118351, user_type:1, IP:42.107.87.145]','2019-03-31 19:52:28',NULL),
+(2579,'New Customer Created [8421118351]','2019-03-31 19:52:28',NULL),
+(2580,'New Member Created [8421118351]','2019-03-31 19:52:28',NULL),
+(2581,'failed_login_attempt[mobile:7028668351, user_type:1, IP:42.106.238.63]','2019-03-31 19:59:28',NULL),
+(2582,'New Customer Created [7028668351]','2019-03-31 19:59:28',NULL),
+(2583,'New Member Created [7028668351]','2019-03-31 19:59:28',NULL),
+(2584,'log_user_info_updated','2019-03-31 20:01:26',NULL),
+(2585,'log_user_info_updated','2019-03-31 20:05:46',NULL),
+(2586,'log_user_info_updated','2019-03-31 20:06:59',NULL),
+(2587,'log_user_info_updated','2019-03-31 20:19:35','Admin Nadaf'),
+(2588,'log_user_info_updated','2019-03-31 20:20:34','Admin Nadaf'),
+(2589,'log_user_info_updated','2019-03-31 22:05:11',NULL),
+(2590,'log_account_info_updated','2019-03-31 22:06:59',NULL),
+(2591,'log_user_info_updated','2019-03-31 22:09:33','Admin Nadaf'),
+(2592,'log_user_info_updated','2019-03-31 22:11:18','Admin Nadaf'),
+(2593,'vendor_deleted [63]','2019-03-31 22:20:42','Admin Nadaf'),
+(2594,'member_deleted [86]','2019-03-31 22:20:42','Admin Nadaf'),
+(2595,'log_user_info_updated','2019-03-31 22:21:18','Admin Nadaf'),
+(2596,'log_user_info_updated','2019-03-31 22:32:55','Admin Nadaf'),
+(2597,'failed_login_attempt[mobile:8600645478, user_type:2, IP:103.26.58.2]','2019-03-31 23:00:54',NULL),
+(2598,'New Vendor Created [8600645478]','2019-03-31 23:00:54',NULL),
+(2599,'New Member Created [8600645478]','2019-03-31 23:00:54',NULL),
+(2600,'log_user_info_updated','2019-04-01 10:33:28',NULL),
+(2601,'log_user_info_updated','2019-04-01 12:05:58',NULL),
+(2602,'failed_login_attempt[mobile:7769999468, user_type:2, IP:51.39.117.26]','2019-04-01 16:27:12',NULL),
+(2603,'New Vendor Created [7769999468]','2019-04-01 16:27:12',NULL),
+(2604,'New Member Created [7769999468]','2019-04-01 16:27:13',NULL),
+(2605,'log_user_info_updated','2019-04-01 17:06:17',NULL),
+(2606,'failed_login_attempt[mobile:8600645478, user_type:1, IP:106.220.148.214]','2019-04-01 17:07:51',NULL),
+(2607,'New Customer Created [8600645478]','2019-04-01 17:07:51',NULL),
+(2608,'New Member Created [8600645478]','2019-04-01 17:07:51',NULL),
+(2609,'log_user_info_updated','2019-04-01 17:08:30',NULL),
+(2610,'New Address Created [7]','2019-04-01 17:11:35',NULL),
+(2611,'New Cart Created [16]','2019-04-01 17:13:27',NULL),
+(2612,'failed_login_attempt[mobile:9579729595, user_type:2, IP:103.26.58.2]','2019-04-01 17:21:52',NULL),
+(2613,'New Vendor Created [9579729595]','2019-04-01 17:21:52',NULL),
+(2614,'New Member Created [9579729595]','2019-04-01 17:21:52',NULL),
+(2615,'log_user_info_updated','2019-04-01 17:24:23',NULL),
+(2616,'Cart Product Info Updated [1]','2019-04-01 19:27:47',NULL),
+(2617,'New Cart Product Details Created [85]','2019-04-01 19:27:47',NULL),
+(2618,'Cart Product Info Updated [1]','2019-04-01 19:27:47',NULL),
+(2619,'Cart Product Info Updated [1]','2019-04-01 19:27:53',NULL),
+(2620,'cart_product_details_deleted [1]','2019-04-01 19:27:53',NULL),
+(2621,'Cart Product Info Updated [1]','2019-04-01 19:27:55',NULL),
+(2622,'cart_product_details_deleted [84]','2019-04-01 19:27:55',NULL),
+(2623,'Cart Product Info Updated [1]','2019-04-01 19:29:34',NULL),
+(2624,'New Cart Product Details Created [86]','2019-04-01 19:29:34',NULL),
+(2625,'Cart Product Info Updated [1]','2019-04-01 19:29:34',NULL),
+(2626,'Cart Product Info Updated [1]','2019-04-01 19:29:51',NULL),
+(2627,'cart_product_details_deleted [86]','2019-04-01 19:29:51',NULL),
+(2628,'New Address Created [8]','2019-04-01 19:30:52',NULL),
+(2629,'Cart Product Info Updated [1]','2019-04-01 19:31:26',NULL),
+(2630,'Cart Product Info Updated [1]','2019-04-01 19:31:54',NULL),
+(2631,'Cart Product Info Updated [1]','2019-04-01 19:31:58',NULL),
+(2632,'failed_login_attempt[mobile:0598974465, user_type:2, IP:51.36.209.204]','2019-04-01 22:21:48',NULL),
+(2633,'New Vendor Created [0598974465]','2019-04-01 22:21:48',NULL),
+(2634,'New Member Created [0598974465]','2019-04-01 22:21:48',NULL),
+(2635,'failed_login_attempt[mobile:9370071116, user_type:2, IP:51.36.209.204]','2019-04-01 22:24:02',NULL),
+(2636,'New Vendor Created [9370071116]','2019-04-01 22:24:02',NULL),
+(2637,'New Member Created [9370071116]','2019-04-01 22:24:02',NULL),
+(2638,'log_user_info_updated','2019-04-01 22:27:55',NULL),
+(2639,'New Profile Created [44]','2019-04-01 22:27:55',NULL),
+(2640,'New Vendor About Created [44]','2019-04-01 22:27:55',NULL),
+(2641,'New Vendor Wroks Created [44]','2019-04-01 22:27:55',NULL),
+(2642,'New Vendor Locations Created [44]','2019-04-01 22:27:55',NULL),
+(2643,'New Vendor Account Created [44]','2019-04-01 22:27:55',NULL),
+(2644,'log_profile_info_updated','2019-04-01 22:28:39',NULL),
+(2645,'log_user_info_updated','2019-04-01 23:04:25',NULL),
+(2646,'vendor_deleted [62]','2019-04-01 23:20:18','Admin Nadaf'),
+(2647,'member_deleted [85]','2019-04-01 23:20:18','Admin Nadaf'),
+(2648,'failed_login_attempt[mobile:9503008804, user_type:2, IP:157.33.160.112]','2019-04-01 23:20:44',NULL),
+(2649,'New Vendor Created [9503008804]','2019-04-01 23:20:44',NULL),
+(2650,'New Member Created [9503008804]','2019-04-01 23:20:44',NULL),
+(2651,'log_user_info_updated','2019-04-01 23:21:57',NULL),
+(2652,'New Profile Created [45]','2019-04-01 23:21:57',NULL),
+(2653,'New Vendor About Created [45]','2019-04-01 23:21:57',NULL),
+(2654,'New Vendor Wroks Created [45]','2019-04-01 23:21:57',NULL),
+(2655,'New Vendor Locations Created [45]','2019-04-01 23:21:57',NULL),
+(2656,'New Vendor Account Created [45]','2019-04-01 23:21:57',NULL),
+(2657,'log_profile_info_updated','2019-04-01 23:23:44',NULL),
+(2658,'log_profile_info_updated','2019-04-01 23:25:16',NULL),
+(2659,'log_profile_info_updated','2019-04-01 23:25:20',NULL),
+(2660,'log_profile_info_updated','2019-04-01 23:25:22',NULL),
+(2661,'log_profile_info_updated','2019-04-01 23:26:00',NULL),
+(2662,'log_profile_info_updated','2019-04-01 23:26:03',NULL),
+(2663,'log_profile_info_updated','2019-04-01 23:26:05',NULL),
+(2664,'log_profile_info_updated','2019-04-01 23:26:07',NULL),
+(2665,'log_profile_info_updated','2019-04-01 23:26:09',NULL),
+(2666,'log_profile_info_updated','2019-04-01 23:26:11',NULL),
+(2667,'log_about_info_updated','2019-04-01 23:27:30',NULL),
+(2668,'log_about_info_updated','2019-04-01 23:27:37',NULL),
+(2669,'log_works_info_updated','2019-04-01 23:28:14',NULL),
+(2670,'log_locations_info_updated','2019-04-01 23:29:34',NULL),
+(2671,'log_user_info_updated','2019-04-01 23:29:36',NULL),
+(2672,'log_user_info_updated','2019-04-01 23:47:14',NULL),
+(2673,'log_user_info_updated','2019-04-01 23:49:28','Admin Nadaf'),
+(2674,'log_user_info_updated','2019-04-01 23:49:32','Admin Nadaf'),
+(2675,'log_user_info_updated','2019-04-01 23:49:32','Admin Nadaf'),
+(2676,'log_user_info_updated','2019-04-01 23:49:33','Admin Nadaf'),
+(2677,'log_user_info_updated','2019-04-01 23:49:35','Admin Nadaf'),
+(2678,'log_user_info_updated','2019-04-01 23:49:37','Admin Nadaf'),
+(2679,'log_user_info_updated','2019-04-01 23:49:38','Admin Nadaf'),
+(2680,'log_user_info_updated','2019-04-01 23:49:38','Admin Nadaf'),
+(2681,'log_user_info_updated','2019-04-01 23:49:38','Admin Nadaf'),
+(2682,'log_user_info_updated','2019-04-02 00:00:10','Admin Nadaf'),
+(2683,'log_user_info_updated','2019-04-02 00:00:10','Admin Nadaf'),
+(2684,'log_user_info_updated','2019-04-02 00:00:11','Admin Nadaf'),
+(2685,'log_user_info_updated','2019-04-02 00:00:11','Admin Nadaf'),
+(2686,'log_user_info_updated','2019-04-02 00:00:13','Admin Nadaf'),
+(2687,'log_user_info_updated','2019-04-02 00:00:14','Admin Nadaf'),
+(2688,'log_user_info_updated','2019-04-02 00:03:14','Admin Nadaf'),
+(2689,'log_user_info_updated','2019-04-02 00:09:15','Admin Nadaf'),
+(2690,'log_user_info_updated','2019-04-02 00:09:17','Admin Nadaf'),
+(2691,'log_profile_info_updated','2019-04-02 00:48:58',NULL),
+(2692,'log_profile_info_updated','2019-04-02 00:49:21',NULL),
+(2693,'log_profile_info_updated','2019-04-02 00:49:24',NULL),
+(2694,'log_about_info_updated','2019-04-02 00:50:16',NULL),
+(2695,'log_works_info_updated','2019-04-02 00:50:36',NULL),
+(2696,'log_works_info_updated','2019-04-02 00:50:43',NULL),
+(2697,'log_locations_info_updated','2019-04-02 00:50:53',NULL),
+(2698,'log_user_info_updated','2019-04-02 00:50:56',NULL),
+(2699,'log_user_info_updated','2019-04-02 08:42:14',NULL),
+(2700,'log_user_info_updated','2019-04-02 10:30:08',NULL),
+(2701,'log_user_info_updated','2019-04-02 20:55:14',NULL),
+(2702,'log_user_info_updated','2019-04-02 22:12:19',NULL),
+(2703,'log_user_info_updated','2019-04-03 18:21:35',NULL),
+(2704,'Restaurant Info Updated [14]','2019-04-03 19:35:21','Admin Nadaf'),
+(2705,'Restaurant Info Updated [14]','2019-04-03 19:35:22','Admin Nadaf'),
+(2706,'log_user_info_updated','2019-04-03 19:36:02','Admin Nadaf'),
+(2707,'log_user_info_updated','2019-04-03 19:36:03','Admin Nadaf'),
+(2708,'New Cart Created [17]','2019-04-03 23:02:28',NULL),
+(2709,'failed_login_attempt[mobile:8668682966, user_type:2, IP:49.35.125.141]','2019-04-03 23:20:26',NULL),
+(2710,'New Vendor Created [8668682966]','2019-04-03 23:20:26',NULL),
+(2711,'New Member Created [8668682966]','2019-04-03 23:20:26',NULL),
+(2712,'Staff profile detail updated [ID: 1]','2019-04-04 11:38:11','Admin Tonse'),
+(2713,'Category Info Updated [77]','2019-04-04 11:39:06','Admin Tonse'),
+(2714,'Category Info Updated [9]','2019-04-04 11:42:32','Admin Tonse'),
+(2715,'Category Info Updated [77]','2019-04-04 11:42:57','Admin Tonse'),
+(2716,'Category Info Updated [77]','2019-04-04 11:42:58','Admin Tonse'),
+(2717,'Category Info Updated [8]','2019-04-04 11:44:48','Admin Tonse'),
+(2718,'Category Info Updated [74]','2019-04-04 11:55:58','Admin Tonse'),
+(2719,'New Service Created [ From Staff: 1]','2019-04-04 11:57:55','Admin Tonse'),
+(2720,'Service Info Updated [9]','2019-04-04 11:59:14','Admin Tonse'),
+(2721,'Service Info Updated [8]','2019-04-04 11:59:15','Admin Tonse'),
+(2722,'Restaurant Info Updated [14]','2019-04-04 12:01:38','Admin Tonse'),
+(2723,'Restaurant Info Updated [13]','2019-04-04 12:01:39','Admin Tonse'),
+(2724,'Restaurant Info Updated [10]','2019-04-04 12:01:40','Admin Tonse'),
+(2725,'Restaurant Info Updated [9]','2019-04-04 12:01:41','Admin Tonse'),
+(2726,'restaurant_deleted [13]','2019-04-04 12:02:36','Admin Tonse'),
+(2727,'New Category Created [Legal & Financial Services From Staff: 1]','2019-04-04 12:09:13','Admin Tonse'),
+(2728,'New Category Created [Aadhar Card Agents From Staff: 1]','2019-04-04 12:10:47','Admin Tonse'),
+(2729,'Category Info Updated [79]','2019-04-04 12:12:26','Admin Tonse'),
+(2730,'New Category Created [Non - Govt Agent From Staff: 1]','2019-04-04 12:13:54','Admin Tonse'),
+(2731,'failed_login_attempt[mobile:7721037175, user_type:2, IP:157.33.230.233]','2019-04-04 18:04:36',NULL),
+(2732,'New Vendor Created [7721037175]','2019-04-04 18:04:36',NULL),
+(2733,'New Member Created [7721037175]','2019-04-04 18:04:36',NULL),
+(2734,'log_user_info_updated','2019-04-04 18:05:52',NULL),
+(2735,'New Profile Created [46]','2019-04-04 18:05:52',NULL),
+(2736,'New Vendor About Created [46]','2019-04-04 18:05:52',NULL),
+(2737,'New Vendor Wroks Created [46]','2019-04-04 18:05:52',NULL),
+(2738,'New Vendor Locations Created [46]','2019-04-04 18:05:52',NULL),
+(2739,'New Vendor Account Created [46]','2019-04-04 18:05:52',NULL),
+(2740,'failed_login_attempt[mobile:7721037178, user_type:2, IP:157.33.253.62]','2019-04-04 18:45:03',NULL),
+(2741,'New Vendor Created [7721037178]','2019-04-04 18:45:03',NULL),
+(2742,'New Member Created [7721037178]','2019-04-04 18:45:03',NULL),
+(2743,'log_user_info_updated','2019-04-04 22:17:01','Admin Tonse'),
+(2744,'log_user_info_updated','2019-04-04 22:17:03','Admin Tonse'),
+(2745,'New Cart Created [18]','2019-04-04 23:35:15',NULL),
+(2746,'Cart Product Info Updated [1]','2019-04-04 23:36:57',NULL),
+(2747,'log_user_info_updated','2019-04-05 19:43:51',NULL),
+(2748,'New Cart Created [19]','2019-04-05 19:46:09',NULL),
+(2749,'log_user_info_updated','2019-04-06 23:49:30',NULL),
+(2750,'log_address_info_updated','2019-04-06 23:49:35',NULL),
+(2751,'log_user_info_updated','2019-04-07 10:12:42','Admin Tonse'),
+(2752,'Cart Product Info Updated [1]','2019-04-07 10:40:58','Admin Tonse'),
+(2753,'New Cart Product Details Created [87 From Staff: 1]','2019-04-07 10:40:58','Admin Tonse'),
+(2754,'Cart Product Info Updated [1]','2019-04-07 10:40:58','Admin Tonse'),
+(2755,'log_user_info_updated','2019-04-07 11:37:02',NULL),
+(2756,'New Address Created [9]','2019-04-07 11:38:13',NULL),
+(2757,'Cart Product Info Updated [1]','2019-04-07 11:38:48',NULL),
+(2758,'Cart Product Info Updated [1]','2019-04-07 11:40:20','Admin Tonse'),
+(2759,'New Cart Created [20]','2019-04-07 11:44:08',NULL),
+(2760,'New Cart Created [21 From Staff: 1]','2019-04-07 11:47:30','Admin Tonse'),
+(2761,'Cart Product Info Updated [1]','2019-04-07 11:49:13','Admin Tonse'),
+(2762,'Cart Product Info Updated [1]','2019-04-07 11:49:47',NULL),
+(2763,'cart_product_details_deleted [87]','2019-04-07 11:49:47',NULL),
+(2764,'New Address Created [10]','2019-04-07 13:42:49',NULL),
+(2765,'New Cart Created [22]','2019-04-07 13:43:20',NULL),
+(2766,'Cart Product Info Updated [1]','2019-04-07 13:50:20',NULL),
+(2767,'New Cart Product Details Created [88]','2019-04-07 13:50:20',NULL),
+(2768,'Cart Product Info Updated [1]','2019-04-07 13:50:20',NULL),
+(2769,'Cart Product Info Updated [1]','2019-04-07 13:50:25',NULL),
+(2770,'Cart Product Detail Info Updated [85]','2019-04-07 13:50:25',NULL),
+(2771,'Cart Product Info Updated [1]','2019-04-07 13:50:41',NULL),
+(2772,'failed_login_attempt[mobile:8904817656, user_type:1, IP:157.45.255.199]','2019-04-07 14:42:39',NULL),
+(2773,'New Member Created [8904817656]','2019-04-07 14:42:39',NULL),
+(2774,'failed_login_attempt[mobile:9900413744, user_type:1, IP:223.186.247.207]','2019-04-07 15:05:42',NULL),
+(2775,'New Customer Created [9900413744]','2019-04-07 15:05:42',NULL),
+(2776,'New Member Created [9900413744]','2019-04-07 15:05:42',NULL),
+(2777,'log_user_info_updated','2019-04-07 15:08:08',NULL),
+(2778,'New Address Created [11]','2019-04-07 15:09:49',NULL),
+(2779,'New Cart Created [23]','2019-04-07 15:10:00',NULL),
+(2780,'New Cart Created [24]','2019-04-07 16:18:39',NULL),
+(2781,'New Cart Created [25]','2019-04-07 16:20:08',NULL),
+(2782,'failed_login_attempt[mobile:8421730213, user_type:1, IP:51.36.89.91]','2019-04-07 16:36:12',NULL),
+(2783,'New Customer Created [8421730213]','2019-04-07 16:36:13',NULL),
+(2784,'New Member Created [8421730213]','2019-04-07 16:36:13',NULL),
+(2785,'Cart Product Info Updated [1]','2019-04-07 16:49:26',NULL),
+(2786,'New Cart Product Details Created [89]','2019-04-07 16:49:26',NULL),
+(2787,'Cart Product Info Updated [1]','2019-04-07 16:49:26',NULL),
+(2788,'Cart Product Info Updated [1]','2019-04-07 16:49:37',NULL),
+(2789,'New Cart Created [26]','2019-04-08 11:42:36',NULL),
+(2790,'log_user_info_updated','2019-04-08 12:32:31',NULL),
+(2791,'log_user_info_updated','2019-04-08 12:32:43',NULL),
+(2792,'log_user_info_updated','2019-04-08 12:32:50',NULL),
+(2793,'log_user_info_updated','2019-04-08 12:32:57',NULL),
+(2794,'New Vendor Account Created [9]','2019-04-08 12:32:57',NULL),
+(2795,'log_user_info_updated','2019-04-08 12:33:05',NULL),
+(2796,'log_user_info_updated','2019-04-08 12:33:12',NULL),
+(2797,'New Vendor Account Created [10]','2019-04-08 12:33:12',NULL),
+(2798,'log_user_info_updated','2019-04-08 12:33:20',NULL),
+(2799,'log_user_info_updated','2019-04-08 12:33:27',NULL),
+(2800,'log_user_info_updated','2019-04-08 12:33:29',NULL),
+(2801,'log_user_info_updated','2019-04-08 12:33:38',NULL),
+(2802,'New Vendor Account Created [11]','2019-04-08 12:33:38',NULL),
+(2803,'log_user_info_updated','2019-04-08 12:33:45',NULL),
+(2804,'New Vendor Account Created [12]','2019-04-08 12:33:45',NULL),
+(2805,'log_user_info_updated','2019-04-08 12:33:52',NULL),
+(2806,'log_user_info_updated','2019-04-08 12:34:00',NULL),
+(2807,'log_user_info_updated','2019-04-08 12:34:06',NULL),
+(2808,'log_user_info_updated','2019-04-08 12:34:14',NULL),
+(2809,'log_user_info_updated','2019-04-08 12:35:08',NULL),
+(2810,'failed_login_attempt[mobile:7276477850, user_type:1, IP:103.26.58.2]','2019-04-08 12:44:05',NULL),
+(2811,'New Customer Created [7276477850]','2019-04-08 12:44:05',NULL),
+(2812,'New Member Created [7276477850]','2019-04-08 12:44:05',NULL),
+(2813,'log_user_info_updated','2019-04-08 12:50:32',NULL),
+(2814,'New Address Created [12]','2019-04-08 12:58:32',NULL),
+(2815,'New Cart Created [27]','2019-04-08 13:00:00',NULL),
+(2816,'Cart Product Info Updated [1]','2019-04-08 13:06:52',NULL),
+(2817,'New Cart Product Details Created [90]','2019-04-08 13:06:52',NULL),
+(2818,'Cart Product Info Updated [1]','2019-04-08 13:06:52',NULL),
+(2819,'Cart Product Info Updated [1]','2019-04-08 13:08:24',NULL),
+(2820,'failed_login_attempt[mobile:7276477850, user_type:2, IP:103.26.58.2]','2019-04-08 14:26:09',NULL),
+(2821,'New Vendor Created [7276477850]','2019-04-08 14:26:09',NULL),
+(2822,'New Member Created [7276477850]','2019-04-08 14:26:09',NULL),
+(2823,'log_user_info_updated','2019-04-08 14:32:49',NULL),
+(2824,'New Profile Created [47]','2019-04-08 14:32:49',NULL),
+(2825,'New Vendor About Created [47]','2019-04-08 14:32:49',NULL),
+(2826,'New Vendor Wroks Created [47]','2019-04-08 14:32:49',NULL),
+(2827,'New Vendor Locations Created [47]','2019-04-08 14:32:49',NULL),
+(2828,'New Vendor Account Created [47]','2019-04-08 14:32:49',NULL),
+(2829,'log_works_info_updated','2019-04-08 14:33:23',NULL),
+(2830,'New Cart Created [28]','2019-04-08 14:43:48',NULL),
+(2831,'log_profile_info_updated','2019-04-08 14:45:08',NULL),
+(2832,'log_profile_info_updated','2019-04-08 14:46:14',NULL),
+(2833,'log_profile_info_updated','2019-04-08 14:46:49',NULL),
+(2834,'log_profile_info_updated','2019-04-08 14:46:53',NULL),
+(2835,'log_about_info_updated','2019-04-08 14:48:33',NULL),
+(2836,'log_locations_info_updated','2019-04-08 14:49:23',NULL),
+(2837,'log_user_info_updated','2019-04-08 14:50:06',NULL),
+(2838,'log_user_info_updated','2019-04-08 14:50:23',NULL),
+(2839,'log_user_info_updated','2019-04-08 14:50:52',NULL),
+(2840,'log_user_info_updated','2019-04-08 21:07:30',NULL),
+(2841,'failed_login_attempt[mobile:9503426152, user_type:2, IP:103.26.58.2]','2019-04-08 21:09:44',NULL),
+(2842,'New Vendor Created [9503426152]','2019-04-08 21:09:44',NULL),
+(2843,'New Member Created [9503426152]','2019-04-08 21:09:44',NULL),
+(2844,'Cart Product Info Updated [1]','2019-04-08 22:19:59',NULL),
+(2845,'New Cart Product Details Created [91]','2019-04-08 22:19:59',NULL),
+(2846,'Cart Product Info Updated [1]','2019-04-08 22:19:59',NULL),
+(2847,'New Cart Created [29]','2019-04-08 22:20:03',NULL),
+(2848,'Cart Product Info Updated [1]','2019-04-08 22:20:19',NULL),
+(2849,'failed_login_attempt[mobile:9503426152, user_type:1, IP:103.26.58.2]','2019-04-08 22:42:34',NULL),
+(2850,'New Customer Created [9503426152]','2019-04-08 22:42:35',NULL),
+(2851,'New Member Created [9503426152]','2019-04-08 22:42:35',NULL),
+(2852,'log_user_info_updated','2019-04-08 23:37:56',NULL),
+(2853,'log_user_info_updated','2019-04-09 10:35:52',NULL),
+(2854,'log_user_info_updated','2019-04-09 11:45:39',NULL),
+(2855,'New Profile Created [48]','2019-04-09 11:45:39',NULL),
+(2856,'New Vendor About Created [48]','2019-04-09 11:45:39',NULL),
+(2857,'New Vendor Wroks Created [48]','2019-04-09 11:45:39',NULL),
+(2858,'New Vendor Locations Created [48]','2019-04-09 11:45:39',NULL),
+(2859,'New Vendor Account Created [48]','2019-04-09 11:45:39',NULL),
+(2860,'failed_login_attempt[mobile:9975420480, user_type:2, IP:103.26.58.2]','2019-04-09 11:47:15',NULL),
+(2861,'New Vendor Created [9975420480]','2019-04-09 11:47:15',NULL),
+(2862,'New Member Created [9975420480]','2019-04-09 11:47:15',NULL),
+(2863,'log_user_info_updated','2019-04-09 11:48:00',NULL),
+(2864,'New Profile Created [49]','2019-04-09 11:48:00',NULL),
+(2865,'New Vendor About Created [49]','2019-04-09 11:48:00',NULL),
+(2866,'New Vendor Wroks Created [49]','2019-04-09 11:48:00',NULL),
+(2867,'New Vendor Locations Created [49]','2019-04-09 11:48:00',NULL),
+(2868,'New Vendor Account Created [49]','2019-04-09 11:48:00',NULL),
+(2869,'log_user_info_updated','2019-04-09 15:25:02',NULL),
+(2870,'log_user_info_updated','2019-04-09 16:13:34',NULL),
+(2871,'Category Info Updated [13]','2019-04-09 16:21:46','Admin Tonse'),
+(2872,'Category Info Updated [12]','2019-04-09 16:22:07','Admin Tonse'),
+(2873,'Category Info Updated [10]','2019-04-09 16:22:29','Admin Tonse'),
+(2874,'New Category Created [Women\'s Fashion From Staff: 1]','2019-04-09 16:22:59','Admin Tonse'),
+(2875,'Category Info Updated [11]','2019-04-09 16:23:17','Admin Tonse'),
+(2876,'Category Info Updated [13]','2019-04-09 16:23:24','Admin Tonse'),
+(2877,'Category Info Updated [12]','2019-04-09 16:23:25','Admin Tonse'),
+(2878,'Category Info Updated [11]','2019-04-09 16:23:25','Admin Tonse'),
+(2879,'Category Info Updated [10]','2019-04-09 16:23:26','Admin Tonse'),
+(2880,'New Category Created [Beauty , Health & Grocery From Staff: 1]','2019-04-09 16:23:46','Admin Tonse'),
+(2881,'New Category Created [Sports, Fitness, Bags, Luggage From Staff: 1]','2019-04-09 16:24:09','Admin Tonse'),
+(2882,'New Category Created [Toys, Baby Products, Kids\' Fashion From Staff: 1]','2019-04-09 16:24:27','Admin Tonse'),
+(2883,'New Category Created [Car, Motorbike, Industrial From Staff: 1]','2019-04-09 16:24:45','Admin Tonse'),
+(2884,'New Category Created [Books & Audible From Staff: 1]','2019-04-09 16:24:56','Admin Tonse'),
+(2885,'New Category Created [Movies, Music & Video Games From Staff: 1]','2019-04-09 16:25:07','Admin Tonse'),
+(2886,'New Category Created [Gift Cards & Mobile Recharges From Staff: 1]','2019-04-09 16:25:18','Admin Tonse'),
+(2887,'New Category Created [Mobile Phones From Staff: 1]','2019-04-09 16:26:59','Admin Tonse'),
+(2888,'New Category Created [Mobile Categories From Staff: 1]','2019-04-09 16:27:14','Admin Tonse'),
+(2889,'category_deleted [16]','2019-04-09 16:27:19','Admin Tonse'),
+(2890,'New Category Created [Cases & Covers From Staff: 1]','2019-04-09 16:27:31','Admin Tonse'),
+(2891,'New Category Created [Screen Protectors From Staff: 1]','2019-04-09 16:27:41','Admin Tonse'),
+(2892,'New Category Created [Power Banks From Staff: 1]','2019-04-09 16:27:50','Admin Tonse'),
+(2893,'New Category Created [Certified Refurbished From Staff: 1]','2019-04-09 16:28:13','Admin Tonse'),
+(2894,'New Category Created [Tablets From Staff: 1]','2019-04-09 16:28:24','Admin Tonse'),
+(2895,'New Category Created [Wearable Devices From Staff: 1]','2019-04-09 16:28:33','Admin Tonse'),
+(2896,'New Category Created [Smart home From Staff: 1]','2019-04-09 16:28:42','Admin Tonse'),
+(2897,'New Category Created [Office Supplies & Stationary From Staff: 1]','2019-04-09 16:28:53','Admin Tonse'),
+(2898,'New Category Created [Software From Staff: 1]','2019-04-09 16:29:00','Admin Tonse'),
+(2899,'New Category Created [Computers & Accessories From Staff: 1]','2019-04-09 16:29:12','Admin Tonse'),
+(2900,'New Category Created [Laptop From Staff: 1]','2019-04-09 16:29:21','Admin Tonse'),
+(2901,'Category Info Updated [101]','2019-04-09 16:29:28','Admin Tonse'),
+(2902,'New Category Created [Drives & Storage From Staff: 1]','2019-04-09 16:29:38','Admin Tonse'),
+(2903,'New Category Created [Printers & Ink From Staff: 1]','2019-04-09 16:29:51','Admin Tonse'),
+(2904,'New Category Created [Networking Devices From Staff: 1]','2019-04-09 16:30:00','Admin Tonse'),
+(2905,'New Category Created [Computer Accesories From Staff: 1]','2019-04-09 16:30:13','Admin Tonse'),
+(2906,'New Category Created [Game Zone From Staff: 1]','2019-04-09 16:30:21','Admin Tonse'),
+(2907,'New Category Created [Monitors From Staff: 1]','2019-04-09 16:30:30','Admin Tonse'),
+(2908,'New Category Created [Desktops From Staff: 1]','2019-04-09 16:30:43','Admin Tonse'),
+(2909,'New Category Created [Miscellaneous From Staff: 1]','2019-04-09 16:31:07','Admin Tonse'),
+(2910,'New Category Created [Miscellaneous From Staff: 1]','2019-04-09 16:31:31','Admin Tonse'),
+(2911,'New Category Created [Televisions From Staff: 1]','2019-04-09 16:31:44','Admin Tonse'),
+(2912,'New Category Created [Home Entertainment Systems From Staff: 1]','2019-04-09 16:31:56','Admin Tonse'),
+(2913,'New Category Created [Headphones From Staff: 1]','2019-04-09 16:32:07','Admin Tonse'),
+(2914,'New Category Created [Speakers From Staff: 1]','2019-04-09 16:32:14','Admin Tonse'),
+(2915,'New Category Created [Home Audio & Theater From Staff: 1]','2019-04-09 16:32:25','Admin Tonse'),
+(2916,'New Category Created [Cameras From Staff: 1]','2019-04-09 16:32:34','Admin Tonse'),
+(2917,'New Category Created [DSLR Cameras From Staff: 1]','2019-04-09 16:32:44','Admin Tonse'),
+(2918,'New Category Created [Security Cameras From Staff: 1]','2019-04-09 16:32:53','Admin Tonse'),
+(2919,'New Category Created [Camera Accesories From Staff: 1]','2019-04-09 16:33:05','Admin Tonse'),
+(2920,'New Category Created [Musical Instruments & Professional Audio From Staff: 1]','2019-04-09 16:33:23','Admin Tonse'),
+(2921,'New Category Created [Gaming Consoles From Staff: 1]','2019-04-09 16:33:34','Admin Tonse'),
+(2922,'New Category Created [All electronics From Staff: 1]','2019-04-09 16:33:44','Admin Tonse'),
+(2923,'New Category Created [Air Conditioners From Staff: 1]','2019-04-09 16:33:58','Admin Tonse'),
+(2924,'New Category Created [Refrigerators From Staff: 1]','2019-04-09 16:34:11','Admin Tonse'),
+(2925,'New Category Created [Washing Machines From Staff: 1]','2019-04-09 16:34:21','Admin Tonse'),
+(2926,'New Category Created [Kitchen & Home Appliances From Staff: 1]','2019-04-09 16:34:34','Admin Tonse'),
+(2927,'New Category Created [Heating & Cooling Appliances From Staff: 1]','2019-04-09 16:34:48','Admin Tonse'),
+(2928,'New Category Created [All Appliances From Staff: 1]','2019-04-09 16:34:58','Admin Tonse'),
+(2929,'category_deleted [14]','2019-04-09 16:35:24','Admin Tonse'),
+(2930,'category_deleted [15]','2019-04-09 16:35:27','Admin Tonse'),
+(2931,'category_deleted [39]','2019-04-09 16:35:30','Admin Tonse'),
+(2932,'category_deleted [33]','2019-04-09 16:35:32','Admin Tonse'),
+(2933,'category_deleted [32]','2019-04-09 16:35:35','Admin Tonse'),
+(2934,'New Category Created [Miscellaneous From Staff: 1]','2019-04-09 16:35:41','Admin Tonse'),
+(2935,'New Category Created [Clothing From Staff: 1]','2019-04-09 16:35:52','Admin Tonse'),
+(2936,'New Category Created [T-Shirts & Polo From Staff: 1]','2019-04-09 16:36:06','Admin Tonse'),
+(2937,'New Category Created [Shirts From Staff: 1]','2019-04-09 16:36:20','Admin Tonse'),
+(2938,'New Category Created [Jeans From Staff: 1]','2019-04-09 16:36:26','Admin Tonse'),
+(2939,'New Category Created [Innerwear From Staff: 1]','2019-04-09 16:36:32','Admin Tonse'),
+(2940,'New Category Created [Watchman From Staff: 1]','2019-04-09 16:36:41','Admin Tonse'),
+(2941,'Category Info Updated [135]','2019-04-09 16:37:03','Admin Tonse'),
+(2942,'New Category Created [Bugs & Luggage From Staff: 1]','2019-04-09 16:37:12','Admin Tonse'),
+(2943,'New Category Created [Sunglasses From Staff: 1]','2019-04-09 16:37:22','Admin Tonse'),
+(2944,'New Category Created [Jewellery From Staff: 1]','2019-04-09 16:37:32','Admin Tonse'),
+(2945,'New Category Created [Wallets From Staff: 1]','2019-04-09 16:37:38','Admin Tonse'),
+(2946,'New Category Created [Shoes From Staff: 1]','2019-04-09 16:37:48','Admin Tonse'),
+(2947,'New Category Created [Sports Shoes From Staff: 1]','2019-04-09 16:37:55','Admin Tonse'),
+(2948,'New Category Created [Formal Shoes From Staff: 1]','2019-04-09 16:38:03','Admin Tonse'),
+(2949,'New Category Created [Casual Shoes From Staff: 1]','2019-04-09 16:38:11','Admin Tonse'),
+(2950,'New Category Created [Sportswear From Staff: 1]','2019-04-09 16:38:21','Admin Tonse'),
+(2951,'New Category Created [The Designer Boutique From Staff: 1]','2019-04-09 16:38:32','Admin Tonse'),
+(2952,'New Category Created [Amazon Fashion From Staff: 1]','2019-04-09 16:38:51','Admin Tonse'),
+(2953,'New Category Created [Sales & Deals From Staff: 1]','2019-04-09 16:39:01','Admin Tonse'),
+(2954,'Category Info Updated [81]','2019-04-09 16:39:31','Admin Tonse'),
+(2955,'New Category Created [Miscellaneous From Staff: 1]','2019-04-09 16:39:41','Admin Tonse'),
+(2956,'New Category Created [Clothing From Staff: 1]','2019-04-09 16:39:48','Admin Tonse'),
+(2957,'New Category Created [Western Wear From Staff: 1]','2019-04-09 16:39:56','Admin Tonse'),
+(2958,'New Category Created [Ethnic Wear From Staff: 1]','2019-04-09 16:40:06','Admin Tonse'),
+(2959,'New Category Created [Lingerie & Nightwear From Staff: 1]','2019-04-09 16:40:17','Admin Tonse'),
+(2960,'New Category Created [Top Brands From Staff: 1]','2019-04-09 16:40:23','Admin Tonse'),
+(2961,'New Category Created [Watches From Staff: 1]','2019-04-09 16:40:32','Admin Tonse'),
+(2962,'New Category Created [Handbags & Clutches From Staff: 1]','2019-04-09 16:40:43','Admin Tonse'),
+(2963,'New Category Created [Gold & Diamond Jewellery From Staff: 1]','2019-04-09 16:40:53','Admin Tonse'),
+(2964,'New Category Created [Fashion & Silver Jewelry From Staff: 1]','2019-04-09 16:41:10','Admin Tonse'),
+(2965,'New Category Created [Sunglasses From Staff: 1]','2019-04-09 16:41:21','Admin Tonse'),
+(2966,'New Category Created [Shoes From Staff: 1]','2019-04-09 16:41:39','Admin Tonse'),
+(2967,'New Category Created [Fashion Shoes From Staff: 1]','2019-04-09 16:41:53','Admin Tonse'),
+(2968,'New Category Created [Ballerinas From Staff: 1]','2019-04-09 16:42:06','Admin Tonse'),
+(2969,'Category Info Updated [160]','2019-04-09 16:42:23','Admin Tonse'),
+(2970,'New Category Created [Designer Boutiques From Staff: 1]','2019-04-09 16:42:36','Admin Tonse'),
+(2971,'New Category Created [Handlooms & handicrafts From Staff: 1]','2019-04-09 16:42:52','Admin Tonse'),
+(2972,'New Category Created [Sportswear From Staff: 1]','2019-04-09 16:43:04','Admin Tonse'),
+(2973,'New Category Created [Amazon Fashion From Staff: 1]','2019-04-09 16:43:15','Admin Tonse'),
+(2974,'New Category Created [Sales & Deals From Staff: 1]','2019-04-09 16:43:29','Admin Tonse'),
+(2975,'New Category Created [Kitchen & Dining From Staff: 1]','2019-04-09 16:44:18','Admin Tonse'),
+(2976,'New Category Created [Kitchen Storage & Containers From Staff: 1]','2019-04-09 16:44:32','Admin Tonse'),
+(2977,'New Category Created [Furniture From Staff: 1]','2019-04-09 16:44:44','Admin Tonse'),
+(2978,'New Category Created [Fine Art From Staff: 1]','2019-04-09 16:44:54','Admin Tonse'),
+(2979,'New Category Created [Home Furnishing From Staff: 1]','2019-04-09 16:45:05','Admin Tonse'),
+(2980,'New Category Created [Bedroom linen From Staff: 1]','2019-04-09 16:45:18','Admin Tonse'),
+(2981,'New Category Created [Home Decor From Staff: 1]','2019-04-09 16:45:39','Admin Tonse'),
+(2982,'New Category Created [Garden & Outdoors From Staff: 1]','2019-04-09 16:45:53','Admin Tonse'),
+(2983,'New Category Created [Home Storage From Staff: 1]','2019-04-09 16:46:05','Admin Tonse'),
+(2984,'New Category Created [Home Improvement From Staff: 1]','2019-04-09 16:46:20','Admin Tonse'),
+(2985,'New Category Created [Sewing & Craft Supplies From Staff: 1]','2019-04-09 16:46:35','Admin Tonse'),
+(2986,'New Category Created [All Home & Kitchen From Staff: 1]','2019-04-09 16:46:48','Admin Tonse'),
+(2987,'New Category Created [Shop by Room From Staff: 1]','2019-04-09 16:47:01','Admin Tonse'),
+(2988,'New Category Created [Home & Kitchen Deals From Staff: 1]','2019-04-09 16:47:14','Admin Tonse'),
+(2989,'New Category Created [Certified Refurbished From Staff: 1]','2019-04-09 16:47:23','Admin Tonse'),
+(2990,'New Category Created [All Pet Supplies From Staff: 1]','2019-04-09 16:47:38','Admin Tonse'),
+(2991,'New Category Created [Dog Supplies From Staff: 1]','2019-04-09 16:48:00','Admin Tonse'),
+(2992,'New Category Created [Miscellaneous From Staff: 1]','2019-04-09 16:48:09','Admin Tonse'),
+(2993,'New Category Created [Beauty & Grooming From Staff: 1]','2019-04-09 16:48:58','Admin Tonse'),
+(2994,'New Category Created [Luxury Beauty From Staff: 1]','2019-04-09 16:49:36','Admin Tonse'),
+(2995,'New Category Created [Makeup From Staff: 1]','2019-04-09 16:49:46','Admin Tonse'),
+(2996,'New Category Created [Health & Personal Care From Staff: 1]','2019-04-09 16:49:57','Admin Tonse'),
+(2997,'New Category Created [Household Supplies From Staff: 1]','2019-04-09 16:50:07','Admin Tonse'),
+(2998,'New Category Created [Personal Care Appliances From Staff: 1]','2019-04-09 16:50:18','Admin Tonse'),
+(2999,'New Category Created [Diet & Nutrition From Staff: 1]','2019-04-09 16:50:30','Admin Tonse'),
+(3000,'New Category Created [Subscribe & Save From Staff: 1]','2019-04-09 16:50:41','Admin Tonse'),
+(3001,'New Category Created [Value Bazaar From Staff: 1]','2019-04-09 16:51:01','Admin Tonse'),
+(3002,'New Category Created [All Grocery  From Staff: 1]','2019-04-09 16:51:18','Admin Tonse'),
+(3003,'New Category Created [Coffee, Tea & Beverages From Staff: 1]','2019-04-09 16:51:34','Admin Tonse'),
+(3004,'New Category Created [Snacks From Staff: 1]','2019-04-09 16:51:41','Admin Tonse'),
+(3005,'New Category Created [Cricket From Staff: 1]','2019-04-09 16:52:10','Admin Tonse'),
+(3006,'New Category Created [Badminton From Staff: 1]','2019-04-09 16:52:18','Admin Tonse'),
+(3007,'New Category Created [Cycling From Staff: 1]','2019-04-09 16:52:26','Admin Tonse'),
+(3008,'New Category Created [Football From Staff: 1]','2019-04-09 16:52:35','Admin Tonse'),
+(3009,'New Category Created [Camping From Staff: 1]','2019-04-09 16:52:45','Admin Tonse'),
+(3010,'Category Info Updated [201]','2019-04-09 16:52:59','Admin Tonse'),
+(3011,'New Category Created [Fitness Accessories From Staff: 1]','2019-04-09 16:53:10','Admin Tonse'),
+(3012,'New Category Created [Yoga From Staff: 1]','2019-04-09 16:53:17','Admin Tonse'),
+(3013,'New Category Created [Strength Training From Staff: 1]','2019-04-09 16:53:59','Admin Tonse'),
+(3014,'New Category Created [Cardio Equipment From Staff: 1]','2019-04-09 16:54:08','Admin Tonse'),
+(3015,'New Category Created [Sports Collectibles From Staff: 1]','2019-04-09 16:54:18','Admin Tonse'),
+(3016,'New Category Created [Certified Refurbished From Staff: 1]','2019-04-09 16:54:26','Admin Tonse'),
+(3017,'New Category Created [All Exercises & Fitness From Staff: 1]','2019-04-09 16:54:45','Admin Tonse'),
+(3018,'New Category Created [All Sports, Fitness & Outdoors From Staff: 1]','2019-04-09 16:55:04','Admin Tonse'),
+(3019,'New Category Created [Backpacks From Staff: 1]','2019-04-09 16:55:12','Admin Tonse'),
+(3020,'New Category Created [Rucksacks From Staff: 1]','2019-04-09 16:55:23','Admin Tonse'),
+(3021,'New Category Created [Suitcases & Trolleys From Staff: 1]','2019-04-09 16:55:35','Admin Tonse'),
+(3022,'New Category Created [Travel Duffles From Staff: 1]','2019-04-09 16:55:46','Admin Tonse'),
+(3023,'New Category Created [Travel Accessories From Staff: 1]','2019-04-09 16:56:02','Admin Tonse'),
+(3024,'New Category Created [Wallets From Staff: 1]','2019-04-09 16:56:12','Admin Tonse'),
+(3025,'New Category Created [Toys & Games From Staff: 1]','2019-04-09 16:56:35','Admin Tonse'),
+(3026,'New Category Created [Baby Products From Staff: 1]','2019-04-09 16:56:47','Admin Tonse'),
+(3027,'New Category Created [Diapers From Staff: 1]','2019-04-09 16:56:54','Admin Tonse'),
+(3028,'New Category Created [Baby Wish List From Staff: 1]','2019-04-09 16:57:06','Admin Tonse'),
+(3029,'New Category Created [Toys Gifting Store From Staff: 1]','2019-04-09 16:57:16','Admin Tonse'),
+(3030,'New Category Created [International Toys Store From Staff: 1]','2019-04-09 16:57:42','Admin Tonse'),
+(3031,'New Category Created [Baby Bath, Skin & Grooming From Staff: 1]','2019-04-09 16:57:53','Admin Tonse'),
+(3032,'New Category Created [Strollers & Prams From Staff: 1]','2019-04-09 16:58:01','Admin Tonse'),
+(3033,'New Category Created [Nursing & Feeding From Staff: 1]','2019-04-09 16:58:12','Admin Tonse'),
+(3034,'New Category Created [Kids\' Clothing From Staff: 1]','2019-04-09 16:58:23','Admin Tonse'),
+(3035,'New Category Created [Kids\' Shoes From Staff: 1]','2019-04-09 16:58:37','Admin Tonse'),
+(3036,'New Category Created [School Bags From Staff: 1]','2019-04-09 16:58:48','Admin Tonse'),
+(3037,'New Category Created [Kids\' Watches From Staff: 1]','2019-04-09 16:58:57','Admin Tonse'),
+(3038,'New Category Created [Kids\' Fashion From Staff: 1]','2019-04-09 16:59:06','Admin Tonse'),
+(3039,'New Category Created [Baby Fashion From Staff: 1]','2019-04-09 16:59:17','Admin Tonse'),
+(3040,'New Category Created [Miscellaneous From Staff: 1]','2019-04-09 16:59:24','Admin Tonse'),
+(3041,'New Category Created [Motorbike Accessories & Parts From Staff: 1]','2019-04-09 16:59:55','Admin Tonse'),
+(3042,'New Category Created [Car Accessories From Staff: 1]','2019-04-09 17:00:05','Admin Tonse'),
+(3043,'New Category Created [Car Electronics From Staff: 1]','2019-04-09 17:00:15','Admin Tonse'),
+(3044,'New Category Created [Car Parts From Staff: 1]','2019-04-09 17:00:23','Admin Tonse'),
+(3045,'New Category Created [Car & Bike Care From Staff: 1]','2019-04-09 17:00:31','Admin Tonse'),
+(3046,'New Category Created [All Car & Motorbike Products From Staff: 1]','2019-04-09 17:00:42','Admin Tonse'),
+(3047,'New Category Created [Industrial & Scientific Supplies From Staff: 1]','2019-04-09 17:00:50','Admin Tonse'),
+(3048,'New Category Created [Test, Measure & Inspect From Staff: 1]','2019-04-09 17:00:57','Admin Tonse'),
+(3049,'New Category Created [Lab & Scientific From Staff: 1]','2019-04-09 17:01:11','Admin Tonse'),
+(3050,'New Category Created [Janitorial & Sanitation Supplies From Staff: 1]','2019-04-09 17:01:25','Admin Tonse'),
+(3051,'New Category Created [All Books From Staff: 1]','2019-04-09 17:03:28','Admin Tonse'),
+(3052,'New Category Created [Fiction Books From Staff: 1]','2019-04-09 17:03:46','Admin Tonse'),
+(3053,'New Category Created [Editor\'s Corner From Staff: 1]','2019-04-09 17:03:55','Admin Tonse'),
+(3054,'New Category Created [School Textbooks From Staff: 1]','2019-04-09 17:04:05','Admin Tonse'),
+(3055,'New Category Created [Children\'s Books From Staff: 1]','2019-04-09 17:04:20','Admin Tonse'),
+(3056,'New Category Created [Exam Central From Staff: 1]','2019-04-09 17:04:29','Admin Tonse'),
+(3057,'New Category Created [Textbooks From Staff: 1]','2019-04-09 17:04:38','Admin Tonse'),
+(3058,'New Category Created [Indian Language Books From Staff: 1]','2019-04-09 17:04:48','Admin Tonse'),
+(3059,'New Category Created [Used Books From Staff: 1]','2019-04-09 17:04:55','Admin Tonse'),
+(3060,'New Category Created [Kindle eBooks From Staff: 1]','2019-04-09 17:05:03','Admin Tonse'),
+(3061,'New Category Created [Audible Audiobooks & more From Staff: 1]','2019-04-09 17:05:12','Admin Tonse'),
+(3062,'category_deleted [252]','2019-04-09 17:05:24','Admin Tonse'),
+(3063,'category_deleted [251]','2019-04-09 17:05:27','Admin Tonse'),
+(3064,'Category Info Updated [86]','2019-04-09 17:05:44','Admin Tonse'),
+(3065,'New Category Created [All Movies & TV Shows From Staff: 1]','2019-04-09 17:06:09','Admin Tonse'),
+(3066,'New Category Created [Blu-ray From Staff: 1]','2019-04-09 17:06:19','Admin Tonse'),
+(3067,'New Category Created [All English From Staff: 1]','2019-04-09 17:06:29','Admin Tonse'),
+(3068,'New Category Created [All Hindi From Staff: 1]','2019-04-09 17:06:38','Admin Tonse'),
+(3069,'New Category Created [Entertainment Collectibles From Staff: 1]','2019-04-09 17:06:47','Admin Tonse'),
+(3070,'New Category Created [Gaming Consoles From Staff: 1]','2019-04-09 17:06:56','Admin Tonse'),
+(3071,'New Category Created [Latest Video Games From Staff: 1]','2019-04-09 17:07:04','Admin Tonse'),
+(3072,'New Category Created [Gaming Accessories From Staff: 1]','2019-04-09 17:07:12','Admin Tonse'),
+(3073,'New Category Created [PC Games From Staff: 1]','2019-04-09 17:07:24','Admin Tonse'),
+(3074,'New Category Created [Video Games Deals From Staff: 1]','2019-04-09 17:07:34','Admin Tonse'),
+(3075,'New Category Created [All Video Games From Staff: 1]','2019-04-09 17:07:42','Admin Tonse'),
+(3076,'New Category Created [All Music From Staff: 1]','2019-04-09 17:07:50','Admin Tonse'),
+(3077,'New Category Created [International Music From Staff: 1]','2019-04-09 17:08:04','Admin Tonse'),
+(3078,'New Category Created [Film Songs From Staff: 1]','2019-04-09 17:08:14','Admin Tonse'),
+(3079,'New Category Created [Musical Instruments & Professional Audio From Staff: 1]','2019-04-09 17:08:23','Admin Tonse'),
+(3080,'New Category Created [Popular Gift Cards From Staff: 1]','2019-04-09 17:08:56','Admin Tonse'),
+(3081,'New Category Created [Gift Boxes, Gift Tags, Greeting Cards From Staff: 1]','2019-04-09 17:09:04','Admin Tonse'),
+(3082,'New Category Created [Popular Brand Gift Vouchers From Staff: 1]','2019-04-09 17:09:13','Admin Tonse'),
+(3083,'New Category Created [Birthday Gift Cards From Staff: 1]','2019-04-09 17:09:20','Admin Tonse'),
+(3084,'New Category Created [Wedding & Anniversary From Staff: 1]','2019-04-09 17:09:28','Admin Tonse'),
+(3085,'New Category Created [Best Wishes & Thank You From Staff: 1]','2019-04-09 17:09:36','Admin Tonse'),
+(3086,'New Category Created [Corporate Gift Cards From Staff: 1]','2019-04-09 17:09:45','Admin Tonse'),
+(3087,'category_deleted [90]','2019-04-09 17:13:46','Admin Tonse'),
+(3088,'New Category Created [MI From Staff: 1]','2019-04-09 17:18:18','Admin Tonse'),
+(3089,'New Category Created [Realtime From Staff: 1]','2019-04-09 17:18:27','Admin Tonse'),
+(3090,'Category Info Updated [276]','2019-04-09 17:18:41','Admin Tonse'),
+(3091,'New Category Created [Samsung From Staff: 1]','2019-04-09 17:18:48','Admin Tonse'),
+(3092,'New Category Created [Infinix From Staff: 1]','2019-04-09 17:18:56','Admin Tonse'),
+(3093,'New Category Created [Oppo From Staff: 1]','2019-04-09 17:19:03','Admin Tonse'),
+(3094,'New Category Created [Apple From Staff: 1]','2019-04-09 17:19:10','Admin Tonse'),
+(3095,'New Category Created [VIVO From Staff: 1]','2019-04-09 17:19:17','Admin Tonse'),
+(3096,'New Category Created [Honor From Staff: 1]','2019-04-09 17:19:27','Admin Tonse'),
+(3097,'New Category Created [Asus From Staff: 1]','2019-04-09 17:19:34','Admin Tonse'),
+(3098,'New Category Created [Samsung From Staff: 1]','2019-04-09 17:19:46','Admin Tonse'),
+(3099,'Category Info Updated [281]','2019-04-09 17:20:04','Admin Tonse'),
+(3100,'category_deleted [100]','2019-04-09 17:20:23','Admin Tonse'),
+(3101,'New Category Created [Mobile Accesories From Staff: 1]','2019-04-09 17:20:43','Admin Tonse'),
+(3102,'New Category Created [Mobile Cases From Staff: 1]','2019-04-09 17:21:05','Admin Tonse'),
+(3103,'New Category Created [Headphones & Headsets From Staff: 1]','2019-04-09 17:21:16','Admin Tonse'),
+(3104,'New Category Created [Powerbanks From Staff: 1]','2019-04-09 17:21:28','Admin Tonse'),
+(3105,'New Category Created [Screenguards From Staff: 1]','2019-04-09 17:21:38','Admin Tonse'),
+(3106,'New Category Created [Memory cards From Staff: 1]','2019-04-09 17:21:46','Admin Tonse'),
+(3107,'New Category Created [Smart Headphones From Staff: 1]','2019-04-09 17:21:56','Admin Tonse'),
+(3108,'New Category Created [Mobile Cables From Staff: 1]','2019-04-09 17:22:08','Admin Tonse'),
+(3109,'New Category Created [Mobile Chargers From Staff: 1]','2019-04-09 17:22:21','Admin Tonse'),
+(3110,'New Category Created [Mobile Holders From Staff: 1]','2019-04-09 17:22:39','Admin Tonse'),
+(3111,'New Category Created [Smart Wearable Tech From Staff: 1]','2019-04-09 17:28:00','Admin Tonse'),
+(3112,'New Category Created [Smart Watches From Staff: 1]','2019-04-09 17:28:19','Admin Tonse'),
+(3113,'New Category Created [Smart Glasses VR From Staff: 1]','2019-04-09 17:28:35','Admin Tonse'),
+(3114,'New Category Created [Smart Bands From Staff: 1]','2019-04-09 17:28:47','Admin Tonse'),
+(3115,'New Category Created [Healthcare Appliances From Staff: 1]','2019-04-09 17:29:27','Admin Tonse'),
+(3116,'New Category Created [BP Monitors From Staff: 1]','2019-04-09 17:29:45','Admin Tonse'),
+(3117,'New Category Created [Weighing Scale From Staff: 1]','2019-04-09 17:29:58','Admin Tonse'),
+(3118,'New Category Created [Laptops From Staff: 1]','2019-04-09 17:30:31','Admin Tonse'),
+(3119,'category_deleted [302]','2019-04-09 17:30:39','Admin Tonse'),
+(3120,'New Category Created [Gaming Laptops From Staff: 1]','2019-04-09 17:30:54','Admin Tonse'),
+(3121,'New Category Created [External HDDs From Staff: 1]','2019-04-09 17:31:22','Admin Tonse'),
+(3122,'New Category Created [Internal HDDs From Staff: 1]','2019-04-09 17:31:32','Admin Tonse'),
+(3123,'New Category Created [Pendrives From Staff: 1]','2019-04-09 17:31:40','Admin Tonse'),
+(3124,'New Category Created [Laptops Skins & Decals From Staff: 1]','2019-04-09 17:31:54','Admin Tonse'),
+(3125,'New Category Created [Laptop Bags From Staff: 1]','2019-04-09 17:32:06','Admin Tonse'),
+(3126,'New Category Created [Mouse From Staff: 1]','2019-04-09 17:32:13','Admin Tonse'),
+(3127,'New Category Created [Apple iPads From Staff: 1]','2019-04-09 17:34:07','Admin Tonse'),
+(3128,'New Category Created [Televisions From Staff: 1]','2019-04-09 17:34:38','Admin Tonse'),
+(3129,'New Category Created [Home Audio Speakers From Staff: 1]','2019-04-09 17:36:11','Admin Tonse'),
+(3130,'New Category Created [Home Theaters From Staff: 1]','2019-04-09 17:36:23','Admin Tonse'),
+(3131,'New Category Created [Bluetooth Speakers From Staff: 1]','2019-04-09 17:36:34','Admin Tonse'),
+(3132,'New Category Created [DTH Setup Top Box From Staff: 1]','2019-04-09 17:37:01','Admin Tonse'),
+(3133,'New Category Created [Smart Home Automation From Staff: 1]','2019-04-09 17:38:03','Admin Tonse'),
+(3134,'New Category Created [Google Home From Staff: 1]','2019-04-09 17:38:17','Admin Tonse'),
+(3135,'New Category Created [Lens From Staff: 1]','2019-04-09 17:38:40','Admin Tonse'),
+(3136,'New Category Created [Tripod From Staff: 1]','2019-04-09 17:38:49','Admin Tonse'),
+(3137,'Category Info Updated [319]','2019-04-09 17:38:59','Admin Tonse'),
+(3138,'New Category Created [Routers From Staff: 1]','2019-04-09 17:39:35','Admin Tonse'),
+(3139,'Category Info Updated [78]','2019-04-09 17:42:38','Admin Tonse'),
+(3140,'New Category Created [Financial From Staff: 1]','2019-04-09 17:42:55','Admin Tonse'),
+(3141,'New Service Created [ From Staff: 1]','2019-04-09 17:48:16','Admin Tonse'),
+(3142,'New Service Created [ From Staff: 1]','2019-04-09 17:48:36','Admin Tonse'),
+(3143,'New Service Created [ From Staff: 1]','2019-04-09 17:49:06','Admin Tonse'),
+(3144,'New Service Created [ From Staff: 1]','2019-04-09 17:49:13','Admin Tonse'),
+(3145,'New Service Created [ From Staff: 1]','2019-04-09 17:49:39','Admin Tonse'),
+(3146,'New Service Created [ From Staff: 1]','2019-04-09 17:49:52','Admin Tonse'),
+(3147,'New Service Created [ From Staff: 1]','2019-04-09 17:50:40','Admin Tonse'),
+(3148,'Service Info Updated [40]','2019-04-09 17:50:49','Admin Tonse'),
+(3149,'Service Info Updated [26]','2019-04-09 17:52:03','Admin Tonse'),
+(3150,'New Service Created [ From Staff: 1]','2019-04-09 17:52:31','Admin Tonse'),
+(3151,'New Service Created [ From Staff: 1]','2019-04-09 17:52:47','Admin Tonse'),
+(3152,'Service Info Updated [28]','2019-04-09 17:52:58','Admin Tonse'),
+(3153,'New Service Created [ From Staff: 1]','2019-04-09 17:53:12','Admin Tonse'),
+(3154,'New Service Created [ From Staff: 1]','2019-04-09 17:53:26','Admin Tonse'),
+(3155,'New Service Created [ From Staff: 1]','2019-04-09 17:53:48','Admin Tonse'),
+(3156,'New Service Created [ From Staff: 1]','2019-04-09 17:54:03','Admin Tonse'),
+(3157,'New Service Created [ From Staff: 1]','2019-04-09 17:54:20','Admin Tonse'),
+(3158,'New Service Created [ From Staff: 1]','2019-04-09 17:54:40','Admin Tonse'),
+(3159,'New Category Created [Personal Finance From Staff: 1]','2019-04-09 17:55:27','Admin Tonse'),
+(3160,'New Service Created [ From Staff: 1]','2019-04-09 17:55:53','Admin Tonse'),
+(3161,'New Service Created [ From Staff: 1]','2019-04-09 17:56:00','Admin Tonse'),
+(3162,'New Service Created [ From Staff: 1]','2019-04-09 17:56:15','Admin Tonse'),
+(3163,'New Service Created [ From Staff: 1]','2019-04-09 17:56:30','Admin Tonse'),
+(3164,'Service Info Updated [4]','2019-04-09 17:58:58','Admin Tonse'),
+(3165,'Service Info Updated [2]','2019-04-09 17:58:59','Admin Tonse'),
+(3166,'Service Info Updated [1]','2019-04-09 17:59:00','Admin Tonse'),
+(3167,'service_deleted [37]','2019-04-09 17:59:04','Admin Tonse'),
+(3168,'Service Info Updated [7]','2019-04-09 17:59:18','Admin Tonse'),
+(3169,'Service Info Updated [6]','2019-04-09 17:59:19','Admin Tonse'),
+(3170,'Service Info Updated [5]','2019-04-09 17:59:20','Admin Tonse'),
+(3171,'category_deleted [77]','2019-04-09 18:00:39','Admin Tonse'),
+(3172,'Category Info Updated [3]','2019-04-09 18:00:56','Admin Tonse'),
+(3173,'New Category Created [Electricians From Staff: 1]','2019-04-09 18:01:45','Admin Tonse'),
+(3174,'New Category Created [Plumbers From Staff: 1]','2019-04-09 18:01:56','Admin Tonse'),
+(3175,'New Category Created [Carpenters From Staff: 1]','2019-04-09 18:02:07','Admin Tonse'),
+(3176,'New Category Created [Bathroom Deep Cleaning From Staff: 1]','2019-04-09 18:02:18','Admin Tonse'),
+(3177,'New Category Created [Carpet Cleaning From Staff: 1]','2019-04-09 18:02:29','Admin Tonse'),
+(3178,'New Category Created [Home Deep Cleaning From Staff: 1]','2019-04-09 18:02:40','Admin Tonse'),
+(3179,'New Category Created [Kitchen Deep Cleaning From Staff: 1]','2019-04-09 18:02:52','Admin Tonse'),
+(3180,'New Category Created [Car Cleaning From Staff: 1]','2019-04-09 18:03:00','Admin Tonse'),
+(3181,'New Category Created [Pest Control From Staff: 1]','2019-04-09 18:03:12','Admin Tonse'),
+(3182,'category_deleted [6]','2019-04-09 18:03:31','Admin Tonse'),
+(3183,'Category Info Updated [4]','2019-04-09 18:04:00','Admin Tonse'),
+(3184,'New Service Created [ From Staff: 1]','2019-04-09 18:04:45','Admin Tonse'),
+(3185,'category_deleted [331]','2019-04-09 18:05:08','Admin Tonse'),
+(3186,'category_deleted [330]','2019-04-09 18:05:11','Admin Tonse'),
+(3187,'category_deleted [329]','2019-04-09 18:05:13','Admin Tonse'),
+(3188,'category_deleted [328]','2019-04-09 18:05:16','Admin Tonse'),
+(3189,'category_deleted [327]','2019-04-09 18:05:19','Admin Tonse'),
+(3190,'category_deleted [326]','2019-04-09 18:05:22','Admin Tonse'),
+(3191,'category_deleted [325]','2019-04-09 18:05:25','Admin Tonse'),
+(3192,'category_deleted [324]','2019-04-09 18:05:28','Admin Tonse'),
+(3193,'category_deleted [323]','2019-04-09 18:05:31','Admin Tonse'),
+(3194,'Category Info Updated [3]','2019-04-09 18:06:04','Admin Tonse'),
+(3195,'New Service Created [ From Staff: 1]','2019-04-09 18:06:35','Admin Tonse'),
+(3196,'New Service Created [ From Staff: 1]','2019-04-09 18:06:48','Admin Tonse'),
+(3197,'New Service Created [ From Staff: 1]','2019-04-09 18:06:59','Admin Tonse'),
+(3198,'New Service Created [ From Staff: 1]','2019-04-09 18:07:14','Admin Tonse'),
+(3199,'New Service Created [ From Staff: 1]','2019-04-09 18:07:34','Admin Tonse'),
+(3200,'service_deleted [10]','2019-04-09 18:07:42','Admin Tonse'),
+(3201,'Category Info Updated [3]','2019-04-09 18:08:42','Admin Tonse'),
+(3202,'category_deleted [4]','2019-04-09 18:09:24','Admin Tonse'),
+(3203,'Category Info Updated [1]','2019-04-09 18:09:51','Admin Tonse'),
+(3204,'category_deleted [78]','2019-04-09 18:12:36','Admin Tonse'),
+(3205,'Category Info Updated [321]','2019-04-09 18:12:47','Admin Tonse'),
+(3206,'New Service Created [ From Staff: 1]','2019-04-09 18:14:24','Admin Tonse'),
+(3207,'Service Info Updated [2]','2019-04-09 18:14:42','Admin Tonse'),
+(3208,'Service Info Updated [2]','2019-04-09 18:14:56','Admin Tonse'),
+(3209,'New Service Created [ From Staff: 1]','2019-04-09 18:15:07','Admin Tonse'),
+(3210,'New Service Created [ From Staff: 1]','2019-04-09 18:15:24','Admin Tonse'),
+(3211,'New Service Created [ From Staff: 1]','2019-04-09 18:16:54','Admin Tonse'),
+(3212,'New Service Created [ From Staff: 1]','2019-04-09 18:17:09','Admin Tonse'),
+(3213,'New Service Created [ From Staff: 1]','2019-04-09 18:17:50','Admin Tonse'),
+(3214,'New Service Created [ From Staff: 1]','2019-04-09 18:18:01','Admin Tonse'),
+(3215,'New Service Created [ From Staff: 1]','2019-04-09 18:18:17','Admin Tonse'),
+(3216,'New Service Created [ From Staff: 1]','2019-04-09 18:18:28','Admin Tonse'),
+(3217,'New Service Created [ From Staff: 1]','2019-04-09 18:18:53','Admin Tonse'),
+(3218,'New Service Created [ From Staff: 1]','2019-04-09 18:19:14','Admin Tonse'),
+(3219,'Service Info Updated [75]','2019-04-09 18:19:29','Admin Tonse'),
+(3220,'New Service Created [ From Staff: 1]','2019-04-09 18:19:49','Admin Tonse'),
+(3221,'Service Info Updated [56]','2019-04-09 18:20:28','Admin Tonse'),
+(3222,'Service Info Updated [55]','2019-04-09 18:20:41','Admin Tonse'),
+(3223,'log_user_info_updated','2019-04-09 18:22:20','Admin Tonse'),
+(3224,'log_user_info_updated','2019-04-09 18:22:21','Admin Tonse'),
+(3225,'New Category Created [Beverages From Staff: 1]','2019-04-09 18:24:27','Admin Tonse'),
+(3226,'New Category Created [Best Sellers From Staff: 1]','2019-04-09 18:24:37','Admin Tonse'),
+(3227,'category_deleted [23]','2019-04-09 18:26:36','Admin Tonse'),
+(3228,'New Category Created [Arabian From Staff: 1]','2019-04-09 18:26:47','Admin Tonse'),
+(3229,'New Category Created [Hyderabadi From Staff: 1]','2019-04-09 18:26:59','Admin Tonse'),
+(3230,'New Category Created [Bakery From Staff: 1]','2019-04-09 18:27:09','Admin Tonse'),
+(3231,'New Category Created [Kerala From Staff: 1]','2019-04-09 18:27:17','Admin Tonse'),
+(3232,'New Category Created [Indian From Staff: 1]','2019-04-09 18:27:32','Admin Tonse'),
+(3233,'New Category Created [Seafood From Staff: 1]','2019-04-09 18:27:40','Admin Tonse'),
+(3234,'New Category Created [Tea From Staff: 1]','2019-04-09 18:27:52','Admin Tonse'),
+(3235,'New Category Created [Sweets From Staff: 1]','2019-04-09 18:28:10','Admin Tonse'),
+(3236,'New Category Created [Desserts From Staff: 1]','2019-04-09 18:28:17','Admin Tonse'),
+(3237,'New Category Created [Ice-cream From Staff: 1]','2019-04-09 18:28:30','Admin Tonse'),
+(3238,'New Category Created [All Day Breakfast From Staff: 1]','2019-04-09 18:28:56','Admin Tonse'),
+(3239,'New Category Created [Quick Bites From Staff: 1]','2019-04-09 18:29:12','Admin Tonse'),
+(3240,'New Category Created [Burgers From Staff: 1]','2019-04-09 18:29:31','Admin Tonse'),
+(3241,'New Category Created [Pizza From Staff: 1]','2019-04-09 18:29:42','Admin Tonse'),
+(3242,'restaurant_deleted [7]','2019-04-09 18:33:27','Admin Tonse'),
+(3243,'deliveryboy_deleted [12]','2019-04-09 18:33:46','Admin Tonse'),
+(3244,'member_deleted [81]','2019-04-09 18:33:46','Admin Tonse'),
+(3245,'log_user_info_updated','2019-04-09 19:29:02',NULL),
+(3246,'log_user_info_updated','2019-04-09 19:30:01',NULL),
+(3247,'Category Info Updated [10]','2019-04-10 12:15:17','Admin Tonse'),
+(3248,'Category Info Updated [244]','2019-04-10 12:16:26','Admin Tonse'),
+(3249,'Category Info Updated [246]','2019-04-10 12:17:25','Admin Tonse'),
+(3250,'log_user_info_updated','2019-04-10 12:17:54',NULL),
+(3251,'Category Info Updated [84]','2019-04-10 12:19:54','Admin Tonse'),
+(3252,'log_user_info_updated','2019-04-10 12:44:26',NULL),
+(3253,'log_user_info_updated','2019-04-10 12:46:43',NULL),
+(3254,'log_user_info_updated','2019-04-10 12:56:38',NULL),
+(3255,'log_user_info_updated','2019-04-10 14:01:35',NULL),
+(3256,'New Cart Created [30]','2019-04-10 16:50:01',NULL),
+(3257,'log_locations_info_updated','2019-04-10 23:18:57',NULL),
+(3258,'log_works_info_updated','2019-04-10 23:20:19',NULL),
+(3259,'log_profile_info_updated','2019-04-10 23:25:33',NULL),
+(3260,'failed_login_attempt[mobile:9909198711, user_type:1, IP:103.106.20.165]','2019-04-11 11:16:18',NULL),
+(3261,'New Member Created [9909198711]','2019-04-11 11:16:18',NULL),
+(3262,'New Cart Created [31]','2019-04-11 11:17:12',NULL),
+(3263,'log_user_info_updated','2019-04-11 11:23:02',NULL),
+(3264,'Category Info Updated [88]','2019-04-11 12:06:29','Admin Tonse'),
+(3265,'Category Info Updated [87]','2019-04-11 12:08:23','Admin Tonse'),
+(3266,'Category Info Updated [86]','2019-04-11 12:08:40','Admin Tonse'),
+(3267,'Category Info Updated [85]','2019-04-11 12:08:55','Admin Tonse'),
+(3268,'Category Info Updated [84]','2019-04-11 12:09:24','Admin Tonse'),
+(3269,'Category Info Updated [83]','2019-04-11 12:09:36','Admin Tonse'),
+(3270,'Category Info Updated [82]','2019-04-11 12:09:48','Admin Tonse'),
+(3271,'Category Info Updated [81]','2019-04-11 12:10:02','Admin Tonse'),
+(3272,'Category Info Updated [13]','2019-04-11 12:10:19','Admin Tonse'),
+(3273,'Category Info Updated [12]','2019-04-11 12:10:32','Admin Tonse'),
+(3274,'Category Info Updated [11]','2019-04-11 12:11:15','Admin Tonse'),
+(3275,'Category Info Updated [10]','2019-04-11 12:11:28','Admin Tonse'),
+(3276,'Category Info Updated [10]','2019-04-11 12:15:21','Admin Tonse'),
+(3277,'Category Info Updated [322]','2019-04-11 12:16:19','Admin Tonse'),
+(3278,'Category Info Updated [321]','2019-04-11 12:16:34','Admin Tonse'),
+(3279,'Category Info Updated [9]','2019-04-11 12:16:54','Admin Tonse'),
+(3280,'Category Info Updated [8]','2019-04-11 12:17:08','Admin Tonse'),
+(3281,'Category Info Updated [7]','2019-04-11 12:17:20','Admin Tonse'),
+(3282,'Category Info Updated [5]','2019-04-11 12:17:38','Admin Tonse'),
+(3283,'Category Info Updated [3]','2019-04-11 12:17:54','Admin Tonse'),
+(3284,'Category Info Updated [2]','2019-04-11 12:18:07','Admin Tonse'),
+(3285,'Category Info Updated [1]','2019-04-11 12:18:21','Admin Tonse'),
+(3286,'Category Info Updated [87]','2019-04-11 12:19:58','Admin Tonse'),
+(3287,'Category Info Updated [274]','2019-04-11 12:20:45','Admin Tonse'),
+(3288,'Category Info Updated [273]','2019-04-11 12:20:57','Admin Tonse'),
+(3289,'Category Info Updated [272]','2019-04-11 12:21:08','Admin Tonse'),
+(3290,'Category Info Updated [271]','2019-04-11 12:21:20','Admin Tonse'),
+(3291,'Category Info Updated [270]','2019-04-11 12:21:33','Admin Tonse'),
+(3292,'Category Info Updated [268]','2019-04-11 12:22:16','Admin Tonse'),
+(3293,'Category Info Updated [267]','2019-04-11 12:22:48','Admin Tonse'),
+(3294,'Category Info Updated [266]','2019-04-11 12:23:04','Admin Tonse'),
+(3295,'Category Info Updated [265]','2019-04-11 12:23:15','Admin Tonse'),
+(3296,'Category Info Updated [264]','2019-04-11 12:23:27','Admin Tonse'),
+(3297,'Category Info Updated [263]','2019-04-11 12:23:40','Admin Tonse'),
+(3298,'New Restaurant Created [ From Staff: 1]','2019-04-11 12:28:48','Admin Tonse'),
+(3299,'Restaurant Info Updated [15]','2019-04-11 12:29:39','Admin Tonse'),
+(3300,'Restaurant Info Updated [15]','2019-04-11 12:29:43','Admin Tonse'),
+(3301,'New Restaurant Food Created [Fruit Biscuits From Staff: 1]','2019-04-11 12:31:56','Admin Tonse'),
+(3302,'Restaurant Food Info Updated [21]','2019-04-11 12:32:07','Admin Tonse'),
+(3303,'log_user_info_updated','2019-04-11 12:50:51',NULL),
+(3304,'Cart Product Info Updated [1]','2019-04-11 12:57:11',NULL),
+(3305,'Cart Product Detail Info Updated [85]','2019-04-11 12:57:11',NULL),
+(3306,'Cart Product Info Updated [1]','2019-04-11 12:57:12',NULL),
+(3307,'Cart Product Detail Info Updated [85]','2019-04-11 12:57:12',NULL),
+(3308,'Cart Product Info Updated [1]','2019-04-11 12:57:13',NULL),
+(3309,'Cart Product Detail Info Updated [88]','2019-04-11 12:57:13',NULL),
+(3310,'Cart Product Info Updated [1]','2019-04-11 12:57:20',NULL),
+(3311,'cart_product_details_deleted [91]','2019-04-11 12:57:20',NULL),
+(3312,'Cart Product Info Updated [1]','2019-04-11 12:57:21',NULL),
+(3313,'cart_product_details_deleted [90]','2019-04-11 12:57:21',NULL),
+(3314,'Cart Product Info Updated [1]','2019-04-11 12:57:23',NULL),
+(3315,'cart_product_details_deleted [88]','2019-04-11 12:57:23',NULL),
+(3316,'Cart Product Info Updated [1]','2019-04-11 12:57:28',NULL),
+(3317,'Cart Product Detail Info Updated [89]','2019-04-11 12:57:28',NULL),
+(3318,'Cart Product Info Updated [1]','2019-04-11 12:57:45',NULL),
+(3319,'Cart Product Info Updated [1]','2019-04-11 12:59:08',NULL),
+(3320,'Cart Product Detail Info Updated [85]','2019-04-11 12:59:08',NULL),
+(3321,'Cart Product Info Updated [1]','2019-04-11 12:59:08',NULL),
+(3322,'Cart Product Detail Info Updated [85]','2019-04-11 12:59:08',NULL),
+(3323,'Cart Product Info Updated [1]','2019-04-11 12:59:08',NULL),
+(3324,'Cart Product Detail Info Updated [85]','2019-04-11 12:59:08',NULL),
+(3325,'Cart Product Info Updated [1]','2019-04-11 12:59:13',NULL),
+(3326,'Cart Product Detail Info Updated [89]','2019-04-11 12:59:13',NULL),
+(3327,'Cart Product Info Updated [1]','2019-04-11 12:59:14',NULL),
+(3328,'Cart Product Detail Info Updated [89]','2019-04-11 12:59:14',NULL),
+(3329,'Cart Product Info Updated [1]','2019-04-11 12:59:15',NULL),
+(3330,'Cart Product Detail Info Updated [89]','2019-04-11 12:59:15',NULL),
+(3331,'Cart Product Info Updated [1]','2019-04-11 12:59:15',NULL),
+(3332,'Cart Product Detail Info Updated [89]','2019-04-11 12:59:15',NULL),
+(3333,'Cart Product Info Updated [1]','2019-04-11 12:59:16',NULL),
+(3334,'Cart Product Detail Info Updated [89]','2019-04-11 12:59:16',NULL),
+(3335,'Cart Product Info Updated [1]','2019-04-11 12:59:18',NULL),
+(3336,'cart_product_details_deleted [89]','2019-04-11 12:59:18',NULL),
+(3337,'cart_product_deleted [1]','2019-04-11 12:59:21',NULL),
+(3338,'cart_product_details_deleted [85]','2019-04-11 12:59:21',NULL),
+(3339,'New Cart Product Created [84]','2019-04-11 12:59:23',NULL),
+(3340,'New Cart Product Details Created [92]','2019-04-11 12:59:23',NULL),
+(3341,'Cart Product Info Updated [84]','2019-04-11 12:59:23',NULL),
+(3342,'New Cart Product Created [85]','2019-04-11 13:00:21',NULL),
+(3343,'New Cart Product Details Created [93]','2019-04-11 13:00:21',NULL),
+(3344,'Cart Product Info Updated [85]','2019-04-11 13:00:21',NULL),
+(3345,'New Cart Product Created [86]','2019-04-11 13:01:40',NULL),
+(3346,'New Cart Product Details Created [94]','2019-04-11 13:01:40',NULL),
+(3347,'Cart Product Info Updated [86]','2019-04-11 13:01:40',NULL),
+(3348,'log_user_info_updated','2019-04-11 13:06:53',NULL),
+(3349,'New Address Created [13]','2019-04-11 13:07:00',NULL),
+(3350,'log_user_info_updated','2019-04-11 13:07:07',NULL),
+(3351,'New Address Created [14]','2019-04-11 13:07:17',NULL),
+(3352,'log_user_info_updated','2019-04-11 13:07:34',NULL),
+(3353,'New Address Created [15]','2019-04-11 13:07:39',NULL),
+(3354,'address_deleted [15]','2019-04-11 13:07:52',NULL),
+(3355,'address_deleted [14]','2019-04-11 13:07:53',NULL),
+(3356,'address_deleted [13]','2019-04-11 13:07:55',NULL),
+(3357,'New Address Created [16]','2019-04-11 13:08:04',NULL),
+(3358,'address_deleted [16]','2019-04-11 13:08:09',NULL),
+(3359,'New Cart Created [32]','2019-04-11 13:08:44',NULL),
+(3360,'log_user_info_updated','2019-04-11 13:39:31',NULL),
+(3361,'log_user_info_updated','2019-04-11 21:29:50',NULL),
+(3362,'New Cart Product Created [87]','2019-04-11 21:41:54',NULL),
+(3363,'New Cart Product Details Created [95]','2019-04-11 21:41:54',NULL),
+(3364,'Cart Product Info Updated [87]','2019-04-11 21:41:54',NULL),
+(3365,'New Cart Created [33]','2019-04-12 20:30:28',NULL),
+(3366,'New Cart Created [34]','2019-04-13 04:56:38',NULL),
+(3367,'log_user_info_updated','2019-04-20 17:05:53',NULL),
+(3368,'log_user_info_updated','2019-04-20 17:38:00',NULL),
+(3369,'Restaurant Info Updated [8]','2019-04-20 18:05:33','Admin Tonse'),
+(3370,'Restaurant Info Updated [4]','2019-04-20 18:05:34','Admin Tonse'),
+(3371,'New Restaurant Created [ From Staff: 1]','2019-04-20 18:09:26','Admin Tonse'),
+(3372,'Restaurant Info Updated [16]','2019-04-20 18:09:30','Admin Tonse'),
+(3373,'failed_login_attempt[mobile:9673363253, user_type:2, IP:103.26.58.2]','2019-04-20 18:15:36',NULL),
+(3374,'New Vendor Created [9673363253]','2019-04-20 18:15:36',NULL),
+(3375,'New Member Created [9673363253]','2019-04-20 18:15:36',NULL),
+(3376,'failed_login_attempt[mobile:7721037175, user_type:3, IP:103.26.58.2]','2019-04-20 18:16:50',NULL),
+(3377,'New Vendor Created [7721037175]','2019-04-20 18:16:50',NULL),
+(3378,'New Member Created [7721037175]','2019-04-20 18:16:50',NULL),
+(3379,'New Restaurant Food Created [Big Burger From Staff: 1]','2019-04-20 18:17:29','Admin Tonse'),
+(3380,'Restaurant Food Info Updated [22]','2019-04-20 18:17:32','Admin Tonse'),
+(3381,'log_user_info_updated','2019-04-20 18:18:27',NULL),
+(3382,'New Vendor Account Created [1]','2019-04-20 18:18:27',NULL),
+(3383,'log_user_info_updated','2019-04-20 18:18:44',NULL),
+(3384,'New Profile Created [1]','2019-04-20 18:18:45',NULL),
+(3385,'New Vendor About Created [1]','2019-04-20 18:18:45',NULL),
+(3386,'New Vendor Wroks Created [1]','2019-04-20 18:18:45',NULL),
+(3387,'New Vendor Locations Created [1]','2019-04-20 18:18:45',NULL),
+(3388,'New Vendor Account Created [1]','2019-04-20 18:18:45',NULL),
+(3389,'log_profile_info_updated','2019-04-20 18:19:44',NULL),
+(3390,'log_profile_info_updated','2019-04-20 18:20:35',NULL),
+(3391,'log_profile_info_updated','2019-04-20 18:21:21',NULL),
+(3392,'log_profile_info_updated','2019-04-20 18:21:24',NULL),
+(3393,'log_about_info_updated','2019-04-20 18:23:00',NULL),
+(3394,'log_works_info_updated','2019-04-20 18:23:09',NULL),
+(3395,'log_locations_info_updated','2019-04-20 18:23:23',NULL),
+(3396,'New Restaurant Food Created [Crispy Chicken Balls From Staff: 1]','2019-04-20 18:29:02','Admin Tonse'),
+(3397,'failed_login_attempt[mobile:9673363253, user_type:2, IP:103.26.58.2]','2019-04-20 18:32:51',NULL),
+(3398,'New Vendor Created [9673363253]','2019-04-20 18:32:51',NULL),
+(3399,'New Member Created [9673363253]','2019-04-20 18:32:51',NULL),
+(3400,'vendor_deleted [2]','2019-04-20 18:33:04','Admin Tonse'),
+(3401,'member_deleted [2]','2019-04-20 18:33:04','Admin Tonse'),
+(3402,'log_user_info_updated','2019-04-20 18:35:25',NULL),
+(3403,'log_user_info_updated','2019-04-20 18:38:41',NULL),
+(3404,'failed_login_attempt[mobile:9673363253, user_type:2, IP:103.26.58.2]','2019-04-20 18:40:37',NULL),
+(3405,'New Vendor Created [9673363253]','2019-04-20 18:40:37',NULL),
+(3406,'New Member Created [9673363253]','2019-04-20 18:40:37',NULL),
+(3407,'New Product Created [Xiaomi Mi 9 SE From Staff: 1]','2019-04-20 18:43:48','Admin Tonse'),
+(3408,'Product Info Updated [13]','2019-04-20 18:43:52','Admin Tonse'),
+(3409,'failed_login_attempt[mobile:9503008804, user_type:1, IP:103.26.58.2]','2019-04-20 18:44:32',NULL),
+(3410,'New Customer Created [9503008804]','2019-04-20 18:44:32',NULL),
+(3411,'New Member Created [9503008804]','2019-04-20 18:44:32',NULL),
+(3412,'log_user_info_updated','2019-04-20 18:45:32',NULL),
+(3413,'New Profile Created [1]','2019-04-20 18:45:32',NULL),
+(3414,'New Vendor About Created [1]','2019-04-20 18:45:32',NULL),
+(3415,'New Vendor Locations Created [1]','2019-04-20 18:45:32',NULL),
+(3416,'New Vendor Account Created [1]','2019-04-20 18:45:32',NULL),
+(3417,'log_profile_info_updated','2019-04-20 18:46:13',NULL),
+(3418,'log_user_info_updated','2019-04-20 18:47:00',NULL),
+(3419,'log_profile_info_updated','2019-04-20 18:47:26',NULL),
+(3420,'log_user_info_updated','2019-04-20 18:47:40',NULL),
+(3421,'log_profile_info_updated','2019-04-20 18:49:54',NULL),
+(3422,'log_profile_info_updated','2019-04-20 18:49:56',NULL),
+(3423,'log_about_info_updated','2019-04-20 18:50:42',NULL),
+(3424,'log_locations_info_updated','2019-04-20 18:50:52',NULL),
+(3425,'log_account_info_updated','2019-04-20 18:53:34',NULL),
+(3426,'log_user_info_updated','2019-04-20 19:44:31',NULL),
+(3427,'log_user_info_updated','2019-04-20 19:44:41',NULL),
+(3428,'failed_login_attempt[mobile:7721037175, user_type:1, IP:103.26.58.2]','2019-04-20 19:49:15',NULL),
+(3429,'New Customer Created [7721037175]','2019-04-20 19:49:15',NULL),
+(3430,'New Member Created [7721037175]','2019-04-20 19:49:15',NULL),
+(3431,'log_user_info_updated','2019-04-20 19:49:26',NULL),
+(3432,'New Restaurant Food Created [Happy Meal From Staff: 1]','2019-04-20 19:49:55','Admin Tonse'),
+(3433,'Restaurant Food Info Updated [24]','2019-04-20 19:49:59','Admin Tonse'),
+(3434,'failed_login_attempt[mobile:9673363253, user_type:2, IP:103.26.58.2]','2019-04-20 21:30:40',NULL),
+(3435,'New Vendor Created [9673363253]','2019-04-20 21:30:40',NULL),
+(3436,'New Member Created [9673363253]','2019-04-20 21:30:40',NULL),
+(3437,'log_user_info_updated','2019-04-20 21:34:37',NULL),
+(3438,'New Profile Created [1]','2019-04-20 21:34:37',NULL),
+(3439,'New Vendor About Created [1]','2019-04-20 21:34:37',NULL),
+(3440,'New Vendor Wroks Created [1]','2019-04-20 21:34:37',NULL),
+(3441,'New Vendor Locations Created [1]','2019-04-20 21:34:37',NULL),
+(3442,'New Vendor Account Created [1]','2019-04-20 21:34:37',NULL),
+(3443,'log_profile_info_updated','2019-04-20 21:35:30',NULL),
+(3444,'log_profile_info_updated','2019-04-20 21:36:09',NULL),
+(3445,'log_profile_info_updated','2019-04-20 21:36:31',NULL),
+(3446,'log_profile_info_updated','2019-04-20 21:36:35',NULL),
+(3447,'log_about_info_updated','2019-04-20 21:38:05',NULL),
+(3448,'log_works_info_updated','2019-04-20 21:38:14',NULL),
+(3449,'log_locations_info_updated','2019-04-20 21:38:20',NULL),
+(3450,'failed_login_attempt[mobile:9922690466, user_type:3, IP:49.35.96.145]','2019-04-20 21:38:45',NULL),
+(3451,'New Vendor Created [9922690466]','2019-04-20 21:38:45',NULL),
+(3452,'New Member Created [9922690466]','2019-04-20 21:38:45',NULL),
+(3453,'log_user_info_updated','2019-04-20 21:39:39',NULL),
+(3454,'New Vendor Account Created [1]','2019-04-20 21:39:39',NULL),
+(3455,'log_account_info_updated','2019-04-20 21:40:47',NULL),
+(3456,'failed_login_attempt[mobile:7721037175, user_type:1, IP:49.35.218.230]','2019-04-20 21:42:44',NULL),
+(3457,'New Member Created [7721037175]','2019-04-20 21:42:44',NULL),
+(3458,'log_user_info_updated','2019-04-20 21:43:39',NULL),
+(3459,'failed_login_attempt[mobile:8904817656, user_type:1, IP:157.45.92.243]','2019-04-20 23:12:21',NULL),
+(3460,'New Customer Created [8904817656]','2019-04-20 23:12:21',NULL),
+(3461,'New Member Created [8904817656]','2019-04-20 23:12:21',NULL),
+(3462,'log_user_info_updated','2019-04-20 23:12:30',NULL),
+(3463,'New Cart Restaurant Created [1]','2019-04-20 23:14:58',NULL),
+(3464,'New Cart Restaurant Details Created [1]','2019-04-20 23:14:58',NULL),
+(3465,'Cart Restaurant Info Updated [1]','2019-04-20 23:14:58',NULL),
+(3466,'failed_login_attempt[mobile:9503008804, user_type:1, IP:106.210.186.106]','2019-04-21 11:53:19',NULL),
+(3467,'New Member Created [9503008804]','2019-04-21 11:53:20',NULL),
+(3468,'log_user_info_updated','2019-04-21 12:06:11',NULL),
+(3469,'Product Info Updated [11]','2019-04-21 12:09:56','Admin Tonse'),
+(3470,'New Cart Restaurant Created [2]','2019-04-21 12:35:29',NULL),
+(3471,'New Cart Restaurant Details Created [2]','2019-04-21 12:35:29',NULL),
+(3472,'Cart Restaurant Info Updated [2]','2019-04-21 12:35:29',NULL),
+(3473,'cart_product_deleted [2]','2019-04-21 13:45:58',NULL),
+(3474,'cart_product_details_deleted [2]','2019-04-21 13:45:58',NULL),
+(3475,'New Cart Restaurant Created [3]','2019-04-21 13:46:04',NULL),
+(3476,'New Cart Restaurant Details Created [3]','2019-04-21 13:46:04',NULL),
+(3477,'Cart Restaurant Info Updated [3]','2019-04-21 13:46:04',NULL),
+(3478,'Cart Restaurant Info Updated [3]','2019-04-21 13:47:02',NULL),
+(3479,'Cart Restaurant Detail Info Updated [3]','2019-04-21 13:47:02',NULL),
+(3480,'Cart Restaurant Info Updated [3]','2019-04-21 13:47:04',NULL),
+(3481,'Cart Restaurant Detail Info Updated [3]','2019-04-21 13:47:04',NULL),
+(3482,'Cart Restaurant Info Updated [3]','2019-04-21 13:47:05',NULL),
+(3483,'Cart Restaurant Detail Info Updated [3]','2019-04-21 13:47:05',NULL),
+(3484,'Cart Restaurant Info Updated [3]','2019-04-21 13:47:06',NULL),
+(3485,'Cart Restaurant Detail Info Updated [3]','2019-04-21 13:47:06',NULL),
+(3486,'Cart Restaurant Info Updated [3]','2019-04-21 13:47:07',NULL),
+(3487,'Cart Restaurant Detail Info Updated [3]','2019-04-21 13:47:07',NULL),
+(3488,'Cart Restaurant Info Updated [3]','2019-04-21 13:47:07',NULL),
+(3489,'Cart Restaurant Detail Info Updated [3]','2019-04-21 13:47:07',NULL),
+(3490,'New Cart Product Created [1]','2019-04-21 13:50:29',NULL),
+(3491,'New Cart Product Details Created [1]','2019-04-21 13:50:29',NULL),
+(3492,'Cart Product Info Updated [1]','2019-04-21 13:50:29',NULL),
+(3493,'Cart Product Info Updated [1]','2019-04-21 13:52:36',NULL),
+(3494,'New Cart Product Details Created [2]','2019-04-21 13:52:36',NULL),
+(3495,'Cart Product Info Updated [1]','2019-04-21 13:52:36',NULL),
+(3496,'New Address Created [1]','2019-04-21 13:54:07',NULL),
+(3497,'failed_login_attempt[mobile:9673363253, user_type:1, IP:157.33.154.112]','2019-04-21 14:35:43',NULL),
+(3498,'New Customer Created [9673363253]','2019-04-21 14:35:43',NULL),
+(3499,'New Member Created [9673363253]','2019-04-21 14:35:43',NULL),
+(3500,'log_user_info_updated','2019-04-21 14:35:59',NULL),
+(3501,'failed_login_attempt[mobile:9673363253, user_type:3, IP:157.33.154.112]','2019-04-21 15:05:05',NULL),
+(3502,'New Vendor Created [9673363253]','2019-04-21 15:05:05',NULL),
+(3503,'New Member Created [9673363253]','2019-04-21 15:05:05',NULL),
+(3504,'log_user_info_updated','2019-04-21 15:06:04',NULL),
+(3505,'New Vendor Account Created [2]','2019-04-21 15:06:04',NULL),
+(3506,'failed_login_attempt[mobile:7028668351, user_type:1, IP:42.108.253.209]','2019-04-21 16:11:59',NULL),
+(3507,'New Customer Created [7028668351]','2019-04-21 16:11:59',NULL),
+(3508,'New Member Created [7028668351]','2019-04-21 16:11:59',NULL),
+(3509,'log_user_info_updated','2019-04-21 16:12:19',NULL),
+(3510,'New Cart Restaurant Created [4]','2019-04-21 16:13:16',NULL),
+(3511,'New Cart Restaurant Details Created [4]','2019-04-21 16:13:16',NULL),
+(3512,'Cart Restaurant Info Updated [4]','2019-04-21 16:13:16',NULL),
+(3513,'New Address Created [2]','2019-04-21 16:13:35',NULL),
+(3514,'log_user_info_updated','2019-04-21 16:21:36',NULL),
+(3515,'New Cart Product Created [2]','2019-04-21 16:25:14',NULL),
+(3516,'New Cart Product Details Created [3]','2019-04-21 16:25:14',NULL),
+(3517,'Cart Product Info Updated [2]','2019-04-21 16:25:14',NULL),
+(3518,'New Cart Product Created [3]','2019-04-21 16:25:36',NULL),
+(3519,'New Cart Product Details Created [4]','2019-04-21 16:25:36',NULL),
+(3520,'Cart Product Info Updated [3]','2019-04-21 16:25:36',NULL),
+(3521,'Cart Product Info Updated [3]','2019-04-21 16:25:39',NULL),
+(3522,'New Cart Created [1]','2019-04-21 16:26:13',NULL),
+(3523,'New Cart Created [2]','2019-04-21 16:27:34',NULL),
+(3524,'New Cart Product Created [4]','2019-04-21 16:36:26',NULL),
+(3525,'New Cart Product Details Created [5]','2019-04-21 16:36:26',NULL),
+(3526,'Cart Product Info Updated [4]','2019-04-21 16:36:26',NULL),
+(3527,'cart_product_deleted [4]','2019-04-21 16:36:29',NULL),
+(3528,'cart_product_details_deleted [5]','2019-04-21 16:36:29',NULL),
+(3529,'New Cart Product Created [5]','2019-04-21 16:36:32',NULL),
+(3530,'New Cart Product Details Created [6]','2019-04-21 16:36:32',NULL),
+(3531,'Cart Product Info Updated [5]','2019-04-21 16:36:32',NULL),
+(3532,'log_user_info_updated','2019-04-21 17:13:02',NULL),
+(3533,'cart_product_deleted [1]','2019-04-21 17:13:26',NULL),
+(3534,'cart_product_details_deleted [1]','2019-04-21 17:13:26',NULL),
+(3535,'New Cart Restaurant Created [5]','2019-04-21 17:13:29',NULL),
+(3536,'New Cart Restaurant Details Created [5]','2019-04-21 17:13:29',NULL),
+(3537,'Cart Restaurant Info Updated [5]','2019-04-21 17:13:29',NULL),
+(3538,'Cart Restaurant Info Updated [5]','2019-04-21 17:13:30',NULL),
+(3539,'Cart Restaurant Detail Info Updated [5]','2019-04-21 17:13:30',NULL),
+(3540,'New Address Created [3]','2019-04-21 17:13:44',NULL),
+(3541,'Cart Restaurant Info Updated [5]','2019-04-21 17:13:53',NULL),
+(3542,'Cart Restaurant Info Updated [5]','2019-04-21 17:14:20',NULL),
+(3543,'New Cart Product Created [6]','2019-04-21 17:15:12',NULL),
+(3544,'New Cart Product Details Created [7]','2019-04-21 17:15:12',NULL),
+(3545,'Cart Product Info Updated [6]','2019-04-21 17:15:12',NULL),
+(3546,'New Cart Product Created [7]','2019-04-21 17:20:23',NULL),
+(3547,'New Cart Product Details Created [8]','2019-04-21 17:20:23',NULL),
+(3548,'Cart Product Info Updated [7]','2019-04-21 17:20:23',NULL),
+(3549,'New Cart Created [3]','2019-04-21 17:22:17',NULL),
+(3550,'New Cart Product Created [8]','2019-04-21 17:27:46',NULL),
+(3551,'New Cart Product Details Created [9]','2019-04-21 17:27:46',NULL),
+(3552,'Cart Product Info Updated [8]','2019-04-21 17:27:46',NULL),
+(3553,'log_user_info_updated','2019-04-21 20:18:50',NULL),
+(3554,'Product Info Updated [11]','2019-04-22 11:57:39','Admin Tonse'),
+(3555,'Product Info Updated [11]','2019-04-22 11:57:40','Admin Tonse'),
+(3556,'Cart Product Info Updated [5]','2019-04-22 12:00:17',NULL),
+(3557,'New Cart Product Details Created [10]','2019-04-22 12:00:17',NULL),
+(3558,'Cart Product Info Updated [5]','2019-04-22 12:00:17',NULL),
+(3559,'Cart Product Info Updated [5]','2019-04-22 12:00:22',NULL),
+(3560,'New Cart Created [4]','2019-04-22 12:03:50',NULL),
+(3561,'failed_login_attempt[mobile:8657387317, user_type:3, IP:157.33.147.43]','2019-04-22 12:27:17',NULL),
+(3562,'New Vendor Created [8657387317]','2019-04-22 12:27:17',NULL),
+(3563,'New Member Created [8657387317]','2019-04-22 12:27:17',NULL),
+(3564,'failed_login_attempt[mobile:8657387317, user_type:2, IP:157.33.131.162]','2019-04-22 12:38:51',NULL),
+(3565,'New Vendor Created [8657387317]','2019-04-22 12:38:51',NULL),
+(3566,'New Member Created [8657387317]','2019-04-22 12:38:52',NULL),
+(3567,'log_user_info_updated','2019-04-22 12:42:48',NULL),
+(3568,'New Vendor Account Created [3]','2019-04-22 12:42:48',NULL),
+(3569,'log_user_info_updated','2019-04-22 12:52:00',NULL),
+(3570,'New Profile Created [2]','2019-04-22 12:52:00',NULL),
+(3571,'New Vendor About Created [2]','2019-04-22 12:52:00',NULL),
+(3572,'New Vendor Wroks Created [2]','2019-04-22 12:52:00',NULL),
+(3573,'New Vendor Locations Created [2]','2019-04-22 12:52:00',NULL),
+(3574,'New Vendor Account Created [2]','2019-04-22 12:52:00',NULL),
+(3575,'failed_login_attempt[mobile:8657387317, user_type:1, IP:157.33.131.162]','2019-04-22 12:55:59',NULL),
+(3576,'New Customer Created [8657387317]','2019-04-22 12:55:59',NULL),
+(3577,'New Member Created [8657387317]','2019-04-22 12:55:59',NULL),
+(3578,'log_user_info_updated','2019-04-22 12:56:42',NULL),
+(3579,'Cart Product Info Updated [6]','2019-04-22 15:02:20',NULL),
+(3580,'New Cart Product Details Created [11]','2019-04-22 15:02:20',NULL),
+(3581,'Cart Product Info Updated [6]','2019-04-22 15:02:20',NULL),
+(3582,'log_locations_info_updated','2019-04-22 15:07:12',NULL),
+(3583,'log_profile_info_updated','2019-04-22 15:07:30',NULL),
+(3584,'New Address Created [4]','2019-04-22 15:07:35',NULL),
+(3585,'New Cart Created [5]','2019-04-22 15:07:42',NULL),
+(3586,'Cart Info Updated [5]','2019-04-22 15:11:26',NULL),
+(3587,'Cart Info Updated [5]','2019-04-22 15:13:36',NULL),
+(3588,'Cart Info Updated [5]','2019-04-22 15:21:49',NULL),
+(3589,'log_user_info_updated','2019-04-22 15:32:50',NULL),
+(3590,'New Address Created [5]','2019-04-22 15:37:36',NULL),
+(3591,'log_user_info_updated','2019-04-22 15:38:25',NULL),
+(3592,'Cart Product Info Updated [6]','2019-04-22 15:39:20',NULL),
+(3593,'Cart Product Info Updated [6]','2019-04-22 15:39:48',NULL),
+(3594,'log_user_info_updated','2019-04-22 15:51:05',NULL),
+(3595,'log_user_info_updated','2019-04-22 15:53:07',NULL),
+(3596,'log_user_info_updated','2019-04-22 15:53:24',NULL),
+(3597,'log_user_info_updated','2019-04-22 16:07:59',NULL),
+(3598,'log_user_info_updated','2019-04-22 16:16:52',NULL),
+(3599,'New Cart Product Created [9]','2019-04-22 16:24:41',NULL),
+(3600,'New Cart Product Details Created [12]','2019-04-22 16:24:41',NULL),
+(3601,'Cart Product Info Updated [9]','2019-04-22 16:24:41',NULL),
+(3602,'Cart Product Info Updated [9]','2019-04-22 16:24:50',NULL),
+(3603,'failed_login_attempt[mobile:8421118381, user_type:2, IP:42.107.77.111]','2019-04-22 16:33:59',NULL),
+(3604,'New Vendor Created [8421118381]','2019-04-22 16:33:59',NULL),
+(3605,'New Member Created [8421118381]','2019-04-22 16:33:59',NULL),
+(3606,'failed_login_attempt[mobile:7028668351, user_type:2, IP:42.107.77.111]','2019-04-22 16:34:15',NULL),
+(3607,'New Vendor Created [7028668351]','2019-04-22 16:34:15',NULL),
+(3608,'New Member Created [7028668351]','2019-04-22 16:34:15',NULL),
+(3609,'Cart Product Info Updated [9]','2019-04-22 16:34:52',NULL),
+(3610,'log_user_info_updated','2019-04-22 16:35:26',NULL),
+(3611,'New Profile Created [3]','2019-04-22 16:35:26',NULL),
+(3612,'New Vendor About Created [3]','2019-04-22 16:35:26',NULL),
+(3613,'New Vendor Wroks Created [3]','2019-04-22 16:35:26',NULL),
+(3614,'New Vendor Locations Created [3]','2019-04-22 16:35:26',NULL),
+(3615,'New Vendor Account Created [3]','2019-04-22 16:35:26',NULL),
+(3616,'New Cart Product Created [10]','2019-04-22 16:38:13',NULL),
+(3617,'New Cart Product Details Created [13]','2019-04-22 16:38:13',NULL),
+(3618,'Cart Product Info Updated [10]','2019-04-22 16:38:13',NULL),
+(3619,'New Cart Product Created [11]','2019-04-22 16:38:36',NULL),
+(3620,'New Cart Product Details Created [14]','2019-04-22 16:38:36',NULL),
+(3621,'Cart Product Info Updated [11]','2019-04-22 16:38:36',NULL),
+(3622,'Cart Product Info Updated [11]','2019-04-22 16:38:39',NULL),
+(3623,'Cart Product Detail Info Updated [14]','2019-04-22 16:38:39',NULL),
+(3624,'Cart Product Info Updated [11]','2019-04-22 16:38:44',NULL),
+(3625,'Cart Product Info Updated [5]','2019-04-22 16:40:23',NULL),
+(3626,'New Cart Product Details Created [15]','2019-04-22 16:40:23',NULL),
+(3627,'Cart Product Info Updated [5]','2019-04-22 16:40:23',NULL),
+(3628,'cart_product_deleted [3]','2019-04-22 16:41:00',NULL),
+(3629,'cart_product_details_deleted [4]','2019-04-22 16:41:00',NULL),
+(3630,'Cart Product Info Updated [5]','2019-04-22 16:41:44',NULL),
+(3631,'cart_product_details_deleted [6]','2019-04-22 16:41:44',NULL),
+(3632,'Cart Product Info Updated [5]','2019-04-22 16:41:45',NULL),
+(3633,'cart_product_details_deleted [10]','2019-04-22 16:41:45',NULL),
+(3634,'cart_product_deleted [5]','2019-04-22 16:41:46',NULL),
+(3635,'cart_product_details_deleted [15]','2019-04-22 16:41:46',NULL),
+(3636,'New Cart Product Created [12]','2019-04-22 16:42:26',NULL),
+(3637,'New Cart Product Details Created [16]','2019-04-22 16:42:26',NULL),
+(3638,'Cart Product Info Updated [12]','2019-04-22 16:42:26',NULL),
+(3639,'New Cart Product Created [13]','2019-04-22 16:43:02',NULL),
+(3640,'New Cart Product Details Created [17]','2019-04-22 16:43:02',NULL),
+(3641,'Cart Product Info Updated [13]','2019-04-22 16:43:02',NULL),
+(3642,'New Cart Product Created [14]','2019-04-22 16:43:22',NULL),
+(3643,'New Cart Product Details Created [18]','2019-04-22 16:43:22',NULL),
+(3644,'Cart Product Info Updated [14]','2019-04-22 16:43:22',NULL),
+(3645,'Cart Product Info Updated [11]','2019-04-22 16:44:08',NULL),
+(3646,'New Cart Product Created [15]','2019-04-22 16:44:27',NULL),
+(3647,'New Cart Product Details Created [19]','2019-04-22 16:44:27',NULL),
+(3648,'Cart Product Info Updated [15]','2019-04-22 16:44:27',NULL),
+(3649,'New Cart Product Created [16]','2019-04-22 16:45:52',NULL),
+(3650,'New Cart Product Details Created [20]','2019-04-22 16:45:52',NULL),
+(3651,'Cart Product Info Updated [16]','2019-04-22 16:45:52',NULL),
+(3652,'Cart Product Info Updated [16]','2019-04-22 16:45:57',NULL),
+(3653,'Cart Product Detail Info Updated [20]','2019-04-22 16:45:57',NULL),
+(3654,'Cart Product Info Updated [6]','2019-04-22 16:49:00',NULL),
+(3655,'New Cart Product Details Created [21]','2019-04-22 16:49:00',NULL),
+(3656,'Cart Product Info Updated [6]','2019-04-22 16:49:00',NULL),
+(3657,'New Cart Product Created [17]','2019-04-22 16:51:02',NULL),
+(3658,'New Cart Product Details Created [22]','2019-04-22 16:51:02',NULL),
+(3659,'Cart Product Info Updated [17]','2019-04-22 16:51:02',NULL),
+(3660,'cart_product_deleted [2]','2019-04-22 16:51:23',NULL),
+(3661,'cart_product_details_deleted [3]','2019-04-22 16:51:23',NULL),
+(3662,'New Cart Product Created [18]','2019-04-22 16:51:48',NULL),
+(3663,'New Cart Product Details Created [23]','2019-04-22 16:51:48',NULL),
+(3664,'Cart Product Info Updated [18]','2019-04-22 16:51:48',NULL),
+(3665,'cart_product_deleted [12]','2019-04-22 16:52:09',NULL),
+(3666,'cart_product_details_deleted [16]','2019-04-22 16:52:09',NULL),
+(3667,'New Cart Product Created [19]','2019-04-22 16:52:31',NULL),
+(3668,'New Cart Product Details Created [24]','2019-04-22 16:52:31',NULL),
+(3669,'Cart Product Info Updated [19]','2019-04-22 16:52:31',NULL),
+(3670,'New Cart Product Created [20]','2019-04-22 16:52:52',NULL),
+(3671,'New Cart Product Details Created [25]','2019-04-22 16:52:52',NULL),
+(3672,'Cart Product Info Updated [20]','2019-04-22 16:52:52',NULL),
+(3673,'cart_product_deleted [13]','2019-04-22 16:52:55',NULL),
+(3674,'cart_product_details_deleted [17]','2019-04-22 16:52:55',NULL),
+(3675,'New Cart Product Created [21]','2019-04-22 16:53:14',NULL),
+(3676,'New Cart Product Details Created [26]','2019-04-22 16:53:14',NULL),
+(3677,'Cart Product Info Updated [21]','2019-04-22 16:53:14',NULL),
+(3678,'cart_product_deleted [15]','2019-04-22 16:53:20',NULL),
+(3679,'cart_product_details_deleted [19]','2019-04-22 16:53:20',NULL),
+(3680,'cart_product_deleted [14]','2019-04-22 16:53:50',NULL),
+(3681,'cart_product_details_deleted [18]','2019-04-22 16:53:50',NULL),
+(3682,'New Cart Product Created [22]','2019-04-22 16:56:18',NULL),
+(3683,'New Cart Product Details Created [27]','2019-04-22 16:56:18',NULL),
+(3684,'Cart Product Info Updated [22]','2019-04-22 16:56:18',NULL),
+(3685,'New Cart Product Created [23]','2019-04-22 16:56:41',NULL),
+(3686,'New Cart Product Details Created [28]','2019-04-22 16:56:41',NULL),
+(3687,'Cart Product Info Updated [23]','2019-04-22 16:56:41',NULL),
+(3688,'New Cart Product Created [24]','2019-04-22 16:57:08',NULL),
+(3689,'New Cart Product Details Created [29]','2019-04-22 16:57:08',NULL),
+(3690,'Cart Product Info Updated [24]','2019-04-22 16:57:08',NULL),
+(3691,'Cart Product Info Updated [24]','2019-04-22 16:57:13',NULL),
+(3692,'New Cart Product Created [25]','2019-04-22 16:57:40',NULL),
+(3693,'New Cart Product Details Created [30]','2019-04-22 16:57:40',NULL),
+(3694,'Cart Product Info Updated [25]','2019-04-22 16:57:40',NULL),
+(3695,'New Cart Product Created [26]','2019-04-22 16:58:53',NULL),
+(3696,'New Cart Product Details Created [31]','2019-04-22 16:58:53',NULL),
+(3697,'Cart Product Info Updated [26]','2019-04-22 16:58:53',NULL),
+(3698,'New Cart Product Created [27]','2019-04-22 16:59:23',NULL),
+(3699,'New Cart Product Details Created [32]','2019-04-22 16:59:23',NULL),
+(3700,'Cart Product Info Updated [27]','2019-04-22 16:59:23',NULL),
+(3701,'log_user_info_updated','2019-04-22 16:59:25','Admin Tonse'),
+(3702,'log_user_info_updated','2019-04-22 16:59:26','Admin Tonse'),
+(3703,'log_user_info_updated','2019-04-22 16:59:26','Admin Tonse'),
+(3704,'New Cart Product Created [28]','2019-04-22 16:59:52',NULL),
+(3705,'New Cart Product Details Created [33]','2019-04-22 16:59:52',NULL),
+(3706,'Cart Product Info Updated [28]','2019-04-22 16:59:52',NULL),
+(3707,'New Cart Product Created [29]','2019-04-22 17:00:17',NULL),
+(3708,'New Cart Product Details Created [34]','2019-04-22 17:00:17',NULL),
+(3709,'Cart Product Info Updated [29]','2019-04-22 17:00:17',NULL),
+(3710,'New Category Created [Groceries From Staff: 1]','2019-04-22 17:05:53','Admin Tonse'),
+(3711,'New Category Created [Vegetables  From Staff: 1]','2019-04-22 17:06:34','Admin Tonse'),
+(3712,'New Category Created [Grains From Staff: 1]','2019-04-22 17:08:25','Admin Tonse'),
+(3713,'New Cart Product Created [30]','2019-04-22 17:08:28',NULL),
+(3714,'New Cart Product Details Created [35]','2019-04-22 17:08:28',NULL),
+(3715,'Cart Product Info Updated [30]','2019-04-22 17:08:28',NULL),
+(3716,'New Product Created [Rice From Staff: 1]','2019-04-22 17:09:47','Admin Tonse'),
+(3717,'Product Info Updated [21]','2019-04-22 17:09:59','Admin Tonse'),
+(3718,'New Cart Product Created [31]','2019-04-22 17:10:22',NULL),
+(3719,'New Cart Product Details Created [36]','2019-04-22 17:10:22',NULL),
+(3720,'Cart Product Info Updated [31]','2019-04-22 17:10:22',NULL),
+(3721,'New Cart Product Created [32]','2019-04-22 17:10:38',NULL),
+(3722,'New Cart Product Details Created [37]','2019-04-22 17:10:38',NULL),
+(3723,'Cart Product Info Updated [32]','2019-04-22 17:10:38',NULL),
+(3724,'Cart Product Info Updated [6]','2019-04-22 17:10:57',NULL),
+(3725,'cart_product_details_deleted [11]','2019-04-22 17:10:57',NULL),
+(3726,'Cart Product Info Updated [6]','2019-04-22 17:10:59',NULL),
+(3727,'cart_product_details_deleted [7]','2019-04-22 17:10:59',NULL),
+(3728,'New Category Created [Rice From Staff: 1]','2019-04-22 17:11:06','Admin Tonse'),
+(3729,'New Product Created [Rice From Staff: 1]','2019-04-22 17:11:41','Admin Tonse'),
+(3730,'New Category Created [Green Leafy Vegetables From Staff: 1]','2019-04-22 17:13:59','Admin Tonse'),
+(3731,'New Category Created [Organic From Staff: 1]','2019-04-22 17:15:19','Admin Tonse'),
+(3732,'New Product Created [Cabbage From Staff: 1]','2019-04-22 17:16:44','Admin Tonse'),
+(3733,'Product Info Updated [24]','2019-04-22 17:16:48','Admin Tonse'),
+(3734,'Product Info Updated [22]','2019-04-22 17:16:56','Admin Tonse'),
+(3735,'cart_product_deleted [6]','2019-04-22 17:56:16',NULL),
+(3736,'cart_product_details_deleted [21]','2019-04-22 17:56:16',NULL),
+(3737,'New Cart Product Created [33]','2019-04-22 17:57:49',NULL),
+(3738,'New Cart Product Details Created [38]','2019-04-22 17:57:49',NULL),
+(3739,'Cart Product Info Updated [33]','2019-04-22 17:57:49',NULL),
+(3740,'New Cart Product Created [34]','2019-04-22 17:58:26',NULL),
+(3741,'New Cart Product Details Created [39]','2019-04-22 17:58:26',NULL),
+(3742,'Cart Product Info Updated [34]','2019-04-22 17:58:26',NULL),
+(3743,'New Cart Product Created [35]','2019-04-22 18:00:36',NULL),
+(3744,'New Cart Product Details Created [40]','2019-04-22 18:00:36',NULL),
+(3745,'Cart Product Info Updated [35]','2019-04-22 18:00:36',NULL),
+(3746,'failed_login_attempt[mobile:9370649300, user_type:2, IP:157.33.172.198]','2019-04-22 18:30:46',NULL),
+(3747,'New Vendor Created [9370649300]','2019-04-22 18:30:46',NULL),
+(3748,'New Member Created [9370649300]','2019-04-22 18:30:46',NULL),
+(3749,'log_user_info_updated','2019-04-22 18:31:50',NULL),
+(3750,'New Profile Created [4]','2019-04-22 18:31:50',NULL),
+(3751,'New Vendor About Created [4]','2019-04-22 18:31:50',NULL),
+(3752,'New Vendor Wroks Created [4]','2019-04-22 18:31:50',NULL),
+(3753,'New Vendor Locations Created [4]','2019-04-22 18:31:50',NULL),
+(3754,'New Vendor Account Created [4]','2019-04-22 18:31:50',NULL),
+(3755,'New Cart Created [6]','2019-04-22 18:46:29',NULL),
+(3756,'New Cart Created [7]','2019-04-22 18:48:16',NULL),
+(3757,'New Cart Created [8]','2019-04-22 18:53:55',NULL),
+(3758,'New Cart Created [9]','2019-04-22 18:55:19',NULL),
+(3759,'New Cart Created [10]','2019-04-22 18:57:59',NULL),
+(3760,'New Cart Created [11]','2019-04-22 18:58:45',NULL),
+(3761,'New Cart Product Created [36]','2019-04-22 19:01:21',NULL),
+(3762,'New Cart Product Details Created [41]','2019-04-22 19:01:21',NULL),
+(3763,'Cart Product Info Updated [36]','2019-04-22 19:01:21',NULL),
+(3764,'Cart Product Info Updated [9]','2019-04-22 19:04:42',NULL),
+(3765,'Cart Product Detail Info Updated [12]','2019-04-22 19:04:42',NULL),
+(3766,'cart_product_deleted [9]','2019-04-22 19:08:58',NULL),
+(3767,'cart_product_details_deleted [12]','2019-04-22 19:08:58',NULL),
+(3768,'New Cart Product Created [37]','2019-04-22 19:09:08',NULL),
+(3769,'New Cart Product Details Created [42]','2019-04-22 19:09:08',NULL),
+(3770,'Cart Product Info Updated [37]','2019-04-22 19:09:08',NULL),
+(3771,'New Cart Product Created [38]','2019-04-22 19:09:30',NULL),
+(3772,'New Cart Product Details Created [43]','2019-04-22 19:09:30',NULL),
+(3773,'Cart Product Info Updated [38]','2019-04-22 19:09:30',NULL),
+(3774,'New Cart Product Created [39]','2019-04-22 19:10:30',NULL),
+(3775,'New Cart Product Details Created [44]','2019-04-22 19:10:30',NULL),
+(3776,'Cart Product Info Updated [39]','2019-04-22 19:10:30',NULL),
+(3777,'New Cart Product Created [40]','2019-04-22 19:10:47',NULL),
+(3778,'New Cart Product Details Created [45]','2019-04-22 19:10:47',NULL),
+(3779,'Cart Product Info Updated [40]','2019-04-22 19:10:47',NULL),
+(3780,'New Cart Product Created [41]','2019-04-22 19:11:26',NULL),
+(3781,'New Cart Product Details Created [46]','2019-04-22 19:11:26',NULL),
+(3782,'Cart Product Info Updated [41]','2019-04-22 19:11:26',NULL),
+(3783,'cart_product_deleted [10]','2019-04-22 19:13:19',NULL),
+(3784,'cart_product_details_deleted [13]','2019-04-22 19:13:19',NULL),
+(3785,'cart_product_details_deleted [14]','2019-04-22 19:13:58',NULL),
+(3786,'cart_product_deleted [11]','2019-04-22 19:13:58',NULL),
+(3787,'cart_product_details_deleted [20]','2019-04-22 19:14:09',NULL),
+(3788,'cart_product_deleted [16]','2019-04-22 19:14:09',NULL),
+(3789,'Cart Restaurant Info Updated [4]','2019-04-22 19:14:45',NULL),
+(3790,'Cart Restaurant Detail Info Updated [4]','2019-04-22 19:14:45',NULL),
+(3791,'Cart Restaurant Info Updated [4]','2019-04-22 19:14:54',NULL),
+(3792,'cart_product_details_deleted [45]','2019-04-22 19:15:45',NULL),
+(3793,'cart_product_deleted [40]','2019-04-22 19:15:45',NULL),
+(3794,'log_user_info_updated','2019-04-22 19:18:15',NULL),
+(3795,'log_user_info_updated','2019-04-22 19:18:30',NULL),
+(3796,'New Address Created [6]','2019-04-22 19:18:39',NULL),
+(3797,'New Cart Created [12]','2019-04-22 19:18:47',NULL),
+(3798,'New Cart Restaurant Created [6]','2019-04-22 19:27:42',NULL),
+(3799,'New Cart Restaurant Details Created [6]','2019-04-22 19:27:42',NULL),
+(3800,'Cart Restaurant Info Updated [6]','2019-04-22 19:27:42',NULL),
+(3801,'New Cart Created [13]','2019-04-23 00:03:09',NULL),
+(3802,'Cart Product Info Updated [1]','2019-04-23 00:03:36',NULL),
+(3803,'New Cart Product Details Created [47]','2019-04-23 00:03:36',NULL),
+(3804,'Cart Product Info Updated [1]','2019-04-23 00:03:36',NULL),
+(3805,'New Cart Created [14]','2019-04-24 23:06:04',NULL),
+(3806,'New Cart Product Created [42]','2019-04-24 23:11:09',NULL),
+(3807,'New Cart Product Details Created [48]','2019-04-24 23:11:09',NULL),
+(3808,'Cart Product Info Updated [42]','2019-04-24 23:11:10',NULL),
+(3809,'New Cart Product Created [43]','2019-04-24 23:11:56',NULL),
+(3810,'New Cart Product Details Created [49]','2019-04-24 23:11:56',NULL),
+(3811,'Cart Product Info Updated [43]','2019-04-24 23:11:56',NULL),
+(3812,'New Cart Product Created [44]','2019-04-24 23:12:12',NULL),
+(3813,'New Cart Product Details Created [50]','2019-04-24 23:12:12',NULL),
+(3814,'Cart Product Info Updated [44]','2019-04-24 23:12:12',NULL),
+(3815,'New Cart Product Created [45]','2019-04-24 23:12:36',NULL),
+(3816,'New Cart Product Details Created [51]','2019-04-24 23:12:36',NULL),
+(3817,'Cart Product Info Updated [45]','2019-04-24 23:12:36',NULL),
+(3818,'New Cart Product Created [46]','2019-04-24 23:13:12',NULL),
+(3819,'New Cart Product Details Created [52]','2019-04-24 23:13:12',NULL),
+(3820,'Cart Product Info Updated [46]','2019-04-24 23:13:12',NULL),
+(3821,'New Cart Product Created [47]','2019-04-24 23:13:25',NULL),
+(3822,'New Cart Product Details Created [53]','2019-04-24 23:13:25',NULL),
+(3823,'Cart Product Info Updated [47]','2019-04-24 23:13:25',NULL),
+(3824,'New Cart Product Created [48]','2019-04-24 23:14:01',NULL),
+(3825,'New Cart Product Details Created [54]','2019-04-24 23:14:01',NULL),
+(3826,'Cart Product Info Updated [48]','2019-04-24 23:14:01',NULL),
+(3827,'New Cart Product Created [49]','2019-04-24 23:15:05',NULL),
+(3828,'New Cart Product Details Created [55]','2019-04-24 23:15:05',NULL),
+(3829,'Cart Product Info Updated [49]','2019-04-24 23:15:05',NULL),
+(3830,'New Cart Product Created [50]','2019-04-24 23:16:00',NULL),
+(3831,'New Cart Product Details Created [56]','2019-04-24 23:16:00',NULL),
+(3832,'Cart Product Info Updated [50]','2019-04-24 23:16:00',NULL),
+(3833,'New Cart Product Created [51]','2019-04-24 23:18:55',NULL),
+(3834,'New Cart Product Details Created [57]','2019-04-24 23:18:55',NULL),
+(3835,'Cart Product Info Updated [51]','2019-04-24 23:18:55',NULL),
+(3836,'New Cart Product Created [52]','2019-04-24 23:19:10',NULL),
+(3837,'New Cart Product Details Created [58]','2019-04-24 23:19:10',NULL),
+(3838,'Cart Product Info Updated [52]','2019-04-24 23:19:10',NULL),
+(3839,'New Cart Product Created [53]','2019-04-24 23:19:29',NULL),
+(3840,'New Cart Product Details Created [59]','2019-04-24 23:19:29',NULL),
+(3841,'Cart Product Info Updated [53]','2019-04-24 23:19:29',NULL),
+(3842,'New Cart Product Created [54]','2019-04-24 23:19:47',NULL),
+(3843,'New Cart Product Details Created [60]','2019-04-24 23:19:47',NULL),
+(3844,'Cart Product Info Updated [54]','2019-04-24 23:19:47',NULL),
+(3845,'New Cart Product Created [55]','2019-04-24 23:20:37',NULL),
+(3846,'New Cart Product Details Created [61]','2019-04-24 23:20:37',NULL),
+(3847,'Cart Product Info Updated [55]','2019-04-24 23:20:37',NULL),
+(3848,'New Cart Product Created [56]','2019-04-24 23:24:46',NULL),
+(3849,'New Cart Product Details Created [62]','2019-04-24 23:24:46',NULL),
+(3850,'Cart Product Info Updated [56]','2019-04-24 23:24:46',NULL),
+(3851,'New Cart Product Created [57]','2019-04-24 23:25:10',NULL),
+(3852,'New Cart Product Details Created [63]','2019-04-24 23:25:10',NULL),
+(3853,'Cart Product Info Updated [57]','2019-04-24 23:25:10',NULL),
+(3854,'New Cart Product Created [58]','2019-04-24 23:25:21',NULL),
+(3855,'New Cart Product Details Created [64]','2019-04-24 23:25:21',NULL),
+(3856,'Cart Product Info Updated [58]','2019-04-24 23:25:21',NULL),
+(3857,'New Cart Product Created [59]','2019-04-24 23:26:00',NULL),
+(3858,'New Cart Product Details Created [65]','2019-04-24 23:26:00',NULL),
+(3859,'Cart Product Info Updated [59]','2019-04-24 23:26:00',NULL),
+(3860,'New Cart Product Created [60]','2019-04-24 23:27:08',NULL),
+(3861,'New Cart Product Details Created [66]','2019-04-24 23:27:08',NULL),
+(3862,'Cart Product Info Updated [60]','2019-04-24 23:27:08',NULL),
+(3863,'New Cart Product Created [61]','2019-04-24 23:32:01',NULL),
+(3864,'New Cart Product Details Created [67]','2019-04-24 23:32:01',NULL),
+(3865,'Cart Product Info Updated [61]','2019-04-24 23:32:01',NULL),
+(3866,'New Cart Product Created [62]','2019-04-24 23:34:18',NULL),
+(3867,'New Cart Product Details Created [68]','2019-04-24 23:34:18',NULL),
+(3868,'Cart Product Info Updated [62]','2019-04-24 23:34:18',NULL),
+(3869,'New Cart Product Created [63]','2019-04-24 23:34:58',NULL),
+(3870,'New Cart Product Details Created [69]','2019-04-24 23:34:58',NULL),
+(3871,'Cart Product Info Updated [63]','2019-04-24 23:34:58',NULL),
+(3872,'New Cart Product Created [64]','2019-04-24 23:36:55',NULL),
+(3873,'New Cart Product Details Created [70]','2019-04-24 23:36:55',NULL),
+(3874,'Cart Product Info Updated [64]','2019-04-24 23:36:55',NULL),
+(3875,'New Cart Product Created [65]','2019-04-24 23:37:22',NULL),
+(3876,'New Cart Product Details Created [71]','2019-04-24 23:37:22',NULL),
+(3877,'Cart Product Info Updated [65]','2019-04-24 23:37:22',NULL),
+(3878,'New Cart Product Created [66]','2019-04-24 23:39:02',NULL),
+(3879,'New Cart Product Details Created [72]','2019-04-24 23:39:02',NULL),
+(3880,'Cart Product Info Updated [66]','2019-04-24 23:39:02',NULL),
+(3881,'Cart Product Info Updated [1]','2019-04-24 23:40:08',NULL),
+(3882,'New Cart Product Details Created [73]','2019-04-24 23:40:08',NULL),
+(3883,'Cart Product Info Updated [1]','2019-04-24 23:40:08',NULL),
+(3884,'New Cart Product Created [67]','2019-04-24 23:54:35',NULL),
+(3885,'New Cart Product Details Created [74]','2019-04-24 23:54:35',NULL),
+(3886,'Cart Product Info Updated [67]','2019-04-24 23:54:35',NULL),
+(3887,'New Cart Product Created [68]','2019-04-25 00:00:01',NULL),
+(3888,'New Cart Product Details Created [75]','2019-04-25 00:00:05',NULL),
+(3889,'Cart Product Info Updated [68]','2019-04-25 00:00:07',NULL),
+(3890,'New Cart Product Created [69]','2019-04-25 00:01:29',NULL),
+(3891,'New Cart Product Details Created [76]','2019-04-25 00:01:29',NULL),
+(3892,'Cart Product Info Updated [69]','2019-04-25 00:01:29',NULL),
+(3893,'New Cart Product Created [70]','2019-04-25 00:02:02',NULL),
+(3894,'New Cart Product Details Created [77]','2019-04-25 00:02:02',NULL),
+(3895,'Cart Product Info Updated [70]','2019-04-25 00:02:02',NULL),
+(3896,'New Cart Product Created [71]','2019-04-25 00:02:21',NULL),
+(3897,'New Cart Product Details Created [78]','2019-04-25 00:02:21',NULL),
+(3898,'Cart Product Info Updated [71]','2019-04-25 00:02:21',NULL),
+(3899,'New Cart Product Created [72]','2019-04-25 00:11:07',NULL),
+(3900,'New Cart Product Details Created [79]','2019-04-25 00:11:18',NULL),
+(3901,'Cart Product Info Updated [72]','2019-04-25 00:11:18',NULL),
+(3902,'Cart Product Info Updated [72]','2019-04-25 00:14:34',NULL),
+(3903,'New Cart Product Details Created [80]','2019-04-25 00:14:34',NULL),
+(3904,'Cart Product Info Updated [72]','2019-04-25 00:14:34',NULL),
+(3905,'New Cart Product Created [73]','2019-04-25 00:22:22',NULL),
+(3906,'New Cart Product Details Created [81]','2019-04-25 00:22:23',NULL),
+(3907,'Cart Product Info Updated [73]','2019-04-25 00:22:23',NULL),
+(3908,'Cart Product Info Updated [73]','2019-04-25 00:29:58',NULL),
+(3909,'New Cart Product Details Created [82]','2019-04-25 00:29:58',NULL),
+(3910,'Cart Product Info Updated [73]','2019-04-25 00:29:58',NULL),
+(3911,'Cart Product Info Updated [73]','2019-04-25 00:32:16',NULL),
+(3912,'New Cart Product Details Created [83]','2019-04-25 00:32:16',NULL),
+(3913,'Cart Product Info Updated [73]','2019-04-25 00:32:16',NULL),
+(3914,'Cart Product Info Updated [73]','2019-04-25 00:32:59',NULL),
+(3915,'New Cart Product Details Created [84]','2019-04-25 00:32:59',NULL),
+(3916,'Cart Product Info Updated [73]','2019-04-25 00:32:59',NULL),
+(3917,'Cart Product Info Updated [73]','2019-04-25 00:33:48',NULL),
+(3918,'New Cart Product Details Created [85]','2019-04-25 00:33:48',NULL),
+(3919,'Cart Product Info Updated [73]','2019-04-25 00:33:48',NULL),
+(3920,'New Cart Product Created [74]','2019-04-25 00:34:35',NULL),
+(3921,'New Cart Product Details Created [86]','2019-04-25 00:34:36',NULL),
+(3922,'Cart Product Info Updated [74]','2019-04-25 00:34:36',NULL),
+(3923,'Cart Product Info Updated [74]','2019-04-25 00:34:54',NULL),
+(3924,'New Cart Product Details Created [87]','2019-04-25 00:34:54',NULL),
+(3925,'Cart Product Info Updated [74]','2019-04-25 00:34:54',NULL),
+(3926,'New Cart Created [15]','2019-04-25 00:55:12',NULL),
+(3927,'New Cart Created [16]','2019-04-25 00:58:18',NULL),
+(3928,'New Cart Created [17]','2019-04-25 01:00:34',NULL),
+(3929,'New Cart Restaurant Created [7]','2019-04-25 01:24:52',NULL),
+(3930,'New Cart Restaurant Details Created [7]','2019-04-25 01:24:52',NULL),
+(3931,'Cart Restaurant Info Updated [7]','2019-04-25 01:24:52',NULL),
+(3932,'Cart Restaurant Info Updated [7]','2019-04-25 01:25:23',NULL),
+(3933,'New Cart Restaurant Details Created [8]','2019-04-25 01:25:24',NULL),
+(3934,'Cart Restaurant Info Updated [7]','2019-04-25 01:25:24',NULL),
+(3935,'failed_login_attempt[mobile:9503008804, user_type:2, IP:::1]','2019-05-09 00:23:04',NULL),
+(3936,'New Vendor Created [9503008804]','2019-05-09 00:23:04',NULL),
+(3937,'New Member Created [9503008804]','2019-05-09 00:23:04',NULL),
+(3938,'New Cart Restaurant Created [8]','2019-05-09 00:45:54',NULL),
+(3939,'New Cart Restaurant Details Created [9]','2019-05-09 00:45:54',NULL),
+(3940,'Cart Restaurant Info Updated [8]','2019-05-09 00:45:54',NULL),
+(3941,'Cart Restaurant Info Updated [8]','2019-05-09 00:47:46',NULL),
+(3942,'New Cart Restaurant Details Created [10]','2019-05-09 00:47:51',NULL),
+(3943,'Cart Restaurant Info Updated [8]','2019-05-09 00:47:52',NULL),
+(3944,'Cart Restaurant Info Updated [8]','2019-05-09 00:49:43',NULL),
+(3945,'New Cart Restaurant Details Created [11]','2019-05-09 00:49:43',NULL),
+(3946,'Cart Restaurant Info Updated [8]','2019-05-09 00:49:43',NULL),
+(3947,'New Cart Restaurant Created [9]','2019-05-09 09:41:04',NULL),
+(3948,'New Cart Restaurant Details Created [12]','2019-05-09 09:41:04',NULL),
+(3949,'Cart Restaurant Info Updated [9]','2019-05-09 09:41:04',NULL),
+(3950,'New Cart Restaurant Created [10]','2019-05-09 10:21:08',NULL),
+(3951,'New Cart Restaurant Details Created [13]','2019-05-09 10:21:08',NULL),
+(3952,'Cart Restaurant Info Updated [10]','2019-05-09 10:21:08',NULL),
+(3953,'New Cart Restaurant Created [11]','2019-05-09 10:21:58',NULL),
+(3954,'New Cart Restaurant Details Created [14]','2019-05-09 10:21:58',NULL),
+(3955,'Cart Restaurant Info Updated [11]','2019-05-09 10:21:58',NULL),
+(3956,'New Staff Registred [ From Staff: 1]','2019-05-11 18:33:18','Admin Tonse'),
+(3957,'Failed Login Attempt [Email:disha.intorque@gmail.com,is admin memberYes, IP:::1]','2019-05-11 19:06:01',NULL),
+(3958,'Failed Login Attempt [Email:disha.intorque@gmail.com,is admin memberYes, IP:::1]','2019-05-11 19:06:39',NULL),
+(3959,'Failed Login Attempt [Email:disha.intorque@gmail.com,is admin memberYes, IP:::1]','2019-05-11 19:06:40',NULL),
+(3960,'Failed Login Attempt [Email:disha.intorque@gmail.com,is admin memberYes, IP:::1]','2019-05-11 19:06:43',NULL),
+(3961,'Failed Login Attempt [Email:disha.intorque@gmail.com,is admin memberYes, IP:::1]','2019-05-11 19:06:52',NULL),
+(3962,'New permission added [Staff: 6]','2019-05-11 19:10:02','Admin Tonse'),
+(3963,'New permission added [Staff: 6]','2019-05-11 19:22:00','Admin Tonse'),
+(3964,'Staff profile detail updated [ID: 1]','2019-05-11 23:14:19','Admin1 Tons'),
+(3965,'Staff profile detail updated [ID: 1]','2019-05-11 23:14:25','Admin Tonse'),
+(3966,'New Staff Registred [ From Staff: 1]','2019-05-12 10:04:04','Admin Tonse'),
+(3967,'staff_deleted [7]','2019-05-12 10:06:39','Admin Tonse'),
+(3968,'New Staff Registred [ From Staff: 1]','2019-05-12 10:07:09','Admin Tonse'),
+(3969,'staff_deleted [8]','2019-05-12 10:07:29','Admin Tonse'),
+(3970,'New Staff Registred [ From Staff: 1]','2019-05-12 10:07:51','Admin Tonse');
 
---
--- Table structure for table `1w_tbl_addresses`
---
+/*Table structure for table `1w_tbl_addresses` */
 
 DROP TABLE IF EXISTS `1w_tbl_addresses`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+
 CREATE TABLE `1w_tbl_addresses` (
   `AddressID` int(11) NOT NULL AUTO_INCREMENT,
   `A_Type` enum('1','2','3') NOT NULL DEFAULT '1' COMMENT '1 = Customer, 2 = Vendor, 3 = DeliveryBoy',
@@ -62,25 +3406,21 @@ CREATE TABLE `1w_tbl_addresses` (
   `RowUpdatedDttm` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`AddressID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `1w_tbl_addresses`
---
+/*Data for the table `1w_tbl_addresses` */
 
-LOCK TABLES `1w_tbl_addresses` WRITE;
-/*!40000 ALTER TABLE `1w_tbl_addresses` DISABLE KEYS */;
-INSERT INTO `1w_tbl_addresses` VALUES (1,'1',1,'1813 shivaji park','Kolhapur','Bhamate,Maharashtra,India','16.698322892189026','74.09196853637695','1','0000-00-00 00:00:00','2019-04-21 08:24:07'),(2,'1',5,'Nida sheikh','qw','Kolhapur,Maharashtra,India','16.704987299999996','74.24325270000001','1','0000-00-00 00:00:00','2019-04-21 10:43:35'),(3,'1',3,'Nihal karkala','101','Bengaluru,Karnataka,India','12.921319','77.6117791','1','0000-00-00 00:00:00','2019-04-21 11:43:44'),(4,'1',4,'Aditya Toraskar','Shivaji colony','Kolhapur,Maharashtra,India','16.704987299999996','74.24325270000001','1','0000-00-00 00:00:00','2019-04-22 09:37:35'),(5,'1',6,'Aksoks','Thanks','Unnamed Road,Kolhapur,Maharashtra,India','16.68955833333333','74.23247833333333','1','0000-00-00 00:00:00','2019-04-22 10:07:36'),(6,'1',6,'Hh','Hfj','Unnamed Road,Kolhapur,Maharashtra,India','16.6959466','74.262146','1','0000-00-00 00:00:00','2019-04-22 13:48:39');
-/*!40000 ALTER TABLE `1w_tbl_addresses` ENABLE KEYS */;
-UNLOCK TABLES;
+insert  into `1w_tbl_addresses`(`AddressID`,`A_Type`,`A_RelationID`,`A_Name`,`A_Address`,`A_Location`,`A_Latitude`,`A_Longitude`,`A_Status`,`RowAddedDttm`,`RowUpdatedDttm`) values
+(1,'1',1,'1813 shivaji park','Kolhapur','Bhamate,Maharashtra,India','16.698322892189026','74.09196853637695','1','0000-00-00 00:00:00','2019-04-21 13:54:07'),
+(2,'1',5,'Nida sheikh','qw','Kolhapur,Maharashtra,India','16.704987299999996','74.24325270000001','1','0000-00-00 00:00:00','2019-04-21 16:13:35'),
+(3,'1',3,'Nihal karkala','101','Bengaluru,Karnataka,India','12.921319','77.6117791','1','0000-00-00 00:00:00','2019-04-21 17:13:44'),
+(4,'1',4,'Aditya Toraskar','Shivaji colony','Kolhapur,Maharashtra,India','16.704987299999996','74.24325270000001','1','0000-00-00 00:00:00','2019-04-22 15:07:35'),
+(5,'1',6,'Aksoks','Thanks','Unnamed Road,Kolhapur,Maharashtra,India','16.68955833333333','74.23247833333333','1','0000-00-00 00:00:00','2019-04-22 15:37:36'),
+(6,'1',6,'Hh','Hfj','Unnamed Road,Kolhapur,Maharashtra,India','16.6959466','74.262146','1','0000-00-00 00:00:00','2019-04-22 19:18:39');
 
---
--- Table structure for table `1w_tbl_autologin`
---
+/*Table structure for table `1w_tbl_autologin` */
 
 DROP TABLE IF EXISTS `1w_tbl_autologin`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+
 CREATE TABLE `1w_tbl_autologin` (
   `key_id` char(32) NOT NULL,
   `user_id` int(11) NOT NULL,
@@ -89,25 +3429,16 @@ CREATE TABLE `1w_tbl_autologin` (
   `last_login` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `staff` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `1w_tbl_autologin`
---
+/*Data for the table `1w_tbl_autologin` */
 
-LOCK TABLES `1w_tbl_autologin` WRITE;
-/*!40000 ALTER TABLE `1w_tbl_autologin` DISABLE KEYS */;
-INSERT INTO `1w_tbl_autologin` VALUES ('dcd0dfc26f8f7fc26daf954caa5b5c97',1,'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36','::1','2019-01-21 14:26:06',1);
-/*!40000 ALTER TABLE `1w_tbl_autologin` ENABLE KEYS */;
-UNLOCK TABLES;
+insert  into `1w_tbl_autologin`(`key_id`,`user_id`,`user_agent`,`last_ip`,`last_login`,`staff`) values
+('dcd0dfc26f8f7fc26daf954caa5b5c97',1,'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36','::1','2019-01-21 19:56:06',1);
 
---
--- Table structure for table `1w_tbl_cart_product`
---
+/*Table structure for table `1w_tbl_cart_product` */
 
 DROP TABLE IF EXISTS `1w_tbl_cart_product`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+
 CREATE TABLE `1w_tbl_cart_product` (
   `PCartID` int(11) NOT NULL AUTO_INCREMENT,
   `PC_CustomerID` int(11) NOT NULL,
@@ -140,25 +3471,16 @@ CREATE TABLE `1w_tbl_cart_product` (
   `RowUpdatedDttm` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`PCartID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=75 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `1w_tbl_cart_product`
---
+/*Data for the table `1w_tbl_cart_product` */
 
-LOCK TABLES `1w_tbl_cart_product` WRITE;
-/*!40000 ALTER TABLE `1w_tbl_cart_product` DISABLE KEYS */;
-INSERT INTO `1w_tbl_cart_product` VALUES (74,6,' ','','[\"3\",\"1\"]','[\"Art Fringe Jacket\",\"All Saints Jacket\"]','2019-04-25','[\"86\",\"87\"]','[\"252.00\",\"152.00\"]',0,404.00,15.00,419.00,NULL,0.00,419.00,'0','2',0,NULL,'0',NULL,NULL,NULL,NULL,NULL,NULL,'2019-04-25 00:34:35','2019-04-24 19:04:54');
-/*!40000 ALTER TABLE `1w_tbl_cart_product` ENABLE KEYS */;
-UNLOCK TABLES;
+insert  into `1w_tbl_cart_product`(`PCartID`,`PC_CustomerID`,`PC_CustomerName`,`PC_CustomerAddress`,`PC_ProductID`,`PC_ProductNames`,`PC_Date`,`PC_DetailID`,`PC_Prices`,`PC_AddressID`,`PC_ItemTotal`,`PC_DeliveryCharge`,`PC_CartTotal`,`PC_PaymentOption`,`PC_ServiceCharge`,`PC_Total`,`PC_OrderStatus`,`PC_Status`,`PC_AssignedTo`,`PC_DeliveryBy`,`PC_DeliveryByStatus`,`PC_BookedDttm`,`PC_AcceptedDttm`,`PC_ProcessingDttm`,`PC_DeliveredDttm`,`PC_CancelledDttm`,`PC_AssignedDttm`,`RowAddedDttm`,`RowUpdatedDttm`) values
+(74,6,' ','','[\"3\",\"1\"]','[\"Art Fringe Jacket\",\"All Saints Jacket\"]','2019-04-25','[\"86\",\"87\"]','[\"252.00\",\"152.00\"]',0,404.00,15.00,419.00,NULL,0.00,419.00,'0','2',0,NULL,'0',NULL,NULL,NULL,NULL,NULL,NULL,'2019-04-25 00:34:35','2019-04-25 00:34:54');
 
---
--- Table structure for table `1w_tbl_cart_product_details`
---
+/*Table structure for table `1w_tbl_cart_product_details` */
 
 DROP TABLE IF EXISTS `1w_tbl_cart_product_details`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+
 CREATE TABLE `1w_tbl_cart_product_details` (
   `CPDetailID` int(11) NOT NULL AUTO_INCREMENT,
   `PD_CartID` int(11) NOT NULL,
@@ -170,25 +3492,22 @@ CREATE TABLE `1w_tbl_cart_product_details` (
   `RowUpdateDttm` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`CPDetailID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=88 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `1w_tbl_cart_product_details`
---
+/*Data for the table `1w_tbl_cart_product_details` */
 
-LOCK TABLES `1w_tbl_cart_product_details` WRITE;
-/*!40000 ALTER TABLE `1w_tbl_cart_product_details` DISABLE KEYS */;
-INSERT INTO `1w_tbl_cart_product_details` VALUES (81,73,1,1,1,2,'2019-04-25 00:22:23','2019-04-24 18:52:23'),(82,73,4,1,1,2,'2019-04-25 00:29:58','2019-04-24 18:59:58'),(83,73,4,1,1,2,'2019-04-25 00:32:16','2019-04-24 19:02:16'),(84,73,4,1,1,2,'2019-04-25 00:32:59','2019-04-24 19:02:59'),(85,73,3,1,1,2,'2019-04-25 00:33:48','2019-04-24 19:03:48'),(86,74,3,1,1,2,'2019-04-25 00:34:36','2019-04-24 19:04:36'),(87,74,1,1,1,2,'2019-04-25 00:34:54','2019-04-24 19:04:54');
-/*!40000 ALTER TABLE `1w_tbl_cart_product_details` ENABLE KEYS */;
-UNLOCK TABLES;
+insert  into `1w_tbl_cart_product_details`(`CPDetailID`,`PD_CartID`,`PD_ProductID`,`PD_Quantity`,`PD_AttributeID`,`PD_AttribValueID`,`RowAddedDttm`,`RowUpdateDttm`) values
+(81,73,1,1,1,2,'2019-04-25 00:22:23','2019-04-25 00:22:23'),
+(82,73,4,1,1,2,'2019-04-25 00:29:58','2019-04-25 00:29:58'),
+(83,73,4,1,1,2,'2019-04-25 00:32:16','2019-04-25 00:32:16'),
+(84,73,4,1,1,2,'2019-04-25 00:32:59','2019-04-25 00:32:59'),
+(85,73,3,1,1,2,'2019-04-25 00:33:48','2019-04-25 00:33:48'),
+(86,74,3,1,1,2,'2019-04-25 00:34:36','2019-04-25 00:34:36'),
+(87,74,1,1,1,2,'2019-04-25 00:34:54','2019-04-25 00:34:54');
 
---
--- Table structure for table `1w_tbl_cart_restaurant`
---
+/*Table structure for table `1w_tbl_cart_restaurant` */
 
 DROP TABLE IF EXISTS `1w_tbl_cart_restaurant`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+
 CREATE TABLE `1w_tbl_cart_restaurant` (
   `RCartID` int(11) NOT NULL AUTO_INCREMENT,
   `RC_CustomerID` int(11) NOT NULL,
@@ -222,25 +3541,18 @@ CREATE TABLE `1w_tbl_cart_restaurant` (
   `RowUpdatedDttm` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`RCartID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `1w_tbl_cart_restaurant`
---
+/*Data for the table `1w_tbl_cart_restaurant` */
 
-LOCK TABLES `1w_tbl_cart_restaurant` WRITE;
-/*!40000 ALTER TABLE `1w_tbl_cart_restaurant` DISABLE KEYS */;
-INSERT INTO `1w_tbl_cart_restaurant` VALUES (7,6,' ','','15','Karachi Bakery','2019-04-25','[\"7\",\"8\"]','[\"150.00\",\"70.00\"]',0,2,220.00,15.00,235.00,NULL,0.00,235.00,'3','3',0,0,'0',NULL,NULL,NULL,NULL,NULL,NULL,'2019-04-25 01:24:52','2019-04-24 19:58:52'),(10,1,' ','','10','Al bek','2019-05-09','[\"13\"]','[\"200.00\"]',0,1,200.00,15.00,215.00,NULL,0.00,215.00,'0','1',0,0,'0',NULL,NULL,NULL,NULL,NULL,NULL,'2019-05-09 10:21:08','2019-05-09 04:51:08'),(11,1,' ','','14','Zhang\'s Chinese Restaurant','2019-05-09','[\"14\"]','[\"220.00\"]',0,1,220.00,15.00,235.00,NULL,0.00,235.00,'0','1',0,0,'0',NULL,NULL,NULL,NULL,NULL,NULL,'2019-05-09 10:21:58','2019-05-09 04:51:58');
-/*!40000 ALTER TABLE `1w_tbl_cart_restaurant` ENABLE KEYS */;
-UNLOCK TABLES;
+insert  into `1w_tbl_cart_restaurant`(`RCartID`,`RC_CustomerID`,`RC_CustomerName`,`RC_CustomerAddress`,`RC_RestaurantID`,`RC_RestaurantName`,`RC_Date`,`RC_DetailID`,`RC_Prices`,`RC_AddressID`,`RC_ItemCount`,`RC_ItemTotal`,`RC_DeliveryCharge`,`RC_CartTotal`,`RC_PaymentOption`,`RC_ServiceCharge`,`RC_Total`,`RC_OrderStatus`,`RC_Status`,`RC_AssignedTo`,`RC_DeliveryBy`,`RC_DeliveryByStatus`,`RC_BookedDttm`,`RC_AcceptedDttm`,`RC_ProcessingDttm`,`RC_DeliveredDttm`,`RC_CancelledDttm`,`RC_AssignedDttm`,`RowAddedDttm`,`RowUpdatedDttm`) values
+(7,6,' ','','15','Karachi Bakery','2019-04-25','[\"7\",\"8\"]','[\"150.00\",\"70.00\"]',0,2,220.00,15.00,235.00,NULL,0.00,235.00,'3','3',0,0,'0',NULL,NULL,NULL,NULL,NULL,NULL,'2019-04-25 01:24:52','2019-04-25 01:28:52'),
+(10,1,' ','','10','Al bek','2019-05-09','[\"13\"]','[\"200.00\"]',0,1,200.00,15.00,215.00,NULL,0.00,215.00,'0','1',0,0,'0',NULL,NULL,NULL,NULL,NULL,NULL,'2019-05-09 10:21:08','2019-05-09 10:21:08'),
+(11,1,' ','','14','Zhang\'s Chinese Restaurant','2019-05-09','[\"14\"]','[\"220.00\"]',0,1,220.00,15.00,235.00,NULL,0.00,235.00,'0','1',0,0,'0',NULL,NULL,NULL,NULL,NULL,NULL,'2019-05-09 10:21:58','2019-05-09 10:21:58');
 
---
--- Table structure for table `1w_tbl_cart_restaurant_details`
---
+/*Table structure for table `1w_tbl_cart_restaurant_details` */
 
 DROP TABLE IF EXISTS `1w_tbl_cart_restaurant_details`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+
 CREATE TABLE `1w_tbl_cart_restaurant_details` (
   `CRDetailID` int(11) NOT NULL AUTO_INCREMENT,
   `RD_CartID` int(11) NOT NULL,
@@ -251,25 +3563,23 @@ CREATE TABLE `1w_tbl_cart_restaurant_details` (
   `RowUpdateDttm` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`CRDetailID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `1w_tbl_cart_restaurant_details`
---
+/*Data for the table `1w_tbl_cart_restaurant_details` */
 
-LOCK TABLES `1w_tbl_cart_restaurant_details` WRITE;
-/*!40000 ALTER TABLE `1w_tbl_cart_restaurant_details` DISABLE KEYS */;
-INSERT INTO `1w_tbl_cart_restaurant_details` VALUES (7,7,21,1,150.00,'2019-04-25 01:24:52','2019-04-24 19:54:52'),(8,7,7,1,70.00,'2019-04-25 01:25:24','2019-04-24 19:55:24'),(9,8,18,1,0.00,'2019-05-09 00:45:54','2019-05-08 19:15:54'),(10,8,18,1,0.00,'2019-05-09 00:47:51','2019-05-08 19:17:51'),(11,8,18,1,0.00,'2019-05-09 00:49:43','2019-05-08 19:19:43'),(12,9,18,1,0.00,'2019-05-09 09:41:04','2019-05-09 04:11:04'),(13,10,11,1,200.00,'2019-05-09 10:21:08','2019-05-09 04:51:08'),(14,11,20,1,220.00,'2019-05-09 10:21:58','2019-05-09 04:51:58');
-/*!40000 ALTER TABLE `1w_tbl_cart_restaurant_details` ENABLE KEYS */;
-UNLOCK TABLES;
+insert  into `1w_tbl_cart_restaurant_details`(`CRDetailID`,`RD_CartID`,`RD_FoodID`,`RD_Quantity`,`RD_Price`,`RowAddedDttm`,`RowUpdateDttm`) values
+(7,7,21,1,150.00,'2019-04-25 01:24:52','2019-04-25 01:24:52'),
+(8,7,7,1,70.00,'2019-04-25 01:25:24','2019-04-25 01:25:24'),
+(9,8,18,1,0.00,'2019-05-09 00:45:54','2019-05-09 00:45:54'),
+(10,8,18,1,0.00,'2019-05-09 00:47:51','2019-05-09 00:47:51'),
+(11,8,18,1,0.00,'2019-05-09 00:49:43','2019-05-09 00:49:43'),
+(12,9,18,1,0.00,'2019-05-09 09:41:04','2019-05-09 09:41:04'),
+(13,10,11,1,200.00,'2019-05-09 10:21:08','2019-05-09 10:21:08'),
+(14,11,20,1,220.00,'2019-05-09 10:21:58','2019-05-09 10:21:58');
 
---
--- Table structure for table `1w_tbl_cart_service`
---
+/*Table structure for table `1w_tbl_cart_service` */
 
 DROP TABLE IF EXISTS `1w_tbl_cart_service`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+
 CREATE TABLE `1w_tbl_cart_service` (
   `CartID` int(11) NOT NULL AUTO_INCREMENT,
   `C_CustomerID` int(11) NOT NULL,
@@ -302,25 +3612,18 @@ CREATE TABLE `1w_tbl_cart_service` (
   `RowUpdatedDttm` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`CartID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `1w_tbl_cart_service`
---
+/*Data for the table `1w_tbl_cart_service` */
 
-LOCK TABLES `1w_tbl_cart_service` WRITE;
-/*!40000 ALTER TABLE `1w_tbl_cart_service` DISABLE KEYS */;
-INSERT INTO `1w_tbl_cart_service` VALUES (15,6,'1813 shivaji park','[\"+918657387317\",\"Kolhapur\",\"Bhamate,Maharashtra,India\",\"16.698322892189026\",\"74.09196853637695\"]',1,'Salon at Home For Women','[\"2\"]','[\"High Package\"]','[\"4\"]','[\"3 Person\"]','[\"30.00\"]',0,'2019-04-25',2,'5-10pm',NULL,'','30.00','0','1',0,NULL,NULL,NULL,NULL,NULL,NULL,'2019-04-25 00:55:12','2019-04-24 19:25:12'),(16,2,'1813 shivaji park','[\"+917721037175\",\"Kolhapur\",\"Bhamate,Maharashtra,India\",\"16.698322892189026\",\"74.09196853637695\"]',1,'Salon at Home For Women','[\"2\"]','[\"High Package\"]','[\"4\"]','[\"3 Person\"]','[\"30.00\"]',0,'2019-04-25',2,'5-10pm',NULL,'','30.00','0','1',0,NULL,NULL,NULL,NULL,NULL,NULL,'2019-04-25 00:58:18','2019-04-24 19:28:18'),(17,6,'1813 shivaji park','[\"+918657387317\",\"Kolhapur\",\"Bhamate,Maharashtra,India\",\"16.698322892189026\",\"74.09196853637695\"]',1,'Salon at Home For Women','[\"2\"]','[\"High Package\"]','[\"4\"]','[\"3 Person\"]','[\"30.00\"]',0,'2019-04-25',2,'5-10pm',NULL,'','30.00','4','3',0,NULL,NULL,NULL,NULL,NULL,NULL,'2019-04-25 01:00:34','2019-04-24 19:51:18');
-/*!40000 ALTER TABLE `1w_tbl_cart_service` ENABLE KEYS */;
-UNLOCK TABLES;
+insert  into `1w_tbl_cart_service`(`CartID`,`C_CustomerID`,`C_CustomerName`,`C_CustomerAddress`,`C_ServiceID`,`C_ServiceNames`,`C_PackageID`,`C_PackageNames`,`C_OptionID`,`C_OptionNames`,`C_OptionPrices`,`C_AddressID`,`C_Date`,`C_TimeslabID`,`C_Timeslab`,`C_PaymentOption`,`C_ServiceCharge`,`C_Total`,`C_OrderStatus`,`C_Status`,`C_AssignedTo`,`C_BookedDttm`,`C_AcceptedDttm`,`C_ProcessingDttm`,`C_DeliveredDttm`,`C_CancelledDttm`,`C_AssignedDttm`,`RowAddedDttm`,`RowUpdatedDttm`) values
+(15,6,'1813 shivaji park','[\"+918657387317\",\"Kolhapur\",\"Bhamate,Maharashtra,India\",\"16.698322892189026\",\"74.09196853637695\"]',1,'Salon at Home For Women','[\"2\"]','[\"High Package\"]','[\"4\"]','[\"3 Person\"]','[\"30.00\"]',0,'2019-04-25',2,'5-10pm',NULL,'','30.00','0','1',0,NULL,NULL,NULL,NULL,NULL,NULL,'2019-04-25 00:55:12','2019-04-25 00:55:12'),
+(16,2,'1813 shivaji park','[\"+917721037175\",\"Kolhapur\",\"Bhamate,Maharashtra,India\",\"16.698322892189026\",\"74.09196853637695\"]',1,'Salon at Home For Women','[\"2\"]','[\"High Package\"]','[\"4\"]','[\"3 Person\"]','[\"30.00\"]',0,'2019-04-25',2,'5-10pm',NULL,'','30.00','0','1',0,NULL,NULL,NULL,NULL,NULL,NULL,'2019-04-25 00:58:18','2019-04-25 00:58:18'),
+(17,6,'1813 shivaji park','[\"+918657387317\",\"Kolhapur\",\"Bhamate,Maharashtra,India\",\"16.698322892189026\",\"74.09196853637695\"]',1,'Salon at Home For Women','[\"2\"]','[\"High Package\"]','[\"4\"]','[\"3 Person\"]','[\"30.00\"]',0,'2019-04-25',2,'5-10pm',NULL,'','30.00','4','3',0,NULL,NULL,NULL,NULL,NULL,NULL,'2019-04-25 01:00:34','2019-04-25 01:21:18');
 
---
--- Table structure for table `1w_tbl_categories`
---
+/*Table structure for table `1w_tbl_categories` */
 
 DROP TABLE IF EXISTS `1w_tbl_categories`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+
 CREATE TABLE `1w_tbl_categories` (
   `CategoryID` int(11) NOT NULL AUTO_INCREMENT,
   `C_Name` varchar(100) NOT NULL,
@@ -336,25 +3639,299 @@ CREATE TABLE `1w_tbl_categories` (
   PRIMARY KEY (`CategoryID`),
   KEY `CategoryID` (`CategoryID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=354 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `1w_tbl_categories`
---
+/*Data for the table `1w_tbl_categories` */
 
-LOCK TABLES `1w_tbl_categories` WRITE;
-/*!40000 ALTER TABLE `1w_tbl_categories` DISABLE KEYS */;
-INSERT INTO `1w_tbl_categories` VALUES (1,'Beauty & Spa','1',1,0,'1-CI-11042019121821.png','1-CI-11042019121821-1.png','2','2','2018-12-26 18:21:45','2019-04-11 06:48:21'),(2,'Appliance Repair','1',1,0,'2-CI-11042019121807.png','2-CI-11042019121807-1.png','2','2','2018-12-26 18:21:45','2019-04-11 06:48:07'),(3,'Home Cleaning & Repairs','1',1,0,'3-CI-11042019121754.png','3-CI-11042019121754-1.png','1','2','2018-12-26 18:28:31','2019-04-11 06:47:54'),(5,'Health & Fitness','1',1,0,'5-CI-11042019121738.png','5-CI-11042019121738-1.png','1','2','2018-12-26 18:29:01','2019-04-11 06:47:38'),(7,'Wedding & Events','1',1,0,'7-CI-11042019121720.png','7-CI-11042019121720-1.png','2','2','2018-12-26 18:29:27','2019-04-11 06:47:20'),(8,'Tutors & Lessons','1',1,0,'8-CI-11042019121708.png','8-CI-11042019121708-1.png','1','2','2018-12-26 18:29:27','2019-04-11 06:47:08'),(9,'Business & Taxes','1',1,0,'9-CI-11042019121654.png','9-CI-11042019121654-1.png','1','2','2018-12-26 18:29:45','2019-04-11 06:46:54'),(10,'Mens Fashion','2',1,0,'10-CI-11042019121128.png','10-CI-11042019121128-1.png','1','2','2018-12-29 10:13:45','2019-04-11 06:41:28'),(11,'House, Kitchen & Pets','2',1,0,'11-CI-11042019121115.png','11-CI-11042019121115-1.png','1','2','2018-12-29 10:13:45','2019-04-11 06:41:15'),(12,'TV Appliances & Electronics','2',1,0,'12-CI-11042019121032.png','12-CI-11042019121032-1.png','1','2','2018-12-29 10:13:45','2019-04-11 06:40:32'),(13,'Mobiles & Computers','2',1,0,'13-CI-11042019121019.png','13-CI-11042019121019-1.png','1','2','2018-12-29 10:13:45','2019-04-11 06:40:19'),(21,'Fast-Food','3',1,0,'21-CI-21012019214835.jpg','21-CI-21012019214835-1.jpg','1','2','2018-12-31 10:48:30','2019-02-26 09:51:11'),(22,'South Indian','3',1,0,'22-CI-21012019214558.jpg','22-CI-21012019214558-1.jpg','1','2','2018-12-31 10:48:30','2019-02-26 09:51:10'),(24,'Special Items','3',1,0,'','','1','2','2018-12-31 12:48:42','2019-02-26 09:51:08'),(25,'Sandwiches','3',1,0,'','','1','2','2018-12-31 12:48:42','2019-02-26 09:51:07'),(36,'Test Food Category','3',2,22,'','','1','2','2019-01-18 22:50:39','2019-01-18 17:20:39'),(42,'Test','1',2,2,'','','1','2','2019-01-19 20:48:11','2019-01-19 15:18:11'),(43,'Test 1','1',2,2,'','','1','2','2019-01-19 20:48:52','2019-01-19 15:18:52'),(44,'test 2','1',2,2,'','','1','2','2019-01-19 20:49:17','2019-01-19 15:19:17'),(69,'Third Level Repair','1',3,42,'69-CI-20012019032033.png','69-CI-20012019032033-1.png','1','2','2019-01-20 03:20:33','2019-01-19 21:50:33'),(72,'Wedding & Event Test Service','1',2,7,'72-CI-21012019012002.png','72-CI-21012019012002-1.png','1','2','2019-01-21 01:20:02','2019-02-26 09:52:40'),(73,'Wedding 2','1',2,7,'73-CI-21012019012319.jpg','73-CI-21012019012319.png','1','2','2019-01-21 01:23:19','2019-02-26 09:52:39'),(74,'Hair Styling','1',2,1,'74-CI-29012019123438.jpg','74-CI-04042019115558.png','1','2','2019-01-29 12:34:38','2019-04-04 06:25:58'),(76,'Test','1',3,74,'','','1','2','2019-02-04 14:26:08','2019-02-04 14:26:31'),(80,'Non - Govt Agent','1',3,79,'80-CI-04042019121354.jpg','80-CI-04042019121354-1.jpg','1','2','2019-04-04 06:43:54','2019-04-04 06:43:54'),(81,'Womens Fashion','2',1,0,'81-CI-11042019121002.png','81-CI-11042019121002-1.png','1','2','2019-04-09 10:52:59','2019-04-11 06:40:02'),(82,'Beauty , Health & Grocery','2',1,0,'82-CI-11042019120948.png','82-CI-11042019120948-1.png','1','2','2019-04-09 10:53:46','2019-04-11 06:39:48'),(83,'Sports, Fitness, Bags, Luggage','2',1,0,'83-CI-11042019120936.png','83-CI-11042019120936-1.png','1','2','2019-04-09 10:54:09','2019-04-11 06:39:36'),(84,'Toys, Baby Products, Kids Fashion','2',1,0,'84-CI-11042019120924.png','84-CI-11042019120924-1.png','1','2','2019-04-09 10:54:27','2019-04-11 06:39:24'),(85,'Car, Motorbike, Industrial','2',1,0,'85-CI-11042019120855.png','85-CI-11042019120855-1.png','1','2','2019-04-09 10:54:45','2019-04-11 06:38:55'),(86,'Books ','2',1,0,'86-CI-11042019120840.png','86-CI-11042019120840-1.png','1','2','2019-04-09 10:54:56','2019-04-11 06:38:40'),(87,'Movies, Music & Video Games','2',1,0,'87-CI-11042019121958.png','87-CI-11042019121958-1.png','1','2','2019-04-09 10:55:07','2019-04-11 06:49:58'),(88,'Gift Cards & Mobile Recharges','2',1,0,'88-CI-11042019120629.png','88-CI-11042019120629-1.png','1','2','2019-04-09 10:55:18','2019-04-11 06:36:29'),(89,'Mobile Phones','2',2,13,'','','1','2','2019-04-09 10:56:59','2019-04-09 10:56:59'),(91,'Cases & Covers','2',2,13,'','','1','2','2019-04-09 10:57:31','2019-04-09 10:57:31'),(92,'Screen Protectors','2',2,13,'','','1','2','2019-04-09 10:57:41','2019-04-09 10:57:41'),(93,'Power Banks','2',2,13,'','','1','2','2019-04-09 10:57:50','2019-04-09 10:57:50'),(94,'Certified Refurbished','2',2,13,'','','1','2','2019-04-09 10:58:13','2019-04-09 10:58:13'),(95,'Tablets','2',2,13,'','','1','2','2019-04-09 10:58:24','2019-04-09 10:58:24'),(96,'Wearable Devices','2',2,13,'','','1','2','2019-04-09 10:58:33','2019-04-09 10:58:33'),(97,'Smart home','2',2,13,'','','1','2','2019-04-09 10:58:42','2019-04-09 10:58:42'),(98,'Office Supplies & Stationary','2',2,13,'','','1','2','2019-04-09 10:58:53','2019-04-09 10:58:53'),(99,'Software','2',2,13,'','','1','2','2019-04-09 10:59:00','2019-04-09 10:59:00'),(101,'Laptops','2',2,13,'','','1','2','2019-04-09 10:59:21','2019-04-09 10:59:28'),(102,'Drives & Storage','2',2,13,'','','1','2','2019-04-09 10:59:38','2019-04-09 10:59:38'),(103,'Printers & Ink','2',2,13,'','','1','2','2019-04-09 10:59:51','2019-04-09 10:59:51'),(104,'Networking Devices','2',2,13,'','','1','2','2019-04-09 11:00:00','2019-04-09 11:00:00'),(105,'Computer Accesories','2',2,13,'','','1','2','2019-04-09 11:00:13','2019-04-09 11:00:13'),(106,'Game Zone','2',2,13,'','','1','2','2019-04-09 11:00:21','2019-04-09 11:00:21'),(107,'Monitors','2',2,13,'','','1','2','2019-04-09 11:00:30','2019-04-09 11:00:30'),(108,'Desktops','2',2,13,'','','1','2','2019-04-09 11:00:43','2019-04-09 11:00:43'),(109,'Miscellaneous','2',2,13,'','','1','2','2019-04-09 11:01:07','2019-04-09 11:01:07'),(110,'Miscellaneous','2',2,12,'','','1','2','2019-04-09 11:01:31','2019-04-09 11:01:31'),(111,'Televisions','2',2,12,'','','1','2','2019-04-09 11:01:44','2019-04-09 11:01:44'),(112,'Home Entertainment Systems','2',2,12,'','','1','2','2019-04-09 11:01:56','2019-04-09 11:01:56'),(113,'Headphones','2',2,12,'','','1','2','2019-04-09 11:02:07','2019-04-09 11:02:07'),(114,'Speakers','2',2,12,'','','1','2','2019-04-09 11:02:14','2019-04-09 11:02:14'),(115,'Home Audio & Theater','2',2,12,'','','1','2','2019-04-09 11:02:25','2019-04-09 11:02:25'),(116,'Cameras','2',2,12,'','','1','2','2019-04-09 11:02:34','2019-04-09 11:02:34'),(117,'DSLR Cameras','2',2,12,'','','1','2','2019-04-09 11:02:44','2019-04-09 11:02:44'),(118,'Security Cameras','2',2,12,'','','1','2','2019-04-09 11:02:53','2019-04-09 11:02:53'),(119,'Camera Accesories','2',2,12,'','','1','2','2019-04-09 11:03:05','2019-04-09 11:03:05'),(120,'Musical Instruments & Professional Audio','2',2,12,'','','1','2','2019-04-09 11:03:23','2019-04-09 11:03:23'),(121,'Gaming Consoles','2',2,12,'','','1','2','2019-04-09 11:03:34','2019-04-09 11:03:34'),(122,'All electronics','2',2,12,'','','1','2','2019-04-09 11:03:44','2019-04-09 11:03:44'),(123,'Air Conditioners','2',2,12,'','','1','2','2019-04-09 11:03:58','2019-04-09 11:03:58'),(124,'Refrigerators','2',2,12,'','','1','2','2019-04-09 11:04:11','2019-04-09 11:04:11'),(125,'Washing Machines','2',2,12,'','','1','2','2019-04-09 11:04:21','2019-04-09 11:04:21'),(126,'Kitchen & Home Appliances','2',2,12,'','','1','2','2019-04-09 11:04:34','2019-04-09 11:04:34'),(127,'Heating & Cooling Appliances','2',2,12,'','','1','2','2019-04-09 11:04:48','2019-04-09 11:04:48'),(128,'All Appliances','2',2,12,'','','1','2','2019-04-09 11:04:58','2019-04-09 11:04:58'),(129,'Miscellaneous','2',2,10,'','','1','2','2019-04-09 11:05:41','2019-04-09 11:05:41'),(130,'Clothing','2',2,10,'','','1','2','2019-04-09 11:05:52','2019-04-09 11:05:52'),(131,'T-Shirts & Polo','2',2,10,'','','1','2','2019-04-09 11:06:06','2019-04-09 11:06:06'),(132,'Shirts','2',2,10,'','','1','2','2019-04-09 11:06:20','2019-04-09 11:06:20'),(133,'Jeans','2',2,10,'','','1','2','2019-04-09 11:06:26','2019-04-09 11:06:26'),(134,'Innerwear','2',2,10,'','','1','2','2019-04-09 11:06:32','2019-04-09 11:06:32'),(135,'Watches','2',2,10,'','','1','2','2019-04-09 11:06:41','2019-04-09 11:07:03'),(136,'Bugs & Luggage','2',2,10,'','','1','2','2019-04-09 11:07:12','2019-04-09 11:07:12'),(137,'Sunglasses','2',2,10,'','','1','2','2019-04-09 11:07:22','2019-04-09 11:07:22'),(138,'Jewellery','2',2,10,'','','1','2','2019-04-09 11:07:32','2019-04-09 11:07:32'),(139,'Wallets','2',2,10,'','','1','2','2019-04-09 11:07:38','2019-04-09 11:07:38'),(140,'Shoes','2',2,10,'','','1','2','2019-04-09 11:07:48','2019-04-09 11:07:48'),(141,'Sports Shoes','2',2,10,'','','1','2','2019-04-09 11:07:55','2019-04-09 11:07:55'),(142,'Formal Shoes','2',2,10,'','','1','2','2019-04-09 11:08:03','2019-04-09 11:08:03'),(143,'Casual Shoes','2',2,10,'','','1','2','2019-04-09 11:08:11','2019-04-09 11:08:11'),(144,'Sportswear','2',2,10,'','','1','2','2019-04-09 11:08:21','2019-04-09 11:08:21'),(145,'The Designer Boutique','2',2,10,'','','1','2','2019-04-09 11:08:32','2019-04-09 11:08:32'),(146,'Amazon Fashion','2',2,10,'','','1','2','2019-04-09 11:08:51','2019-04-09 11:08:51'),(147,'Sales & Deals','2',2,10,'','','1','2','2019-04-09 11:09:01','2019-04-09 11:09:01'),(148,'Miscellaneous','2',2,81,'','','1','2','2019-04-09 11:09:41','2019-04-09 11:09:41'),(149,'Clothing','2',2,81,'','','1','2','2019-04-09 11:09:48','2019-04-09 11:09:48'),(150,'Western Wear','2',2,81,'','','1','2','2019-04-09 11:09:56','2019-04-09 11:09:56'),(151,'Ethnic Wear','2',2,81,'','','1','2','2019-04-09 11:10:06','2019-04-09 11:10:06'),(152,'Lingerie & Nightwear','2',2,81,'','','1','2','2019-04-09 11:10:17','2019-04-09 11:10:17'),(153,'Top Brands','2',2,81,'','','1','2','2019-04-09 11:10:23','2019-04-09 11:10:23'),(154,'Watches','2',2,81,'','','1','2','2019-04-09 11:10:32','2019-04-09 11:10:32'),(155,'Handbags & Clutches','2',2,81,'','','1','2','2019-04-09 11:10:43','2019-04-09 11:10:43'),(156,'Gold & Diamond Jewellery','2',2,81,'','','1','2','2019-04-09 11:10:53','2019-04-09 11:10:53'),(157,'Fashion & Silver Jewelry','2',2,81,'','','1','2','2019-04-09 11:11:10','2019-04-09 11:11:10'),(158,'Sunglasses','2',2,81,'','','1','2','2019-04-09 11:11:21','2019-04-09 11:11:21'),(159,'Shoes','2',2,81,'','','1','2','2019-04-09 11:11:39','2019-04-09 11:11:39'),(160,'Fashion Sandals','2',2,81,'','','1','2','2019-04-09 11:11:53','2019-04-09 11:12:23'),(161,'Ballerinas','2',2,81,'','','1','2','2019-04-09 11:12:06','2019-04-09 11:12:06'),(162,'Designer Boutiques','2',2,81,'','','1','2','2019-04-09 11:12:36','2019-04-09 11:12:36'),(163,'Handlooms & handicrafts','2',2,81,'','','1','2','2019-04-09 11:12:52','2019-04-09 11:12:52'),(164,'Sportswear','2',2,81,'','','1','2','2019-04-09 11:13:04','2019-04-09 11:13:04'),(165,'Amazon Fashion','2',2,81,'','','1','2','2019-04-09 11:13:15','2019-04-09 11:13:15'),(166,'Sales & Deals','2',2,81,'','','1','2','2019-04-09 11:13:29','2019-04-09 11:13:29'),(167,'Kitchen & Dining','2',2,11,'','','1','2','2019-04-09 11:14:18','2019-04-09 11:14:18'),(168,'Kitchen Storage & Containers','2',2,11,'','','1','2','2019-04-09 11:14:32','2019-04-09 11:14:32'),(169,'Furniture','2',2,11,'','','1','2','2019-04-09 11:14:44','2019-04-09 11:14:44'),(170,'Fine Art','2',2,11,'','','1','2','2019-04-09 11:14:54','2019-04-09 11:14:54'),(171,'Home Furnishing','2',2,11,'','','1','2','2019-04-09 11:15:05','2019-04-09 11:15:05'),(172,'Bedroom linen','2',2,11,'','','1','2','2019-04-09 11:15:18','2019-04-09 11:15:18'),(173,'Home Decor','2',2,11,'','','1','2','2019-04-09 11:15:39','2019-04-09 11:15:39'),(174,'Garden & Outdoors','2',2,11,'','','1','2','2019-04-09 11:15:53','2019-04-09 11:15:53'),(175,'Home Storage','2',2,11,'','','1','2','2019-04-09 11:16:05','2019-04-09 11:16:05'),(176,'Home Improvement','2',2,11,'','','1','2','2019-04-09 11:16:20','2019-04-09 11:16:20'),(177,'Sewing & Craft Supplies','2',2,11,'','','1','2','2019-04-09 11:16:35','2019-04-09 11:16:35'),(178,'All Home & Kitchen','2',2,11,'','','1','2','2019-04-09 11:16:48','2019-04-09 11:16:48'),(179,'Shop by Room','2',2,11,'','','1','2','2019-04-09 11:17:01','2019-04-09 11:17:01'),(180,'Home & Kitchen Deals','2',2,11,'','','1','2','2019-04-09 11:17:14','2019-04-09 11:17:14'),(181,'Certified Refurbished','2',2,11,'','','1','2','2019-04-09 11:17:23','2019-04-09 11:17:23'),(182,'All Pet Supplies','2',2,11,'','','1','2','2019-04-09 11:17:38','2019-04-09 11:17:38'),(183,'Dog Supplies','2',2,11,'','','1','2','2019-04-09 11:18:00','2019-04-09 11:18:00'),(184,'Miscellaneous','2',2,11,'','','1','2','2019-04-09 11:18:09','2019-04-09 11:18:09'),(185,'Beauty & Grooming','2',2,82,'','','1','2','2019-04-09 11:18:58','2019-04-09 11:18:58'),(186,'Luxury Beauty','2',2,82,'','','1','2','2019-04-09 11:19:36','2019-04-09 11:19:36'),(187,'Makeup','2',2,82,'','','1','2','2019-04-09 11:19:46','2019-04-09 11:19:46'),(188,'Health & Personal Care','2',2,82,'','','1','2','2019-04-09 11:19:57','2019-04-09 11:19:57'),(189,'Household Supplies','2',2,82,'','','1','2','2019-04-09 11:20:07','2019-04-09 11:20:07'),(190,'Personal Care Appliances','2',2,82,'','','1','2','2019-04-09 11:20:18','2019-04-09 11:20:18'),(191,'Diet & Nutrition','2',2,82,'','','1','2','2019-04-09 11:20:30','2019-04-09 11:20:30'),(192,'Subscribe & Save','2',2,82,'','','1','2','2019-04-09 11:20:41','2019-04-09 11:20:41'),(193,'Value Bazaar','2',2,82,'','','1','2','2019-04-09 11:21:01','2019-04-09 11:21:01'),(194,'All Grocery ','2',2,82,'','','1','2','2019-04-09 11:21:18','2019-04-09 11:21:18'),(195,'Coffee, Tea & Beverages','2',2,82,'','','1','2','2019-04-09 11:21:34','2019-04-09 11:21:34'),(196,'Snacks','2',2,82,'','','1','2','2019-04-09 11:21:41','2019-04-09 11:21:41'),(197,'Cricket','2',2,83,'','','1','2','2019-04-09 11:22:10','2019-04-09 11:22:10'),(198,'Badminton','2',2,83,'','','1','2','2019-04-09 11:22:18','2019-04-09 11:22:18'),(199,'Cycling','2',2,83,'','','1','2','2019-04-09 11:22:26','2019-04-09 11:22:26'),(200,'Football','2',2,83,'','','1','2','2019-04-09 11:22:35','2019-04-09 11:22:35'),(201,'Camping & Hiking','2',2,83,'','','1','2','2019-04-09 11:22:45','2019-04-09 11:22:59'),(202,'Fitness Accessories','2',2,83,'','','1','2','2019-04-09 11:23:10','2019-04-09 11:23:10'),(203,'Yoga','2',2,83,'','','1','2','2019-04-09 11:23:17','2019-04-09 11:23:17'),(204,'Strength Training','2',2,83,'','','1','2','2019-04-09 11:23:59','2019-04-09 11:23:59'),(205,'Cardio Equipment','2',2,83,'','','1','2','2019-04-09 11:24:08','2019-04-09 11:24:08'),(206,'Sports Collectibles','2',2,83,'','','1','2','2019-04-09 11:24:18','2019-04-09 11:24:18'),(207,'Certified Refurbished','2',2,83,'','','1','2','2019-04-09 11:24:26','2019-04-09 11:24:26'),(208,'All Exercises & Fitness','2',2,83,'','','1','2','2019-04-09 11:24:45','2019-04-09 11:24:45'),(209,'All Sports, Fitness & Outdoors','2',2,83,'','','1','2','2019-04-09 11:25:04','2019-04-09 11:25:04'),(210,'Backpacks','2',2,83,'','','1','2','2019-04-09 11:25:12','2019-04-09 11:25:12'),(211,'Rucksacks','2',2,83,'','','1','2','2019-04-09 11:25:23','2019-04-09 11:25:23'),(212,'Suitcases & Trolleys','2',2,83,'','','1','2','2019-04-09 11:25:35','2019-04-09 11:25:35'),(213,'Travel Duffles','2',2,83,'','','1','2','2019-04-09 11:25:46','2019-04-09 11:25:46'),(214,'Travel Accessories','2',2,83,'','','1','2','2019-04-09 11:26:02','2019-04-09 11:26:02'),(215,'Wallets','2',2,83,'','','1','2','2019-04-09 11:26:12','2019-04-09 11:26:12'),(216,'Toys & Games','2',2,84,'','','1','2','2019-04-09 11:26:35','2019-04-09 11:26:35'),(217,'Baby Products','2',2,84,'','','1','2','2019-04-09 11:26:47','2019-04-09 11:26:47'),(218,'Diapers','2',2,84,'','','1','2','2019-04-09 11:26:54','2019-04-09 11:26:54'),(219,'Baby Wish List','2',2,84,'','','1','2','2019-04-09 11:27:06','2019-04-09 11:27:06'),(220,'Toys Gifting Store','2',2,84,'','','1','2','2019-04-09 11:27:16','2019-04-09 11:27:16'),(221,'International Toys Store','2',2,84,'','','1','2','2019-04-09 11:27:42','2019-04-09 11:27:42'),(222,'Baby Bath, Skin & Grooming','2',2,84,'','','1','2','2019-04-09 11:27:53','2019-04-09 11:27:53'),(223,'Strollers & Prams','2',2,84,'','','1','2','2019-04-09 11:28:01','2019-04-09 11:28:01'),(224,'Nursing & Feeding','2',2,84,'','','1','2','2019-04-09 11:28:12','2019-04-09 11:28:12'),(225,'Kids\' Clothing','2',2,84,'','','1','2','2019-04-09 11:28:23','2019-04-09 11:28:23'),(226,'Kids\' Shoes','2',2,84,'','','1','2','2019-04-09 11:28:37','2019-04-09 11:28:37'),(227,'School Bags','2',2,84,'','','1','2','2019-04-09 11:28:48','2019-04-09 11:28:48'),(228,'Kids\' Watches','2',2,84,'','','1','2','2019-04-09 11:28:57','2019-04-09 11:28:57'),(229,'Kids\' Fashion','2',2,84,'','','1','2','2019-04-09 11:29:06','2019-04-09 11:29:06'),(230,'Baby Fashion','2',2,84,'','','1','2','2019-04-09 11:29:17','2019-04-09 11:29:17'),(231,'Miscellaneous','2',2,84,'','','1','2','2019-04-09 11:29:24','2019-04-09 11:29:24'),(232,'Motorbike Accessories & Parts','2',2,85,'','','1','2','2019-04-09 11:29:55','2019-04-09 11:29:55'),(233,'Car Accessories','2',2,85,'','','1','2','2019-04-09 11:30:05','2019-04-09 11:30:05'),(234,'Car Electronics','2',2,85,'','','1','2','2019-04-09 11:30:15','2019-04-09 11:30:15'),(235,'Car Parts','2',2,85,'','','1','2','2019-04-09 11:30:23','2019-04-09 11:30:23'),(236,'Car & Bike Care','2',2,85,'','','1','2','2019-04-09 11:30:31','2019-04-09 11:30:31'),(237,'All Car & Motorbike Products','2',2,85,'','','1','2','2019-04-09 11:30:42','2019-04-09 11:30:42'),(238,'Industrial & Scientific Supplies','2',2,85,'','','1','2','2019-04-09 11:30:50','2019-04-09 11:30:50'),(239,'Test, Measure & Inspect','2',2,85,'','','1','2','2019-04-09 11:30:57','2019-04-09 11:30:57'),(240,'Lab & Scientific','2',2,85,'','','1','2','2019-04-09 11:31:11','2019-04-09 11:31:11'),(241,'Janitorial & Sanitation Supplies','2',2,85,'','','1','2','2019-04-09 11:31:25','2019-04-09 11:31:25'),(242,'All Books','2',2,86,'','','1','2','2019-04-09 11:33:28','2019-04-09 11:33:28'),(243,'Fiction Books','2',2,86,'','','1','2','2019-04-09 11:33:46','2019-04-09 11:33:46'),(244,'Editors Corner','2',2,86,'','','1','2','2019-04-09 11:33:55','2019-04-10 06:46:26'),(245,'School Textbooks','2',2,86,'','','1','2','2019-04-09 11:34:05','2019-04-09 11:34:05'),(246,'Childrens Books','2',2,86,'','','1','2','2019-04-09 11:34:20','2019-04-10 06:47:25'),(247,'Exam Central','2',2,86,'','','1','2','2019-04-09 11:34:29','2019-04-09 11:34:29'),(248,'Textbooks','2',2,86,'','','1','2','2019-04-09 11:34:38','2019-04-09 11:34:38'),(249,'Indian Language Books','2',2,86,'','','1','2','2019-04-09 11:34:48','2019-04-09 11:34:48'),(250,'Used Books','2',2,86,'','','1','2','2019-04-09 11:34:55','2019-04-09 11:34:55'),(253,'All Movies & TV Shows','2',2,87,'','','1','2','2019-04-09 11:36:09','2019-04-09 11:36:09'),(254,'Blu-ray','2',2,87,'','','1','2','2019-04-09 11:36:19','2019-04-09 11:36:19'),(255,'All English','2',2,87,'','','1','2','2019-04-09 11:36:29','2019-04-09 11:36:29'),(256,'All Hindi','2',2,87,'','','1','2','2019-04-09 11:36:38','2019-04-09 11:36:38'),(257,'Entertainment Collectibles','2',2,87,'','','1','2','2019-04-09 11:36:47','2019-04-09 11:36:47'),(258,'Gaming Consoles','2',2,87,'','','1','2','2019-04-09 11:36:56','2019-04-09 11:36:56'),(259,'Latest Video Games','2',2,87,'','','1','2','2019-04-09 11:37:04','2019-04-09 11:37:04'),(260,'Gaming Accessories','2',2,87,'','','1','2','2019-04-09 11:37:12','2019-04-09 11:37:12'),(261,'PC Games','2',2,87,'','','1','2','2019-04-09 11:37:24','2019-04-09 11:37:24'),(262,'Video Games Deals','2',2,87,'','','1','2','2019-04-09 11:37:34','2019-04-09 11:37:34'),(263,'All Video Games','2',2,87,'263-CI-11042019122340.png','263-CI-11042019122340-1.png','1','2','2019-04-09 11:37:42','2019-04-11 06:53:40'),(264,'All Music','2',2,87,'264-CI-11042019122327.png','264-CI-11042019122327-1.png','1','2','2019-04-09 11:37:50','2019-04-11 06:53:27'),(265,'International Music','2',2,87,'265-CI-11042019122315.png','265-CI-11042019122315-1.png','1','2','2019-04-09 11:38:04','2019-04-11 06:53:15'),(266,'Film Songs','2',2,87,'266-CI-11042019122304.png','266-CI-11042019122304-1.png','1','2','2019-04-09 11:38:14','2019-04-11 06:53:04'),(267,'Musical Instruments & Professional Audio','2',2,87,'267-CI-11042019122248.png','267-CI-11042019122248-1.png','1','2','2019-04-09 11:38:23','2019-04-11 06:52:48'),(268,'Popular Gift Cards','2',2,88,'268-CI-11042019122216.png','268-CI-11042019122216-1.png','1','2','2019-04-09 11:38:56','2019-04-11 06:52:16'),(269,'Gift Boxes, Gift Tags, Greeting Cards','2',2,88,'','','1','2','2019-04-09 11:39:04','2019-04-09 11:39:04'),(270,'Popular Brand Gift Vouchers','2',2,88,'270-CI-11042019122133.png','270-CI-11042019122133-1.png','1','2','2019-04-09 11:39:13','2019-04-11 06:51:33'),(271,'Birthday Gift Cards','2',2,88,'271-CI-11042019122120.png','271-CI-11042019122120-1.png','1','2','2019-04-09 11:39:20','2019-04-11 06:51:20'),(272,'Wedding & Anniversary','2',2,88,'272-CI-11042019122108.png','272-CI-11042019122108-1.png','1','2','2019-04-09 11:39:28','2019-04-11 06:51:08'),(273,'Best Wishes & Thank You','2',2,88,'273-CI-11042019122057.png','273-CI-11042019122057-1.png','1','2','2019-04-09 11:39:36','2019-04-11 06:50:57'),(274,'Corporate Gift Cards','2',2,88,'274-CI-11042019122045.png','274-CI-11042019122045-1.png','1','2','2019-04-09 11:39:45','2019-04-11 06:50:45'),(275,'MI','2',3,89,'','','1','2','2019-04-09 11:48:18','2019-04-09 11:48:18'),(276,'Realme','2',3,89,'','','1','2','2019-04-09 11:48:27','2019-04-09 11:48:41'),(277,'Samsung','2',3,89,'','','1','2','2019-04-09 11:48:48','2019-04-09 11:48:48'),(278,'Infinix','2',3,89,'','','1','2','2019-04-09 11:48:56','2019-04-09 11:48:56'),(279,'Oppo','2',3,89,'','','1','2','2019-04-09 11:49:03','2019-04-09 11:49:03'),(280,'Apple','2',3,89,'','','1','2','2019-04-09 11:49:10','2019-04-09 11:49:10'),(281,'Vivo','2',3,89,'','','1','2','2019-04-09 11:49:17','2019-04-09 11:50:04'),(282,'Honor','2',3,89,'','','1','2','2019-04-09 11:49:27','2019-04-09 11:49:27'),(283,'Asus','2',3,89,'','','1','2','2019-04-09 11:49:34','2019-04-09 11:49:34'),(284,'Samsung','2',3,89,'','','1','2','2019-04-09 11:49:46','2019-04-09 11:49:46'),(285,'Mobile Accesories','2',2,13,'','','1','2','2019-04-09 11:50:43','2019-04-09 11:50:43'),(286,'Mobile Cases','2',3,285,'','','1','2','2019-04-09 11:51:05','2019-04-09 11:51:05'),(287,'Headphones & Headsets','2',3,285,'','','1','2','2019-04-09 11:51:16','2019-04-09 11:51:16'),(288,'Powerbanks','2',3,285,'','','1','2','2019-04-09 11:51:28','2019-04-09 11:51:28'),(289,'Screenguards','2',3,285,'','','1','2','2019-04-09 11:51:38','2019-04-09 11:51:38'),(290,'Memory cards','2',3,285,'','','1','2','2019-04-09 11:51:46','2019-04-09 11:51:46'),(291,'Smart Headphones','2',3,285,'','','1','2','2019-04-09 11:51:56','2019-04-09 11:51:56'),(292,'Mobile Cables','2',3,285,'','','1','2','2019-04-09 11:52:08','2019-04-09 11:52:08'),(293,'Mobile Chargers','2',3,285,'','','1','2','2019-04-09 11:52:21','2019-04-09 11:52:21'),(294,'Mobile Holders','2',3,285,'','','1','2','2019-04-09 11:52:39','2019-04-09 11:52:39'),(295,'Smart Wearable Tech','2',2,12,'','','1','2','2019-04-09 11:58:00','2019-04-09 11:58:00'),(296,'Smart Watches','2',3,295,'','','1','2','2019-04-09 11:58:19','2019-04-09 11:58:19'),(297,'Smart Glasses VR','2',3,295,'','','1','2','2019-04-09 11:58:35','2019-04-09 11:58:35'),(298,'Smart Bands','2',3,295,'','','1','2','2019-04-09 11:58:47','2019-04-09 11:58:47'),(299,'Healthcare Appliances','2',2,12,'','','1','2','2019-04-09 11:59:27','2019-04-09 11:59:27'),(300,'BP Monitors','2',3,299,'','','1','2','2019-04-09 11:59:45','2019-04-09 11:59:45'),(301,'Weighing Scale','2',3,299,'','','1','2','2019-04-09 11:59:58','2019-04-09 11:59:58'),(303,'Gaming Laptops','2',3,101,'','','1','2','2019-04-09 12:00:54','2019-04-09 12:00:54'),(304,'External HDDs','2',3,105,'','','1','2','2019-04-09 12:01:22','2019-04-09 12:01:22'),(305,'Internal HDDs','2',3,105,'','','1','2','2019-04-09 12:01:32','2019-04-09 12:01:32'),(306,'Pendrives','2',3,105,'','','1','2','2019-04-09 12:01:40','2019-04-09 12:01:40'),(307,'Laptops Skins & Decals','2',3,105,'','','1','2','2019-04-09 12:01:54','2019-04-09 12:01:54'),(308,'Laptop Bags','2',3,105,'','','1','2','2019-04-09 12:02:06','2019-04-09 12:02:06'),(309,'Mouse','2',3,105,'','','1','2','2019-04-09 12:02:13','2019-04-09 12:02:13'),(310,'Apple iPads','2',3,95,'','','1','2','2019-04-09 12:04:07','2019-04-09 12:04:07'),(311,'Televisions','2',2,13,'','','1','2','2019-04-09 12:04:38','2019-04-09 12:04:38'),(312,'Home Audio Speakers','2',3,112,'','','1','2','2019-04-09 12:06:11','2019-04-09 12:06:11'),(313,'Home Theaters','2',3,112,'','','1','2','2019-04-09 12:06:23','2019-04-09 12:06:23'),(314,'Bluetooth Speakers','2',3,112,'','','1','2','2019-04-09 12:06:34','2019-04-09 12:06:34'),(315,'DTH Setup Top Box','2',3,112,'','','1','2','2019-04-09 12:07:01','2019-04-09 12:07:01'),(316,'Smart Home Automation','2',2,12,'','','1','2','2019-04-09 12:08:03','2019-04-09 12:08:03'),(317,'Google Home','2',3,316,'','','1','2','2019-04-09 12:08:17','2019-04-09 12:08:17'),(318,'Lens','2',3,119,'','','1','2','2019-04-09 12:08:40','2019-04-09 12:08:40'),(319,'Tripods','2',3,119,'','','1','2','2019-04-09 12:08:49','2019-04-09 12:08:59'),(320,'Routers','2',3,104,'','','1','2','2019-04-09 12:09:35','2019-04-09 12:09:35'),(321,'Financial & Legal','1',1,0,'321-CI-11042019121634.png','321-CI-11042019121634-1.png','1','2','2019-04-09 12:12:55','2019-04-11 06:46:34'),(322,'Personal Finance','1',1,0,'322-CI-11042019121619.png','322-CI-11042019121619-1.png','1','2','2019-04-09 12:25:27','2019-04-11 06:46:19'),(332,'Beverages','3',1,0,'','','1','2','2019-04-09 12:54:27','2019-04-09 12:54:27'),(333,'Best Sellers','3',1,0,'','','1','2','2019-04-09 12:54:37','2019-04-09 12:54:37'),(334,'Arabian','3',1,0,'','','1','2','2019-04-09 12:56:47','2019-04-09 12:56:47'),(335,'Hyderabadi','3',1,0,'','','1','2','2019-04-09 12:56:59','2019-04-09 12:56:59'),(336,'Bakery','3',1,0,'','','1','2','2019-04-09 12:57:09','2019-04-09 12:57:09'),(337,'Kerala','3',1,0,'','','1','2','2019-04-09 12:57:17','2019-04-09 12:57:17'),(338,'Indian','3',1,0,'','','1','2','2019-04-09 12:57:32','2019-04-09 12:57:32'),(339,'Seafood','3',1,0,'','','1','2','2019-04-09 12:57:40','2019-04-09 12:57:40'),(340,'Tea','3',1,0,'','','1','2','2019-04-09 12:57:52','2019-04-09 12:57:52'),(341,'Sweets','3',1,0,'','','1','2','2019-04-09 12:58:10','2019-04-09 12:58:10'),(342,'Desserts','3',1,0,'','','1','2','2019-04-09 12:58:17','2019-04-09 12:58:17'),(343,'Ice-cream','3',1,0,'','','1','2','2019-04-09 12:58:30','2019-04-09 12:58:30'),(344,'All Day Breakfast','3',1,0,'','','1','2','2019-04-09 12:58:56','2019-04-09 12:58:56'),(345,'Quick Bites','3',1,0,'','','1','2','2019-04-09 12:59:12','2019-04-09 12:59:12'),(346,'Burgers','3',1,0,'','','1','2','2019-04-09 12:59:31','2019-04-09 12:59:31'),(347,'Pizza','3',1,0,'','','1','2','2019-04-09 12:59:42','2019-04-09 12:59:42'),(348,'Groceries','2',1,0,'348-CI-22042019170553.jpg','348-CI-22042019170553-1.jpg','1','2','2019-04-22 11:35:53','2019-04-22 11:35:53'),(349,'Vegetables ','2',1,0,'349-CI-22042019170634.jpg','349-CI-22042019170634-1.jpg','1','2','2019-04-22 11:36:34','2019-04-22 11:36:34'),(350,'Grains','2',2,348,'350-CI-22042019170825.jpg','350-CI-22042019170825-1.jpg','1','2','2019-04-22 11:38:25','2019-04-22 11:38:25'),(351,'Rice','2',3,350,'351-CI-22042019171106.jpg','351-CI-22042019171106-1.jpg','1','2','2019-04-22 11:41:06','2019-04-22 11:41:06'),(352,'Green Leafy Vegetables','2',2,349,'352-CI-22042019171359.jpg','352-CI-22042019171359-1.jpg','1','2','2019-04-22 11:43:59','2019-04-22 11:43:59'),(353,'Organic','2',3,352,'353-CI-22042019171519.jpg','353-CI-22042019171519-1.jpg','1','2','2019-04-22 11:45:19','2019-04-22 11:45:19');
-/*!40000 ALTER TABLE `1w_tbl_categories` ENABLE KEYS */;
-UNLOCK TABLES;
+insert  into `1w_tbl_categories`(`CategoryID`,`C_Name`,`C_Type`,`C_Level`,`C_Parent`,`C_DisplayImage`,`C_DisplayIcon`,`C_Featured`,`C_Status`,`RowAddedDttm`,`RowUpdatedDttm`) values
+(1,'Beauty & Spa','1',1,0,'1-CI-11042019121821.png','1-CI-11042019121821-1.png','2','2','2018-12-26 18:21:45','2019-04-11 12:18:21'),
+(2,'Appliance Repair','1',1,0,'2-CI-11042019121807.png','2-CI-11042019121807-1.png','2','2','2018-12-26 18:21:45','2019-04-11 12:18:07'),
+(3,'Home Cleaning & Repairs','1',1,0,'3-CI-11042019121754.png','3-CI-11042019121754-1.png','1','2','2018-12-26 18:28:31','2019-04-11 12:17:54'),
+(5,'Health & Fitness','1',1,0,'5-CI-11042019121738.png','5-CI-11042019121738-1.png','1','2','2018-12-26 18:29:01','2019-04-11 12:17:38'),
+(7,'Wedding & Events','1',1,0,'7-CI-11042019121720.png','7-CI-11042019121720-1.png','2','2','2018-12-26 18:29:27','2019-04-11 12:17:20'),
+(8,'Tutors & Lessons','1',1,0,'8-CI-11042019121708.png','8-CI-11042019121708-1.png','1','2','2018-12-26 18:29:27','2019-04-11 12:17:08'),
+(9,'Business & Taxes','1',1,0,'9-CI-11042019121654.png','9-CI-11042019121654-1.png','1','2','2018-12-26 18:29:45','2019-04-11 12:16:54'),
+(10,'Mens Fashion','2',1,0,'10-CI-11042019121128.png','10-CI-11042019121128-1.png','1','2','2018-12-29 10:13:45','2019-04-11 12:11:28'),
+(11,'House, Kitchen & Pets','2',1,0,'11-CI-11042019121115.png','11-CI-11042019121115-1.png','1','2','2018-12-29 10:13:45','2019-04-11 12:11:15'),
+(12,'TV Appliances & Electronics','2',1,0,'12-CI-11042019121032.png','12-CI-11042019121032-1.png','1','2','2018-12-29 10:13:45','2019-04-11 12:10:32'),
+(13,'Mobiles & Computers','2',1,0,'13-CI-11042019121019.png','13-CI-11042019121019-1.png','1','2','2018-12-29 10:13:45','2019-04-11 12:10:19'),
+(21,'Fast-Food','3',1,0,'21-CI-21012019214835.jpg','21-CI-21012019214835-1.jpg','1','2','2018-12-31 10:48:30','2019-02-26 15:21:11'),
+(22,'South Indian','3',1,0,'22-CI-21012019214558.jpg','22-CI-21012019214558-1.jpg','1','2','2018-12-31 10:48:30','2019-02-26 15:21:10'),
+(24,'Special Items','3',1,0,'','','1','2','2018-12-31 12:48:42','2019-02-26 15:21:08'),
+(25,'Sandwiches','3',1,0,'','','1','2','2018-12-31 12:48:42','2019-02-26 15:21:07'),
+(36,'Test Food Category','3',2,22,'','','1','2','2019-01-18 22:50:39','2019-01-18 22:50:39'),
+(42,'Test','1',2,2,'','','1','2','2019-01-19 20:48:11','2019-01-19 20:48:11'),
+(43,'Test 1','1',2,2,'','','1','2','2019-01-19 20:48:52','2019-01-19 20:48:52'),
+(44,'test 2','1',2,2,'','','1','2','2019-01-19 20:49:17','2019-01-19 20:49:17'),
+(69,'Third Level Repair','1',3,42,'69-CI-20012019032033.png','69-CI-20012019032033-1.png','1','2','2019-01-20 03:20:33','2019-01-20 03:20:33'),
+(72,'Wedding & Event Test Service','1',2,7,'72-CI-21012019012002.png','72-CI-21012019012002-1.png','1','2','2019-01-21 01:20:02','2019-02-26 15:22:40'),
+(73,'Wedding 2','1',2,7,'73-CI-21012019012319.jpg','73-CI-21012019012319.png','1','2','2019-01-21 01:23:19','2019-02-26 15:22:39'),
+(74,'Hair Styling','1',2,1,'74-CI-29012019123438.jpg','74-CI-04042019115558.png','1','2','2019-01-29 12:34:38','2019-04-04 11:55:58'),
+(76,'Test','1',3,74,'','','1','2','2019-02-04 14:26:08','2019-02-04 19:56:31'),
+(80,'Non - Govt Agent','1',3,79,'80-CI-04042019121354.jpg','80-CI-04042019121354-1.jpg','1','2','2019-04-04 06:43:54','2019-04-04 12:13:54'),
+(81,'Womens Fashion','2',1,0,'81-CI-11042019121002.png','81-CI-11042019121002-1.png','1','2','2019-04-09 10:52:59','2019-04-11 12:10:02'),
+(82,'Beauty , Health & Grocery','2',1,0,'82-CI-11042019120948.png','82-CI-11042019120948-1.png','1','2','2019-04-09 10:53:46','2019-04-11 12:09:48'),
+(83,'Sports, Fitness, Bags, Luggage','2',1,0,'83-CI-11042019120936.png','83-CI-11042019120936-1.png','1','2','2019-04-09 10:54:09','2019-04-11 12:09:36'),
+(84,'Toys, Baby Products, Kids Fashion','2',1,0,'84-CI-11042019120924.png','84-CI-11042019120924-1.png','1','2','2019-04-09 10:54:27','2019-04-11 12:09:24'),
+(85,'Car, Motorbike, Industrial','2',1,0,'85-CI-11042019120855.png','85-CI-11042019120855-1.png','1','2','2019-04-09 10:54:45','2019-04-11 12:08:55'),
+(86,'Books ','2',1,0,'86-CI-11042019120840.png','86-CI-11042019120840-1.png','1','2','2019-04-09 10:54:56','2019-04-11 12:08:40'),
+(87,'Movies, Music & Video Games','2',1,0,'87-CI-11042019121958.png','87-CI-11042019121958-1.png','1','2','2019-04-09 10:55:07','2019-04-11 12:19:58'),
+(88,'Gift Cards & Mobile Recharges','2',1,0,'88-CI-11042019120629.png','88-CI-11042019120629-1.png','1','2','2019-04-09 10:55:18','2019-04-11 12:06:29'),
+(89,'Mobile Phones','2',2,13,'','','1','2','2019-04-09 10:56:59','2019-04-09 16:26:59'),
+(91,'Cases & Covers','2',2,13,'','','1','2','2019-04-09 10:57:31','2019-04-09 16:27:31'),
+(92,'Screen Protectors','2',2,13,'','','1','2','2019-04-09 10:57:41','2019-04-09 16:27:41'),
+(93,'Power Banks','2',2,13,'','','1','2','2019-04-09 10:57:50','2019-04-09 16:27:50'),
+(94,'Certified Refurbished','2',2,13,'','','1','2','2019-04-09 10:58:13','2019-04-09 16:28:13'),
+(95,'Tablets','2',2,13,'','','1','2','2019-04-09 10:58:24','2019-04-09 16:28:24'),
+(96,'Wearable Devices','2',2,13,'','','1','2','2019-04-09 10:58:33','2019-04-09 16:28:33'),
+(97,'Smart home','2',2,13,'','','1','2','2019-04-09 10:58:42','2019-04-09 16:28:42'),
+(98,'Office Supplies & Stationary','2',2,13,'','','1','2','2019-04-09 10:58:53','2019-04-09 16:28:53'),
+(99,'Software','2',2,13,'','','1','2','2019-04-09 10:59:00','2019-04-09 16:29:00'),
+(101,'Laptops','2',2,13,'','','1','2','2019-04-09 10:59:21','2019-04-09 16:29:28'),
+(102,'Drives & Storage','2',2,13,'','','1','2','2019-04-09 10:59:38','2019-04-09 16:29:38'),
+(103,'Printers & Ink','2',2,13,'','','1','2','2019-04-09 10:59:51','2019-04-09 16:29:51'),
+(104,'Networking Devices','2',2,13,'','','1','2','2019-04-09 11:00:00','2019-04-09 16:30:00'),
+(105,'Computer Accesories','2',2,13,'','','1','2','2019-04-09 11:00:13','2019-04-09 16:30:13'),
+(106,'Game Zone','2',2,13,'','','1','2','2019-04-09 11:00:21','2019-04-09 16:30:21'),
+(107,'Monitors','2',2,13,'','','1','2','2019-04-09 11:00:30','2019-04-09 16:30:30'),
+(108,'Desktops','2',2,13,'','','1','2','2019-04-09 11:00:43','2019-04-09 16:30:43'),
+(109,'Miscellaneous','2',2,13,'','','1','2','2019-04-09 11:01:07','2019-04-09 16:31:07'),
+(110,'Miscellaneous','2',2,12,'','','1','2','2019-04-09 11:01:31','2019-04-09 16:31:31'),
+(111,'Televisions','2',2,12,'','','1','2','2019-04-09 11:01:44','2019-04-09 16:31:44'),
+(112,'Home Entertainment Systems','2',2,12,'','','1','2','2019-04-09 11:01:56','2019-04-09 16:31:56'),
+(113,'Headphones','2',2,12,'','','1','2','2019-04-09 11:02:07','2019-04-09 16:32:07'),
+(114,'Speakers','2',2,12,'','','1','2','2019-04-09 11:02:14','2019-04-09 16:32:14'),
+(115,'Home Audio & Theater','2',2,12,'','','1','2','2019-04-09 11:02:25','2019-04-09 16:32:25'),
+(116,'Cameras','2',2,12,'','','1','2','2019-04-09 11:02:34','2019-04-09 16:32:34'),
+(117,'DSLR Cameras','2',2,12,'','','1','2','2019-04-09 11:02:44','2019-04-09 16:32:44'),
+(118,'Security Cameras','2',2,12,'','','1','2','2019-04-09 11:02:53','2019-04-09 16:32:53'),
+(119,'Camera Accesories','2',2,12,'','','1','2','2019-04-09 11:03:05','2019-04-09 16:33:05'),
+(120,'Musical Instruments & Professional Audio','2',2,12,'','','1','2','2019-04-09 11:03:23','2019-04-09 16:33:23'),
+(121,'Gaming Consoles','2',2,12,'','','1','2','2019-04-09 11:03:34','2019-04-09 16:33:34'),
+(122,'All electronics','2',2,12,'','','1','2','2019-04-09 11:03:44','2019-04-09 16:33:44'),
+(123,'Air Conditioners','2',2,12,'','','1','2','2019-04-09 11:03:58','2019-04-09 16:33:58'),
+(124,'Refrigerators','2',2,12,'','','1','2','2019-04-09 11:04:11','2019-04-09 16:34:11'),
+(125,'Washing Machines','2',2,12,'','','1','2','2019-04-09 11:04:21','2019-04-09 16:34:21'),
+(126,'Kitchen & Home Appliances','2',2,12,'','','1','2','2019-04-09 11:04:34','2019-04-09 16:34:34'),
+(127,'Heating & Cooling Appliances','2',2,12,'','','1','2','2019-04-09 11:04:48','2019-04-09 16:34:48'),
+(128,'All Appliances','2',2,12,'','','1','2','2019-04-09 11:04:58','2019-04-09 16:34:58'),
+(129,'Miscellaneous','2',2,10,'','','1','2','2019-04-09 11:05:41','2019-04-09 16:35:41'),
+(130,'Clothing','2',2,10,'','','1','2','2019-04-09 11:05:52','2019-04-09 16:35:52'),
+(131,'T-Shirts & Polo','2',2,10,'','','1','2','2019-04-09 11:06:06','2019-04-09 16:36:06'),
+(132,'Shirts','2',2,10,'','','1','2','2019-04-09 11:06:20','2019-04-09 16:36:20'),
+(133,'Jeans','2',2,10,'','','1','2','2019-04-09 11:06:26','2019-04-09 16:36:26'),
+(134,'Innerwear','2',2,10,'','','1','2','2019-04-09 11:06:32','2019-04-09 16:36:32'),
+(135,'Watches','2',2,10,'','','1','2','2019-04-09 11:06:41','2019-04-09 16:37:03'),
+(136,'Bugs & Luggage','2',2,10,'','','1','2','2019-04-09 11:07:12','2019-04-09 16:37:12'),
+(137,'Sunglasses','2',2,10,'','','1','2','2019-04-09 11:07:22','2019-04-09 16:37:22'),
+(138,'Jewellery','2',2,10,'','','1','2','2019-04-09 11:07:32','2019-04-09 16:37:32'),
+(139,'Wallets','2',2,10,'','','1','2','2019-04-09 11:07:38','2019-04-09 16:37:38'),
+(140,'Shoes','2',2,10,'','','1','2','2019-04-09 11:07:48','2019-04-09 16:37:48'),
+(141,'Sports Shoes','2',2,10,'','','1','2','2019-04-09 11:07:55','2019-04-09 16:37:55'),
+(142,'Formal Shoes','2',2,10,'','','1','2','2019-04-09 11:08:03','2019-04-09 16:38:03'),
+(143,'Casual Shoes','2',2,10,'','','1','2','2019-04-09 11:08:11','2019-04-09 16:38:11'),
+(144,'Sportswear','2',2,10,'','','1','2','2019-04-09 11:08:21','2019-04-09 16:38:21'),
+(145,'The Designer Boutique','2',2,10,'','','1','2','2019-04-09 11:08:32','2019-04-09 16:38:32'),
+(146,'Amazon Fashion','2',2,10,'','','1','2','2019-04-09 11:08:51','2019-04-09 16:38:51'),
+(147,'Sales & Deals','2',2,10,'','','1','2','2019-04-09 11:09:01','2019-04-09 16:39:01'),
+(148,'Miscellaneous','2',2,81,'','','1','2','2019-04-09 11:09:41','2019-04-09 16:39:41'),
+(149,'Clothing','2',2,81,'','','1','2','2019-04-09 11:09:48','2019-04-09 16:39:48'),
+(150,'Western Wear','2',2,81,'','','1','2','2019-04-09 11:09:56','2019-04-09 16:39:56'),
+(151,'Ethnic Wear','2',2,81,'','','1','2','2019-04-09 11:10:06','2019-04-09 16:40:06'),
+(152,'Lingerie & Nightwear','2',2,81,'','','1','2','2019-04-09 11:10:17','2019-04-09 16:40:17'),
+(153,'Top Brands','2',2,81,'','','1','2','2019-04-09 11:10:23','2019-04-09 16:40:23'),
+(154,'Watches','2',2,81,'','','1','2','2019-04-09 11:10:32','2019-04-09 16:40:32'),
+(155,'Handbags & Clutches','2',2,81,'','','1','2','2019-04-09 11:10:43','2019-04-09 16:40:43'),
+(156,'Gold & Diamond Jewellery','2',2,81,'','','1','2','2019-04-09 11:10:53','2019-04-09 16:40:53'),
+(157,'Fashion & Silver Jewelry','2',2,81,'','','1','2','2019-04-09 11:11:10','2019-04-09 16:41:10'),
+(158,'Sunglasses','2',2,81,'','','1','2','2019-04-09 11:11:21','2019-04-09 16:41:21'),
+(159,'Shoes','2',2,81,'','','1','2','2019-04-09 11:11:39','2019-04-09 16:41:39'),
+(160,'Fashion Sandals','2',2,81,'','','1','2','2019-04-09 11:11:53','2019-04-09 16:42:23'),
+(161,'Ballerinas','2',2,81,'','','1','2','2019-04-09 11:12:06','2019-04-09 16:42:06'),
+(162,'Designer Boutiques','2',2,81,'','','1','2','2019-04-09 11:12:36','2019-04-09 16:42:36'),
+(163,'Handlooms & handicrafts','2',2,81,'','','1','2','2019-04-09 11:12:52','2019-04-09 16:42:52'),
+(164,'Sportswear','2',2,81,'','','1','2','2019-04-09 11:13:04','2019-04-09 16:43:04'),
+(165,'Amazon Fashion','2',2,81,'','','1','2','2019-04-09 11:13:15','2019-04-09 16:43:15'),
+(166,'Sales & Deals','2',2,81,'','','1','2','2019-04-09 11:13:29','2019-04-09 16:43:29'),
+(167,'Kitchen & Dining','2',2,11,'','','1','2','2019-04-09 11:14:18','2019-04-09 16:44:18'),
+(168,'Kitchen Storage & Containers','2',2,11,'','','1','2','2019-04-09 11:14:32','2019-04-09 16:44:32'),
+(169,'Furniture','2',2,11,'','','1','2','2019-04-09 11:14:44','2019-04-09 16:44:44'),
+(170,'Fine Art','2',2,11,'','','1','2','2019-04-09 11:14:54','2019-04-09 16:44:54'),
+(171,'Home Furnishing','2',2,11,'','','1','2','2019-04-09 11:15:05','2019-04-09 16:45:05'),
+(172,'Bedroom linen','2',2,11,'','','1','2','2019-04-09 11:15:18','2019-04-09 16:45:18'),
+(173,'Home Decor','2',2,11,'','','1','2','2019-04-09 11:15:39','2019-04-09 16:45:39'),
+(174,'Garden & Outdoors','2',2,11,'','','1','2','2019-04-09 11:15:53','2019-04-09 16:45:53'),
+(175,'Home Storage','2',2,11,'','','1','2','2019-04-09 11:16:05','2019-04-09 16:46:05'),
+(176,'Home Improvement','2',2,11,'','','1','2','2019-04-09 11:16:20','2019-04-09 16:46:20'),
+(177,'Sewing & Craft Supplies','2',2,11,'','','1','2','2019-04-09 11:16:35','2019-04-09 16:46:35'),
+(178,'All Home & Kitchen','2',2,11,'','','1','2','2019-04-09 11:16:48','2019-04-09 16:46:48'),
+(179,'Shop by Room','2',2,11,'','','1','2','2019-04-09 11:17:01','2019-04-09 16:47:01'),
+(180,'Home & Kitchen Deals','2',2,11,'','','1','2','2019-04-09 11:17:14','2019-04-09 16:47:14'),
+(181,'Certified Refurbished','2',2,11,'','','1','2','2019-04-09 11:17:23','2019-04-09 16:47:23'),
+(182,'All Pet Supplies','2',2,11,'','','1','2','2019-04-09 11:17:38','2019-04-09 16:47:38'),
+(183,'Dog Supplies','2',2,11,'','','1','2','2019-04-09 11:18:00','2019-04-09 16:48:00'),
+(184,'Miscellaneous','2',2,11,'','','1','2','2019-04-09 11:18:09','2019-04-09 16:48:09'),
+(185,'Beauty & Grooming','2',2,82,'','','1','2','2019-04-09 11:18:58','2019-04-09 16:48:58'),
+(186,'Luxury Beauty','2',2,82,'','','1','2','2019-04-09 11:19:36','2019-04-09 16:49:36'),
+(187,'Makeup','2',2,82,'','','1','2','2019-04-09 11:19:46','2019-04-09 16:49:46'),
+(188,'Health & Personal Care','2',2,82,'','','1','2','2019-04-09 11:19:57','2019-04-09 16:49:57'),
+(189,'Household Supplies','2',2,82,'','','1','2','2019-04-09 11:20:07','2019-04-09 16:50:07'),
+(190,'Personal Care Appliances','2',2,82,'','','1','2','2019-04-09 11:20:18','2019-04-09 16:50:18'),
+(191,'Diet & Nutrition','2',2,82,'','','1','2','2019-04-09 11:20:30','2019-04-09 16:50:30'),
+(192,'Subscribe & Save','2',2,82,'','','1','2','2019-04-09 11:20:41','2019-04-09 16:50:41'),
+(193,'Value Bazaar','2',2,82,'','','1','2','2019-04-09 11:21:01','2019-04-09 16:51:01'),
+(194,'All Grocery ','2',2,82,'','','1','2','2019-04-09 11:21:18','2019-04-09 16:51:18'),
+(195,'Coffee, Tea & Beverages','2',2,82,'','','1','2','2019-04-09 11:21:34','2019-04-09 16:51:34'),
+(196,'Snacks','2',2,82,'','','1','2','2019-04-09 11:21:41','2019-04-09 16:51:41'),
+(197,'Cricket','2',2,83,'','','1','2','2019-04-09 11:22:10','2019-04-09 16:52:10'),
+(198,'Badminton','2',2,83,'','','1','2','2019-04-09 11:22:18','2019-04-09 16:52:18'),
+(199,'Cycling','2',2,83,'','','1','2','2019-04-09 11:22:26','2019-04-09 16:52:26'),
+(200,'Football','2',2,83,'','','1','2','2019-04-09 11:22:35','2019-04-09 16:52:35'),
+(201,'Camping & Hiking','2',2,83,'','','1','2','2019-04-09 11:22:45','2019-04-09 16:52:59'),
+(202,'Fitness Accessories','2',2,83,'','','1','2','2019-04-09 11:23:10','2019-04-09 16:53:10'),
+(203,'Yoga','2',2,83,'','','1','2','2019-04-09 11:23:17','2019-04-09 16:53:17'),
+(204,'Strength Training','2',2,83,'','','1','2','2019-04-09 11:23:59','2019-04-09 16:53:59'),
+(205,'Cardio Equipment','2',2,83,'','','1','2','2019-04-09 11:24:08','2019-04-09 16:54:08'),
+(206,'Sports Collectibles','2',2,83,'','','1','2','2019-04-09 11:24:18','2019-04-09 16:54:18'),
+(207,'Certified Refurbished','2',2,83,'','','1','2','2019-04-09 11:24:26','2019-04-09 16:54:26'),
+(208,'All Exercises & Fitness','2',2,83,'','','1','2','2019-04-09 11:24:45','2019-04-09 16:54:45'),
+(209,'All Sports, Fitness & Outdoors','2',2,83,'','','1','2','2019-04-09 11:25:04','2019-04-09 16:55:04'),
+(210,'Backpacks','2',2,83,'','','1','2','2019-04-09 11:25:12','2019-04-09 16:55:12'),
+(211,'Rucksacks','2',2,83,'','','1','2','2019-04-09 11:25:23','2019-04-09 16:55:23'),
+(212,'Suitcases & Trolleys','2',2,83,'','','1','2','2019-04-09 11:25:35','2019-04-09 16:55:35'),
+(213,'Travel Duffles','2',2,83,'','','1','2','2019-04-09 11:25:46','2019-04-09 16:55:46'),
+(214,'Travel Accessories','2',2,83,'','','1','2','2019-04-09 11:26:02','2019-04-09 16:56:02'),
+(215,'Wallets','2',2,83,'','','1','2','2019-04-09 11:26:12','2019-04-09 16:56:12'),
+(216,'Toys & Games','2',2,84,'','','1','2','2019-04-09 11:26:35','2019-04-09 16:56:35'),
+(217,'Baby Products','2',2,84,'','','1','2','2019-04-09 11:26:47','2019-04-09 16:56:47'),
+(218,'Diapers','2',2,84,'','','1','2','2019-04-09 11:26:54','2019-04-09 16:56:54'),
+(219,'Baby Wish List','2',2,84,'','','1','2','2019-04-09 11:27:06','2019-04-09 16:57:06'),
+(220,'Toys Gifting Store','2',2,84,'','','1','2','2019-04-09 11:27:16','2019-04-09 16:57:16'),
+(221,'International Toys Store','2',2,84,'','','1','2','2019-04-09 11:27:42','2019-04-09 16:57:42'),
+(222,'Baby Bath, Skin & Grooming','2',2,84,'','','1','2','2019-04-09 11:27:53','2019-04-09 16:57:53'),
+(223,'Strollers & Prams','2',2,84,'','','1','2','2019-04-09 11:28:01','2019-04-09 16:58:01'),
+(224,'Nursing & Feeding','2',2,84,'','','1','2','2019-04-09 11:28:12','2019-04-09 16:58:12'),
+(225,'Kids\' Clothing','2',2,84,'','','1','2','2019-04-09 11:28:23','2019-04-09 16:58:23'),
+(226,'Kids\' Shoes','2',2,84,'','','1','2','2019-04-09 11:28:37','2019-04-09 16:58:37'),
+(227,'School Bags','2',2,84,'','','1','2','2019-04-09 11:28:48','2019-04-09 16:58:48'),
+(228,'Kids\' Watches','2',2,84,'','','1','2','2019-04-09 11:28:57','2019-04-09 16:58:57'),
+(229,'Kids\' Fashion','2',2,84,'','','1','2','2019-04-09 11:29:06','2019-04-09 16:59:06'),
+(230,'Baby Fashion','2',2,84,'','','1','2','2019-04-09 11:29:17','2019-04-09 16:59:17'),
+(231,'Miscellaneous','2',2,84,'','','1','2','2019-04-09 11:29:24','2019-04-09 16:59:24'),
+(232,'Motorbike Accessories & Parts','2',2,85,'','','1','2','2019-04-09 11:29:55','2019-04-09 16:59:55'),
+(233,'Car Accessories','2',2,85,'','','1','2','2019-04-09 11:30:05','2019-04-09 17:00:05'),
+(234,'Car Electronics','2',2,85,'','','1','2','2019-04-09 11:30:15','2019-04-09 17:00:15'),
+(235,'Car Parts','2',2,85,'','','1','2','2019-04-09 11:30:23','2019-04-09 17:00:23'),
+(236,'Car & Bike Care','2',2,85,'','','1','2','2019-04-09 11:30:31','2019-04-09 17:00:31'),
+(237,'All Car & Motorbike Products','2',2,85,'','','1','2','2019-04-09 11:30:42','2019-04-09 17:00:42'),
+(238,'Industrial & Scientific Supplies','2',2,85,'','','1','2','2019-04-09 11:30:50','2019-04-09 17:00:50'),
+(239,'Test, Measure & Inspect','2',2,85,'','','1','2','2019-04-09 11:30:57','2019-04-09 17:00:57'),
+(240,'Lab & Scientific','2',2,85,'','','1','2','2019-04-09 11:31:11','2019-04-09 17:01:11'),
+(241,'Janitorial & Sanitation Supplies','2',2,85,'','','1','2','2019-04-09 11:31:25','2019-04-09 17:01:25'),
+(242,'All Books','2',2,86,'','','1','2','2019-04-09 11:33:28','2019-04-09 17:03:28'),
+(243,'Fiction Books','2',2,86,'','','1','2','2019-04-09 11:33:46','2019-04-09 17:03:46'),
+(244,'Editors Corner','2',2,86,'','','1','2','2019-04-09 11:33:55','2019-04-10 12:16:26'),
+(245,'School Textbooks','2',2,86,'','','1','2','2019-04-09 11:34:05','2019-04-09 17:04:05'),
+(246,'Childrens Books','2',2,86,'','','1','2','2019-04-09 11:34:20','2019-04-10 12:17:25'),
+(247,'Exam Central','2',2,86,'','','1','2','2019-04-09 11:34:29','2019-04-09 17:04:29'),
+(248,'Textbooks','2',2,86,'','','1','2','2019-04-09 11:34:38','2019-04-09 17:04:38'),
+(249,'Indian Language Books','2',2,86,'','','1','2','2019-04-09 11:34:48','2019-04-09 17:04:48'),
+(250,'Used Books','2',2,86,'','','1','2','2019-04-09 11:34:55','2019-04-09 17:04:55'),
+(253,'All Movies & TV Shows','2',2,87,'','','1','2','2019-04-09 11:36:09','2019-04-09 17:06:09'),
+(254,'Blu-ray','2',2,87,'','','1','2','2019-04-09 11:36:19','2019-04-09 17:06:19'),
+(255,'All English','2',2,87,'','','1','2','2019-04-09 11:36:29','2019-04-09 17:06:29'),
+(256,'All Hindi','2',2,87,'','','1','2','2019-04-09 11:36:38','2019-04-09 17:06:38'),
+(257,'Entertainment Collectibles','2',2,87,'','','1','2','2019-04-09 11:36:47','2019-04-09 17:06:47'),
+(258,'Gaming Consoles','2',2,87,'','','1','2','2019-04-09 11:36:56','2019-04-09 17:06:56'),
+(259,'Latest Video Games','2',2,87,'','','1','2','2019-04-09 11:37:04','2019-04-09 17:07:04'),
+(260,'Gaming Accessories','2',2,87,'','','1','2','2019-04-09 11:37:12','2019-04-09 17:07:12'),
+(261,'PC Games','2',2,87,'','','1','2','2019-04-09 11:37:24','2019-04-09 17:07:24'),
+(262,'Video Games Deals','2',2,87,'','','1','2','2019-04-09 11:37:34','2019-04-09 17:07:34'),
+(263,'All Video Games','2',2,87,'263-CI-11042019122340.png','263-CI-11042019122340-1.png','1','2','2019-04-09 11:37:42','2019-04-11 12:23:40'),
+(264,'All Music','2',2,87,'264-CI-11042019122327.png','264-CI-11042019122327-1.png','1','2','2019-04-09 11:37:50','2019-04-11 12:23:27'),
+(265,'International Music','2',2,87,'265-CI-11042019122315.png','265-CI-11042019122315-1.png','1','2','2019-04-09 11:38:04','2019-04-11 12:23:15'),
+(266,'Film Songs','2',2,87,'266-CI-11042019122304.png','266-CI-11042019122304-1.png','1','2','2019-04-09 11:38:14','2019-04-11 12:23:04'),
+(267,'Musical Instruments & Professional Audio','2',2,87,'267-CI-11042019122248.png','267-CI-11042019122248-1.png','1','2','2019-04-09 11:38:23','2019-04-11 12:22:48'),
+(268,'Popular Gift Cards','2',2,88,'268-CI-11042019122216.png','268-CI-11042019122216-1.png','1','2','2019-04-09 11:38:56','2019-04-11 12:22:16'),
+(269,'Gift Boxes, Gift Tags, Greeting Cards','2',2,88,'','','1','2','2019-04-09 11:39:04','2019-04-09 17:09:04'),
+(270,'Popular Brand Gift Vouchers','2',2,88,'270-CI-11042019122133.png','270-CI-11042019122133-1.png','1','2','2019-04-09 11:39:13','2019-04-11 12:21:33'),
+(271,'Birthday Gift Cards','2',2,88,'271-CI-11042019122120.png','271-CI-11042019122120-1.png','1','2','2019-04-09 11:39:20','2019-04-11 12:21:20'),
+(272,'Wedding & Anniversary','2',2,88,'272-CI-11042019122108.png','272-CI-11042019122108-1.png','1','2','2019-04-09 11:39:28','2019-04-11 12:21:08'),
+(273,'Best Wishes & Thank You','2',2,88,'273-CI-11042019122057.png','273-CI-11042019122057-1.png','1','2','2019-04-09 11:39:36','2019-04-11 12:20:57'),
+(274,'Corporate Gift Cards','2',2,88,'274-CI-11042019122045.png','274-CI-11042019122045-1.png','1','2','2019-04-09 11:39:45','2019-04-11 12:20:45'),
+(275,'MI','2',3,89,'','','1','2','2019-04-09 11:48:18','2019-04-09 17:18:18'),
+(276,'Realme','2',3,89,'','','1','2','2019-04-09 11:48:27','2019-04-09 17:18:41'),
+(277,'Samsung','2',3,89,'','','1','2','2019-04-09 11:48:48','2019-04-09 17:18:48'),
+(278,'Infinix','2',3,89,'','','1','2','2019-04-09 11:48:56','2019-04-09 17:18:56'),
+(279,'Oppo','2',3,89,'','','1','2','2019-04-09 11:49:03','2019-04-09 17:19:03'),
+(280,'Apple','2',3,89,'','','1','2','2019-04-09 11:49:10','2019-04-09 17:19:10'),
+(281,'Vivo','2',3,89,'','','1','2','2019-04-09 11:49:17','2019-04-09 17:20:04'),
+(282,'Honor','2',3,89,'','','1','2','2019-04-09 11:49:27','2019-04-09 17:19:27'),
+(283,'Asus','2',3,89,'','','1','2','2019-04-09 11:49:34','2019-04-09 17:19:34'),
+(284,'Samsung','2',3,89,'','','1','2','2019-04-09 11:49:46','2019-04-09 17:19:46'),
+(285,'Mobile Accesories','2',2,13,'','','1','2','2019-04-09 11:50:43','2019-04-09 17:20:43'),
+(286,'Mobile Cases','2',3,285,'','','1','2','2019-04-09 11:51:05','2019-04-09 17:21:05'),
+(287,'Headphones & Headsets','2',3,285,'','','1','2','2019-04-09 11:51:16','2019-04-09 17:21:16'),
+(288,'Powerbanks','2',3,285,'','','1','2','2019-04-09 11:51:28','2019-04-09 17:21:28'),
+(289,'Screenguards','2',3,285,'','','1','2','2019-04-09 11:51:38','2019-04-09 17:21:38'),
+(290,'Memory cards','2',3,285,'','','1','2','2019-04-09 11:51:46','2019-04-09 17:21:46'),
+(291,'Smart Headphones','2',3,285,'','','1','2','2019-04-09 11:51:56','2019-04-09 17:21:56'),
+(292,'Mobile Cables','2',3,285,'','','1','2','2019-04-09 11:52:08','2019-04-09 17:22:08'),
+(293,'Mobile Chargers','2',3,285,'','','1','2','2019-04-09 11:52:21','2019-04-09 17:22:21'),
+(294,'Mobile Holders','2',3,285,'','','1','2','2019-04-09 11:52:39','2019-04-09 17:22:39'),
+(295,'Smart Wearable Tech','2',2,12,'','','1','2','2019-04-09 11:58:00','2019-04-09 17:28:00'),
+(296,'Smart Watches','2',3,295,'','','1','2','2019-04-09 11:58:19','2019-04-09 17:28:19'),
+(297,'Smart Glasses VR','2',3,295,'','','1','2','2019-04-09 11:58:35','2019-04-09 17:28:35'),
+(298,'Smart Bands','2',3,295,'','','1','2','2019-04-09 11:58:47','2019-04-09 17:28:47'),
+(299,'Healthcare Appliances','2',2,12,'','','1','2','2019-04-09 11:59:27','2019-04-09 17:29:27'),
+(300,'BP Monitors','2',3,299,'','','1','2','2019-04-09 11:59:45','2019-04-09 17:29:45'),
+(301,'Weighing Scale','2',3,299,'','','1','2','2019-04-09 11:59:58','2019-04-09 17:29:58'),
+(303,'Gaming Laptops','2',3,101,'','','1','2','2019-04-09 12:00:54','2019-04-09 17:30:54'),
+(304,'External HDDs','2',3,105,'','','1','2','2019-04-09 12:01:22','2019-04-09 17:31:22'),
+(305,'Internal HDDs','2',3,105,'','','1','2','2019-04-09 12:01:32','2019-04-09 17:31:32'),
+(306,'Pendrives','2',3,105,'','','1','2','2019-04-09 12:01:40','2019-04-09 17:31:40'),
+(307,'Laptops Skins & Decals','2',3,105,'','','1','2','2019-04-09 12:01:54','2019-04-09 17:31:54'),
+(308,'Laptop Bags','2',3,105,'','','1','2','2019-04-09 12:02:06','2019-04-09 17:32:06'),
+(309,'Mouse','2',3,105,'','','1','2','2019-04-09 12:02:13','2019-04-09 17:32:13'),
+(310,'Apple iPads','2',3,95,'','','1','2','2019-04-09 12:04:07','2019-04-09 17:34:07'),
+(311,'Televisions','2',2,13,'','','1','2','2019-04-09 12:04:38','2019-04-09 17:34:38'),
+(312,'Home Audio Speakers','2',3,112,'','','1','2','2019-04-09 12:06:11','2019-04-09 17:36:11'),
+(313,'Home Theaters','2',3,112,'','','1','2','2019-04-09 12:06:23','2019-04-09 17:36:23'),
+(314,'Bluetooth Speakers','2',3,112,'','','1','2','2019-04-09 12:06:34','2019-04-09 17:36:34'),
+(315,'DTH Setup Top Box','2',3,112,'','','1','2','2019-04-09 12:07:01','2019-04-09 17:37:01'),
+(316,'Smart Home Automation','2',2,12,'','','1','2','2019-04-09 12:08:03','2019-04-09 17:38:03'),
+(317,'Google Home','2',3,316,'','','1','2','2019-04-09 12:08:17','2019-04-09 17:38:17'),
+(318,'Lens','2',3,119,'','','1','2','2019-04-09 12:08:40','2019-04-09 17:38:40'),
+(319,'Tripods','2',3,119,'','','1','2','2019-04-09 12:08:49','2019-04-09 17:38:59'),
+(320,'Routers','2',3,104,'','','1','2','2019-04-09 12:09:35','2019-04-09 17:39:35'),
+(321,'Financial & Legal','1',1,0,'321-CI-11042019121634.png','321-CI-11042019121634-1.png','1','2','2019-04-09 12:12:55','2019-04-11 12:16:34'),
+(322,'Personal Finance','1',1,0,'322-CI-11042019121619.png','322-CI-11042019121619-1.png','1','2','2019-04-09 12:25:27','2019-04-11 12:16:19'),
+(332,'Beverages','3',1,0,'','','1','2','2019-04-09 12:54:27','2019-04-09 18:24:27'),
+(333,'Best Sellers','3',1,0,'','','1','2','2019-04-09 12:54:37','2019-04-09 18:24:37'),
+(334,'Arabian','3',1,0,'','','1','2','2019-04-09 12:56:47','2019-04-09 18:26:47'),
+(335,'Hyderabadi','3',1,0,'','','1','2','2019-04-09 12:56:59','2019-04-09 18:26:59'),
+(336,'Bakery','3',1,0,'','','1','2','2019-04-09 12:57:09','2019-04-09 18:27:09'),
+(337,'Kerala','3',1,0,'','','1','2','2019-04-09 12:57:17','2019-04-09 18:27:17'),
+(338,'Indian','3',1,0,'','','1','2','2019-04-09 12:57:32','2019-04-09 18:27:32'),
+(339,'Seafood','3',1,0,'','','1','2','2019-04-09 12:57:40','2019-04-09 18:27:40'),
+(340,'Tea','3',1,0,'','','1','2','2019-04-09 12:57:52','2019-04-09 18:27:52'),
+(341,'Sweets','3',1,0,'','','1','2','2019-04-09 12:58:10','2019-04-09 18:28:10'),
+(342,'Desserts','3',1,0,'','','1','2','2019-04-09 12:58:17','2019-04-09 18:28:17'),
+(343,'Ice-cream','3',1,0,'','','1','2','2019-04-09 12:58:30','2019-04-09 18:28:30'),
+(344,'All Day Breakfast','3',1,0,'','','1','2','2019-04-09 12:58:56','2019-04-09 18:28:56'),
+(345,'Quick Bites','3',1,0,'','','1','2','2019-04-09 12:59:12','2019-04-09 18:29:12'),
+(346,'Burgers','3',1,0,'','','1','2','2019-04-09 12:59:31','2019-04-09 18:29:31'),
+(347,'Pizza','3',1,0,'','','1','2','2019-04-09 12:59:42','2019-04-09 18:29:42'),
+(348,'Groceries','2',1,0,'348-CI-22042019170553.jpg','348-CI-22042019170553-1.jpg','1','2','2019-04-22 11:35:53','2019-04-22 17:05:53'),
+(349,'Vegetables ','2',1,0,'349-CI-22042019170634.jpg','349-CI-22042019170634-1.jpg','1','2','2019-04-22 11:36:34','2019-04-22 17:06:34'),
+(350,'Grains','2',2,348,'350-CI-22042019170825.jpg','350-CI-22042019170825-1.jpg','1','2','2019-04-22 11:38:25','2019-04-22 17:08:25'),
+(351,'Rice','2',3,350,'351-CI-22042019171106.jpg','351-CI-22042019171106-1.jpg','1','2','2019-04-22 11:41:06','2019-04-22 17:11:06'),
+(352,'Green Leafy Vegetables','2',2,349,'352-CI-22042019171359.jpg','352-CI-22042019171359-1.jpg','1','2','2019-04-22 11:43:59','2019-04-22 17:13:59'),
+(353,'Organic','2',3,352,'353-CI-22042019171519.jpg','353-CI-22042019171519-1.jpg','1','2','2019-04-22 11:45:19','2019-04-22 17:15:19');
 
---
--- Table structure for table `1w_tbl_countries`
---
+/*Table structure for table `1w_tbl_countries` */
 
 DROP TABLE IF EXISTS `1w_tbl_countries`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+
 CREATE TABLE `1w_tbl_countries` (
   `CountryID` int(11) NOT NULL AUTO_INCREMENT,
   `CountryISO` char(2) CHARACTER SET latin1 NOT NULL,
@@ -365,25 +3942,254 @@ CREATE TABLE `1w_tbl_countries` (
   `CountryPhoneCode` int(5) NOT NULL,
   PRIMARY KEY (`CountryID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=240 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `1w_tbl_countries`
---
+/*Data for the table `1w_tbl_countries` */
 
-LOCK TABLES `1w_tbl_countries` WRITE;
-/*!40000 ALTER TABLE `1w_tbl_countries` DISABLE KEYS */;
-INSERT INTO `1w_tbl_countries` VALUES (1,'AF','AFGHANISTAN','Afghanistan','AFG',4,93),(2,'AL','ALBANIA','Albania','ALB',8,355),(3,'DZ','ALGERIA','Algeria','DZA',12,213),(4,'AS','AMERICAN SAMOA','American Samoa','ASM',16,1684),(5,'AD','ANDORRA','Andorra','AND',20,376),(6,'AO','ANGOLA','Angola','AGO',24,244),(7,'AI','ANGUILLA','Anguilla','AIA',660,1264),(8,'AQ','ANTARCTICA','Antarctica',NULL,NULL,0),(9,'AG','ANTIGUA AND BARBUDA','Antigua and Barbuda','ATG',28,1268),(10,'AR','ARGENTINA','Argentina','ARG',32,54),(11,'AM','ARMENIA','Armenia','ARM',51,374),(12,'AW','ARUBA','Aruba','ABW',533,297),(13,'AU','AUSTRALIA','Australia','AUS',36,61),(14,'AT','AUSTRIA','Austria','AUT',40,43),(15,'AZ','AZERBAIJAN','Azerbaijan','AZE',31,994),(16,'BS','BAHAMAS','Bahamas','BHS',44,1242),(17,'BH','BAHRAIN','Bahrain','BHR',48,973),(18,'BD','BANGLADESH','Bangladesh','BGD',50,880),(19,'BB','BARBADOS','Barbados','BRB',52,1246),(20,'BY','BELARUS','Belarus','BLR',112,375),(21,'BE','BELGIUM','Belgium','BEL',56,32),(22,'BZ','BELIZE','Belize','BLZ',84,501),(23,'BJ','BENIN','Benin','BEN',204,229),(24,'BM','BERMUDA','Bermuda','BMU',60,1441),(25,'BT','BHUTAN','Bhutan','BTN',64,975),(26,'BO','BOLIVIA','Bolivia','BOL',68,591),(27,'BA','BOSNIA AND HERZEGOVINA','Bosnia and Herzegovina','BIH',70,387),(28,'BW','BOTSWANA','Botswana','BWA',72,267),(29,'BV','BOUVET ISLAND','Bouvet Island',NULL,NULL,0),(30,'BR','BRAZIL','Brazil','BRA',76,55),(31,'IO','BRITISH INDIAN OCEAN TERRITORY','British Indian Ocean Territory',NULL,NULL,246),(32,'BN','BRUNEI DARUSSALAM','Brunei Darussalam','BRN',96,673),(33,'BG','BULGARIA','Bulgaria','BGR',100,359),(34,'BF','BURKINA FASO','Burkina Faso','BFA',854,226),(35,'BI','BURUNDI','Burundi','BDI',108,257),(36,'KH','CAMBODIA','Cambodia','KHM',116,855),(37,'CM','CAMEROON','Cameroon','CMR',120,237),(38,'CA','CANADA','Canada','CAN',124,1),(39,'CV','CAPE VERDE','Cape Verde','CPV',132,238),(40,'KY','CAYMAN ISLANDS','Cayman Islands','CYM',136,1345),(41,'CF','CENTRAL AFRICAN REPUBLIC','Central African Republic','CAF',140,236),(42,'TD','CHAD','Chad','TCD',148,235),(43,'CL','CHILE','Chile','CHL',152,56),(44,'CN','CHINA','China','CHN',156,86),(45,'CX','CHRISTMAS ISLAND','Christmas Island',NULL,NULL,61),(46,'CC','COCOS (KEELING) ISLANDS','Cocos (Keeling) Islands',NULL,NULL,672),(47,'CO','COLOMBIA','Colombia','COL',170,57),(48,'KM','COMOROS','Comoros','COM',174,269),(49,'CG','CONGO','Congo','COG',178,242),(50,'CD','CONGO, THE DEMOCRATIC REPUBLIC OF THE','Congo, the Democratic Republic of the','COD',180,242),(51,'CK','COOK ISLANDS','Cook Islands','COK',184,682),(52,'CR','COSTA RICA','Costa Rica','CRI',188,506),(53,'CI','COTE D\'IVOIRE','Cote D\'Ivoire','CIV',384,225),(54,'HR','CROATIA','Croatia','HRV',191,385),(55,'CU','CUBA','Cuba','CUB',192,53),(56,'CY','CYPRUS','Cyprus','CYP',196,357),(57,'CZ','CZECH REPUBLIC','Czech Republic','CZE',203,420),(58,'DK','DENMARK','Denmark','DNK',208,45),(59,'DJ','DJIBOUTI','Djibouti','DJI',262,253),(60,'DM','DOMINICA','Dominica','DMA',212,1767),(61,'DO','DOMINICAN REPUBLIC','Dominican Republic','DOM',214,1809),(62,'EC','ECUADOR','Ecuador','ECU',218,593),(63,'EG','EGYPT','Egypt','EGY',818,20),(64,'SV','EL SALVADOR','El Salvador','SLV',222,503),(65,'GQ','EQUATORIAL GUINEA','Equatorial Guinea','GNQ',226,240),(66,'ER','ERITREA','Eritrea','ERI',232,291),(67,'EE','ESTONIA','Estonia','EST',233,372),(68,'ET','ETHIOPIA','Ethiopia','ETH',231,251),(69,'FK','FALKLAND ISLANDS (MALVINAS)','Falkland Islands (Malvinas)','FLK',238,500),(70,'FO','FAROE ISLANDS','Faroe Islands','FRO',234,298),(71,'FJ','FIJI','Fiji','FJI',242,679),(72,'FI','FINLAND','Finland','FIN',246,358),(73,'FR','FRANCE','France','FRA',250,33),(74,'GF','FRENCH GUIANA','French Guiana','GUF',254,594),(75,'PF','FRENCH POLYNESIA','French Polynesia','PYF',258,689),(76,'TF','FRENCH SOUTHERN TERRITORIES','French Southern Territories',NULL,NULL,0),(77,'GA','GABON','Gabon','GAB',266,241),(78,'GM','GAMBIA','Gambia','GMB',270,220),(79,'GE','GEORGIA','Georgia','GEO',268,995),(80,'DE','GERMANY','Germany','DEU',276,49),(81,'GH','GHANA','Ghana','GHA',288,233),(82,'GI','GIBRALTAR','Gibraltar','GIB',292,350),(83,'GR','GREECE','Greece','GRC',300,30),(84,'GL','GREENLAND','Greenland','GRL',304,299),(85,'GD','GRENADA','Grenada','GRD',308,1473),(86,'GP','GUADELOUPE','Guadeloupe','GLP',312,590),(87,'GU','GUAM','Guam','GUM',316,1671),(88,'GT','GUATEMALA','Guatemala','GTM',320,502),(89,'GN','GUINEA','Guinea','GIN',324,224),(90,'GW','GUINEA-BISSAU','Guinea-Bissau','GNB',624,245),(91,'GY','GUYANA','Guyana','GUY',328,592),(92,'HT','HAITI','Haiti','HTI',332,509),(93,'HM','HEARD ISLAND AND MCDONALD ISLANDS','Heard Island and Mcdonald Islands',NULL,NULL,0),(94,'VA','HOLY SEE (VATICAN CITY STATE)','Holy See (Vatican City State)','VAT',336,39),(95,'HN','HONDURAS','Honduras','HND',340,504),(96,'HK','HONG KONG','Hong Kong','HKG',344,852),(97,'HU','HUNGARY','Hungary','HUN',348,36),(98,'IS','ICELAND','Iceland','ISL',352,354),(99,'IN','INDIA','India','IND',356,91),(100,'ID','INDONESIA','Indonesia','IDN',360,62),(101,'IR','IRAN, ISLAMIC REPUBLIC OF','Iran, Islamic Republic of','IRN',364,98),(102,'IQ','IRAQ','Iraq','IRQ',368,964),(103,'IE','IRELAND','Ireland','IRL',372,353),(104,'IL','ISRAEL','Israel','ISR',376,972),(105,'IT','ITALY','Italy','ITA',380,39),(106,'JM','JAMAICA','Jamaica','JAM',388,1876),(107,'JP','JAPAN','Japan','JPN',392,81),(108,'JO','JORDAN','Jordan','JOR',400,962),(109,'KZ','KAZAKHSTAN','Kazakhstan','KAZ',398,7),(110,'KE','KENYA','Kenya','KEN',404,254),(111,'KI','KIRIBATI','Kiribati','KIR',296,686),(112,'KP','KOREA, DEMOCRATIC PEOPLE\'S REPUBLIC OF','Korea, Democratic People\'s Republic of','PRK',408,850),(113,'KR','KOREA, REPUBLIC OF','Korea, Republic of','KOR',410,82),(114,'KW','KUWAIT','Kuwait','KWT',414,965),(115,'KG','KYRGYZSTAN','Kyrgyzstan','KGZ',417,996),(116,'LA','LAO PEOPLE\'S DEMOCRATIC REPUBLIC','Lao People\'s Democratic Republic','LAO',418,856),(117,'LV','LATVIA','Latvia','LVA',428,371),(118,'LB','LEBANON','Lebanon','LBN',422,961),(119,'LS','LESOTHO','Lesotho','LSO',426,266),(120,'LR','LIBERIA','Liberia','LBR',430,231),(121,'LY','LIBYAN ARAB JAMAHIRIYA','Libyan Arab Jamahiriya','LBY',434,218),(122,'LI','LIECHTENSTEIN','Liechtenstein','LIE',438,423),(123,'LT','LITHUANIA','Lithuania','LTU',440,370),(124,'LU','LUXEMBOURG','Luxembourg','LUX',442,352),(125,'MO','MACAO','Macao','MAC',446,853),(126,'MK','MACEDONIA, THE FORMER YUGOSLAV REPUBLIC OF','Macedonia, the Former Yugoslav Republic of','MKD',807,389),(127,'MG','MADAGASCAR','Madagascar','MDG',450,261),(128,'MW','MALAWI','Malawi','MWI',454,265),(129,'MY','MALAYSIA','Malaysia','MYS',458,60),(130,'MV','MALDIVES','Maldives','MDV',462,960),(131,'ML','MALI','Mali','MLI',466,223),(132,'MT','MALTA','Malta','MLT',470,356),(133,'MH','MARSHALL ISLANDS','Marshall Islands','MHL',584,692),(134,'MQ','MARTINIQUE','Martinique','MTQ',474,596),(135,'MR','MAURITANIA','Mauritania','MRT',478,222),(136,'MU','MAURITIUS','Mauritius','MUS',480,230),(137,'YT','MAYOTTE','Mayotte',NULL,NULL,269),(138,'MX','MEXICO','Mexico','MEX',484,52),(139,'FM','MICRONESIA, FEDERATED STATES OF','Micronesia, Federated States of','FSM',583,691),(140,'MD','MOLDOVA, REPUBLIC OF','Moldova, Republic of','MDA',498,373),(141,'MC','MONACO','Monaco','MCO',492,377),(142,'MN','MONGOLIA','Mongolia','MNG',496,976),(143,'MS','MONTSERRAT','Montserrat','MSR',500,1664),(144,'MA','MOROCCO','Morocco','MAR',504,212),(145,'MZ','MOZAMBIQUE','Mozambique','MOZ',508,258),(146,'MM','MYANMAR','Myanmar','MMR',104,95),(147,'NA','NAMIBIA','Namibia','NAM',516,264),(148,'NR','NAURU','Nauru','NRU',520,674),(149,'NP','NEPAL','Nepal','NPL',524,977),(150,'NL','NETHERLANDS','Netherlands','NLD',528,31),(151,'AN','NETHERLANDS ANTILLES','Netherlands Antilles','ANT',530,599),(152,'NC','NEW CALEDONIA','New Caledonia','NCL',540,687),(153,'NZ','NEW ZEALAND','New Zealand','NZL',554,64),(154,'NI','NICARAGUA','Nicaragua','NIC',558,505),(155,'NE','NIGER','Niger','NER',562,227),(156,'NG','NIGERIA','Nigeria','NGA',566,234),(157,'NU','NIUE','Niue','NIU',570,683),(158,'NF','NORFOLK ISLAND','Norfolk Island','NFK',574,672),(159,'MP','NORTHERN MARIANA ISLANDS','Northern Mariana Islands','MNP',580,1670),(160,'NO','NORWAY','Norway','NOR',578,47),(161,'OM','OMAN','Oman','OMN',512,968),(162,'PK','PAKISTAN','Pakistan','PAK',586,92),(163,'PW','PALAU','Palau','PLW',585,680),(164,'PS','PALESTINIAN TERRITORY, OCCUPIED','Palestinian Territory, Occupied',NULL,NULL,970),(165,'PA','PANAMA','Panama','PAN',591,507),(166,'PG','PAPUA NEW GUINEA','Papua New Guinea','PNG',598,675),(167,'PY','PARAGUAY','Paraguay','PRY',600,595),(168,'PE','PERU','Peru','PER',604,51),(169,'PH','PHILIPPINES','Philippines','PHL',608,63),(170,'PN','PITCAIRN','Pitcairn','PCN',612,0),(171,'PL','POLAND','Poland','POL',616,48),(172,'PT','PORTUGAL','Portugal','PRT',620,351),(173,'PR','PUERTO RICO','Puerto Rico','PRI',630,1787),(174,'QA','QATAR','Qatar','QAT',634,974),(175,'RE','REUNION','Reunion','REU',638,262),(176,'RO','ROMANIA','Romania','ROM',642,40),(177,'RU','RUSSIAN FEDERATION','Russian Federation','RUS',643,70),(178,'RW','RWANDA','Rwanda','RWA',646,250),(179,'SH','SAINT HELENA','Saint Helena','SHN',654,290),(180,'KN','SAINT KITTS AND NEVIS','Saint Kitts and Nevis','KNA',659,1869),(181,'LC','SAINT LUCIA','Saint Lucia','LCA',662,1758),(182,'PM','SAINT PIERRE AND MIQUELON','Saint Pierre and Miquelon','SPM',666,508),(183,'VC','SAINT VINCENT AND THE GRENADINES','Saint Vincent and the Grenadines','VCT',670,1784),(184,'WS','SAMOA','Samoa','WSM',882,684),(185,'SM','SAN MARINO','San Marino','SMR',674,378),(186,'ST','SAO TOME AND PRINCIPE','Sao Tome and Principe','STP',678,239),(187,'SA','SAUDI ARABIA','Saudi Arabia','SAU',682,966),(188,'SN','SENEGAL','Senegal','SEN',686,221),(189,'CS','SERBIA AND MONTENEGRO','Serbia and Montenegro',NULL,NULL,381),(190,'SC','SEYCHELLES','Seychelles','SYC',690,248),(191,'SL','SIERRA LEONE','Sierra Leone','SLE',694,232),(192,'SG','SINGAPORE','Singapore','SGP',702,65),(193,'SK','SLOVAKIA','Slovakia','SVK',703,421),(194,'SI','SLOVENIA','Slovenia','SVN',705,386),(195,'SB','SOLOMON ISLANDS','Solomon Islands','SLB',90,677),(196,'SO','SOMALIA','Somalia','SOM',706,252),(197,'ZA','SOUTH AFRICA','South Africa','ZAF',710,27),(198,'GS','SOUTH GEORGIA AND THE SOUTH SANDWICH ISLANDS','South Georgia and the South Sandwich Islands',NULL,NULL,0),(199,'ES','SPAIN','Spain','ESP',724,34),(200,'LK','SRI LANKA','Sri Lanka','LKA',144,94),(201,'SD','SUDAN','Sudan','SDN',736,249),(202,'SR','SURINAME','Suriname','SUR',740,597),(203,'SJ','SVALBARD AND JAN MAYEN','Svalbard and Jan Mayen','SJM',744,47),(204,'SZ','SWAZILAND','Swaziland','SWZ',748,268),(205,'SE','SWEDEN','Sweden','SWE',752,46),(206,'CH','SWITZERLAND','Switzerland','CHE',756,41),(207,'SY','SYRIAN ARAB REPUBLIC','Syrian Arab Republic','SYR',760,963),(208,'TW','TAIWAN, PROVINCE OF CHINA','Taiwan, Province of China','TWN',158,886),(209,'TJ','TAJIKISTAN','Tajikistan','TJK',762,992),(210,'TZ','TANZANIA, UNITED REPUBLIC OF','Tanzania, United Republic of','TZA',834,255),(211,'TH','THAILAND','Thailand','THA',764,66),(212,'TL','TIMOR-LESTE','Timor-Leste',NULL,NULL,670),(213,'TG','TOGO','Togo','TGO',768,228),(214,'TK','TOKELAU','Tokelau','TKL',772,690),(215,'TO','TONGA','Tonga','TON',776,676),(216,'TT','TRINIDAD AND TOBAGO','Trinidad and Tobago','TTO',780,1868),(217,'TN','TUNISIA','Tunisia','TUN',788,216),(218,'TR','TURKEY','Turkey','TUR',792,90),(219,'TM','TURKMENISTAN','Turkmenistan','TKM',795,7370),(220,'TC','TURKS AND CAICOS ISLANDS','Turks and Caicos Islands','TCA',796,1649),(221,'TV','TUVALU','Tuvalu','TUV',798,688),(222,'UG','UGANDA','Uganda','UGA',800,256),(223,'UA','UKRAINE','Ukraine','UKR',804,380),(224,'AE','UNITED ARAB EMIRATES','United Arab Emirates','ARE',784,971),(225,'GB','UNITED KINGDOM','United Kingdom','GBR',826,44),(226,'US','UNITED STATES','United States','USA',840,1),(227,'UM','UNITED STATES MINOR OUTLYING ISLANDS','United States Minor Outlying Islands',NULL,NULL,1),(228,'UY','URUGUAY','Uruguay','URY',858,598),(229,'UZ','UZBEKISTAN','Uzbekistan','UZB',860,998),(230,'VU','VANUATU','Vanuatu','VUT',548,678),(231,'VE','VENEZUELA','Venezuela','VEN',862,58),(232,'VN','VIET NAM','Viet Nam','VNM',704,84),(233,'VG','VIRGIN ISLANDS, BRITISH','Virgin Islands, British','VGB',92,1284),(234,'VI','VIRGIN ISLANDS, U.S.','Virgin Islands, U.s.','VIR',850,1340),(235,'WF','WALLIS AND FUTUNA','Wallis and Futuna','WLF',876,681),(236,'EH','WESTERN SAHARA','Western Sahara','ESH',732,212),(237,'YE','YEMEN','Yemen','YEM',887,967),(238,'ZM','ZAMBIA','Zambia','ZMB',894,260),(239,'ZW','ZIMBABWE','Zimbabwe','ZWE',716,263);
-/*!40000 ALTER TABLE `1w_tbl_countries` ENABLE KEYS */;
-UNLOCK TABLES;
+insert  into `1w_tbl_countries`(`CountryID`,`CountryISO`,`CountryName`,`CountryNiceName`,`CountryISO3`,`CountryNumCode`,`CountryPhoneCode`) values
+(1,'AF','AFGHANISTAN','Afghanistan','AFG',4,93),
+(2,'AL','ALBANIA','Albania','ALB',8,355),
+(3,'DZ','ALGERIA','Algeria','DZA',12,213),
+(4,'AS','AMERICAN SAMOA','American Samoa','ASM',16,1684),
+(5,'AD','ANDORRA','Andorra','AND',20,376),
+(6,'AO','ANGOLA','Angola','AGO',24,244),
+(7,'AI','ANGUILLA','Anguilla','AIA',660,1264),
+(8,'AQ','ANTARCTICA','Antarctica',NULL,NULL,0),
+(9,'AG','ANTIGUA AND BARBUDA','Antigua and Barbuda','ATG',28,1268),
+(10,'AR','ARGENTINA','Argentina','ARG',32,54),
+(11,'AM','ARMENIA','Armenia','ARM',51,374),
+(12,'AW','ARUBA','Aruba','ABW',533,297),
+(13,'AU','AUSTRALIA','Australia','AUS',36,61),
+(14,'AT','AUSTRIA','Austria','AUT',40,43),
+(15,'AZ','AZERBAIJAN','Azerbaijan','AZE',31,994),
+(16,'BS','BAHAMAS','Bahamas','BHS',44,1242),
+(17,'BH','BAHRAIN','Bahrain','BHR',48,973),
+(18,'BD','BANGLADESH','Bangladesh','BGD',50,880),
+(19,'BB','BARBADOS','Barbados','BRB',52,1246),
+(20,'BY','BELARUS','Belarus','BLR',112,375),
+(21,'BE','BELGIUM','Belgium','BEL',56,32),
+(22,'BZ','BELIZE','Belize','BLZ',84,501),
+(23,'BJ','BENIN','Benin','BEN',204,229),
+(24,'BM','BERMUDA','Bermuda','BMU',60,1441),
+(25,'BT','BHUTAN','Bhutan','BTN',64,975),
+(26,'BO','BOLIVIA','Bolivia','BOL',68,591),
+(27,'BA','BOSNIA AND HERZEGOVINA','Bosnia and Herzegovina','BIH',70,387),
+(28,'BW','BOTSWANA','Botswana','BWA',72,267),
+(29,'BV','BOUVET ISLAND','Bouvet Island',NULL,NULL,0),
+(30,'BR','BRAZIL','Brazil','BRA',76,55),
+(31,'IO','BRITISH INDIAN OCEAN TERRITORY','British Indian Ocean Territory',NULL,NULL,246),
+(32,'BN','BRUNEI DARUSSALAM','Brunei Darussalam','BRN',96,673),
+(33,'BG','BULGARIA','Bulgaria','BGR',100,359),
+(34,'BF','BURKINA FASO','Burkina Faso','BFA',854,226),
+(35,'BI','BURUNDI','Burundi','BDI',108,257),
+(36,'KH','CAMBODIA','Cambodia','KHM',116,855),
+(37,'CM','CAMEROON','Cameroon','CMR',120,237),
+(38,'CA','CANADA','Canada','CAN',124,1),
+(39,'CV','CAPE VERDE','Cape Verde','CPV',132,238),
+(40,'KY','CAYMAN ISLANDS','Cayman Islands','CYM',136,1345),
+(41,'CF','CENTRAL AFRICAN REPUBLIC','Central African Republic','CAF',140,236),
+(42,'TD','CHAD','Chad','TCD',148,235),
+(43,'CL','CHILE','Chile','CHL',152,56),
+(44,'CN','CHINA','China','CHN',156,86),
+(45,'CX','CHRISTMAS ISLAND','Christmas Island',NULL,NULL,61),
+(46,'CC','COCOS (KEELING) ISLANDS','Cocos (Keeling) Islands',NULL,NULL,672),
+(47,'CO','COLOMBIA','Colombia','COL',170,57),
+(48,'KM','COMOROS','Comoros','COM',174,269),
+(49,'CG','CONGO','Congo','COG',178,242),
+(50,'CD','CONGO, THE DEMOCRATIC REPUBLIC OF THE','Congo, the Democratic Republic of the','COD',180,242),
+(51,'CK','COOK ISLANDS','Cook Islands','COK',184,682),
+(52,'CR','COSTA RICA','Costa Rica','CRI',188,506),
+(53,'CI','COTE D\'IVOIRE','Cote D\'Ivoire','CIV',384,225),
+(54,'HR','CROATIA','Croatia','HRV',191,385),
+(55,'CU','CUBA','Cuba','CUB',192,53),
+(56,'CY','CYPRUS','Cyprus','CYP',196,357),
+(57,'CZ','CZECH REPUBLIC','Czech Republic','CZE',203,420),
+(58,'DK','DENMARK','Denmark','DNK',208,45),
+(59,'DJ','DJIBOUTI','Djibouti','DJI',262,253),
+(60,'DM','DOMINICA','Dominica','DMA',212,1767),
+(61,'DO','DOMINICAN REPUBLIC','Dominican Republic','DOM',214,1809),
+(62,'EC','ECUADOR','Ecuador','ECU',218,593),
+(63,'EG','EGYPT','Egypt','EGY',818,20),
+(64,'SV','EL SALVADOR','El Salvador','SLV',222,503),
+(65,'GQ','EQUATORIAL GUINEA','Equatorial Guinea','GNQ',226,240),
+(66,'ER','ERITREA','Eritrea','ERI',232,291),
+(67,'EE','ESTONIA','Estonia','EST',233,372),
+(68,'ET','ETHIOPIA','Ethiopia','ETH',231,251),
+(69,'FK','FALKLAND ISLANDS (MALVINAS)','Falkland Islands (Malvinas)','FLK',238,500),
+(70,'FO','FAROE ISLANDS','Faroe Islands','FRO',234,298),
+(71,'FJ','FIJI','Fiji','FJI',242,679),
+(72,'FI','FINLAND','Finland','FIN',246,358),
+(73,'FR','FRANCE','France','FRA',250,33),
+(74,'GF','FRENCH GUIANA','French Guiana','GUF',254,594),
+(75,'PF','FRENCH POLYNESIA','French Polynesia','PYF',258,689),
+(76,'TF','FRENCH SOUTHERN TERRITORIES','French Southern Territories',NULL,NULL,0),
+(77,'GA','GABON','Gabon','GAB',266,241),
+(78,'GM','GAMBIA','Gambia','GMB',270,220),
+(79,'GE','GEORGIA','Georgia','GEO',268,995),
+(80,'DE','GERMANY','Germany','DEU',276,49),
+(81,'GH','GHANA','Ghana','GHA',288,233),
+(82,'GI','GIBRALTAR','Gibraltar','GIB',292,350),
+(83,'GR','GREECE','Greece','GRC',300,30),
+(84,'GL','GREENLAND','Greenland','GRL',304,299),
+(85,'GD','GRENADA','Grenada','GRD',308,1473),
+(86,'GP','GUADELOUPE','Guadeloupe','GLP',312,590),
+(87,'GU','GUAM','Guam','GUM',316,1671),
+(88,'GT','GUATEMALA','Guatemala','GTM',320,502),
+(89,'GN','GUINEA','Guinea','GIN',324,224),
+(90,'GW','GUINEA-BISSAU','Guinea-Bissau','GNB',624,245),
+(91,'GY','GUYANA','Guyana','GUY',328,592),
+(92,'HT','HAITI','Haiti','HTI',332,509),
+(93,'HM','HEARD ISLAND AND MCDONALD ISLANDS','Heard Island and Mcdonald Islands',NULL,NULL,0),
+(94,'VA','HOLY SEE (VATICAN CITY STATE)','Holy See (Vatican City State)','VAT',336,39),
+(95,'HN','HONDURAS','Honduras','HND',340,504),
+(96,'HK','HONG KONG','Hong Kong','HKG',344,852),
+(97,'HU','HUNGARY','Hungary','HUN',348,36),
+(98,'IS','ICELAND','Iceland','ISL',352,354),
+(99,'IN','INDIA','India','IND',356,91),
+(100,'ID','INDONESIA','Indonesia','IDN',360,62),
+(101,'IR','IRAN, ISLAMIC REPUBLIC OF','Iran, Islamic Republic of','IRN',364,98),
+(102,'IQ','IRAQ','Iraq','IRQ',368,964),
+(103,'IE','IRELAND','Ireland','IRL',372,353),
+(104,'IL','ISRAEL','Israel','ISR',376,972),
+(105,'IT','ITALY','Italy','ITA',380,39),
+(106,'JM','JAMAICA','Jamaica','JAM',388,1876),
+(107,'JP','JAPAN','Japan','JPN',392,81),
+(108,'JO','JORDAN','Jordan','JOR',400,962),
+(109,'KZ','KAZAKHSTAN','Kazakhstan','KAZ',398,7),
+(110,'KE','KENYA','Kenya','KEN',404,254),
+(111,'KI','KIRIBATI','Kiribati','KIR',296,686),
+(112,'KP','KOREA, DEMOCRATIC PEOPLE\'S REPUBLIC OF','Korea, Democratic People\'s Republic of','PRK',408,850),
+(113,'KR','KOREA, REPUBLIC OF','Korea, Republic of','KOR',410,82),
+(114,'KW','KUWAIT','Kuwait','KWT',414,965),
+(115,'KG','KYRGYZSTAN','Kyrgyzstan','KGZ',417,996),
+(116,'LA','LAO PEOPLE\'S DEMOCRATIC REPUBLIC','Lao People\'s Democratic Republic','LAO',418,856),
+(117,'LV','LATVIA','Latvia','LVA',428,371),
+(118,'LB','LEBANON','Lebanon','LBN',422,961),
+(119,'LS','LESOTHO','Lesotho','LSO',426,266),
+(120,'LR','LIBERIA','Liberia','LBR',430,231),
+(121,'LY','LIBYAN ARAB JAMAHIRIYA','Libyan Arab Jamahiriya','LBY',434,218),
+(122,'LI','LIECHTENSTEIN','Liechtenstein','LIE',438,423),
+(123,'LT','LITHUANIA','Lithuania','LTU',440,370),
+(124,'LU','LUXEMBOURG','Luxembourg','LUX',442,352),
+(125,'MO','MACAO','Macao','MAC',446,853),
+(126,'MK','MACEDONIA, THE FORMER YUGOSLAV REPUBLIC OF','Macedonia, the Former Yugoslav Republic of','MKD',807,389),
+(127,'MG','MADAGASCAR','Madagascar','MDG',450,261),
+(128,'MW','MALAWI','Malawi','MWI',454,265),
+(129,'MY','MALAYSIA','Malaysia','MYS',458,60),
+(130,'MV','MALDIVES','Maldives','MDV',462,960),
+(131,'ML','MALI','Mali','MLI',466,223),
+(132,'MT','MALTA','Malta','MLT',470,356),
+(133,'MH','MARSHALL ISLANDS','Marshall Islands','MHL',584,692),
+(134,'MQ','MARTINIQUE','Martinique','MTQ',474,596),
+(135,'MR','MAURITANIA','Mauritania','MRT',478,222),
+(136,'MU','MAURITIUS','Mauritius','MUS',480,230),
+(137,'YT','MAYOTTE','Mayotte',NULL,NULL,269),
+(138,'MX','MEXICO','Mexico','MEX',484,52),
+(139,'FM','MICRONESIA, FEDERATED STATES OF','Micronesia, Federated States of','FSM',583,691),
+(140,'MD','MOLDOVA, REPUBLIC OF','Moldova, Republic of','MDA',498,373),
+(141,'MC','MONACO','Monaco','MCO',492,377),
+(142,'MN','MONGOLIA','Mongolia','MNG',496,976),
+(143,'MS','MONTSERRAT','Montserrat','MSR',500,1664),
+(144,'MA','MOROCCO','Morocco','MAR',504,212),
+(145,'MZ','MOZAMBIQUE','Mozambique','MOZ',508,258),
+(146,'MM','MYANMAR','Myanmar','MMR',104,95),
+(147,'NA','NAMIBIA','Namibia','NAM',516,264),
+(148,'NR','NAURU','Nauru','NRU',520,674),
+(149,'NP','NEPAL','Nepal','NPL',524,977),
+(150,'NL','NETHERLANDS','Netherlands','NLD',528,31),
+(151,'AN','NETHERLANDS ANTILLES','Netherlands Antilles','ANT',530,599),
+(152,'NC','NEW CALEDONIA','New Caledonia','NCL',540,687),
+(153,'NZ','NEW ZEALAND','New Zealand','NZL',554,64),
+(154,'NI','NICARAGUA','Nicaragua','NIC',558,505),
+(155,'NE','NIGER','Niger','NER',562,227),
+(156,'NG','NIGERIA','Nigeria','NGA',566,234),
+(157,'NU','NIUE','Niue','NIU',570,683),
+(158,'NF','NORFOLK ISLAND','Norfolk Island','NFK',574,672),
+(159,'MP','NORTHERN MARIANA ISLANDS','Northern Mariana Islands','MNP',580,1670),
+(160,'NO','NORWAY','Norway','NOR',578,47),
+(161,'OM','OMAN','Oman','OMN',512,968),
+(162,'PK','PAKISTAN','Pakistan','PAK',586,92),
+(163,'PW','PALAU','Palau','PLW',585,680),
+(164,'PS','PALESTINIAN TERRITORY, OCCUPIED','Palestinian Territory, Occupied',NULL,NULL,970),
+(165,'PA','PANAMA','Panama','PAN',591,507),
+(166,'PG','PAPUA NEW GUINEA','Papua New Guinea','PNG',598,675),
+(167,'PY','PARAGUAY','Paraguay','PRY',600,595),
+(168,'PE','PERU','Peru','PER',604,51),
+(169,'PH','PHILIPPINES','Philippines','PHL',608,63),
+(170,'PN','PITCAIRN','Pitcairn','PCN',612,0),
+(171,'PL','POLAND','Poland','POL',616,48),
+(172,'PT','PORTUGAL','Portugal','PRT',620,351),
+(173,'PR','PUERTO RICO','Puerto Rico','PRI',630,1787),
+(174,'QA','QATAR','Qatar','QAT',634,974),
+(175,'RE','REUNION','Reunion','REU',638,262),
+(176,'RO','ROMANIA','Romania','ROM',642,40),
+(177,'RU','RUSSIAN FEDERATION','Russian Federation','RUS',643,70),
+(178,'RW','RWANDA','Rwanda','RWA',646,250),
+(179,'SH','SAINT HELENA','Saint Helena','SHN',654,290),
+(180,'KN','SAINT KITTS AND NEVIS','Saint Kitts and Nevis','KNA',659,1869),
+(181,'LC','SAINT LUCIA','Saint Lucia','LCA',662,1758),
+(182,'PM','SAINT PIERRE AND MIQUELON','Saint Pierre and Miquelon','SPM',666,508),
+(183,'VC','SAINT VINCENT AND THE GRENADINES','Saint Vincent and the Grenadines','VCT',670,1784),
+(184,'WS','SAMOA','Samoa','WSM',882,684),
+(185,'SM','SAN MARINO','San Marino','SMR',674,378),
+(186,'ST','SAO TOME AND PRINCIPE','Sao Tome and Principe','STP',678,239),
+(187,'SA','SAUDI ARABIA','Saudi Arabia','SAU',682,966),
+(188,'SN','SENEGAL','Senegal','SEN',686,221),
+(189,'CS','SERBIA AND MONTENEGRO','Serbia and Montenegro',NULL,NULL,381),
+(190,'SC','SEYCHELLES','Seychelles','SYC',690,248),
+(191,'SL','SIERRA LEONE','Sierra Leone','SLE',694,232),
+(192,'SG','SINGAPORE','Singapore','SGP',702,65),
+(193,'SK','SLOVAKIA','Slovakia','SVK',703,421),
+(194,'SI','SLOVENIA','Slovenia','SVN',705,386),
+(195,'SB','SOLOMON ISLANDS','Solomon Islands','SLB',90,677),
+(196,'SO','SOMALIA','Somalia','SOM',706,252),
+(197,'ZA','SOUTH AFRICA','South Africa','ZAF',710,27),
+(198,'GS','SOUTH GEORGIA AND THE SOUTH SANDWICH ISLANDS','South Georgia and the South Sandwich Islands',NULL,NULL,0),
+(199,'ES','SPAIN','Spain','ESP',724,34),
+(200,'LK','SRI LANKA','Sri Lanka','LKA',144,94),
+(201,'SD','SUDAN','Sudan','SDN',736,249),
+(202,'SR','SURINAME','Suriname','SUR',740,597),
+(203,'SJ','SVALBARD AND JAN MAYEN','Svalbard and Jan Mayen','SJM',744,47),
+(204,'SZ','SWAZILAND','Swaziland','SWZ',748,268),
+(205,'SE','SWEDEN','Sweden','SWE',752,46),
+(206,'CH','SWITZERLAND','Switzerland','CHE',756,41),
+(207,'SY','SYRIAN ARAB REPUBLIC','Syrian Arab Republic','SYR',760,963),
+(208,'TW','TAIWAN, PROVINCE OF CHINA','Taiwan, Province of China','TWN',158,886),
+(209,'TJ','TAJIKISTAN','Tajikistan','TJK',762,992),
+(210,'TZ','TANZANIA, UNITED REPUBLIC OF','Tanzania, United Republic of','TZA',834,255),
+(211,'TH','THAILAND','Thailand','THA',764,66),
+(212,'TL','TIMOR-LESTE','Timor-Leste',NULL,NULL,670),
+(213,'TG','TOGO','Togo','TGO',768,228),
+(214,'TK','TOKELAU','Tokelau','TKL',772,690),
+(215,'TO','TONGA','Tonga','TON',776,676),
+(216,'TT','TRINIDAD AND TOBAGO','Trinidad and Tobago','TTO',780,1868),
+(217,'TN','TUNISIA','Tunisia','TUN',788,216),
+(218,'TR','TURKEY','Turkey','TUR',792,90),
+(219,'TM','TURKMENISTAN','Turkmenistan','TKM',795,7370),
+(220,'TC','TURKS AND CAICOS ISLANDS','Turks and Caicos Islands','TCA',796,1649),
+(221,'TV','TUVALU','Tuvalu','TUV',798,688),
+(222,'UG','UGANDA','Uganda','UGA',800,256),
+(223,'UA','UKRAINE','Ukraine','UKR',804,380),
+(224,'AE','UNITED ARAB EMIRATES','United Arab Emirates','ARE',784,971),
+(225,'GB','UNITED KINGDOM','United Kingdom','GBR',826,44),
+(226,'US','UNITED STATES','United States','USA',840,1),
+(227,'UM','UNITED STATES MINOR OUTLYING ISLANDS','United States Minor Outlying Islands',NULL,NULL,1),
+(228,'UY','URUGUAY','Uruguay','URY',858,598),
+(229,'UZ','UZBEKISTAN','Uzbekistan','UZB',860,998),
+(230,'VU','VANUATU','Vanuatu','VUT',548,678),
+(231,'VE','VENEZUELA','Venezuela','VEN',862,58),
+(232,'VN','VIET NAM','Viet Nam','VNM',704,84),
+(233,'VG','VIRGIN ISLANDS, BRITISH','Virgin Islands, British','VGB',92,1284),
+(234,'VI','VIRGIN ISLANDS, U.S.','Virgin Islands, U.s.','VIR',850,1340),
+(235,'WF','WALLIS AND FUTUNA','Wallis and Futuna','WLF',876,681),
+(236,'EH','WESTERN SAHARA','Western Sahara','ESH',732,212),
+(237,'YE','YEMEN','Yemen','YEM',887,967),
+(238,'ZM','ZAMBIA','Zambia','ZMB',894,260),
+(239,'ZW','ZIMBABWE','Zimbabwe','ZWE',716,263);
 
---
--- Table structure for table `1w_tbl_customers`
---
+/*Table structure for table `1w_tbl_customers` */
 
 DROP TABLE IF EXISTS `1w_tbl_customers`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+
 CREATE TABLE `1w_tbl_customers` (
   `CustomerID` int(11) NOT NULL AUTO_INCREMENT,
   `C_FirstName` varchar(100) NOT NULL,
@@ -403,25 +4209,21 @@ CREATE TABLE `1w_tbl_customers` (
   `RowUpdatedDttm` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`CustomerID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 ROW_FORMAT=COMPACT;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `1w_tbl_customers`
---
+/*Data for the table `1w_tbl_customers` */
 
-LOCK TABLES `1w_tbl_customers` WRITE;
-/*!40000 ALTER TABLE `1w_tbl_customers` DISABLE KEYS */;
-INSERT INTO `1w_tbl_customers` VALUES (1,'','','','+91','9503008804',NULL,NULL,'16.698322892189026','74.09196853637695',NULL,'Bhamate,Maharashtra,India','','2','2019-04-20 13:14:32','2019-04-21 06:36:11'),(2,'','','','+91','7721037175',NULL,NULL,'16.694765500000003','74.2228233',NULL,'Kolhapur,Maharashtra,India','','2','2019-04-20 14:19:15','2019-04-20 16:13:39'),(3,'','','','+91','8904817656',NULL,NULL,'12.90013842','77.58930588',NULL,'Bengaluru,Karnataka,India','','2','2019-04-20 17:42:21','2019-04-21 14:48:50'),(4,'','','','+91','9673363253',NULL,NULL,'16.704987299999996','74.24325270000001',NULL,'Kolhapur,Maharashtra,India','','2','2019-04-21 09:05:43','2019-04-21 09:05:59'),(5,'','','','+91','7028668351',NULL,NULL,'16.695021470692286','74.22552704362685',NULL,'2570,Kolhapur,Maharashtra,India','','2','2019-04-21 10:41:59','2019-04-21 10:51:36'),(6,'','','','+91','8657387317',NULL,NULL,'16.6959466','74.262146',NULL,'Unnamed Road,Kolhapur,Maharashtra,India','','2','2019-04-22 07:25:59','2019-04-22 13:48:30');
-/*!40000 ALTER TABLE `1w_tbl_customers` ENABLE KEYS */;
-UNLOCK TABLES;
+insert  into `1w_tbl_customers`(`CustomerID`,`C_FirstName`,`C_LastName`,`C_Email`,`C_CountryCode`,`C_Mobile`,`C_Gender`,`C_ProfileImage`,`C_Latitude`,`C_Longitude`,`C_Address`,`C_Location`,`C_City`,`C_Status`,`RowAddedDttm`,`RowUpdatedDttm`) values
+(1,'','','','+91','9503008804',NULL,NULL,'16.698322892189026','74.09196853637695',NULL,'Bhamate,Maharashtra,India','','2','2019-04-20 13:14:32','2019-04-21 06:36:11'),
+(2,'','','','+91','7721037175',NULL,NULL,'16.694765500000003','74.2228233',NULL,'Kolhapur,Maharashtra,India','','2','2019-04-20 14:19:15','2019-04-20 16:13:39'),
+(3,'','','','+91','8904817656',NULL,NULL,'12.90013842','77.58930588',NULL,'Bengaluru,Karnataka,India','','2','2019-04-20 17:42:21','2019-04-21 14:48:50'),
+(4,'','','','+91','9673363253',NULL,NULL,'16.704987299999996','74.24325270000001',NULL,'Kolhapur,Maharashtra,India','','2','2019-04-21 09:05:43','2019-04-21 09:05:59'),
+(5,'','','','+91','7028668351',NULL,NULL,'16.695021470692286','74.22552704362685',NULL,'2570,Kolhapur,Maharashtra,India','','2','2019-04-21 10:41:59','2019-04-21 10:51:36'),
+(6,'','','','+91','8657387317',NULL,NULL,'16.6959466','74.262146',NULL,'Unnamed Road,Kolhapur,Maharashtra,India','','2','2019-04-22 07:25:59','2019-04-22 13:48:30');
 
---
--- Table structure for table `1w_tbl_delivery_boys`
---
+/*Table structure for table `1w_tbl_delivery_boys` */
 
 DROP TABLE IF EXISTS `1w_tbl_delivery_boys`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+
 CREATE TABLE `1w_tbl_delivery_boys` (
   `DeliveryBoyID` int(11) NOT NULL AUTO_INCREMENT,
   `DB_FirstName` varchar(100) NOT NULL,
@@ -442,25 +4244,18 @@ CREATE TABLE `1w_tbl_delivery_boys` (
   `RowUpdatedDttm` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`DeliveryBoyID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 ROW_FORMAT=COMPACT;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `1w_tbl_delivery_boys`
---
+/*Data for the table `1w_tbl_delivery_boys` */
 
-LOCK TABLES `1w_tbl_delivery_boys` WRITE;
-/*!40000 ALTER TABLE `1w_tbl_delivery_boys` DISABLE KEYS */;
-INSERT INTO `1w_tbl_delivery_boys` VALUES (1,'Vivek','Shinde','vivekshinde775@gmail.com','+91','9922690466',NULL,'','',NULL,'','Belgaum','India','3','2','2019-04-20 16:08:45','2019-04-22 11:29:26'),(2,'A','T','at@gmail.com','+91','9673363253',NULL,'','',NULL,'','Belgaum','India','3','2','2019-04-21 09:35:05','2019-04-22 11:50:06'),(3,'Jaid','Attat','jaid.a@reapmind.com','+91','8657387317',NULL,'','',NULL,'','Belgaum','India','3','2','2019-04-22 06:57:17','2019-04-22 11:50:16');
-/*!40000 ALTER TABLE `1w_tbl_delivery_boys` ENABLE KEYS */;
-UNLOCK TABLES;
+insert  into `1w_tbl_delivery_boys`(`DeliveryBoyID`,`DB_FirstName`,`DB_LastName`,`DB_Email`,`DB_CountryCode`,`DB_Mobile`,`DB_ProfileImage`,`DB_Latitude`,`DB_Longitude`,`DB_Address`,`DB_Location`,`DB_City`,`DB_Country`,`DB_ProfileStatus`,`DB_Status`,`RowAddedDttm`,`RowUpdatedDttm`) values
+(1,'Vivek','Shinde','vivekshinde775@gmail.com','+91','9922690466',NULL,'','',NULL,'','Belgaum','India','3','2','2019-04-20 16:08:45','2019-04-22 11:29:26'),
+(2,'A','T','at@gmail.com','+91','9673363253',NULL,'','',NULL,'','Belgaum','India','3','2','2019-04-21 09:35:05','2019-04-22 11:50:06'),
+(3,'Jaid','Attat','jaid.a@reapmind.com','+91','8657387317',NULL,'','',NULL,'','Belgaum','India','3','2','2019-04-22 06:57:17','2019-04-22 11:50:16');
 
---
--- Table structure for table `1w_tbl_deliveryboy_accounts`
---
+/*Table structure for table `1w_tbl_deliveryboy_accounts` */
 
 DROP TABLE IF EXISTS `1w_tbl_deliveryboy_accounts`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+
 CREATE TABLE `1w_tbl_deliveryboy_accounts` (
   `DBAccountID` int(11) NOT NULL AUTO_INCREMENT,
   `A_DeliveryBoyID` int(11) NOT NULL,
@@ -475,25 +4270,18 @@ CREATE TABLE `1w_tbl_deliveryboy_accounts` (
   KEY `A_DeliveryBoyID` (`A_DeliveryBoyID`),
   CONSTRAINT `1w_tbl_deliveryboy_accounts_ibfk_1` FOREIGN KEY (`A_DeliveryBoyID`) REFERENCES `1w_tbl_delivery_boys` (`DeliveryBoyID`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `1w_tbl_deliveryboy_accounts`
---
+/*Data for the table `1w_tbl_deliveryboy_accounts` */
 
-LOCK TABLES `1w_tbl_deliveryboy_accounts` WRITE;
-/*!40000 ALTER TABLE `1w_tbl_deliveryboy_accounts` DISABLE KEYS */;
-INSERT INTO `1w_tbl_deliveryboy_accounts` VALUES (1,1,NULL,'0',NULL,NULL,'1','2019-04-20 16:09:39','2019-04-20 16:09:39'),(2,2,NULL,'0',NULL,NULL,'1','2019-04-21 09:36:04','2019-04-21 09:36:04'),(3,3,NULL,'0',NULL,NULL,'1','2019-04-22 07:12:48','2019-04-22 07:12:48');
-/*!40000 ALTER TABLE `1w_tbl_deliveryboy_accounts` ENABLE KEYS */;
-UNLOCK TABLES;
+insert  into `1w_tbl_deliveryboy_accounts`(`DBAccountID`,`A_DeliveryBoyID`,`A_AccountName`,`A_AccountType`,`A_AccountNumber`,`A_IFSCNumber`,`A_Status`,`RowAddedDttm`,`RowUpdateDttm`) values
+(1,1,NULL,'0',NULL,NULL,'1','2019-04-20 16:09:39','2019-04-20 21:39:39'),
+(2,2,NULL,'0',NULL,NULL,'1','2019-04-21 09:36:04','2019-04-21 15:06:04'),
+(3,3,NULL,'0',NULL,NULL,'1','2019-04-22 07:12:48','2019-04-22 12:42:48');
 
---
--- Table structure for table `1w_tbl_members`
---
+/*Table structure for table `1w_tbl_members` */
 
 DROP TABLE IF EXISTS `1w_tbl_members`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+
 CREATE TABLE `1w_tbl_members` (
   `MemberID` int(11) NOT NULL AUTO_INCREMENT,
   `M_CountryCode` varchar(10) NOT NULL,
@@ -508,25 +4296,30 @@ CREATE TABLE `1w_tbl_members` (
   `RowUpdatedDttm` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`MemberID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 ROW_FORMAT=COMPACT;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `1w_tbl_members`
---
+/*Data for the table `1w_tbl_members` */
 
-LOCK TABLES `1w_tbl_members` WRITE;
-/*!40000 ALTER TABLE `1w_tbl_members` DISABLE KEYS */;
-INSERT INTO `1w_tbl_members` VALUES (1,'+91','9673363253','$2a$08$HEEDC2a6FFUNLhKCaYInT.4QHFlAd9Wa9HPftsdY9i4eaPiWJTSiS','2',1,NULL,'','1','2019-04-20 16:00:40','2019-04-20 16:00:40'),(2,'+91','9922690466','$2a$08$T3EZJON/mpyOUy2sZQk.Wul9apqatpLdMt1lgR4j.6Et42F8ciOVS','3',1,NULL,'','1','2019-04-20 16:08:45','2019-04-20 16:08:45'),(3,'+91','7721037175','$2a$08$CJ9pGKOr4JB3k34Dp4yn0eO4XLS2joENcY6FP13d8zDDWhVxfSPmS','1',0,NULL,'','2','2019-04-20 16:12:44','2019-04-20 16:12:44'),(4,'+91','8904817656','$2a$08$5LuD2J1MoNa4lFR9Roj.ZOilwMosZg6HDJdLk7hO4ZlPh9FIN744e','1',3,NULL,'','2','2019-04-20 17:42:21','2019-04-20 17:42:21'),(5,'+91','9503008804','$2a$08$WgUg0kPlk7fJRH0GXigu/.NSdlS4xHSobKaKIRpxyii.3X4dJGlwe','1',0,NULL,'','2','2019-04-21 06:23:20','2019-04-21 06:23:20'),(6,'+91','9673363253','$2a$08$0HPUbZ2fF2qSufo38aLKiOAVLgaV0k991C9EQVP41carAAzVIVJp6','1',4,NULL,'','2','2019-04-21 09:05:43','2019-04-21 09:05:43'),(7,'+91','9673363253','$2a$08$WocviVcoZTn/MNk2HpUVZOkwx1fhc/n.05CdqdOwV6nUZSoYexxzG','3',2,NULL,'','1','2019-04-21 09:35:05','2019-04-21 09:35:05'),(8,'+91','7028668351','$2a$08$FCDCY//.cjKF.ybWzh7xGegpQq5SZJ0J.ZReiZ1301zPSYXtGPNpC','1',5,NULL,'','2','2019-04-21 10:41:59','2019-04-21 10:41:59'),(9,'+91','8657387317','$2a$08$xN.I9l2GU/V7m0sYaie0QO2Pj86tSXraKt5jjh9eOtX6g0fWJLKc6','3',3,NULL,'','1','2019-04-22 06:57:17','2019-04-22 06:57:17'),(10,'+91','8657387317','$2a$08$5dXFEPoO/hnmr8fkkStvJOn6IqX5YQxGCR62U/8FXO7MRF7Ao4F.i','2',2,NULL,'','1','2019-04-22 07:08:52','2019-04-22 07:08:52'),(11,'+91','8657387317','$2a$08$wy28pbPBYEVbJ4I.VjNLVurUqNOY/HTHuDLz8IAsFDTeArEvDyEuW','1',6,NULL,'','2','2019-04-22 07:25:59','2019-04-22 07:25:59'),(12,'+91','8421118381','$2a$08$iQQBjFzj5jW1quK7a7kkQu/WTr.xXNV09B9JKYHPzzRCXz.cz67d6','2',3,NULL,'','1','2019-04-22 11:03:59','2019-04-22 11:03:59'),(13,'+91','7028668351','$2a$08$gV6i.p7ypHlFCbhaDXWbm.OElXNkZZcivNkoWPqF96UlH24283r0m','2',4,NULL,'','1','2019-04-22 11:04:15','2019-04-22 11:04:15'),(14,'+91','9370649300','$2a$08$fnAUBvOKGRkhZswsPx4HAe9rqBJqdbf9sRe7Tvnbefy9s1M1k2EvW','2',5,NULL,'','1','2019-04-22 13:00:46','2019-04-22 13:00:46'),(15,'+91','9503008804','$2a$08$mfFoQk9YHJ53V/G4.BVIyO0yjoxzgFByH6qsA3wShZPEVVWSEIC1y','2',6,NULL,'','1','2019-05-09 00:23:04','2019-05-08 18:53:04');
-/*!40000 ALTER TABLE `1w_tbl_members` ENABLE KEYS */;
-UNLOCK TABLES;
+insert  into `1w_tbl_members`(`MemberID`,`M_CountryCode`,`M_Mobile`,`M_Password`,`M_Type`,`RelationID`,`M_AndroidToken`,`M_iOSToken`,`M_Status`,`RowAddedDttm`,`RowUpdatedDttm`) values
+(1,'+91','9673363253','$2a$08$HEEDC2a6FFUNLhKCaYInT.4QHFlAd9Wa9HPftsdY9i4eaPiWJTSiS','2',1,NULL,'','1','2019-04-20 16:00:40','2019-04-20 21:30:40'),
+(2,'+91','9922690466','$2a$08$T3EZJON/mpyOUy2sZQk.Wul9apqatpLdMt1lgR4j.6Et42F8ciOVS','3',1,NULL,'','1','2019-04-20 16:08:45','2019-04-20 21:38:45'),
+(3,'+91','7721037175','$2a$08$CJ9pGKOr4JB3k34Dp4yn0eO4XLS2joENcY6FP13d8zDDWhVxfSPmS','1',0,NULL,'','2','2019-04-20 16:12:44','2019-04-20 21:42:44'),
+(4,'+91','8904817656','$2a$08$5LuD2J1MoNa4lFR9Roj.ZOilwMosZg6HDJdLk7hO4ZlPh9FIN744e','1',3,NULL,'','2','2019-04-20 17:42:21','2019-04-20 23:12:21'),
+(5,'+91','9503008804','$2a$08$WgUg0kPlk7fJRH0GXigu/.NSdlS4xHSobKaKIRpxyii.3X4dJGlwe','1',0,NULL,'','2','2019-04-21 06:23:20','2019-04-21 11:53:20'),
+(6,'+91','9673363253','$2a$08$0HPUbZ2fF2qSufo38aLKiOAVLgaV0k991C9EQVP41carAAzVIVJp6','1',4,NULL,'','2','2019-04-21 09:05:43','2019-04-21 14:35:43'),
+(7,'+91','9673363253','$2a$08$WocviVcoZTn/MNk2HpUVZOkwx1fhc/n.05CdqdOwV6nUZSoYexxzG','3',2,NULL,'','1','2019-04-21 09:35:05','2019-04-21 15:05:05'),
+(8,'+91','7028668351','$2a$08$FCDCY//.cjKF.ybWzh7xGegpQq5SZJ0J.ZReiZ1301zPSYXtGPNpC','1',5,NULL,'','2','2019-04-21 10:41:59','2019-04-21 16:11:59'),
+(9,'+91','8657387317','$2a$08$xN.I9l2GU/V7m0sYaie0QO2Pj86tSXraKt5jjh9eOtX6g0fWJLKc6','3',3,NULL,'','1','2019-04-22 06:57:17','2019-04-22 12:27:17'),
+(10,'+91','8657387317','$2a$08$5dXFEPoO/hnmr8fkkStvJOn6IqX5YQxGCR62U/8FXO7MRF7Ao4F.i','2',2,NULL,'','1','2019-04-22 07:08:52','2019-04-22 12:38:52'),
+(11,'+91','8657387317','$2a$08$wy28pbPBYEVbJ4I.VjNLVurUqNOY/HTHuDLz8IAsFDTeArEvDyEuW','1',6,NULL,'','2','2019-04-22 07:25:59','2019-04-22 12:55:59'),
+(12,'+91','8421118381','$2a$08$iQQBjFzj5jW1quK7a7kkQu/WTr.xXNV09B9JKYHPzzRCXz.cz67d6','2',3,NULL,'','1','2019-04-22 11:03:59','2019-04-22 16:33:59'),
+(13,'+91','7028668351','$2a$08$gV6i.p7ypHlFCbhaDXWbm.OElXNkZZcivNkoWPqF96UlH24283r0m','2',4,NULL,'','1','2019-04-22 11:04:15','2019-04-22 16:34:15'),
+(14,'+91','9370649300','$2a$08$fnAUBvOKGRkhZswsPx4HAe9rqBJqdbf9sRe7Tvnbefy9s1M1k2EvW','2',5,NULL,'','1','2019-04-22 13:00:46','2019-04-22 18:30:46'),
+(15,'+91','9503008804','$2a$08$mfFoQk9YHJ53V/G4.BVIyO0yjoxzgFByH6qsA3wShZPEVVWSEIC1y','2',6,NULL,'','1','2019-05-09 00:23:04','2019-05-09 00:23:04');
 
---
--- Table structure for table `1w_tbl_notifications`
---
+/*Table structure for table `1w_tbl_notifications` */
 
 DROP TABLE IF EXISTS `1w_tbl_notifications`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+
 CREATE TABLE `1w_tbl_notifications` (
   `Notification_ID` int(11) NOT NULL AUTO_INCREMENT,
   `N_Type` enum('1','2','3','4','5') NOT NULL COMMENT '1:Comment, 2:Like, 3: Request, 4 : Account, 5: Post',
@@ -543,100 +4336,89 @@ CREATE TABLE `1w_tbl_notifications` (
   `RowUpdatedDttm` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`Notification_ID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `1w_tbl_notifications`
---
+/*Data for the table `1w_tbl_notifications` */
 
-LOCK TABLES `1w_tbl_notifications` WRITE;
-/*!40000 ALTER TABLE `1w_tbl_notifications` DISABLE KEYS */;
-/*!40000 ALTER TABLE `1w_tbl_notifications` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `1w_tbl_options`
---
+/*Table structure for table `1w_tbl_options` */
 
 DROP TABLE IF EXISTS `1w_tbl_options`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+
 CREATE TABLE `1w_tbl_options` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(60) NOT NULL,
   `value` longtext NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `1w_tbl_options`
---
+/*Data for the table `1w_tbl_options` */
 
-LOCK TABLES `1w_tbl_options` WRITE;
-/*!40000 ALTER TABLE `1w_tbl_options` DISABLE KEYS */;
-INSERT INTO `1w_tbl_options` VALUES (1,'dateformat','Y-m-d|%Y-%m-%d'),(2,'companyname','1Windo'),(3,'smtp_email','no-reply@intorque.net'),(4,'smtp_password','noreply@987'),(5,'smtp_port','465'),(6,'smtp_host','sub5.mail.dreamhost.com'),(7,'smtp_email_charset','utf-8'),(8,'default_timezone','Asia/Kolkata'),(9,'company_logo','SI-Logo-18092018171345.png'),(10,'active_language','english'),(11,'favicon',''),(12,'image_allowed_files','.jpeg,.jpg,.svg,.png'),(13,'email_protocol','smtp'),(14,'privancy_policy','<p class=\"disc\">We believe our core values of integrity, client satisfaction, innovation and intellect differentiate us from our competitors. Our focus on developing and maintaining a measurable client satisfaction program has created a company culture where each of our associates delivers world class service every day.</p> <p class=\"disc\">We believe our core values of integrity, client satisfaction, innovation and intellect differentiate us from our competitors. Our focus on developing and maintaining a measurable client satisfaction program has created a company culture where each of our associates delivers world class service every day.</p> <p class=\"title\">Personal vs. Non-personal Information</p> <p class=\"disc\">We believe our core values of integrity, client satisfaction, innovation and intellect differentiate us from our competitors. Our focus on developing and maintaining a measurable client satisfaction program has created a company culture where each of our associates delivers world class service every day.</p>'),(15,'terms_of_use','<p class=\"disc\">We believe our core values of integrity, client satisfaction, innovation and intellect differentiate us from our competitors. Our focus on developing and maintaining a measurable client satisfaction program has created a company culture where each of our associates delivers world class service every day.</p>\r\n<p class=\"disc\">We believe our core values of integrity, client satisfaction, innovation and intellect differentiate us from our competitors. Our focus on developing and maintaining a measurable client satisfaction program has created a company culture where each of our associates delivers world class service every day.</p>\r\n<p class=\"title\">Personal vs. Non-personal Information</p>\r\n<p class=\"disc\">We believe our core values of integrity, client satisfaction, innovation and intellect differentiate us from our competitors. Our focus on developing and maintaining a measurable client satisfaction program has created a company culture where each of our associates delivers world class service every day.</p>'),(16,'video_allowed_files','.mp4,.avi,.flv,.mov'),(17,'sms_api_key_global','Ab7a73d3268ee7a8cf6ba76abb43a6871'),(18,'sms_api_senderid','CLIENT'),(19,'sms_api_url','https://alerts.solutionsinfini.com/api/v4/'),(20,'sms_api_route','sms');
-/*!40000 ALTER TABLE `1w_tbl_options` ENABLE KEYS */;
-UNLOCK TABLES;
+insert  into `1w_tbl_options`(`id`,`name`,`value`) values
+(1,'dateformat','Y-m-d|%Y-%m-%d'),
+(2,'companyname','1Windo'),
+(3,'smtp_email','no-reply@intorque.net'),
+(4,'smtp_password','noreply@987'),
+(5,'smtp_port','465'),
+(6,'smtp_host','sub5.mail.dreamhost.com'),
+(7,'smtp_email_charset','utf-8'),
+(8,'default_timezone','Asia/Kolkata'),
+(9,'company_logo','SI-Logo-18092018171345.png'),
+(10,'active_language','english'),
+(11,'favicon',''),
+(12,'image_allowed_files','.jpeg,.jpg,.svg,.png'),
+(13,'email_protocol','smtp'),
+(14,'privancy_policy','<p class=\"disc\">We believe our core values of integrity, client satisfaction, innovation and intellect differentiate us from our competitors. Our focus on developing and maintaining a measurable client satisfaction program has created a company culture where each of our associates delivers world class service every day.</p> <p class=\"disc\">We believe our core values of integrity, client satisfaction, innovation and intellect differentiate us from our competitors. Our focus on developing and maintaining a measurable client satisfaction program has created a company culture where each of our associates delivers world class service every day.</p> <p class=\"title\">Personal vs. Non-personal Information</p> <p class=\"disc\">We believe our core values of integrity, client satisfaction, innovation and intellect differentiate us from our competitors. Our focus on developing and maintaining a measurable client satisfaction program has created a company culture where each of our associates delivers world class service every day.</p>'),
+(15,'terms_of_use','<p class=\"disc\">We believe our core values of integrity, client satisfaction, innovation and intellect differentiate us from our competitors. Our focus on developing and maintaining a measurable client satisfaction program has created a company culture where each of our associates delivers world class service every day.</p>\r\n<p class=\"disc\">We believe our core values of integrity, client satisfaction, innovation and intellect differentiate us from our competitors. Our focus on developing and maintaining a measurable client satisfaction program has created a company culture where each of our associates delivers world class service every day.</p>\r\n<p class=\"title\">Personal vs. Non-personal Information</p>\r\n<p class=\"disc\">We believe our core values of integrity, client satisfaction, innovation and intellect differentiate us from our competitors. Our focus on developing and maintaining a measurable client satisfaction program has created a company culture where each of our associates delivers world class service every day.</p>'),
+(16,'video_allowed_files','.mp4,.avi,.flv,.mov'),
+(17,'sms_api_key_global','Ab7a73d3268ee7a8cf6ba76abb43a6871'),
+(18,'sms_api_senderid','CLIENT'),
+(19,'sms_api_url','https://alerts.solutionsinfini.com/api/v4/'),
+(20,'sms_api_route','sms');
 
---
--- Table structure for table `1w_tbl_payment_options`
---
+/*Table structure for table `1w_tbl_payment_options` */
 
 DROP TABLE IF EXISTS `1w_tbl_payment_options`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+
 CREATE TABLE `1w_tbl_payment_options` (
   `POptionId` int(11) NOT NULL AUTO_INCREMENT,
   `PO_ProviderName` varchar(25) NOT NULL,
   `PO_ShortName` varchar(20) NOT NULL,
   PRIMARY KEY (`POptionId`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `1w_tbl_payment_options`
---
+/*Data for the table `1w_tbl_payment_options` */
 
-LOCK TABLES `1w_tbl_payment_options` WRITE;
-/*!40000 ALTER TABLE `1w_tbl_payment_options` DISABLE KEYS */;
-INSERT INTO `1w_tbl_payment_options` VALUES (1,'Cash On Delivery','COD'),(2,'paytm','Paytm');
-/*!40000 ALTER TABLE `1w_tbl_payment_options` ENABLE KEYS */;
-UNLOCK TABLES;
+insert  into `1w_tbl_payment_options`(`POptionId`,`PO_ProviderName`,`PO_ShortName`) values
+(1,'Cash On Delivery','COD'),
+(2,'paytm','Paytm');
 
---
--- Table structure for table `1w_tbl_permissions`
---
+/*Table structure for table `1w_tbl_permissions` */
 
 DROP TABLE IF EXISTS `1w_tbl_permissions`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+
 CREATE TABLE `1w_tbl_permissions` (
   `Permission_ID` int(11) NOT NULL AUTO_INCREMENT,
   `P_StaffID` int(11) NOT NULL,
   `P_Permission` varchar(255) NOT NULL,
   `P_HasPermission` int(11) NOT NULL,
   PRIMARY KEY (`Permission_ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `1w_tbl_permissions`
---
+/*Data for the table `1w_tbl_permissions` */
 
-LOCK TABLES `1w_tbl_permissions` WRITE;
-/*!40000 ALTER TABLE `1w_tbl_permissions` DISABLE KEYS */;
-INSERT INTO `1w_tbl_permissions` VALUES (1,2,'Users',1),(2,2,'Staffs',1),(3,5,'Users',1),(4,5,'Staffs',1);
-/*!40000 ALTER TABLE `1w_tbl_permissions` ENABLE KEYS */;
-UNLOCK TABLES;
+insert  into `1w_tbl_permissions`(`Permission_ID`,`P_StaffID`,`P_Permission`,`P_HasPermission`) values
+(1,1,'Users',1),
+(2,1,'Staffs',1),
+(3,1,'Users',1),
+(4,1,'Staffs',1),
+(5,1,'Users',0),
+(6,1,'Staffs',0),
+(7,6,'Users',0),
+(8,6,'Staffs',0);
 
---
--- Table structure for table `1w_tbl_products`
---
+/*Table structure for table `1w_tbl_products` */
 
 DROP TABLE IF EXISTS `1w_tbl_products`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+
 CREATE TABLE `1w_tbl_products` (
   `ProductID` int(11) NOT NULL AUTO_INCREMENT,
   `P_CategoryID` int(11) NOT NULL,
@@ -656,25 +4438,29 @@ CREATE TABLE `1w_tbl_products` (
   PRIMARY KEY (`ProductID`),
   CONSTRAINT `1w_tbl_products_ibfk_1` FOREIGN KEY (`ProductID`) REFERENCES `1w_tbl_categories` (`CategoryID`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `1w_tbl_products`
---
+/*Data for the table `1w_tbl_products` */
 
-LOCK TABLES `1w_tbl_products` WRITE;
-/*!40000 ALTER TABLE `1w_tbl_products` DISABLE KEYS */;
-INSERT INTO `1w_tbl_products` VALUES (1,132,'All Saints Jacket','Edgy black leather jacket with quilted stitching at the top. Cool design. Quality leather and comfortable feel. Very soft every day wearability. Designed by All Saints.','1-PFI-1234.jpg','[\"1-PGI-1234.jpg\",\"1-PGI-12345.jpg\",\"1-PGI-12346.jpg\"]',152.00,'1','[\"1\",\"2\",\"3\"]',1,0,'2','2','2018-12-29 11:34:03','2019-04-22 11:28:44'),(2,132,'Amazon Snakeskin Jacket','One of a kind authentic custom snakeskin jacket direct from the Amazon. Authentic pieces put together thru world travel, mixing snakeskin and high-quality leathers. The one and only piece ever made by Sharon Ehman.','2-PFI-1234.jpg','[\"2-PGI-1234.jpg\",\"2-PGI-12345.jpg\",\"2-PGI-12346.jpg\"]',102.00,'2','[\"4\",\"5\",\"6\"]',5,1,'2','1','2018-12-29 11:04:03','2019-04-21 08:41:26'),(3,132,'Art Fringe Jacket','Customized and authentic gorgeous piece by Sharon Ehman. Hand-painted detailing on the back. All customized sizing and sort suede finish leathers. PERFECT for playa, festivals, weekly getaways, fun weekend festival events. The ONLY piece like it, everyone will want to know where you got it!','3-PFI-1234.jpg','[\"3-PGI-1234.jpg\",\"3-PGI-12345.jpg\",\"3-PGI-12346.jpg\"]',252.00,'1','[\"1\",\"2\",\"3\"]',50,4,'2','2','2018-12-29 13:31:03','2019-04-21 08:41:31'),(5,132,'PVC Studded Pants','Gorgeous low-waisted low inseam PVC stretch studded pants. Super sexy design, one of a kind. Handmade and hand detailed by Toxic Vision. Wear these to a rock concert or a weekend festival, everyone will want to know where you got them!Model is 5’9”, fit ranges US-UK 0-4 skin tight fit.','5-PFI-1234.jpg','[\"5-PGI-1234.jpg\",\"5-PGI-12345.jpg\",\"5-PGI-12346.jpg\"]',10.00,'1','[\"1\",\"3\"]',15,2,'2','1','2018-12-29 14:44:03','2019-04-21 08:45:38'),(7,19,'Test Watch','Watch Description Goes Here','','',150.00,'1','[\"1\",\"2\",\"3\"]',0,0,'1','1','2019-01-08 18:06:11','2019-01-08 12:36:11'),(8,19,'Test Watch','Watch Description Goes Here','8-PFI-08012019180939.jpg','',150.00,'1','[\"1\",\"2\",\"3\"]',0,0,'1','1','2019-01-08 18:09:39','2019-01-08 12:39:39'),(9,19,'Test Watch','Watch Description Goes Here','9-PFI-08012019181015.jpg','',150.00,'1','[\"1\",\"2\",\"3\"]',0,0,'1','1','2019-01-08 18:10:15','2019-01-08 12:40:15'),(10,19,'Test Watch','Watch Description Goes Here','10-PFI-08012019181029.jpg','',150.00,'1','[\"1\",\"2\",\"3\"]',0,0,'1','1','2019-01-08 18:10:29','2019-01-08 12:40:29'),(11,10,'New test Product','Desc','11-PFI-22012019010426.jpg','',0.00,'2','',0,0,'1','2','2019-01-22 01:03:36','2019-04-22 06:27:40'),(12,14,'Shirt','Formal shirt','','',1000.00,'1','[\"1\",\"2\",\"3\"]',0,0,'1','2','2019-02-18 06:24:42','2019-02-18 06:24:45'),(13,275,'Xiaomi Mi 9 SE','Qualcomm SDM712 Snapdragon 712 (10 nm)','','',19.00,'2','',0,0,'1','2','2019-04-20 13:13:48','2019-04-20 13:13:52'),(21,350,'Rice','Rice','','',150.00,'0','',0,0,'1','2','2019-04-22 11:39:47','2019-04-22 11:39:59'),(22,351,'Rice','White Rice','','',150.00,'0','',0,0,'1','2','2019-04-22 11:41:41','2019-04-22 11:46:56'),(24,353,'Cabbage','Cabbage','','',15.00,'0','',0,0,'1','2','2019-04-22 11:46:44','2019-04-22 11:46:48');
-/*!40000 ALTER TABLE `1w_tbl_products` ENABLE KEYS */;
-UNLOCK TABLES;
+insert  into `1w_tbl_products`(`ProductID`,`P_CategoryID`,`P_Name`,`P_Description`,`P_FeaturedImage`,`P_Gallery`,`P_Price`,`P_Attributes`,`P_AttributeValues`,`P_Sales`,`P_Rating`,`P_Featured`,`P_Status`,`RowAddedDttm`,`RowUpdatedDttm`) values
+(1,132,'All Saints Jacket','Edgy black leather jacket with quilted stitching at the top. Cool design. Quality leather and comfortable feel. Very soft every day wearability. Designed by All Saints.','1-PFI-1234.jpg','[\"1-PGI-1234.jpg\",\"1-PGI-12345.jpg\",\"1-PGI-12346.jpg\"]',152.00,'1','[\"1\",\"2\",\"3\"]',1,0,'2','2','2018-12-29 11:34:03','2019-04-22 16:58:44'),
+(2,132,'Amazon Snakeskin Jacket','One of a kind authentic custom snakeskin jacket direct from the Amazon. Authentic pieces put together thru world travel, mixing snakeskin and high-quality leathers. The one and only piece ever made by Sharon Ehman.','2-PFI-1234.jpg','[\"2-PGI-1234.jpg\",\"2-PGI-12345.jpg\",\"2-PGI-12346.jpg\"]',102.00,'2','[\"4\",\"5\",\"6\"]',5,1,'2','1','2018-12-29 11:04:03','2019-04-21 14:11:26'),
+(3,132,'Art Fringe Jacket','Customized and authentic gorgeous piece by Sharon Ehman. Hand-painted detailing on the back. All customized sizing and sort suede finish leathers. PERFECT for playa, festivals, weekly getaways, fun weekend festival events. The ONLY piece like it, everyone will want to know where you got it!','3-PFI-1234.jpg','[\"3-PGI-1234.jpg\",\"3-PGI-12345.jpg\",\"3-PGI-12346.jpg\"]',252.00,'1','[\"1\",\"2\",\"3\"]',50,4,'2','2','2018-12-29 13:31:03','2019-04-21 14:11:31'),
+(5,132,'PVC Studded Pants','Gorgeous low-waisted low inseam PVC stretch studded pants. Super sexy design, one of a kind. Handmade and hand detailed by Toxic Vision. Wear these to a rock concert or a weekend festival, everyone will want to know where you got them!Model is 5’9”, fit ranges US-UK 0-4 skin tight fit.','5-PFI-1234.jpg','[\"5-PGI-1234.jpg\",\"5-PGI-12345.jpg\",\"5-PGI-12346.jpg\"]',10.00,'1','[\"1\",\"3\"]',15,2,'2','1','2018-12-29 14:44:03','2019-04-21 14:15:38'),
+(7,19,'Test Watch','Watch Description Goes Here','','',150.00,'1','[\"1\",\"2\",\"3\"]',0,0,'1','1','2019-01-08 18:06:11','2019-01-08 18:06:11'),
+(8,19,'Test Watch','Watch Description Goes Here','8-PFI-08012019180939.jpg','',150.00,'1','[\"1\",\"2\",\"3\"]',0,0,'1','1','2019-01-08 18:09:39','2019-01-08 18:09:39'),
+(9,19,'Test Watch','Watch Description Goes Here','9-PFI-08012019181015.jpg','',150.00,'1','[\"1\",\"2\",\"3\"]',0,0,'1','1','2019-01-08 18:10:15','2019-01-08 18:10:15'),
+(10,19,'Test Watch','Watch Description Goes Here','10-PFI-08012019181029.jpg','',150.00,'1','[\"1\",\"2\",\"3\"]',0,0,'1','1','2019-01-08 18:10:29','2019-01-08 18:10:29'),
+(11,10,'New test Product','Desc','11-PFI-22012019010426.jpg','',0.00,'2','',0,0,'1','2','2019-01-22 01:03:36','2019-04-22 11:57:40'),
+(12,14,'Shirt','Formal shirt','','',1000.00,'1','[\"1\",\"2\",\"3\"]',0,0,'1','2','2019-02-18 06:24:42','2019-02-18 11:54:45'),
+(13,275,'Xiaomi Mi 9 SE','Qualcomm SDM712 Snapdragon 712 (10 nm)','','',19.00,'2','',0,0,'1','2','2019-04-20 13:13:48','2019-04-20 18:43:52'),
+(21,350,'Rice','Rice','','',150.00,'0','',0,0,'1','2','2019-04-22 11:39:47','2019-04-22 17:09:59'),
+(22,351,'Rice','White Rice','','',150.00,'0','',0,0,'1','2','2019-04-22 11:41:41','2019-04-22 17:16:56'),
+(24,353,'Cabbage','Cabbage','','',15.00,'0','',0,0,'1','2','2019-04-22 11:46:44','2019-04-22 17:16:48');
 
---
--- Table structure for table `1w_tbl_products_attributes`
---
+/*Table structure for table `1w_tbl_products_attributes` */
 
 DROP TABLE IF EXISTS `1w_tbl_products_attributes`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+
 CREATE TABLE `1w_tbl_products_attributes` (
   `PAttributeID` int(11) NOT NULL AUTO_INCREMENT,
   `A_Type` enum('1','2') NOT NULL COMMENT '1 - value,2 - color',
@@ -685,25 +4471,17 @@ CREATE TABLE `1w_tbl_products_attributes` (
   `RowUpdatedDttm` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`PAttributeID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `1w_tbl_products_attributes`
---
+/*Data for the table `1w_tbl_products_attributes` */
 
-LOCK TABLES `1w_tbl_products_attributes` WRITE;
-/*!40000 ALTER TABLE `1w_tbl_products_attributes` DISABLE KEYS */;
-INSERT INTO `1w_tbl_products_attributes` VALUES (1,'1','Size','Size of the products','2','2018-12-30 11:58:16','2019-01-08 12:19:56'),(2,'2','Color','Color of the products','2','2018-12-30 11:58:16','2019-01-08 12:19:59');
-/*!40000 ALTER TABLE `1w_tbl_products_attributes` ENABLE KEYS */;
-UNLOCK TABLES;
+insert  into `1w_tbl_products_attributes`(`PAttributeID`,`A_Type`,`A_Title`,`A_Description`,`A_Status`,`RowAddedDttm`,`RowUpdatedDttm`) values
+(1,'1','Size','Size of the products','2','2018-12-30 11:58:16','2019-01-08 17:49:56'),
+(2,'2','Color','Color of the products','2','2018-12-30 11:58:16','2019-01-08 17:49:59');
 
---
--- Table structure for table `1w_tbl_products_attributes_values`
---
+/*Table structure for table `1w_tbl_products_attributes_values` */
 
 DROP TABLE IF EXISTS `1w_tbl_products_attributes_values`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+
 CREATE TABLE `1w_tbl_products_attributes_values` (
   `PAValueID` int(11) NOT NULL AUTO_INCREMENT,
   `V_AttributeID` int(11) NOT NULL,
@@ -714,25 +4492,22 @@ CREATE TABLE `1w_tbl_products_attributes_values` (
   `RowUpdatedDttm` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`PAValueID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `1w_tbl_products_attributes_values`
---
+/*Data for the table `1w_tbl_products_attributes_values` */
 
-LOCK TABLES `1w_tbl_products_attributes_values` WRITE;
-/*!40000 ALTER TABLE `1w_tbl_products_attributes_values` DISABLE KEYS */;
-INSERT INTO `1w_tbl_products_attributes_values` VALUES (1,1,'Small','S','2','2018-12-30 11:59:29','2019-01-08 19:04:28'),(2,1,'Medium','M','2','2018-12-30 11:59:29','2019-01-08 19:07:48'),(3,1,'Large','L','2','2018-12-30 11:59:48','2019-01-08 19:07:51'),(4,2,'Blue','#0000FF','2','2018-12-30 11:59:48','2019-01-08 19:07:53'),(5,2,'Red','#ff0000','2','2018-12-30 12:00:08','2019-01-08 19:07:56'),(6,2,'Green','#00FF00','2','2018-12-30 12:00:08','2019-01-29 07:10:06'),(7,3,'Test 1','Test 11','2','2019-01-21 22:48:47','2019-01-21 17:18:47');
-/*!40000 ALTER TABLE `1w_tbl_products_attributes_values` ENABLE KEYS */;
-UNLOCK TABLES;
+insert  into `1w_tbl_products_attributes_values`(`PAValueID`,`V_AttributeID`,`V_Title`,`V_Value`,`V_Status`,`RowAddedDttm`,`RowUpdatedDttm`) values
+(1,1,'Small','S','2','2018-12-30 11:59:29','2019-01-09 00:34:28'),
+(2,1,'Medium','M','2','2018-12-30 11:59:29','2019-01-09 00:37:48'),
+(3,1,'Large','L','2','2018-12-30 11:59:48','2019-01-09 00:37:51'),
+(4,2,'Blue','#0000FF','2','2018-12-30 11:59:48','2019-01-09 00:37:53'),
+(5,2,'Red','#ff0000','2','2018-12-30 12:00:08','2019-01-09 00:37:56'),
+(6,2,'Green','#00FF00','2','2018-12-30 12:00:08','2019-01-29 12:40:06'),
+(7,3,'Test 1','Test 11','2','2019-01-21 22:48:47','2019-01-21 22:48:47');
 
---
--- Table structure for table `1w_tbl_restaurants`
---
+/*Table structure for table `1w_tbl_restaurants` */
 
 DROP TABLE IF EXISTS `1w_tbl_restaurants`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+
 CREATE TABLE `1w_tbl_restaurants` (
   `RestaurantID` int(11) NOT NULL AUTO_INCREMENT,
   `R_FoodCategoryID` varchar(100) DEFAULT NULL,
@@ -757,25 +4532,27 @@ CREATE TABLE `1w_tbl_restaurants` (
   `RowUpdatedDttm` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`RestaurantID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `1w_tbl_restaurants`
---
+/*Data for the table `1w_tbl_restaurants` */
 
-LOCK TABLES `1w_tbl_restaurants` WRITE;
-/*!40000 ALTER TABLE `1w_tbl_restaurants` DISABLE KEYS */;
-INSERT INTO `1w_tbl_restaurants` VALUES (1,'[\"23\",\"24\",\"25\"]','KFC','KFC\'s menu has evolved from its legendary Original Recipe pressure fried chicken (“11 herbs and spices”) and side dishes to include grilled chicken, chicken strips, chicken sandwiches, hot wings, and desserts','1-RFI-1234.jpg','','','',NULL,NULL,NULL,'',NULL,'10 Mins',152.00,1,0.00,'1','2','2018-12-29 11:34:03','2019-01-17 15:16:02'),(2,'[\"23\",\"24\"]','MacDonalds','McDonalds crew members work in the kitchen preparing food and at the front counter helping customers through the ordering process.','2-RFI-1234.jpg','','','',NULL,NULL,NULL,'',NULL,'40 Mins',102.00,2,4.00,'2','2','2018-12-29 11:04:03','2019-01-17 15:16:02'),(3,'[\"23\",\"24\"]','Subway','Exceptional customer service is a major component of this position.','3-RFI-1234.jpg','','','',NULL,NULL,NULL,'',NULL,'25 Mins',252.00,1,4.50,'1','2','2018-12-29 13:31:03','2019-01-17 15:15:53'),(4,'[\"23\",\"24\"]','Dominozz','Domino\'s Pizza team members must also clean the store and keep it sanitized and working properly.','4-RFI-1234.jpg','','','',NULL,NULL,NULL,'',NULL,'30 Mins',1002.00,0,3.50,'1','2','2018-12-29 07:31:03','2019-04-20 12:35:34'),(5,'[\"23\",\"24\"]','Pizza Hut','a subsidiary of Yum! Brands, Inc., delivers more pizza, pasta and wings than any other restaurant in the world.','5-RFI-1234.jpg','','','',NULL,NULL,NULL,'',NULL,'35 Mins',52.00,2,2.50,'2','2','2018-12-29 14:44:03','2019-01-17 15:15:52'),(6,'[\"23\",\"24\"]','Burger King','Burger King (BK) is an American global chain of hamburger fast food restaurants.','6-RFI-1234.jpg','','','',NULL,NULL,NULL,'',NULL,'20 Mins',82.00,1,1.00,'1','2','2018-12-29 18:40:03','2019-01-17 15:15:50'),(8,'[\"23\",\"24\",\"25\"]','Shakti Sandi','Shakti Sandi','8-RFI-09012019035446.jpg','','','',NULL,NULL,NULL,'',NULL,'42 Mins',420.00,0,0.00,'1','2','2019-01-09 03:41:40','2019-04-20 12:35:33'),(9,'[\"23\",\"25\"]','Shakti Pizza',' Shakti Pizza  Shakti Pizza ','','','','',NULL,NULL,NULL,'',NULL,'50 Mins',300.00,0,0.00,'1','2','2019-01-09 03:43:01','2019-04-04 06:31:41'),(10,'[\"35\"]','Al bek','Arabic Restaurant','10-RFI-17012019222936.jpg','','','',NULL,NULL,NULL,'',NULL,'45 Mins',400.00,0,0.00,'1','2','2019-01-17 16:59:36','2019-04-04 06:31:40'),(14,'[\"25\"]','Zhang\'s Chinese Restaurant','Casual Dining - Chinese, Momos','14-RFI-28012019201401.jpg','16.770087','74.55706299999997','Nagarpalika Nokar Housing Society, Swapnanagari, Jaysingpur, Maharashtra 416101, India','Kolhapur','Swapnanagari','','IN',NULL,'45mins',750.00,0,0.00,'1','2','2019-01-17 17:49:08','2019-04-04 06:31:38'),(15,'[\"335\",\"336\",\"345\"]','Karachi Bakery','Sweets, cakes and artisan breads from an enduring chain bakeshop established in 1953.','','16.770087','74.55706299999997','Nagarpalika Nokar Housing Society, Swapnanagari, Jaysingpur, Maharashtra 416101, India','Kolhapur','Swapnanagari','','IN',NULL,'25',100.00,0,0.00,'1','2','2019-04-11 06:58:48','2019-04-11 06:59:43'),(16,'[\"346\"]','Pranav Food','No food yet','','16.770087','74.55706299999997','Nagarpalika Nokar Housing Society, Swapnanagari, Jaysingpur, Maharashtra 416101, India','Kolhapur','Swapnanagari','','IN',NULL,'30',1000.00,0,0.00,'1','2','2019-04-20 12:39:26','2019-04-20 12:39:30');
-/*!40000 ALTER TABLE `1w_tbl_restaurants` ENABLE KEYS */;
-UNLOCK TABLES;
+insert  into `1w_tbl_restaurants`(`RestaurantID`,`R_FoodCategoryID`,`R_Name`,`R_Description`,`R_FeaturedImage`,`R_Latitude`,`R_Longitude`,`R_Address`,`R_City`,`R_Area`,`R_Neighborhood`,`R_Country`,`R_Search_Area`,`R_DeliveryTime`,`R_PriceforTwo`,`R_Sales`,`R_Rating`,`R_Featured`,`R_Status`,`RowAddedDttm`,`RowUpdatedDttm`) values
+(1,'[\"23\",\"24\",\"25\"]','KFC','KFC\'s menu has evolved from its legendary Original Recipe pressure fried chicken (“11 herbs and spices”) and side dishes to include grilled chicken, chicken strips, chicken sandwiches, hot wings, and desserts','1-RFI-1234.jpg','','','',NULL,NULL,NULL,'',NULL,'10 Mins',152.00,1,0.00,'1','2','2018-12-29 11:34:03','2019-01-17 20:46:02'),
+(2,'[\"23\",\"24\"]','MacDonalds','McDonalds crew members work in the kitchen preparing food and at the front counter helping customers through the ordering process.','2-RFI-1234.jpg','','','',NULL,NULL,NULL,'',NULL,'40 Mins',102.00,2,4.00,'2','2','2018-12-29 11:04:03','2019-01-17 20:46:02'),
+(3,'[\"23\",\"24\"]','Subway','Exceptional customer service is a major component of this position.','3-RFI-1234.jpg','','','',NULL,NULL,NULL,'',NULL,'25 Mins',252.00,1,4.50,'1','2','2018-12-29 13:31:03','2019-01-17 20:45:53'),
+(4,'[\"23\",\"24\"]','Dominozz','Domino\'s Pizza team members must also clean the store and keep it sanitized and working properly.','4-RFI-1234.jpg','','','',NULL,NULL,NULL,'',NULL,'30 Mins',1002.00,0,3.50,'1','2','2018-12-29 07:31:03','2019-04-20 18:05:34'),
+(5,'[\"23\",\"24\"]','Pizza Hut','a subsidiary of Yum! Brands, Inc., delivers more pizza, pasta and wings than any other restaurant in the world.','5-RFI-1234.jpg','','','',NULL,NULL,NULL,'',NULL,'35 Mins',52.00,2,2.50,'2','2','2018-12-29 14:44:03','2019-01-17 20:45:52'),
+(6,'[\"23\",\"24\"]','Burger King','Burger King (BK) is an American global chain of hamburger fast food restaurants.','6-RFI-1234.jpg','','','',NULL,NULL,NULL,'',NULL,'20 Mins',82.00,1,1.00,'1','2','2018-12-29 18:40:03','2019-01-17 20:45:50'),
+(8,'[\"23\",\"24\",\"25\"]','Shakti Sandi','Shakti Sandi','8-RFI-09012019035446.jpg','','','',NULL,NULL,NULL,'',NULL,'42 Mins',420.00,0,0.00,'1','2','2019-01-09 03:41:40','2019-04-20 18:05:33'),
+(9,'[\"23\",\"25\"]','Shakti Pizza',' Shakti Pizza  Shakti Pizza ','','','','',NULL,NULL,NULL,'',NULL,'50 Mins',300.00,0,0.00,'1','2','2019-01-09 03:43:01','2019-04-04 12:01:41'),
+(10,'[\"35\"]','Al bek','Arabic Restaurant','10-RFI-17012019222936.jpg','','','',NULL,NULL,NULL,'',NULL,'45 Mins',400.00,0,0.00,'1','2','2019-01-17 16:59:36','2019-04-04 12:01:40'),
+(14,'[\"25\"]','Zhang\'s Chinese Restaurant','Casual Dining - Chinese, Momos','14-RFI-28012019201401.jpg','16.770087','74.55706299999997','Nagarpalika Nokar Housing Society, Swapnanagari, Jaysingpur, Maharashtra 416101, India','Kolhapur','Swapnanagari','','IN',NULL,'45mins',750.00,0,0.00,'1','2','2019-01-17 17:49:08','2019-04-04 12:01:38'),
+(15,'[\"335\",\"336\",\"345\"]','Karachi Bakery','Sweets, cakes and artisan breads from an enduring chain bakeshop established in 1953.','','16.770087','74.55706299999997','Nagarpalika Nokar Housing Society, Swapnanagari, Jaysingpur, Maharashtra 416101, India','Kolhapur','Swapnanagari','','IN',NULL,'25',100.00,0,0.00,'1','2','2019-04-11 06:58:48','2019-04-11 12:29:43'),
+(16,'[\"346\"]','Pranav Food','No food yet','','16.770087','74.55706299999997','Nagarpalika Nokar Housing Society, Swapnanagari, Jaysingpur, Maharashtra 416101, India','Kolhapur','Swapnanagari','','IN',NULL,'30',1000.00,0,0.00,'1','2','2019-04-20 12:39:26','2019-04-20 18:09:30');
 
---
--- Table structure for table `1w_tbl_restaurants_foods`
---
+/*Table structure for table `1w_tbl_restaurants_foods` */
 
 DROP TABLE IF EXISTS `1w_tbl_restaurants_foods`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+
 CREATE TABLE `1w_tbl_restaurants_foods` (
   `RFoodID` int(11) NOT NULL AUTO_INCREMENT,
   `F_CategoryID` int(11) NOT NULL,
@@ -793,25 +4570,32 @@ CREATE TABLE `1w_tbl_restaurants_foods` (
   KEY `F_RestaurantID` (`F_RestaurantID`),
   CONSTRAINT `1w_tbl_restaurants_foods_ibfk_1` FOREIGN KEY (`F_RestaurantID`) REFERENCES `1w_tbl_restaurants` (`RestaurantID`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `1w_tbl_restaurants_foods`
---
+/*Data for the table `1w_tbl_restaurants_foods` */
 
-LOCK TABLES `1w_tbl_restaurants_foods` WRITE;
-/*!40000 ALTER TABLE `1w_tbl_restaurants_foods` DISABLE KEYS */;
-INSERT INTO `1w_tbl_restaurants_foods` VALUES (1,23,1,'Cheese Pasta','Warm, melted cheese combined with satisfying carbs equals comfort food at its best.',150.12,'1-FI-1234.jpg','1','1','1','2018-12-31 12:50:20','2019-01-03 05:25:08'),(2,25,1,'Cheese Sandwich','A cheese sandwich is a basic sandwich generally made with one or more varieties of cheese on any sort of bread, such as flat bread or wheat bread, that may include spreads such as butter or mayonnaise.',100.12,'2-FI-1234.jpg','1','1','1','2018-12-31 12:50:20','2019-01-03 05:25:24'),(3,23,1,'Mac Pasta','Place remaining slices of bread on top, to form two sandwiches.',50.00,'3-FI-1234.jpg','1','2','1','2018-12-31 12:50:20','2019-01-03 05:25:47'),(4,25,1,'Schezwan Sandwich','an Indo-Chinese fusion recipe that is prepared commonly for breakfast or as an evening snack.',80.00,'4-FI-1234.jpg','1','1','2','2018-12-31 12:50:20','2019-01-08 23:21:01'),(5,23,1,'Arabiata Pasta',' Quick and easy homemade spaghetti sauce with ... Simple Arrabbiata Sauce Recipe - Simple and spicy, with an incredible flavor.',200.00,'5-FI-1234.jpg','1','1','2','2018-12-31 12:50:20','2019-01-08 23:21:00'),(6,24,1,'Special Sandwich','Layer with peppers, salsa and cheese. Top with remaining bread. Butter outsides of sandwiches.',120.00,'6-FI-1234.jpg','2','1','2','2018-12-31 12:50:20','2019-01-08 23:21:00'),(7,23,1,'White Sauce Pasta','perfect medley of aromatic flavors, colorful vegetables and a creamy pasta.',70.00,'7-FI-1234.jpg','1','1','2','2018-12-31 12:50:20','2019-01-08 23:21:00'),(8,24,1,'Special Pasta','cylindrical type of pasta generally served baked with a filling and covered by a sauce in Italian cuisine.',140.00,'8-FI-1234.jpg','2','2','2','2018-12-31 12:50:20','2019-01-08 23:20:58'),(10,23,8,'Extra Cheese Pasta','Extra Cheese Pasta',200.00,'10-FDI-17012019202519.jpg','2','1','2','2019-01-17 14:55:19','2019-01-17 14:55:26'),(11,35,10,'Grilled Chicken','Al bek Special Grilled Chicken',200.00,'11-FDI-17012019223344.jpg','2','1','2','2019-01-17 17:03:44','2019-01-17 17:13:03'),(12,35,10,'Al Faham','Prepared with Arabian spice mix',220.00,'','2','1','1','2019-01-17 17:20:21','2019-01-17 17:20:21'),(13,36,10,'Biryani Rice','Cooked with fine Basmati Rice',50.00,'','1','1','1','2019-01-17 17:21:37','2019-01-17 17:21:37'),(20,35,14,'Crispy Chicken Wings','8pcs of Spicy chicken wings with red chilli sauce',220.00,'','2','1','2','2019-01-17 17:51:57','2019-01-17 17:52:01'),(21,336,15,'Fruit Biscuits','Fruit Biscuits- KBBI 283',150.00,'21-FDI-11042019123156.jpg','1','1','2','2019-04-11 07:01:56','2019-04-11 07:02:07'),(22,0,16,'Big Burger','Big Burger',100.00,'','2','1','2','2019-04-20 12:47:29','2019-04-20 12:47:32'),(23,24,1,'Crispy Chicken Balls','Yummy & Testy',500.00,'23-FDI-20042019182902.jpg','2','1','1','2019-04-20 12:59:02','2019-04-20 12:59:02'),(24,346,16,'Happy Meal','Sweet And Spicy',500.00,'24-FDI-20042019194955.jpg','1','1','2','2019-04-20 14:19:55','2019-04-20 14:19:59');
-/*!40000 ALTER TABLE `1w_tbl_restaurants_foods` ENABLE KEYS */;
-UNLOCK TABLES;
+insert  into `1w_tbl_restaurants_foods`(`RFoodID`,`F_CategoryID`,`F_RestaurantID`,`F_Title`,`F_Description`,`F_Price`,`F_DisplayImage`,`F_Type`,`F_Recommended`,`F_Status`,`RowAddedDttm`,`RowUpdatedDttm`) values
+(1,23,1,'Cheese Pasta','Warm, melted cheese combined with satisfying carbs equals comfort food at its best.',150.12,'1-FI-1234.jpg','1','1','1','2018-12-31 12:50:20','2019-01-03 10:55:08'),
+(2,25,1,'Cheese Sandwich','A cheese sandwich is a basic sandwich generally made with one or more varieties of cheese on any sort of bread, such as flat bread or wheat bread, that may include spreads such as butter or mayonnaise.',100.12,'2-FI-1234.jpg','1','1','1','2018-12-31 12:50:20','2019-01-03 10:55:24'),
+(3,23,1,'Mac Pasta','Place remaining slices of bread on top, to form two sandwiches.',50.00,'3-FI-1234.jpg','1','2','1','2018-12-31 12:50:20','2019-01-03 10:55:47'),
+(4,25,1,'Schezwan Sandwich','an Indo-Chinese fusion recipe that is prepared commonly for breakfast or as an evening snack.',80.00,'4-FI-1234.jpg','1','1','2','2018-12-31 12:50:20','2019-01-09 04:51:01'),
+(5,23,1,'Arabiata Pasta',' Quick and easy homemade spaghetti sauce with ... Simple Arrabbiata Sauce Recipe - Simple and spicy, with an incredible flavor.',200.00,'5-FI-1234.jpg','1','1','2','2018-12-31 12:50:20','2019-01-09 04:51:00'),
+(6,24,1,'Special Sandwich','Layer with peppers, salsa and cheese. Top with remaining bread. Butter outsides of sandwiches.',120.00,'6-FI-1234.jpg','2','1','2','2018-12-31 12:50:20','2019-01-09 04:51:00'),
+(7,23,1,'White Sauce Pasta','perfect medley of aromatic flavors, colorful vegetables and a creamy pasta.',70.00,'7-FI-1234.jpg','1','1','2','2018-12-31 12:50:20','2019-01-09 04:51:00'),
+(8,24,1,'Special Pasta','cylindrical type of pasta generally served baked with a filling and covered by a sauce in Italian cuisine.',140.00,'8-FI-1234.jpg','2','2','2','2018-12-31 12:50:20','2019-01-09 04:50:58'),
+(10,23,8,'Extra Cheese Pasta','Extra Cheese Pasta',200.00,'10-FDI-17012019202519.jpg','2','1','2','2019-01-17 14:55:19','2019-01-17 20:25:26'),
+(11,35,10,'Grilled Chicken','Al bek Special Grilled Chicken',200.00,'11-FDI-17012019223344.jpg','2','1','2','2019-01-17 17:03:44','2019-01-17 22:43:03'),
+(12,35,10,'Al Faham','Prepared with Arabian spice mix',220.00,'','2','1','1','2019-01-17 17:20:21','2019-01-17 22:50:21'),
+(13,36,10,'Biryani Rice','Cooked with fine Basmati Rice',50.00,'','1','1','1','2019-01-17 17:21:37','2019-01-17 22:51:37'),
+(20,35,14,'Crispy Chicken Wings','8pcs of Spicy chicken wings with red chilli sauce',220.00,'','2','1','2','2019-01-17 17:51:57','2019-01-17 23:22:01'),
+(21,336,15,'Fruit Biscuits','Fruit Biscuits- KBBI 283',150.00,'21-FDI-11042019123156.jpg','1','1','2','2019-04-11 07:01:56','2019-04-11 12:32:07'),
+(22,0,16,'Big Burger','Big Burger',100.00,'','2','1','2','2019-04-20 12:47:29','2019-04-20 18:17:32'),
+(23,24,1,'Crispy Chicken Balls','Yummy & Testy',500.00,'23-FDI-20042019182902.jpg','2','1','1','2019-04-20 12:59:02','2019-04-20 18:29:02'),
+(24,346,16,'Happy Meal','Sweet And Spicy',500.00,'24-FDI-20042019194955.jpg','1','1','2','2019-04-20 14:19:55','2019-04-20 19:49:59');
 
---
--- Table structure for table `1w_tbl_reviews`
---
+/*Table structure for table `1w_tbl_reviews` */
 
 DROP TABLE IF EXISTS `1w_tbl_reviews`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+
 CREATE TABLE `1w_tbl_reviews` (
   `ReviewID` int(11) NOT NULL AUTO_INCREMENT,
   `R_Type` enum('1','2','3','0') NOT NULL DEFAULT '0',
@@ -829,25 +4613,38 @@ CREATE TABLE `1w_tbl_reviews` (
   `RowUpdatedDttm` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`ReviewID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `1w_tbl_reviews`
---
+/*Data for the table `1w_tbl_reviews` */
 
-LOCK TABLES `1w_tbl_reviews` WRITE;
-/*!40000 ALTER TABLE `1w_tbl_reviews` DISABLE KEYS */;
-INSERT INTO `1w_tbl_reviews` VALUES (1,'1',1,1,1,'Durvesh Parmar','Did bathroom renovation last year easy to contact and good work done by his team . All was completed in time , will recomend and surely use his service again','Mumbai','2.5','2018-12-20','04:29:59','2','2018-12-27 12:39:03','2019-01-10 05:43:25'),(2,'1',1,1,24,'Sagar Zalavadiya','Work was done before the stipulated time, painters were committed to their work. Obliged with what ever requested to them, cleaned the home post painting well','Junagadh','3.5','2018-12-25','04:29:59','2','2018-12-27 12:39:03','2019-01-10 05:43:30'),(3,'1',1,1,25,'Disha Gajera','I had done makeup for the first time harshu tai have given her best. She had done a very excellent job. She is just master in her work. Products are also very good and effective and no side effects at all. I would like to thanks her to make me look so beautiful on my auspicious occasion of marriage. And one good quality is she doesn\'t talk much while doing her work like most of others do.','Rajkot','4.5','2018-12-28','04:29:59','2','2018-12-27 12:39:03','2019-01-10 05:43:27'),(4,'1',1,2,1,'Biraj Shah','The pest control done was useless. I\'ve waited for a month and there still seems to be no effect. It\'s not effective and a waste of money. The condition actually seems to have worsened. Need a refund, if not will escalate further.','Ahmedabad','1.0','2018-11-21','04:29:59','2','2018-12-27 12:39:03','2019-01-10 05:43:32'),(5,'1',1,2,24,'Riddhi Gajjar','We totally loved the pictures they clicked and edited for us. Throughout our interaction, they were very supportive. The best part is that they made us feel so comfortable that we felt we are getting the shoot done in our own home which ultimately reflected in the photographs as well. Keep at it Harjot and Versha! :)','Vastral','2.0','2018-10-25','04:29:59','2','2018-12-27 12:39:03','2019-01-10 05:43:33'),(6,'1',1,3,25,'Bhumika Patel','On time and excellent','Kutch','4.0','2018-09-25','05:29:59','1','2018-12-27 12:39:03','2019-01-20 16:54:09'),(7,'2',2,3,1,'Durvesh Parmar','Great service...,we are very much satisfied ...','Mumbai','2.5','2018-12-20','08:29:59','1','2018-12-27 12:39:03','2019-01-10 05:43:34'),(8,'2',3,4,24,'Sagar Zalavadiya','She is good!Loved the look she gave me on my engagement!','Junagadh','3.5','2018-12-25','09:29:59','2','2018-12-27 12:39:03','2019-01-10 05:43:37'),(9,'2',3,4,25,'Disha Gajera','He has fixed the pump. But toilet is still over flows .Please send him','Rajkot','4.5','2018-12-28','10:29:59','2','2018-12-27 12:39:03','2019-01-10 05:43:36'),(10,'2',3,1,1,'Biraj Shah','Vidya really which and innovative with her moves. Her quick improvisation helped us out up a great show. Thanks a ton Vidya!','Ahmedabad','1.0','2018-11-21','04:49:59','1','2018-12-27 12:39:03','2019-01-21 20:05:13'),(11,'2',3,1,24,'Riddhi Gajjar','A mixed experience, decent at packing but wrapped up a plant and put it in a create, along with all the drinking water In a hurry to unpack left a lot to be desired. Also managed to damage our crockery unit during transport','Vastral','2.0','2018-10-25','01:29:59','1','2018-12-27 12:39:03','2019-01-21 20:03:05'),(12,'2',4,2,25,'Bhumika Patel','Great Person very friendly and helpful. Love her attitude surely will recommend to my friends','Kutch','4.0','2018-09-25','14:29:59','1','2018-12-27 12:39:03','2019-01-21 20:17:48'),(13,'2',5,2,24,'Sagar Zalavadiya','Very bad experience I have ever had...','Junagadh','3.5','2018-12-25','02:29:59','2','2018-12-27 12:39:03','2019-01-10 05:43:43'),(14,'2',5,3,25,'Disha Gajera','I have called them a week prior to my shifting. They sent a guy for room survey with whom I have finalised the deal and gave him advance payment. But one day before shifting when i have called them to remind them about tomorrow\'s shifting, they talking to me very rudely and were asking me to reschedule the shifting date. After a verbal fight, they were ready to come but next day they came very late and entire shifting pracess delayed almost for 3 to 4 hours. I wouldn\'t recommend this \"Chandan Packers and Movers\". Overall a Bad experience. Urbanclap, please consider this review and request you to filter the service providers before recommend them to clients.','Rajkot','4.5','2018-12-28','15:29:59','2','2018-12-27 12:39:03','2019-01-10 05:43:44'),(15,'2',6,3,1,'Biraj Shah','Quick and good at her work','Ahmedabad','1.0','2018-11-21','23:29:59','2','2018-12-27 12:39:03','2019-01-10 05:43:46'),(16,'2',6,4,24,'Riddhi Gajjar','I don\'t know how , i had paid cash immediately after work is done, but after so many days i am opening the app & it is asking have you paid or do you want to pay online, this is strange','Vastral','2.0','2018-10-25','22:29:59','2','2018-12-27 12:39:03','2019-01-10 05:43:47'),(17,'2',6,5,25,'Bhumika Patel','Did not find much difference before and after the wash','Kutch','4.0','2018-09-25','12:29:59','2','2018-12-27 12:39:03','2019-01-10 05:43:48'),(18,'3',1,6,1,'Durvesh Parmar','Did bathroom renovation last year easy to contact and good work done by his team . All was completed in time , will recomend and surely use his service again','Mumbai','2.5','2018-12-20','04:29:59','2','2018-12-27 12:39:03','2019-01-10 05:43:49'),(19,'3',1,7,24,'Sagar Zalavadiya','Work was done before the stipulated time, painters were committed to their work. Obliged with what ever requested to them, cleaned the home post painting well','Junagadh','3.5','2018-12-25','04:29:59','2','2018-12-27 12:39:03','2019-01-10 05:43:50'),(20,'3',1,6,25,'Disha Gajera','I had done makeup for the first time harshu tai have given her best. She had done a very excellent job. She is just master in her work. Products are also very good and effective and no side effects at all. I would like to thanks her to make me look so beautiful on my auspicious occasion of marriage. And one good quality is she doesn\'t talk much while doing her work like most of others do.','Rajkot','4.5','2018-12-28','04:29:59','2','2018-12-27 12:39:03','2019-01-10 05:43:53'),(21,'3',1,6,1,'Biraj Shah','The pest control done was useless. I\'ve waited for a month and there still seems to be no effect. It\'s not effective and a waste of money. The condition actually seems to have worsened. Need a refund, if not will escalate further.','Ahmedabad','1.0','2018-11-21','04:29:59','2','2018-12-27 12:39:03','2019-01-10 05:43:55'),(22,'3',1,7,24,'Riddhi Gajjar','We totally loved the pictures they clicked and edited for us. Throughout our interaction, they were very supportive. The best part is that they made us feel so comfortable that we felt we are getting the shoot done in our own home which ultimately reflected in the photographs as well. Keep at it Harjot and Versha! :)','Vastral','2.0','2018-10-25','04:29:59','2','2018-12-27 12:39:03','2019-01-22 21:30:59'),(23,'3',1,3,25,'Bhumika Patel','On time and excellent','Kutch','4.0','2018-09-25','05:29:59','1','2018-12-27 12:39:03','2019-01-22 21:30:22');
-/*!40000 ALTER TABLE `1w_tbl_reviews` ENABLE KEYS */;
-UNLOCK TABLES;
+insert  into `1w_tbl_reviews`(`ReviewID`,`R_Type`,`R_RelationID`,`R_VendorID`,`R_MemberID`,`R_UserName`,`R_Comment`,`R_Location`,`R_Rating`,`R_Date`,`R_Time`,`R_Status`,`RowAddedDttm`,`RowUpdatedDttm`) values
+(1,'1',1,1,1,'Durvesh Parmar','Did bathroom renovation last year easy to contact and good work done by his team . All was completed in time , will recomend and surely use his service again','Mumbai','2.5','2018-12-20','04:29:59','2','2018-12-27 12:39:03','2019-01-10 11:13:25'),
+(2,'1',1,1,24,'Sagar Zalavadiya','Work was done before the stipulated time, painters were committed to their work. Obliged with what ever requested to them, cleaned the home post painting well','Junagadh','3.5','2018-12-25','04:29:59','2','2018-12-27 12:39:03','2019-01-10 11:13:30'),
+(3,'1',1,1,25,'Disha Gajera','I had done makeup for the first time harshu tai have given her best. She had done a very excellent job. She is just master in her work. Products are also very good and effective and no side effects at all. I would like to thanks her to make me look so beautiful on my auspicious occasion of marriage. And one good quality is she doesn\'t talk much while doing her work like most of others do.','Rajkot','4.5','2018-12-28','04:29:59','2','2018-12-27 12:39:03','2019-01-10 11:13:27'),
+(4,'1',1,2,1,'Biraj Shah','The pest control done was useless. I\'ve waited for a month and there still seems to be no effect. It\'s not effective and a waste of money. The condition actually seems to have worsened. Need a refund, if not will escalate further.','Ahmedabad','1.0','2018-11-21','04:29:59','2','2018-12-27 12:39:03','2019-01-10 11:13:32'),
+(5,'1',1,2,24,'Riddhi Gajjar','We totally loved the pictures they clicked and edited for us. Throughout our interaction, they were very supportive. The best part is that they made us feel so comfortable that we felt we are getting the shoot done in our own home which ultimately reflected in the photographs as well. Keep at it Harjot and Versha! :)','Vastral','2.0','2018-10-25','04:29:59','2','2018-12-27 12:39:03','2019-01-10 11:13:33'),
+(6,'1',1,3,25,'Bhumika Patel','On time and excellent','Kutch','4.0','2018-09-25','05:29:59','1','2018-12-27 12:39:03','2019-01-20 22:24:09'),
+(7,'2',2,3,1,'Durvesh Parmar','Great service...,we are very much satisfied ...','Mumbai','2.5','2018-12-20','08:29:59','1','2018-12-27 12:39:03','2019-01-10 11:13:34'),
+(8,'2',3,4,24,'Sagar Zalavadiya','She is good!Loved the look she gave me on my engagement!','Junagadh','3.5','2018-12-25','09:29:59','2','2018-12-27 12:39:03','2019-01-10 11:13:37'),
+(9,'2',3,4,25,'Disha Gajera','He has fixed the pump. But toilet is still over flows .Please send him','Rajkot','4.5','2018-12-28','10:29:59','2','2018-12-27 12:39:03','2019-01-10 11:13:36'),
+(10,'2',3,1,1,'Biraj Shah','Vidya really which and innovative with her moves. Her quick improvisation helped us out up a great show. Thanks a ton Vidya!','Ahmedabad','1.0','2018-11-21','04:49:59','1','2018-12-27 12:39:03','2019-01-22 01:35:13'),
+(11,'2',3,1,24,'Riddhi Gajjar','A mixed experience, decent at packing but wrapped up a plant and put it in a create, along with all the drinking water In a hurry to unpack left a lot to be desired. Also managed to damage our crockery unit during transport','Vastral','2.0','2018-10-25','01:29:59','1','2018-12-27 12:39:03','2019-01-22 01:33:05'),
+(12,'2',4,2,25,'Bhumika Patel','Great Person very friendly and helpful. Love her attitude surely will recommend to my friends','Kutch','4.0','2018-09-25','14:29:59','1','2018-12-27 12:39:03','2019-01-22 01:47:48'),
+(13,'2',5,2,24,'Sagar Zalavadiya','Very bad experience I have ever had...','Junagadh','3.5','2018-12-25','02:29:59','2','2018-12-27 12:39:03','2019-01-10 11:13:43'),
+(14,'2',5,3,25,'Disha Gajera','I have called them a week prior to my shifting. They sent a guy for room survey with whom I have finalised the deal and gave him advance payment. But one day before shifting when i have called them to remind them about tomorrow\'s shifting, they talking to me very rudely and were asking me to reschedule the shifting date. After a verbal fight, they were ready to come but next day they came very late and entire shifting pracess delayed almost for 3 to 4 hours. I wouldn\'t recommend this \"Chandan Packers and Movers\". Overall a Bad experience. Urbanclap, please consider this review and request you to filter the service providers before recommend them to clients.','Rajkot','4.5','2018-12-28','15:29:59','2','2018-12-27 12:39:03','2019-01-10 11:13:44'),
+(15,'2',6,3,1,'Biraj Shah','Quick and good at her work','Ahmedabad','1.0','2018-11-21','23:29:59','2','2018-12-27 12:39:03','2019-01-10 11:13:46'),
+(16,'2',6,4,24,'Riddhi Gajjar','I don\'t know how , i had paid cash immediately after work is done, but after so many days i am opening the app & it is asking have you paid or do you want to pay online, this is strange','Vastral','2.0','2018-10-25','22:29:59','2','2018-12-27 12:39:03','2019-01-10 11:13:47'),
+(17,'2',6,5,25,'Bhumika Patel','Did not find much difference before and after the wash','Kutch','4.0','2018-09-25','12:29:59','2','2018-12-27 12:39:03','2019-01-10 11:13:48'),
+(18,'3',1,6,1,'Durvesh Parmar','Did bathroom renovation last year easy to contact and good work done by his team . All was completed in time , will recomend and surely use his service again','Mumbai','2.5','2018-12-20','04:29:59','2','2018-12-27 12:39:03','2019-01-10 11:13:49'),
+(19,'3',1,7,24,'Sagar Zalavadiya','Work was done before the stipulated time, painters were committed to their work. Obliged with what ever requested to them, cleaned the home post painting well','Junagadh','3.5','2018-12-25','04:29:59','2','2018-12-27 12:39:03','2019-01-10 11:13:50'),
+(20,'3',1,6,25,'Disha Gajera','I had done makeup for the first time harshu tai have given her best. She had done a very excellent job. She is just master in her work. Products are also very good and effective and no side effects at all. I would like to thanks her to make me look so beautiful on my auspicious occasion of marriage. And one good quality is she doesn\'t talk much while doing her work like most of others do.','Rajkot','4.5','2018-12-28','04:29:59','2','2018-12-27 12:39:03','2019-01-10 11:13:53'),
+(21,'3',1,6,1,'Biraj Shah','The pest control done was useless. I\'ve waited for a month and there still seems to be no effect. It\'s not effective and a waste of money. The condition actually seems to have worsened. Need a refund, if not will escalate further.','Ahmedabad','1.0','2018-11-21','04:29:59','2','2018-12-27 12:39:03','2019-01-10 11:13:55'),
+(22,'3',1,7,24,'Riddhi Gajjar','We totally loved the pictures they clicked and edited for us. Throughout our interaction, they were very supportive. The best part is that they made us feel so comfortable that we felt we are getting the shoot done in our own home which ultimately reflected in the photographs as well. Keep at it Harjot and Versha! :)','Vastral','2.0','2018-10-25','04:29:59','2','2018-12-27 12:39:03','2019-01-23 03:00:59'),
+(23,'3',1,3,25,'Bhumika Patel','On time and excellent','Kutch','4.0','2018-09-25','05:29:59','1','2018-12-27 12:39:03','2019-01-23 03:00:22');
 
---
--- Table structure for table `1w_tbl_services`
---
+/*Table structure for table `1w_tbl_services` */
 
 DROP TABLE IF EXISTS `1w_tbl_services`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+
 CREATE TABLE `1w_tbl_services` (
   `ServiceID` int(11) NOT NULL AUTO_INCREMENT,
   `S_CategoryID` int(11) DEFAULT '0',
@@ -863,25 +4660,84 @@ CREATE TABLE `1w_tbl_services` (
   PRIMARY KEY (`ServiceID`),
   KEY `ServiceID` (`ServiceID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=77 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `1w_tbl_services`
---
+/*Data for the table `1w_tbl_services` */
 
-LOCK TABLES `1w_tbl_services` WRITE;
-/*!40000 ALTER TABLE `1w_tbl_services` DISABLE KEYS */;
-INSERT INTO `1w_tbl_services` VALUES (1,1,'Salon at Home For Women',NULL,1,'1-SI-1234.jpg','1-SI-1234.png','1','2','2018-12-26 19:06:54','2019-04-09 12:29:00'),(2,1,'Makeup & Hairstyling',NULL,1,'2-SI-1234.jpg','2-SI-1234.png','1','2','2018-12-26 19:09:26','2019-04-09 12:44:56'),(4,1,'Mehendi Artist',NULL,1,'4-SI-1234.jpg','4-SI-1234.png','1','2','2018-12-26 19:10:07','2019-04-09 12:28:58'),(5,2,'AC Service and Repair',NULL,1,'5-SI-1234.jpg','5-SI-1234.png','1','2','2018-12-26 19:10:29','2019-04-09 12:29:20'),(6,2,'RO and Water Purifier Repair',NULL,1,'6-SI-1234.jpg','6-SI-1234.png','1','2','2018-12-26 19:10:50','2019-04-09 12:29:19'),(7,2,'Washing Machine Repair',NULL,1,'7-SI-1234.jpg','7-SI-1234.png','1','2','2018-12-26 19:11:07','2019-04-09 12:29:18'),(8,3,'Home Deep Cleaning',NULL,1,'8-SI-1234.jpg','8-SI-1234.png','1','2','2018-12-26 19:14:13','2019-04-04 06:29:15'),(9,3,'Kitchen Deep Cleaning',NULL,1,'9-SI-1234.jpg','9-SI-1234.png','1','2','2018-12-26 19:14:13','2019-04-04 06:29:14'),(11,4,'Packers & Movers',NULL,1,'11-SI-1234.jpg','11-SI-1234.png','1','2','2018-12-26 19:14:13','2019-01-10 22:46:05'),(12,4,'Carpenters',NULL,1,'12-SI-1234.jpg','12-SI-1234.png','1','2','2018-12-26 19:14:13','2019-01-10 22:46:04'),(13,4,'Electricians',NULL,1,'13-SI-1234.jpg','13-SI-1234.png','1','2','2018-12-26 19:14:13','2019-01-10 22:46:04'),(14,5,'Fitness Trainer at Home',NULL,1,'14-SI-1234.jpg','14-SI-1234.png','1','2','2018-12-26 19:14:56','2019-01-10 22:46:03'),(15,5,'Massage for Men',NULL,1,'15-SI-1234.jpg','15-SI-1234.png','1','2','2018-12-26 19:14:56','2019-01-10 22:46:03'),(16,5,'Massage for Women',NULL,1,'16-SI-1234.jpg','16-SI-1234.png','1','2','2018-12-26 19:14:56','2019-01-10 22:46:02'),(17,6,'House Painters',NULL,1,'17-SI-1234.jpg','17-SI-1234.png','1','2','2018-12-26 19:14:56','2019-01-10 22:46:01'),(18,6,'Interiors',NULL,1,'18-SI-1234.jpg','18-SI-1234.png','1','2','2018-12-26 19:14:56','2019-01-10 22:46:01'),(19,6,'Renovation',NULL,1,'19-SI-1234.jpg','19-SI-1234.png','1','2','2018-12-26 19:14:56','2019-01-10 22:45:59'),(20,7,'Astrologer',NULL,1,'20-SI-1234.jpg','20-SI-1234.png','1','2','2018-12-26 19:14:13','2019-01-10 22:45:58'),(21,7,'Party Decoration',NULL,1,'21-SI-1234.jpg','21-SI-1234.png','1','2','2018-12-26 19:14:13','2019-01-10 22:45:58'),(22,7,'Event Photographer',NULL,1,'22-SI-1234.jpg','22-SI-1234.png','1','2','2018-12-26 19:14:13','2019-01-10 22:45:57'),(23,8,'Home Tutor',NULL,1,'23-SI-1234.jpg','23-SI-1234.png','1','2','2018-12-26 19:14:56','2019-01-10 22:45:57'),(24,8,'Mathemetics Tutor',NULL,1,'24-SI-1234.jpg','24-SI-1234.png','1','2','2018-12-26 19:14:56','2019-01-10 22:45:55'),(25,8,'Science Tutor',NULL,1,'25-SI-1234.jpg','25-SI-1234.png','1','2','2018-12-26 19:14:56','2019-01-10 22:45:54'),(26,9,'Chartered Accountant',NULL,1,'26-SI-1234.jpg','26-SI-1234.png','1','2','2018-12-26 19:14:56','2019-04-09 12:22:03'),(27,9,'Lawyer',NULL,1,'27-SI-1234.jpg','27-SI-1234.png','1','2','2018-12-26 19:14:56','2019-01-08 05:57:47'),(28,9,'Web Designer & Developer',NULL,1,'28-SI-1234.jpg','28-SI-1234.png','1','1','2018-12-26 19:14:56','2019-04-09 12:22:58'),(33,42,'Hi',NULL,1,'33-SI-20012019235624.png','','1','2','2019-01-20 23:56:24','2019-01-20 18:26:24'),(34,43,'Another Test',NULL,1,'34-SI-21012019011749.png','','1','2','2019-01-21 01:17:49','2019-01-20 19:47:49'),(35,68,'Test',NULL,1,'','','1','2','2019-02-01 16:14:22','2019-02-01 16:14:22'),(36,68,'Test',NULL,1,'36-SI-01022019214459.png','','1','2','2019-02-01 16:14:59','2019-02-01 16:14:59'),(38,77,'House plumbing',NULL,1,'','','1','2','2019-03-26 17:23:01','2019-03-26 17:23:01'),(39,74,'Men Hair Styling',NULL,1,'39-SI-04042019115755.png','','1','2','2019-04-04 06:27:55','2019-04-04 06:27:55'),(40,78,'Document Writers',NULL,1,'','','1','2','2019-04-09 12:18:16','2019-04-09 12:20:49'),(41,78,'Notary',NULL,1,'','','1','2','2019-04-09 12:18:36','2019-04-09 12:18:36'),(42,321,'ATMs',NULL,1,'','','1','2','2019-04-09 12:19:06','2019-04-09 12:19:06'),(43,321,'Banks',NULL,1,'','','1','2','2019-04-09 12:19:13','2019-04-09 12:19:13'),(44,321,'Safe Deposit Locker',NULL,1,'','','1','2','2019-04-09 12:19:39','2019-04-09 12:19:39'),(45,321,'Credit Card',NULL,1,'','','1','2','2019-04-09 12:19:52','2019-04-09 12:19:52'),(46,78,'Arbitrators',NULL,1,'','','1','2','2019-04-09 12:20:40','2019-04-09 12:20:40'),(47,9,'Advocate & Lawyers',NULL,1,'','','1','2','2019-04-09 12:22:31','2019-04-09 12:22:31'),(48,9,'Security Guards',NULL,1,'','','1','2','2019-04-09 12:22:47','2019-04-09 12:22:47'),(49,9,'Printing Services',NULL,1,'','','1','2','2019-04-09 12:23:12','2019-04-09 12:23:12'),(50,9,'Domestic Couriers',NULL,1,'','','1','2','2019-04-09 12:23:26','2019-04-09 12:23:26'),(51,9,'Cleaning Services',NULL,1,'','','1','2','2019-04-09 12:23:48','2019-04-09 12:23:48'),(52,9,'Cargo & Shipping Agents',NULL,1,'','','1','2','2019-04-09 12:24:03','2019-04-09 12:24:03'),(53,9,'Advertising Agencies',NULL,1,'','','1','2','2019-04-09 12:24:20','2019-04-09 12:24:20'),(54,9,'Corporate Training Providers',NULL,1,'','','1','2','2019-04-09 12:24:40','2019-04-09 12:24:40'),(55,322,'Insurance Agents',NULL,1,'','','1','2','2019-04-09 12:25:53','2019-04-09 12:50:41'),(56,322,'Loan Agents',NULL,1,'','','1','2','2019-04-09 12:26:00','2019-04-09 12:50:28'),(57,322,'Investment Consultants',NULL,1,'','','1','2','2019-04-09 12:26:15','2019-04-09 12:26:15'),(58,322,'Sharebrokers',NULL,1,'','','1','2','2019-04-09 12:26:30','2019-04-09 12:26:30'),(59,3,'Pest Control',NULL,1,'','','1','2','2019-04-09 12:34:45','2019-04-09 12:34:45'),(60,3,'Plumbers',NULL,1,'','','1','2','2019-04-09 12:36:35','2019-04-09 12:36:35'),(61,3,'Electricians',NULL,1,'','','1','2','2019-04-09 12:36:48','2019-04-09 12:36:48'),(62,3,'Carpenters',NULL,1,'','','1','2','2019-04-09 12:36:59','2019-04-09 12:36:59'),(63,3,'Bathroom Deep Cleaning',NULL,1,'','','1','2','2019-04-09 12:37:14','2019-04-09 12:37:14'),(64,3,'Carpet Cleaning',NULL,1,'','','1','2','2019-04-09 12:37:34','2019-04-09 12:37:34'),(65,1,'Massage for Women',NULL,1,'','','1','2','2019-04-09 12:44:24','2019-04-09 12:44:24'),(66,1,'Massage for Men',NULL,1,'','','1','2','2019-04-09 12:45:07','2019-04-09 12:45:07'),(67,1,'Men\'s Haircut & Grooming',NULL,1,'','','1','2','2019-04-09 12:45:24','2019-04-09 12:45:24'),(68,9,'Packers & Movers',NULL,1,'','','1','2','2019-04-09 12:46:54','2019-04-09 12:46:54'),(69,9,'CCTV Installation & Cameras',NULL,1,'','','1','2','2019-04-09 12:47:09','2019-04-09 12:47:09'),(70,2,'Refrigerator Repair',NULL,1,'','','1','2','2019-04-09 12:47:50','2019-04-09 12:47:50'),(71,2,'Microwave Repair',NULL,1,'','','1','2','2019-04-09 12:48:01','2019-04-09 12:48:01'),(72,2,'TV Repair',NULL,1,'','','1','2','2019-04-09 12:48:17','2019-04-09 12:48:17'),(73,2,'Setup Box Repair',NULL,1,'','','1','2','2019-04-09 12:48:28','2019-04-09 12:48:28'),(74,7,'Makeup & Hairstyling',NULL,1,'','','1','2','2019-04-09 12:48:53','2019-04-09 12:48:53'),(75,7,'Wedding Photographer',NULL,1,'','','1','2','2019-04-09 12:49:14','2019-04-09 12:49:29'),(76,7,'Men\'s Haircut & Grooming',NULL,1,'','','1','2','2019-04-09 12:49:49','2019-04-09 12:49:49');
-/*!40000 ALTER TABLE `1w_tbl_services` ENABLE KEYS */;
-UNLOCK TABLES;
+insert  into `1w_tbl_services`(`ServiceID`,`S_CategoryID`,`S_Name`,`S_Description`,`S_Type`,`S_DisplayImage`,`S_DisplayIcon`,`S_Featured`,`S_Status`,`RowAddedDttm`,`RowUpdatedDttm`) values
+(1,1,'Salon at Home For Women',NULL,1,'1-SI-1234.jpg','1-SI-1234.png','1','2','2018-12-26 19:06:54','2019-04-09 17:59:00'),
+(2,1,'Makeup & Hairstyling',NULL,1,'2-SI-1234.jpg','2-SI-1234.png','1','2','2018-12-26 19:09:26','2019-04-09 18:14:56'),
+(4,1,'Mehendi Artist',NULL,1,'4-SI-1234.jpg','4-SI-1234.png','1','2','2018-12-26 19:10:07','2019-04-09 17:58:58'),
+(5,2,'AC Service and Repair',NULL,1,'5-SI-1234.jpg','5-SI-1234.png','1','2','2018-12-26 19:10:29','2019-04-09 17:59:20'),
+(6,2,'RO and Water Purifier Repair',NULL,1,'6-SI-1234.jpg','6-SI-1234.png','1','2','2018-12-26 19:10:50','2019-04-09 17:59:19'),
+(7,2,'Washing Machine Repair',NULL,1,'7-SI-1234.jpg','7-SI-1234.png','1','2','2018-12-26 19:11:07','2019-04-09 17:59:18'),
+(8,3,'Home Deep Cleaning',NULL,1,'8-SI-1234.jpg','8-SI-1234.png','1','2','2018-12-26 19:14:13','2019-04-04 11:59:15'),
+(9,3,'Kitchen Deep Cleaning',NULL,1,'9-SI-1234.jpg','9-SI-1234.png','1','2','2018-12-26 19:14:13','2019-04-04 11:59:14'),
+(11,4,'Packers & Movers',NULL,1,'11-SI-1234.jpg','11-SI-1234.png','1','2','2018-12-26 19:14:13','2019-01-11 04:16:05'),
+(12,4,'Carpenters',NULL,1,'12-SI-1234.jpg','12-SI-1234.png','1','2','2018-12-26 19:14:13','2019-01-11 04:16:04'),
+(13,4,'Electricians',NULL,1,'13-SI-1234.jpg','13-SI-1234.png','1','2','2018-12-26 19:14:13','2019-01-11 04:16:04'),
+(14,5,'Fitness Trainer at Home',NULL,1,'14-SI-1234.jpg','14-SI-1234.png','1','2','2018-12-26 19:14:56','2019-01-11 04:16:03'),
+(15,5,'Massage for Men',NULL,1,'15-SI-1234.jpg','15-SI-1234.png','1','2','2018-12-26 19:14:56','2019-01-11 04:16:03'),
+(16,5,'Massage for Women',NULL,1,'16-SI-1234.jpg','16-SI-1234.png','1','2','2018-12-26 19:14:56','2019-01-11 04:16:02'),
+(17,6,'House Painters',NULL,1,'17-SI-1234.jpg','17-SI-1234.png','1','2','2018-12-26 19:14:56','2019-01-11 04:16:01'),
+(18,6,'Interiors',NULL,1,'18-SI-1234.jpg','18-SI-1234.png','1','2','2018-12-26 19:14:56','2019-01-11 04:16:01'),
+(19,6,'Renovation',NULL,1,'19-SI-1234.jpg','19-SI-1234.png','1','2','2018-12-26 19:14:56','2019-01-11 04:15:59'),
+(20,7,'Astrologer',NULL,1,'20-SI-1234.jpg','20-SI-1234.png','1','2','2018-12-26 19:14:13','2019-01-11 04:15:58'),
+(21,7,'Party Decoration',NULL,1,'21-SI-1234.jpg','21-SI-1234.png','1','2','2018-12-26 19:14:13','2019-01-11 04:15:58'),
+(22,7,'Event Photographer',NULL,1,'22-SI-1234.jpg','22-SI-1234.png','1','2','2018-12-26 19:14:13','2019-01-11 04:15:57'),
+(23,8,'Home Tutor',NULL,1,'23-SI-1234.jpg','23-SI-1234.png','1','2','2018-12-26 19:14:56','2019-01-11 04:15:57'),
+(24,8,'Mathemetics Tutor',NULL,1,'24-SI-1234.jpg','24-SI-1234.png','1','2','2018-12-26 19:14:56','2019-01-11 04:15:55'),
+(25,8,'Science Tutor',NULL,1,'25-SI-1234.jpg','25-SI-1234.png','1','2','2018-12-26 19:14:56','2019-01-11 04:15:54'),
+(26,9,'Chartered Accountant',NULL,1,'26-SI-1234.jpg','26-SI-1234.png','1','2','2018-12-26 19:14:56','2019-04-09 17:52:03'),
+(27,9,'Lawyer',NULL,1,'27-SI-1234.jpg','27-SI-1234.png','1','2','2018-12-26 19:14:56','2019-01-08 11:27:47'),
+(28,9,'Web Designer & Developer',NULL,1,'28-SI-1234.jpg','28-SI-1234.png','1','1','2018-12-26 19:14:56','2019-04-09 17:52:58'),
+(33,42,'Hi',NULL,1,'33-SI-20012019235624.png','','1','2','2019-01-20 23:56:24','2019-01-20 23:56:24'),
+(34,43,'Another Test',NULL,1,'34-SI-21012019011749.png','','1','2','2019-01-21 01:17:49','2019-01-21 01:17:49'),
+(35,68,'Test',NULL,1,'','','1','2','2019-02-01 16:14:22','2019-02-01 21:44:22'),
+(36,68,'Test',NULL,1,'36-SI-01022019214459.png','','1','2','2019-02-01 16:14:59','2019-02-01 21:44:59'),
+(38,77,'House plumbing',NULL,1,'','','1','2','2019-03-26 17:23:01','2019-03-26 22:53:01'),
+(39,74,'Men Hair Styling',NULL,1,'39-SI-04042019115755.png','','1','2','2019-04-04 06:27:55','2019-04-04 11:57:55'),
+(40,78,'Document Writers',NULL,1,'','','1','2','2019-04-09 12:18:16','2019-04-09 17:50:49'),
+(41,78,'Notary',NULL,1,'','','1','2','2019-04-09 12:18:36','2019-04-09 17:48:36'),
+(42,321,'ATMs',NULL,1,'','','1','2','2019-04-09 12:19:06','2019-04-09 17:49:06'),
+(43,321,'Banks',NULL,1,'','','1','2','2019-04-09 12:19:13','2019-04-09 17:49:13'),
+(44,321,'Safe Deposit Locker',NULL,1,'','','1','2','2019-04-09 12:19:39','2019-04-09 17:49:39'),
+(45,321,'Credit Card',NULL,1,'','','1','2','2019-04-09 12:19:52','2019-04-09 17:49:52'),
+(46,78,'Arbitrators',NULL,1,'','','1','2','2019-04-09 12:20:40','2019-04-09 17:50:40'),
+(47,9,'Advocate & Lawyers',NULL,1,'','','1','2','2019-04-09 12:22:31','2019-04-09 17:52:31'),
+(48,9,'Security Guards',NULL,1,'','','1','2','2019-04-09 12:22:47','2019-04-09 17:52:47'),
+(49,9,'Printing Services',NULL,1,'','','1','2','2019-04-09 12:23:12','2019-04-09 17:53:12'),
+(50,9,'Domestic Couriers',NULL,1,'','','1','2','2019-04-09 12:23:26','2019-04-09 17:53:26'),
+(51,9,'Cleaning Services',NULL,1,'','','1','2','2019-04-09 12:23:48','2019-04-09 17:53:48'),
+(52,9,'Cargo & Shipping Agents',NULL,1,'','','1','2','2019-04-09 12:24:03','2019-04-09 17:54:03'),
+(53,9,'Advertising Agencies',NULL,1,'','','1','2','2019-04-09 12:24:20','2019-04-09 17:54:20'),
+(54,9,'Corporate Training Providers',NULL,1,'','','1','2','2019-04-09 12:24:40','2019-04-09 17:54:40'),
+(55,322,'Insurance Agents',NULL,1,'','','1','2','2019-04-09 12:25:53','2019-04-09 18:20:41'),
+(56,322,'Loan Agents',NULL,1,'','','1','2','2019-04-09 12:26:00','2019-04-09 18:20:28'),
+(57,322,'Investment Consultants',NULL,1,'','','1','2','2019-04-09 12:26:15','2019-04-09 17:56:15'),
+(58,322,'Sharebrokers',NULL,1,'','','1','2','2019-04-09 12:26:30','2019-04-09 17:56:30'),
+(59,3,'Pest Control',NULL,1,'','','1','2','2019-04-09 12:34:45','2019-04-09 18:04:45'),
+(60,3,'Plumbers',NULL,1,'','','1','2','2019-04-09 12:36:35','2019-04-09 18:06:35'),
+(61,3,'Electricians',NULL,1,'','','1','2','2019-04-09 12:36:48','2019-04-09 18:06:48'),
+(62,3,'Carpenters',NULL,1,'','','1','2','2019-04-09 12:36:59','2019-04-09 18:06:59'),
+(63,3,'Bathroom Deep Cleaning',NULL,1,'','','1','2','2019-04-09 12:37:14','2019-04-09 18:07:14'),
+(64,3,'Carpet Cleaning',NULL,1,'','','1','2','2019-04-09 12:37:34','2019-04-09 18:07:34'),
+(65,1,'Massage for Women',NULL,1,'','','1','2','2019-04-09 12:44:24','2019-04-09 18:14:24'),
+(66,1,'Massage for Men',NULL,1,'','','1','2','2019-04-09 12:45:07','2019-04-09 18:15:07'),
+(67,1,'Men\'s Haircut & Grooming',NULL,1,'','','1','2','2019-04-09 12:45:24','2019-04-09 18:15:24'),
+(68,9,'Packers & Movers',NULL,1,'','','1','2','2019-04-09 12:46:54','2019-04-09 18:16:54'),
+(69,9,'CCTV Installation & Cameras',NULL,1,'','','1','2','2019-04-09 12:47:09','2019-04-09 18:17:09'),
+(70,2,'Refrigerator Repair',NULL,1,'','','1','2','2019-04-09 12:47:50','2019-04-09 18:17:50'),
+(71,2,'Microwave Repair',NULL,1,'','','1','2','2019-04-09 12:48:01','2019-04-09 18:18:01'),
+(72,2,'TV Repair',NULL,1,'','','1','2','2019-04-09 12:48:17','2019-04-09 18:18:17'),
+(73,2,'Setup Box Repair',NULL,1,'','','1','2','2019-04-09 12:48:28','2019-04-09 18:18:28'),
+(74,7,'Makeup & Hairstyling',NULL,1,'','','1','2','2019-04-09 12:48:53','2019-04-09 18:18:53'),
+(75,7,'Wedding Photographer',NULL,1,'','','1','2','2019-04-09 12:49:14','2019-04-09 18:19:29'),
+(76,7,'Men\'s Haircut & Grooming',NULL,1,'','','1','2','2019-04-09 12:49:49','2019-04-09 18:19:49');
 
---
--- Table structure for table `1w_tbl_services_features`
---
+/*Table structure for table `1w_tbl_services_features` */
 
 DROP TABLE IF EXISTS `1w_tbl_services_features`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+
 CREATE TABLE `1w_tbl_services_features` (
   `SFeatureID` int(11) NOT NULL AUTO_INCREMENT,
   `F_ServiceID` int(11) NOT NULL,
@@ -894,25 +4750,17 @@ CREATE TABLE `1w_tbl_services_features` (
   KEY `F_ServiceID` (`F_ServiceID`),
   CONSTRAINT `1w_tbl_services_features_ibfk_1` FOREIGN KEY (`F_ServiceID`) REFERENCES `1w_tbl_services` (`ServiceID`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `1w_tbl_services_features`
---
+/*Data for the table `1w_tbl_services_features` */
 
-LOCK TABLES `1w_tbl_services_features` WRITE;
-/*!40000 ALTER TABLE `1w_tbl_services_features` DISABLE KEYS */;
-INSERT INTO `1w_tbl_services_features` VALUES (1,1,'Best makeup Artist',' fashion isn\'t just limited to celebrities or the page 3 glitterati. ','2','2018-12-27 12:29:45','2019-01-03 05:28:06'),(2,1,'Only top brands','Explore our wide range of brands','2','2018-12-27 12:29:45','2019-01-03 05:49:15');
-/*!40000 ALTER TABLE `1w_tbl_services_features` ENABLE KEYS */;
-UNLOCK TABLES;
+insert  into `1w_tbl_services_features`(`SFeatureID`,`F_ServiceID`,`F_Title`,`F_Description`,`F_Status`,`RowAddedDttm`,`RowUpdatedDttm`) values
+(1,1,'Best makeup Artist',' fashion isn\'t just limited to celebrities or the page 3 glitterati. ','2','2018-12-27 12:29:45','2019-01-03 10:58:06'),
+(2,1,'Only top brands','Explore our wide range of brands','2','2018-12-27 12:29:45','2019-01-03 11:19:15');
 
---
--- Table structure for table `1w_tbl_services_packages`
---
+/*Table structure for table `1w_tbl_services_packages` */
 
 DROP TABLE IF EXISTS `1w_tbl_services_packages`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+
 CREATE TABLE `1w_tbl_services_packages` (
   `SPackageID` int(11) NOT NULL AUTO_INCREMENT,
   `P_ServiceID` int(11) NOT NULL,
@@ -925,25 +4773,17 @@ CREATE TABLE `1w_tbl_services_packages` (
   KEY `P_ServiceID` (`P_ServiceID`),
   CONSTRAINT `1w_tbl_services_packages_ibfk_1` FOREIGN KEY (`P_ServiceID`) REFERENCES `1w_tbl_services` (`ServiceID`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `1w_tbl_services_packages`
---
+/*Data for the table `1w_tbl_services_packages` */
 
-LOCK TABLES `1w_tbl_services_packages` WRITE;
-/*!40000 ALTER TABLE `1w_tbl_services_packages` DISABLE KEYS */;
-INSERT INTO `1w_tbl_services_packages` VALUES (1,1,'Light Package','Follow this simple light makeup tutorial and make your look more ... Start from the roots of your lashes and wriggle the wand right up to the tips.','2','2018-12-27 12:39:03','2019-01-04 05:13:34'),(2,1,'High Package','Here we cover all you need to know to get the best lighting for makeup application, how to apply make up correctly, and the science behind good lighting.','2','2018-12-27 12:39:03','2019-01-04 05:13:18');
-/*!40000 ALTER TABLE `1w_tbl_services_packages` ENABLE KEYS */;
-UNLOCK TABLES;
+insert  into `1w_tbl_services_packages`(`SPackageID`,`P_ServiceID`,`P_Title`,`P_Description`,`P_Status`,`RowAddedDttm`,`RowUpdatedDttm`) values
+(1,1,'Light Package','Follow this simple light makeup tutorial and make your look more ... Start from the roots of your lashes and wriggle the wand right up to the tips.','2','2018-12-27 12:39:03','2019-01-04 10:43:34'),
+(2,1,'High Package','Here we cover all you need to know to get the best lighting for makeup application, how to apply make up correctly, and the science behind good lighting.','2','2018-12-27 12:39:03','2019-01-04 10:43:18');
 
---
--- Table structure for table `1w_tbl_services_packages_options`
---
+/*Table structure for table `1w_tbl_services_packages_options` */
 
 DROP TABLE IF EXISTS `1w_tbl_services_packages_options`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+
 CREATE TABLE `1w_tbl_services_packages_options` (
   `SPOptionID` int(11) NOT NULL AUTO_INCREMENT,
   `O_ServiceID` int(11) NOT NULL,
@@ -957,25 +4797,19 @@ CREATE TABLE `1w_tbl_services_packages_options` (
   KEY `O_ServiceID` (`O_ServiceID`),
   CONSTRAINT `1w_tbl_services_packages_options_ibfk_1` FOREIGN KEY (`O_ServiceID`) REFERENCES `1w_tbl_services` (`ServiceID`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `1w_tbl_services_packages_options`
---
+/*Data for the table `1w_tbl_services_packages_options` */
 
-LOCK TABLES `1w_tbl_services_packages_options` WRITE;
-/*!40000 ALTER TABLE `1w_tbl_services_packages_options` DISABLE KEYS */;
-INSERT INTO `1w_tbl_services_packages_options` VALUES (1,1,1,'1 Person','20.00','2','2018-12-27 12:39:03','2018-12-27 13:37:44'),(2,1,1,'2 Person','30.00','2','2018-12-27 12:39:03','2018-12-27 13:37:48'),(3,1,2,'4 Person','20.00','2','2018-12-27 12:39:03','2018-12-27 13:37:54'),(4,1,2,'3 Person','30.00','2','2018-12-27 12:39:03','2018-12-27 13:37:51');
-/*!40000 ALTER TABLE `1w_tbl_services_packages_options` ENABLE KEYS */;
-UNLOCK TABLES;
+insert  into `1w_tbl_services_packages_options`(`SPOptionID`,`O_ServiceID`,`O_PackageID`,`O_Title`,`O_Price`,`O_Status`,`RowAddedDttm`,`RowUpdatedDttm`) values
+(1,1,1,'1 Person','20.00','2','2018-12-27 12:39:03','2018-12-27 19:07:44'),
+(2,1,1,'2 Person','30.00','2','2018-12-27 12:39:03','2018-12-27 19:07:48'),
+(3,1,2,'4 Person','20.00','2','2018-12-27 12:39:03','2018-12-27 19:07:54'),
+(4,1,2,'3 Person','30.00','2','2018-12-27 12:39:03','2018-12-27 19:07:51');
 
---
--- Table structure for table `1w_tbl_services_steps`
---
+/*Table structure for table `1w_tbl_services_steps` */
 
 DROP TABLE IF EXISTS `1w_tbl_services_steps`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+
 CREATE TABLE `1w_tbl_services_steps` (
   `SStepID` int(11) NOT NULL AUTO_INCREMENT,
   `ST_ServiceID` int(11) NOT NULL,
@@ -988,25 +4822,18 @@ CREATE TABLE `1w_tbl_services_steps` (
   KEY `ST_ServiceID` (`ST_ServiceID`),
   CONSTRAINT `1w_tbl_services_steps_ibfk_1` FOREIGN KEY (`ST_ServiceID`) REFERENCES `1w_tbl_services` (`ServiceID`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `1w_tbl_services_steps`
---
+/*Data for the table `1w_tbl_services_steps` */
 
-LOCK TABLES `1w_tbl_services_steps` WRITE;
-/*!40000 ALTER TABLE `1w_tbl_services_steps` DISABLE KEYS */;
-INSERT INTO `1w_tbl_services_steps` VALUES (1,1,'Step 1','Foundation.','2','2018-12-27 12:39:03','2019-01-04 05:14:23'),(2,1,'Step 22','Eyeshadow','2','2018-12-27 12:39:03','2019-01-20 16:32:40'),(6,33,'Step 1','Need to define the step 1','2','2019-01-20 23:56:53','2019-01-20 18:26:53');
-/*!40000 ALTER TABLE `1w_tbl_services_steps` ENABLE KEYS */;
-UNLOCK TABLES;
+insert  into `1w_tbl_services_steps`(`SStepID`,`ST_ServiceID`,`ST_Title`,`ST_Description`,`ST_Status`,`RowAddedDttm`,`RowUpdatedDttm`) values
+(1,1,'Step 1','Foundation.','2','2018-12-27 12:39:03','2019-01-04 10:44:23'),
+(2,1,'Step 22','Eyeshadow','2','2018-12-27 12:39:03','2019-01-20 22:02:40'),
+(6,33,'Step 1','Need to define the step 1','2','2019-01-20 23:56:53','2019-01-20 23:56:53');
 
---
--- Table structure for table `1w_tbl_services_timeslabs`
---
+/*Table structure for table `1w_tbl_services_timeslabs` */
 
 DROP TABLE IF EXISTS `1w_tbl_services_timeslabs`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+
 CREATE TABLE `1w_tbl_services_timeslabs` (
   `STimeslabID` int(11) NOT NULL AUTO_INCREMENT,
   `T_ServiceID` int(11) NOT NULL,
@@ -1020,25 +4847,18 @@ CREATE TABLE `1w_tbl_services_timeslabs` (
   KEY `T_ServiceID` (`T_ServiceID`),
   CONSTRAINT `1w_tbl_services_timeslabs_ibfk_1` FOREIGN KEY (`T_ServiceID`) REFERENCES `1w_tbl_services` (`ServiceID`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `1w_tbl_services_timeslabs`
---
+/*Data for the table `1w_tbl_services_timeslabs` */
 
-LOCK TABLES `1w_tbl_services_timeslabs` WRITE;
-/*!40000 ALTER TABLE `1w_tbl_services_timeslabs` DISABLE KEYS */;
-INSERT INTO `1w_tbl_services_timeslabs` VALUES (1,1,'1-5pm','13:00:00','18:00:00','2','2018-12-27 12:39:03','2018-12-27 13:00:21'),(2,1,'5-10pm','18:00:00','22:00:00','2','2018-12-27 12:39:03','2018-12-27 13:00:18'),(3,1,'Timeslab 3','10:00:00','15:00:00','2','2019-01-08 16:42:06','2019-01-08 11:13:04');
-/*!40000 ALTER TABLE `1w_tbl_services_timeslabs` ENABLE KEYS */;
-UNLOCK TABLES;
+insert  into `1w_tbl_services_timeslabs`(`STimeslabID`,`T_ServiceID`,`T_Title`,`T_StartTime`,`T_EndTime`,`T_Status`,`RowAddedDttm`,`RowUpdatedDttm`) values
+(1,1,'1-5pm','13:00:00','18:00:00','2','2018-12-27 12:39:03','2018-12-27 18:30:21'),
+(2,1,'5-10pm','18:00:00','22:00:00','2','2018-12-27 12:39:03','2018-12-27 18:30:18'),
+(3,1,'Timeslab 3','10:00:00','15:00:00','2','2019-01-08 16:42:06','2019-01-08 16:43:04');
 
---
--- Table structure for table `1w_tbl_services_works`
---
+/*Table structure for table `1w_tbl_services_works` */
 
 DROP TABLE IF EXISTS `1w_tbl_services_works`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+
 CREATE TABLE `1w_tbl_services_works` (
   `SWorkID` int(11) NOT NULL AUTO_INCREMENT,
   `W_ServiceID` int(11) NOT NULL,
@@ -1051,25 +4871,17 @@ CREATE TABLE `1w_tbl_services_works` (
   KEY `W_ServiceID` (`W_ServiceID`),
   CONSTRAINT `1w_tbl_services_works_ibfk_1` FOREIGN KEY (`W_ServiceID`) REFERENCES `1w_tbl_services` (`ServiceID`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `1w_tbl_services_works`
---
+/*Data for the table `1w_tbl_services_works` */
 
-LOCK TABLES `1w_tbl_services_works` WRITE;
-/*!40000 ALTER TABLE `1w_tbl_services_works` DISABLE KEYS */;
-INSERT INTO `1w_tbl_services_works` VALUES (1,1,'Work','1-SWI-1234.jpg','2','2018-12-27 12:39:03','2019-01-20 13:36:37'),(6,1,'Test Holder 1','6-SWI-20012019222314.png','1','2019-01-20 22:23:14','2019-01-20 16:56:46');
-/*!40000 ALTER TABLE `1w_tbl_services_works` ENABLE KEYS */;
-UNLOCK TABLES;
+insert  into `1w_tbl_services_works`(`SWorkID`,`W_ServiceID`,`W_Title`,`W_DisplayImage`,`W_Status`,`RowAddedDttm`,`RowUpdatedDttm`) values
+(1,1,'Work','1-SWI-1234.jpg','2','2018-12-27 12:39:03','2019-01-20 19:06:37'),
+(6,1,'Test Holder 1','6-SWI-20012019222314.png','1','2019-01-20 22:23:14','2019-01-20 22:26:46');
 
---
--- Table structure for table `1w_tbl_staffs`
---
+/*Table structure for table `1w_tbl_staffs` */
 
 DROP TABLE IF EXISTS `1w_tbl_staffs`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+
 CREATE TABLE `1w_tbl_staffs` (
   `Staff_ID` int(11) NOT NULL AUTO_INCREMENT,
   `S_Email` varchar(255) NOT NULL,
@@ -1077,7 +4889,7 @@ CREATE TABLE `1w_tbl_staffs` (
   `S_FirstName` varchar(255) NOT NULL,
   `S_LastName` varchar(255) NOT NULL,
   `S_ProfileImage` text NOT NULL,
-  `S_IsAdmin` enum('1','2') DEFAULT '2' COMMENT '1 : Yes , 2 : No',
+  `S_IsAdmin` enum('0','1','2') DEFAULT '2' COMMENT '1 : Yes , 2 : No',
   `S_IsActive` enum('1','2') NOT NULL DEFAULT '1' COMMENT '1: Active , 2 : Inactive',
   `S_Status` enum('1','2','3') DEFAULT '2' COMMENT '1 : Disable , 2 : Enable , 3 : Pending',
   `S_LastIP` varchar(40) NOT NULL,
@@ -1087,27 +4899,25 @@ CREATE TABLE `1w_tbl_staffs` (
   `S_NewPassKeyRequested` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `RowAddedDttm` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `RowUpdatedDttm` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `Area` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`Staff_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
-/*!40101 SET character_set_client = @saved_cs_client */;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
---
--- Dumping data for table `1w_tbl_staffs`
---
+/*Data for the table `1w_tbl_staffs` */
 
-LOCK TABLES `1w_tbl_staffs` WRITE;
-/*!40000 ALTER TABLE `1w_tbl_staffs` DISABLE KEYS */;
-INSERT INTO `1w_tbl_staffs` VALUES (1,'admin@1windo.com','$2a$08$mu8hQTtZU3vfVekxCjEcHOakHOYTNoM9heeo8szuK44xpPmpNcTxa','Admin','Tonse','1-SI-05122018174629.jpg','1','1','2','::1','2019-05-09 11:42:33','2018-11-21 15:13:15','09b06980dd77435be2f80c7b011207e8','2018-11-24 19:44:08','2018-11-21 15:13:15','2019-05-09 11:42:33'),(2,'disha.intorque@gmail.com','$2a$08$mj490QJA9BcVV313IHj1pe.YB/4KwIvifbMiO1fOo5JkDNYPIlPqm','Disha','Patel','1-SI-05122018114224.jpg','2','1','1','192.168.0.113','2018-12-05 11:43:05','2018-11-21 15:13:15','09b06980dd77435be2f80c7b011207e8','2018-11-24 19:44:08','2018-11-21 15:13:15','2019-01-18 02:09:39'),(3,'hetal@gmail.com','$2a$08$/sW0QN.9a/DFgKD5mM3g2e.2VDAGAM37Yv.5dwmKZZKr8VTwUG.f2','Hetal','Patel','3-SI-05122018174301.jpg','2','1','2','','2018-12-05 17:37:14','2018-12-05 17:37:14','','2018-12-05 17:37:14','2018-12-05 17:37:14','2019-01-30 11:05:00'),(4,'hariharan614@gmail.com','$2a$08$8k.BtyqA1q309MRO09v61Ok3mdb9EwQXCBTj4eZYM1RTR0lfLZmCS','Hariharan','P','','1','1','2','','2019-01-18 02:10:34','2019-01-18 02:10:34','','2019-01-18 02:10:34','2019-01-18 02:10:34','2019-01-18 02:10:34'),(5,'nihalkarkala@gmail.com','$2a$08$lTAPl1jMK/VL9aiOvH9Kpu0MKTdpcjLHwkPGsS18mXfz7zD91lbQS','Nihal','Karkala','','2','1','2','::1','2019-01-18 02:16:11','2019-01-18 02:11:15','','2019-01-18 02:11:15','2019-01-18 02:11:15','2019-01-18 02:16:11');
-/*!40000 ALTER TABLE `1w_tbl_staffs` ENABLE KEYS */;
-UNLOCK TABLES;
+insert  into `1w_tbl_staffs`(`Staff_ID`,`S_Email`,`S_Password`,`S_FirstName`,`S_LastName`,`S_ProfileImage`,`S_IsAdmin`,`S_IsActive`,`S_Status`,`S_LastIP`,`S_LastLogin`,`S_LastPasswordChange`,`S_NewPassKey`,`S_NewPassKeyRequested`,`RowAddedDttm`,`RowUpdatedDttm`,`Area`) values
+(1,'admin@1windo.com','$2a$08$mu8hQTtZU3vfVekxCjEcHOakHOYTNoM9heeo8szuK44xpPmpNcTxa','Admin','Tonse','1-SI-05122018174629.jpg','0','1','2','::1','2019-05-12 09:49:21','2018-11-21 15:13:15','09b06980dd77435be2f80c7b011207e8','2018-11-24 19:44:08','2018-11-21 15:13:15','2019-05-12 09:49:21',NULL),
+(2,'disha.intorque@gmail.com','$2a$08$mu8hQTtZU3vfVekxCjEcHOakHOYTNoM9heeo8szuK44xpPmpNcTxa','Disha','Patel','1-SI-05122018114224.jpg','2','1','2','::1','2019-05-11 19:07:30','2018-11-21 15:13:15','09b06980dd77435be2f80c7b011207e8','2018-11-24 19:44:08','2018-11-21 15:13:15','2019-05-11 19:07:30',NULL),
+(3,'hetal@gmail.com','$2a$08$/sW0QN.9a/DFgKD5mM3g2e.2VDAGAM37Yv.5dwmKZZKr8VTwUG.f2','Hetal','Patel','3-SI-05122018174301.jpg','2','1','2','','2018-12-05 17:37:14','2018-12-05 17:37:14','','2018-12-05 17:37:14','2018-12-05 17:37:14','2019-01-30 11:05:00',NULL),
+(4,'hariharan614@gmail.com','$2a$08$8k.BtyqA1q309MRO09v61Ok3mdb9EwQXCBTj4eZYM1RTR0lfLZmCS','Hariharan','P','','1','1','2','','2019-01-18 02:10:34','2019-01-18 02:10:34','','2019-01-18 02:10:34','2019-01-18 02:10:34','2019-01-18 02:10:34',NULL),
+(5,'nihalkarkala@gmail.com','$2a$08$lTAPl1jMK/VL9aiOvH9Kpu0MKTdpcjLHwkPGsS18mXfz7zD91lbQS','Nihal','Karkala','','2','1','2','::1','2019-01-18 02:16:11','2019-01-18 02:11:15','','2019-01-18 02:11:15','2019-01-18 02:11:15','2019-01-18 02:16:11',NULL),
+(6,'nitin@gmail.com','$2a$08$lIerQm/FgNoAq6LX9yhmA.G60wBeOoTF4kOhSer3lc02L0palYZ4C','Nitin','Gaikwad','','','1','2','','2019-05-11 18:33:18','2019-05-11 18:33:18','','2019-05-11 18:33:18','2019-05-11 18:33:18','2019-05-11 18:33:18',NULL),
+(9,'admin1@admin.com','$2a$08$kNpeEiXcIRil1lw1txfnIuONvJHK.f8yLRq.a4cmAx4fo4lV/uovW','Admin1','admin1','','1','1','2','::1','2019-05-12 10:08:31','2019-05-12 10:07:51','','2019-05-12 10:07:51','2019-05-12 10:07:51','2019-05-12 10:08:31',NULL);
 
---
--- Table structure for table `1w_tbl_vendor_about`
---
+/*Table structure for table `1w_tbl_vendor_about` */
 
 DROP TABLE IF EXISTS `1w_tbl_vendor_about`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+
 CREATE TABLE `1w_tbl_vendor_about` (
   `VAboutID` int(11) NOT NULL AUTO_INCREMENT,
   `A_VendorID` int(11) NOT NULL,
@@ -1130,25 +4940,19 @@ CREATE TABLE `1w_tbl_vendor_about` (
   KEY `A_VendorID` (`A_VendorID`),
   CONSTRAINT `1w_tbl_vendor_about_ibfk_1` FOREIGN KEY (`A_VendorID`) REFERENCES `1w_tbl_vendors` (`VendorID`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `1w_tbl_vendor_about`
---
+/*Data for the table `1w_tbl_vendor_about` */
 
-LOCK TABLES `1w_tbl_vendor_about` WRITE;
-/*!40000 ALTER TABLE `1w_tbl_vendor_about` DISABLE KEYS */;
-INSERT INTO `1w_tbl_vendor_about` VALUES (1,1,'Addy Sales & Services','1','www.addysales.com','www.fbaddysales.com','[\"www.sales.com\"]','9673363253','1','1','2','Hii',500.00,'[\"Sales\"]','2','2019-04-20 16:04:37','2019-04-20 16:08:05'),(2,2,NULL,'0',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'1','2019-04-22 07:22:00','2019-04-22 07:22:00'),(3,4,NULL,'0',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'1','2019-04-22 11:05:26','2019-04-22 11:05:26'),(4,5,NULL,'0',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'1','2019-04-22 13:01:50','2019-04-22 13:01:50');
-/*!40000 ALTER TABLE `1w_tbl_vendor_about` ENABLE KEYS */;
-UNLOCK TABLES;
+insert  into `1w_tbl_vendor_about`(`VAboutID`,`A_VendorID`,`A_BusinessName`,`A_BusinessPresence`,`A_ProfileLink`,`A_FacebookLink`,`A_WorkLinks`,`A_PhoneNumber`,`A_Type`,`A_ExperienceYear`,`A_ExperienceMonth`,`A_Introduction`,`A_StartingPrice`,`A_Specialization`,`A_Status`,`RowAddedDttm`,`RowUpdateDttm`) values
+(1,1,'Addy Sales & Services','1','www.addysales.com','www.fbaddysales.com','[\"www.sales.com\"]','9673363253','1','1','2','Hii',500.00,'[\"Sales\"]','2','2019-04-20 16:04:37','2019-04-20 21:38:05'),
+(2,2,NULL,'0',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'1','2019-04-22 07:22:00','2019-04-22 12:52:00'),
+(3,4,NULL,'0',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'1','2019-04-22 11:05:26','2019-04-22 16:35:26'),
+(4,5,NULL,'0',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'1','2019-04-22 13:01:50','2019-04-22 18:31:50');
 
---
--- Table structure for table `1w_tbl_vendor_accounts`
---
+/*Table structure for table `1w_tbl_vendor_accounts` */
 
 DROP TABLE IF EXISTS `1w_tbl_vendor_accounts`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+
 CREATE TABLE `1w_tbl_vendor_accounts` (
   `VAccountID` int(11) NOT NULL AUTO_INCREMENT,
   `A_VendorID` int(11) NOT NULL,
@@ -1165,25 +4969,19 @@ CREATE TABLE `1w_tbl_vendor_accounts` (
   KEY `A_VendorID` (`A_VendorID`),
   CONSTRAINT `1w_tbl_vendor_accounts_ibfk_1` FOREIGN KEY (`A_VendorID`) REFERENCES `1w_tbl_vendors` (`VendorID`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `1w_tbl_vendor_accounts`
---
+/*Data for the table `1w_tbl_vendor_accounts` */
 
-LOCK TABLES `1w_tbl_vendor_accounts` WRITE;
-/*!40000 ALTER TABLE `1w_tbl_vendor_accounts` DISABLE KEYS */;
-INSERT INTO `1w_tbl_vendor_accounts` VALUES (1,1,'Aditya Sales & Sevices','GST70191919','Aditya Toraskar','1','SH591946','STU459','2','2019-04-20 16:04:37','2019-04-20 16:10:47'),(2,2,NULL,NULL,NULL,'0',NULL,NULL,'1','2019-04-22 07:22:00','2019-04-22 07:22:00'),(3,4,NULL,NULL,NULL,'0',NULL,NULL,'1','2019-04-22 11:05:26','2019-04-22 11:05:26'),(4,5,NULL,NULL,NULL,'0',NULL,NULL,'1','2019-04-22 13:01:50','2019-04-22 13:01:50');
-/*!40000 ALTER TABLE `1w_tbl_vendor_accounts` ENABLE KEYS */;
-UNLOCK TABLES;
+insert  into `1w_tbl_vendor_accounts`(`VAccountID`,`A_VendorID`,`A_GSTName`,`A_GSTNumber`,`A_AccountName`,`A_AccountType`,`A_AccountNumber`,`A_IFSCNumber`,`A_Status`,`RowAddedDttm`,`RowUpdateDttm`) values
+(1,1,'Aditya Sales & Sevices','GST70191919','Aditya Toraskar','1','SH591946','STU459','2','2019-04-20 16:04:37','2019-04-20 21:40:47'),
+(2,2,NULL,NULL,NULL,'0',NULL,NULL,'1','2019-04-22 07:22:00','2019-04-22 12:52:00'),
+(3,4,NULL,NULL,NULL,'0',NULL,NULL,'1','2019-04-22 11:05:26','2019-04-22 16:35:26'),
+(4,5,NULL,NULL,NULL,'0',NULL,NULL,'1','2019-04-22 13:01:50','2019-04-22 18:31:50');
 
---
--- Table structure for table `1w_tbl_vendor_locations`
---
+/*Table structure for table `1w_tbl_vendor_locations` */
 
 DROP TABLE IF EXISTS `1w_tbl_vendor_locations`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+
 CREATE TABLE `1w_tbl_vendor_locations` (
   `VLocationID` int(11) NOT NULL AUTO_INCREMENT,
   `L_VendorID` int(11) NOT NULL,
@@ -1198,25 +4996,19 @@ CREATE TABLE `1w_tbl_vendor_locations` (
   KEY `L_VendorID` (`L_VendorID`),
   CONSTRAINT `1w_tbl_vendor_locations_ibfk_1` FOREIGN KEY (`L_VendorID`) REFERENCES `1w_tbl_vendors` (`VendorID`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `1w_tbl_vendor_locations`
---
+/*Data for the table `1w_tbl_vendor_locations` */
 
-LOCK TABLES `1w_tbl_vendor_locations` WRITE;
-/*!40000 ALTER TABLE `1w_tbl_vendor_locations` DISABLE KEYS */;
-INSERT INTO `1w_tbl_vendor_locations` VALUES (1,1,'1142 A/2 KRISHNAJI RRSIDENCY , SYKES Extension, E WARD, NEAR DRESSLAND, Sykes Extension, Kolhapur, Maharashtra 416001, India','16.69993679','74.24505075','10','2','2019-04-20 16:04:37','2019-04-20 16:08:20'),(2,2,'1142 A/2 KRISHNAJI RRSIDENCY , SYKES Extension, E WARD, NEAR DRESSLAND, Sykes Extension, Kolhapur, Maharashtra 416001, India','16.7001019','74.2450382','10','2','2019-04-22 07:22:00','2019-04-22 09:37:12'),(3,4,NULL,NULL,NULL,NULL,'1','2019-04-22 11:05:26','2019-04-22 11:05:26'),(4,5,NULL,NULL,NULL,NULL,'1','2019-04-22 13:01:50','2019-04-22 13:01:50');
-/*!40000 ALTER TABLE `1w_tbl_vendor_locations` ENABLE KEYS */;
-UNLOCK TABLES;
+insert  into `1w_tbl_vendor_locations`(`VLocationID`,`L_VendorID`,`L_Location`,`L_Latitude`,`L_Longitude`,`L_Radius`,`L_Status`,`RowAddedDttm`,`RowUpdateDttm`) values
+(1,1,'1142 A/2 KRISHNAJI RRSIDENCY , SYKES Extension, E WARD, NEAR DRESSLAND, Sykes Extension, Kolhapur, Maharashtra 416001, India','16.69993679','74.24505075','10','2','2019-04-20 16:04:37','2019-04-20 21:38:20'),
+(2,2,'1142 A/2 KRISHNAJI RRSIDENCY , SYKES Extension, E WARD, NEAR DRESSLAND, Sykes Extension, Kolhapur, Maharashtra 416001, India','16.7001019','74.2450382','10','2','2019-04-22 07:22:00','2019-04-22 15:07:12'),
+(3,4,NULL,NULL,NULL,NULL,'1','2019-04-22 11:05:26','2019-04-22 16:35:26'),
+(4,5,NULL,NULL,NULL,NULL,'1','2019-04-22 13:01:50','2019-04-22 18:31:50');
 
---
--- Table structure for table `1w_tbl_vendor_profiles`
---
+/*Table structure for table `1w_tbl_vendor_profiles` */
 
 DROP TABLE IF EXISTS `1w_tbl_vendor_profiles`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+
 CREATE TABLE `1w_tbl_vendor_profiles` (
   `VProfileID` int(11) NOT NULL AUTO_INCREMENT,
   `P_VendorID` int(11) NOT NULL,
@@ -1248,25 +5040,19 @@ CREATE TABLE `1w_tbl_vendor_profiles` (
   KEY `P_VendorID` (`P_VendorID`),
   CONSTRAINT `1w_tbl_vendor_profiles_ibfk_1` FOREIGN KEY (`P_VendorID`) REFERENCES `1w_tbl_vendors` (`VendorID`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `1w_tbl_vendor_profiles`
---
+/*Data for the table `1w_tbl_vendor_profiles` */
 
-LOCK TABLES `1w_tbl_vendor_profiles` WRITE;
-/*!40000 ALTER TABLE `1w_tbl_vendor_profiles` DISABLE KEYS */;
-INSERT INTO `1w_tbl_vendor_profiles` VALUES (1,1,'2','Aditya Toraskar','BDF46494949','1-VIFI-20042019213530.jpg','1-VIBI-20042019213530.jpg','2','Shekhar','1','1980-01-01','45','Shivaji Colony','Belgum','Mah','416003','2','45','Shivaji Colony','Belgum','Mah','416003','2','2','2019-04-20 16:04:37','2019-04-20 16:06:35'),(2,2,'0',NULL,NULL,NULL,NULL,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'1',NULL,NULL,NULL,NULL,NULL,'1','2','2019-04-22 07:22:00','2019-04-22 09:37:30'),(3,4,'0',NULL,NULL,NULL,NULL,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'1',NULL,NULL,NULL,NULL,NULL,'1','1','2019-04-22 11:05:26','2019-04-22 11:05:26'),(4,5,'0',NULL,NULL,NULL,NULL,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'1',NULL,NULL,NULL,NULL,NULL,'1','1','2019-04-22 13:01:50','2019-04-22 13:01:50');
-/*!40000 ALTER TABLE `1w_tbl_vendor_profiles` ENABLE KEYS */;
-UNLOCK TABLES;
+insert  into `1w_tbl_vendor_profiles`(`VProfileID`,`P_VendorID`,`P_IDCardType`,`P_IDCardName`,`P_IDCardNumber`,`P_IDCardFrontImage`,`P_IDCardBackImage`,`P_IDCardStatus`,`P_GuardianName`,`P_Gender`,`P_BirthDate`,`P_PermanentBuilding`,`P_PermanentLocality`,`P_PermanentCity`,`P_PermanentState`,`P_PermanentPincode`,`P_PersonalStatus`,`P_CurrentBuilding`,`P_CurrentLocality`,`P_CurrentCity`,`P_CurrentState`,`P_CurrentPincode`,`P_CurrentStatus`,`P_TermsStatus`,`RowAddedDttm`,`RowUpdateDttm`) values
+(1,1,'2','Aditya Toraskar','BDF46494949','1-VIFI-20042019213530.jpg','1-VIBI-20042019213530.jpg','2','Shekhar','1','1980-01-01','45','Shivaji Colony','Belgum','Mah','416003','2','45','Shivaji Colony','Belgum','Mah','416003','2','2','2019-04-20 16:04:37','2019-04-20 21:36:35'),
+(2,2,'0',NULL,NULL,NULL,NULL,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'1',NULL,NULL,NULL,NULL,NULL,'1','2','2019-04-22 07:22:00','2019-04-22 15:07:30'),
+(3,4,'0',NULL,NULL,NULL,NULL,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'1',NULL,NULL,NULL,NULL,NULL,'1','1','2019-04-22 11:05:26','2019-04-22 16:35:26'),
+(4,5,'0',NULL,NULL,NULL,NULL,'1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'1',NULL,NULL,NULL,NULL,NULL,'1','1','2019-04-22 13:01:50','2019-04-22 18:31:50');
 
---
--- Table structure for table `1w_tbl_vendor_works`
---
+/*Table structure for table `1w_tbl_vendor_works` */
 
 DROP TABLE IF EXISTS `1w_tbl_vendor_works`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+
 CREATE TABLE `1w_tbl_vendor_works` (
   `VWorkID` int(11) NOT NULL AUTO_INCREMENT,
   `W_VendorID` int(11) NOT NULL,
@@ -1278,25 +5064,19 @@ CREATE TABLE `1w_tbl_vendor_works` (
   KEY `W_VendorID` (`W_VendorID`),
   CONSTRAINT `1w_tbl_vendor_works_ibfk_1` FOREIGN KEY (`W_VendorID`) REFERENCES `1w_tbl_vendors` (`VendorID`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `1w_tbl_vendor_works`
---
+/*Data for the table `1w_tbl_vendor_works` */
 
-LOCK TABLES `1w_tbl_vendor_works` WRITE;
-/*!40000 ALTER TABLE `1w_tbl_vendor_works` DISABLE KEYS */;
-INSERT INTO `1w_tbl_vendor_works` VALUES (1,1,'[\"1-VWGI-20042019213814.jpeg\"]','2','2019-04-20 16:04:37','2019-04-20 16:08:14'),(2,2,NULL,'1','2019-04-22 07:22:00','2019-04-22 07:22:00'),(3,4,NULL,'1','2019-04-22 11:05:26','2019-04-22 11:05:26'),(4,5,NULL,'1','2019-04-22 13:01:50','2019-04-22 13:01:50');
-/*!40000 ALTER TABLE `1w_tbl_vendor_works` ENABLE KEYS */;
-UNLOCK TABLES;
+insert  into `1w_tbl_vendor_works`(`VWorkID`,`W_VendorID`,`W_WorksGallery`,`W_Status`,`RowAddedDttm`,`RowUpdateDttm`) values
+(1,1,'[\"1-VWGI-20042019213814.jpeg\"]','2','2019-04-20 16:04:37','2019-04-20 21:38:14'),
+(2,2,NULL,'1','2019-04-22 07:22:00','2019-04-22 12:52:00'),
+(3,4,NULL,'1','2019-04-22 11:05:26','2019-04-22 16:35:26'),
+(4,5,NULL,'1','2019-04-22 13:01:50','2019-04-22 18:31:50');
 
---
--- Table structure for table `1w_tbl_vendors`
---
+/*Table structure for table `1w_tbl_vendors` */
 
 DROP TABLE IF EXISTS `1w_tbl_vendors`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+
 CREATE TABLE `1w_tbl_vendors` (
   `VendorID` int(11) NOT NULL AUTO_INCREMENT,
   `V_FirstName` varchar(100) NOT NULL,
@@ -1321,29 +5101,18 @@ CREATE TABLE `1w_tbl_vendors` (
   `RowUpdatedDttm` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`VendorID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 ROW_FORMAT=COMPACT;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `1w_tbl_vendors`
---
+/*Data for the table `1w_tbl_vendors` */
 
-LOCK TABLES `1w_tbl_vendors` WRITE;
-/*!40000 ALTER TABLE `1w_tbl_vendors` DISABLE KEYS */;
-INSERT INTO `1w_tbl_vendors` VALUES (1,'Aditya','Toraskar','addy@gmail.com','+91','9673363253',NULL,10,NULL,'','',NULL,'','Belgaum','India',NULL,'2','3','2','2019-04-20 16:00:40','2019-04-20 16:08:49'),(2,'Jaid','Attar','jaid.a@reapmind.com','+91','8657387317',NULL,10,NULL,'','',NULL,'','Belgaum','India',NULL,'2','3','2','2019-04-22 07:08:51','2019-04-22 09:55:20'),(3,'','','','+91','8421118381',NULL,0,NULL,'','',NULL,'','',NULL,NULL,'1','1','2','2019-04-22 11:03:59','2019-04-22 11:03:59'),(4,'Nida','Sheikh','nida@gmail.xon','+91','7028668351',NULL,10,NULL,'','',NULL,'','Belgaum','India',NULL,'2','1','2','2019-04-22 11:04:15','2019-04-22 11:05:26'),(5,'Jva','Igs','cusvi@hiis.com','+91','9370649300',NULL,21,NULL,'','',NULL,'','Belgaum','India',NULL,'2','1','2','2019-04-22 13:00:46','2019-04-22 13:01:50'),(6,'','','','+91','9503008804',NULL,0,NULL,'','',NULL,'','',NULL,NULL,'1','1','2','2019-05-09 00:23:04','2019-05-09 00:23:04');
-/*!40000 ALTER TABLE `1w_tbl_vendors` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Dumping routines for database 'newschema1'
---
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+insert  into `1w_tbl_vendors`(`VendorID`,`V_FirstName`,`V_LastName`,`V_Email`,`V_CountryCode`,`V_Mobile`,`V_Gender`,`V_CategoryID`,`V_ProfileImage`,`V_Latitude`,`V_Longitude`,`V_Address`,`V_Location`,`V_City`,`V_Country`,`V_VerificationMessage`,`V_ProfileStatus`,`V_VerificationStatus`,`V_Status`,`RowAddedDttm`,`RowUpdatedDttm`) values
+(1,'Aditya','Toraskar','addy@gmail.com','+91','9673363253',NULL,10,NULL,'','',NULL,'','Belgaum','India',NULL,'2','3','2','2019-04-20 16:00:40','2019-04-20 16:08:49'),
+(2,'Jaid','Attar','jaid.a@reapmind.com','+91','8657387317',NULL,10,NULL,'','',NULL,'','Belgaum','India',NULL,'2','3','2','2019-04-22 07:08:51','2019-04-22 09:55:20'),
+(3,'','','','+91','8421118381',NULL,0,NULL,'','',NULL,'','',NULL,NULL,'1','1','2','2019-04-22 11:03:59','2019-04-22 11:03:59'),
+(4,'Nida','Sheikh','nida@gmail.xon','+91','7028668351',NULL,10,NULL,'','',NULL,'','Belgaum','India',NULL,'2','1','2','2019-04-22 11:04:15','2019-04-22 11:05:26'),
+(5,'Jva','Igs','cusvi@hiis.com','+91','9370649300',NULL,21,NULL,'','',NULL,'','Belgaum','India',NULL,'2','1','2','2019-04-22 13:00:46','2019-04-22 13:01:50'),
+(6,'','','','+91','9503008804',NULL,0,NULL,'','',NULL,'','',NULL,NULL,'1','1','2','2019-05-09 00:23:04','2019-05-09 00:23:04');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2019-05-09 12:08:08

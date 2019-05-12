@@ -35,7 +35,7 @@ class Authentication extends W_Controller
 	public function index()
 	  {	
 	  	if (is_staff_logged_in()) {			
-            redirect(admin_url());
+            redirect(getRedirectUrl());
         } 
 		
         $data = $this->input->post();
@@ -66,7 +66,8 @@ class Authentication extends W_Controller
 
     /* Update admin profile */
     public function MyProfile()
-    {             
+    {
+
         $data = $this->input->post(); 
         
         if (!empty($this->input->post())) {  
@@ -84,14 +85,14 @@ class Authentication extends W_Controller
         $data['title'] = _l('txt_my_profile');
         $data['admin'] = $this->Authentication_model->getAdmin(get_staff_user_id());
          
-        $this->load->view(STAFF_URL.'staff',$data);     
+        $this->load->view(camelToSnake(getRedirectUrl()).'/staffs/staff',$data);
     }
 
 	
 	public function Admin()
     { 
-        if (is_staff_logged_in()) {			
-            redirect(admin_url());
+        if (is_staff_logged_in()) {
+            redirect(getRedirectUrl());
         }  
 
         $data = $this->input->post(); 
@@ -155,7 +156,7 @@ class Authentication extends W_Controller
 		    if($this->uri->segment(1) == 'Authentication'){				
                 $this->load->view('authentication/resetpassword',$data);        
             } else {
-                $this->load->view('admin/resetpassword',$data);        
+                $this->load->view(camelToSnake(getRedirectUrl()).'/resetpassword',$data);
             }
 		
   }
@@ -163,7 +164,7 @@ class Authentication extends W_Controller
   public function ForgotPassword()
     {
         if (is_staff_logged_in()) {
-            redirect(admin_url());
+            redirect(getRedirectUrl());
         }
 
 		$data = $this->input->post();	
