@@ -25,11 +25,35 @@ class Staffs_model extends W_Model
     /* Get Staff Members */
     public function getStaff()
     {
-        $this->db->where('S_IsAdmin !=', '1');
-        //$this->db->where('S_Status', 2);
 
-        $this->db->order_by('Staff_ID','DESC');
-        return $this->db->get('staffs')->result_array();
+        $staffID= get_staff_user_id();
+        $this->db->where('Staff_ID', $staffID);
+        $result= $this->db->get('staffs')->row();
+
+        switch ($result->S_IsAdmin) {
+            case 0:
+            $this->db->order_by('Staff_ID','DESC');
+            $result1= $this->db->get('staffs')->result_array();
+                break;
+            case 1:
+            $this->db->where('Area', $result->Area);
+    
+            $this->db->order_by('Staff_ID','DESC');
+            $result1= $this->db->get('staffs')->result_array();
+                break;
+            case 2:
+            $this->db->where('S_IsAdmin !=', '1');
+            //$this->db->where('S_Status', 2);
+            $this->db->where('Area', $result->Area);
+    
+            $this->db->order_by('Staff_ID','DESC');
+            $result1= $this->db->get('staffs')->result_array();
+                break;
+     
+        }
+
+        $whatisthequery= $this->db->last_query();
+        return $result1;
     }
 
     public function getStaffData($staff='')
