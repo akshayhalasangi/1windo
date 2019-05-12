@@ -44,7 +44,7 @@ $lang['txt_remeber'] = 'Remember Me';
 $lang['btn_forgot_password'] = 'Forgot Password';
 $lang['btn_reset_password'] = 'Reset Password';
 $lang['txt_delete'] = 'Delete';
-
+$lang['txt_edit_service_timeslab'] = 'Edit time slab';
 $lang['txt_new_user_registered'] = 'New user registered';
 $lang['already_email_registered'] = 'Email id already registered';
 $lang['user_success_message_for_signup'] = 'You are successfully registered.Welcome to 1Windo';

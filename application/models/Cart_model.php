@@ -453,6 +453,7 @@ class Cart_model extends W_Model
 		$query = $this->db->get(TBL_CART_RESTAURANTS);
 		
 		$rowcount = $query->num_rows();
+	
 		if($rowcount > 0)
 			{
 				$this->db->where($where);
@@ -502,7 +503,7 @@ class Cart_model extends W_Model
 		
 		$this->db->order_by('CRDetailID', $orderby);
 		$query = $this->db->get(TBL_CART_RESTAURANTS_DETAILS);
-		
+		$whatisthequery= $this->db->last_query();
 		$rowcount = $query->num_rows();
 		if($rowcount > 0)
 			{

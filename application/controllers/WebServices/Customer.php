@@ -1602,7 +1602,7 @@ array( 'ProductID' => "4",'Name' => "4Maybelline",'DisplayImage' => UPLOAD_PRODU
 //                    exit;
 
                 if (!empty($ExistingCartData) && !empty($ExistingCartDetailData)) {
-                    //$ExistingCartData = (object)$ExistingCartArray[0];
+                    $ExistingCartData = (object)$ExistingCartData[0];
 
                     $ProductVal = $data['Val_Product'];
                     $Products = $ExistingCartData->PC_ProductID;
@@ -1655,7 +1655,7 @@ array( 'ProductID' => "4",'Name' => "4Maybelline",'DisplayImage' => UPLOAD_PRODU
                     }
 
                     $CartData = $this->Cart_model->getProductsCart($ExistingCartData->PCartID);
-
+$CartData= (object)$CartData[0];
                     $ProductsCount = "0";
                     $ProductsData = array();
                     $ProductsDetailsArray = json_decode($CartData->PC_DetailID);
@@ -1695,6 +1695,7 @@ array( 'ProductID' => "4",'Name' => "4Maybelline",'DisplayImage' => UPLOAD_PRODU
                         );
                         $Index++;
                     }
+                    $testthisvalue= $CartData->PCartID;
                     $ProductsCount = (string) count($ProductsData);
                     $Record = array(
                         'CartID' => getStringValue($CartData->PCartID),
@@ -1853,7 +1854,7 @@ array( 'ProductID' => "4",'Name' => "4Maybelline",'DisplayImage' => UPLOAD_PRODU
 
                 if (!empty($ExistingCartData) && !empty($ExistingCartDetailData)) {
                     
-                    //$ExistingCartData = (object)$ExistingCartArray[0];
+                    $ExistingCartData = (object)$ExistingCartData[0];
 
                     $ProductVal = $data['Val_Product'];
                     $Products = $ExistingCartData->PC_ProductID;
@@ -1912,7 +1913,7 @@ array( 'ProductID' => "4",'Name' => "4Maybelline",'DisplayImage' => UPLOAD_PRODU
                             $CartDetailsSuccess = $this->Cart_model->deleteCartProductsDetails($data['Val_Detail']);
                         }
                         $CartData = $this->Cart_model->getProductsCart($ExistingCartData->PCartID);
-
+                        $CartData = (object)  $CartData[0];
                         $ProductsCount = "0";
                         $ProductsData = array();
                         $ProductsDetailsArray = json_decode($CartData->PC_DetailID);
