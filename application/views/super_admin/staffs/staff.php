@@ -5,7 +5,6 @@
                 <h3><?= _l('txt_staffs')?></h3>
             </section>
         </div>
-
         <div class="ks-page-content">
             <div class="ks-page-content-body ks-content-nav">
                 <?php  if($this->uri->segment(2) == 'MyProfile' ||  $this->uri->segment(2) == 'ResetPassword'){ ?>
@@ -17,6 +16,13 @@
                         <li class="nav-item">
                             <a class="nav-link" href="<?= admin_url('ResetPassword'); ?>"><?= _l('txt_change_password'); ?></a>
                         </li>
+
+                        <?php  $admin = getAdminData(get_staff_user_id());
+                        if(!empty($admin) && $admin->S_IsAdmin == 0){ ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?= admin_url('Permissions'); ?>"><?= _l('txt_permission'); ?></a>
+                        </li>    
+                        <?php } ?>                    
                     </ul>
                 </div>
                 <?php } else { ?>
@@ -63,7 +69,14 @@
 
                                             ?>
                                             <form method="POST" action="<?= $path; ?>" class="has-validation-callback" onsubmit="return true"  enctype="multipart/form-data"> 
-
+                                                <?php if(empty($member)){  ?>
+                                                <div class="form-group">
+                                                    <div class="custom-control custom-checkbox">
+                                                        <input id="Val_IsAdmin" name="Val_IsAdmin" <?= $checked; ?> type="checkbox" class="custom-control-input">
+                                                        <label class="custom-control-label" for="Val_IsAdmin"><?= _l('txt_is_admin')?></label>
+                                                    </div>
+                                                </div> 
+                                            <?php } ?>                                               
                                                 <?php $attrs = (isset($member) ? array('required'=>'true','autofocus'=>true) : array('autofocus'=>true)); 
                                                 $data_atts = array(
                                                     'data-validation'=>'required',

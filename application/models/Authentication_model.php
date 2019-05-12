@@ -480,7 +480,7 @@ class Authentication_model extends W_Model
 
                 if ($staffid) {                 
                     $_is_staff = null;
-                    $_new_stafflog = null;
+                    $_new_staff_log = null;
                     if (is_staff_logged_in()) {
                         $_new_staff_log .= ' From Staff: ' . get_staff_user_id();
                         $_is_staff = get_staff_user_id();

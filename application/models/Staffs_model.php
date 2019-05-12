@@ -58,6 +58,8 @@ class Staffs_model extends W_Model
                 }
                 if(isset($data['Val_IsAdmin']) && $data['Val_IsAdmin'] == 'on'){
                     $admin_data['S_IsAdmin'] = '1';
+                }else{
+                    $admin_data['S_IsAdmin'] = '2';
                 }
       
                 $this->load->helper('phpass');

@@ -192,6 +192,37 @@ function getAdminData($staffid = '')
  
     return false;
 }
+
+function getRedirectUrl($staffid = '')
+{
+    $_staffid = get_staff_user_id();
+    if (is_numeric($staffid)) {
+        $_staffid = $staffid;
+    }
+    $CI =& get_instance();
+    // $CI->db->select('1');
+    $CI->db->where('S_IsActive', 1);
+    $CI->db->where('S_Status', 2);
+    $CI->db->where('Staff_ID', $_staffid);
+    $staff = $CI->db->get('staffs')->row();
+
+    if ($staff->S_IsAdmin == 0) {
+        return SUPER_ADMIN_URL ;
+    }
+    if ($staff->S_IsAdmin == 1) {
+        return ADMIN_URL;
+    }
+
+    return STAFF_URL;
+}
+
+
+
+function camelToSnake($string){
+    $snake = preg_replace('/[A-Z]/', '_$0', $string);
+    $snake = strtolower($snake);
+    return ltrim($snake, '_');
+}
 /**
  * Is user logged in
  * @return boolean
@@ -267,7 +298,7 @@ function get_client_user_id()
  */
 function admin_url($url = '')
 {
-    $admin_url = ADMIN_URL;
+    $admin_url = getRedirectUrl();
 
     if ($url == '' || $url == '/') {
         if ($url == '/') {

@@ -90,6 +90,7 @@ define('PHPASS_HASH_STRENGTH', 8);
 define('PHPASS_HASH_PORTABLE', FALSE);
 // Admin url
 define('ADMIN_URL', 'Admin');
+define('SUPER_ADMIN_URL', 'SuperAdmin');
 define('ASSETS_URL', 'assets');
 
 // Front url

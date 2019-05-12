@@ -17,8 +17,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 
-define('APP_BASE_URL','http://1windo.com/App/');
-//define('APP_BASE_URL','http://localhost/1Windo/');
+//define('APP_BASE_URL','http://1windo.com/App/');
+define('APP_BASE_URL','http://localhost/1Windo/');
 
 /*
 |--------------------------------------------------------------------------
