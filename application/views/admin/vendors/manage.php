@@ -112,6 +112,8 @@
                                                             </a>
                                                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu<?= $vendor['VendorID']; ?>">
                                                                 <a class="dropdown-item" href="<?= 'Vendors/Vendor/'.$vendor['VendorID']; ?>"><?= _l('txt_view_details' ); ?></a>
+                                                                <a class="dropdown-item" href="<?= 'Vendors/VendorProducts/'.$vendor['VendorID']; ?>"><?= _l('Add Products' ); ?></a>
+                                                                <a class="dropdown-item" href="<?= 'Vendors/ListVendorProducts/'.$vendor['VendorID']; ?>"><?= _l('View Products' ); ?></a>
                                                                 <a class="dropdown-item tbl-delete sweet-5" href="javascript:;"  data-act="Vendor" data-id="<?= $vendor['VendorID']; ?>"><?= _l('txt_delete' ); ?></a>
                                                             </div>
                                                         </div>

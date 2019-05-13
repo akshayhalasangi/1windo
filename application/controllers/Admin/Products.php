@@ -13,7 +13,20 @@ class Products extends Admin_Controller
 
     public function index(){
 
-//        $id=10;
+        $data['title'] = _l('title_products');
+        $data['listAssets'] = 'true';
+
+        $this->load->model('Categories_model');
+        $CategoryList = $this->Categories_model->getCategory(null, array("C_Type" => PRODUCT_CATEGORY_ID), 'ASC', 'C_Parent');
+        $CategoryHierarchy = $this->Categories_model->getCategoryHierarchy(PRODUCT_CATEGORY_ID);
+
+        $data['productCategoryList']['Categories'] = displayCategoryHierarchy($CategoryList, $CategoryHierarchy);
+
+        // $data['productsList'] = $this->Products_model->getProduct();
+
+        $this->load->view(PRODUCT_URL . 'categories', $data);
+    }
+    public function ProductList($id){
         if(isset($id)){
             $data['productsList'] = $this->Products_model->getProduct(null, array("P_CategoryID" => $id));
             $data['productID'] = $id;
@@ -25,9 +38,9 @@ class Products extends Admin_Controller
 
             $data['title'] = $categoryName._l('txt_products');
             $data['categoryName'] =  $categoryName;
-            $this->load->view(camelToSnake(getRedirectUrl()).'/products/' . 'manage', $data);
+            $this->load->view( camelToSnake(getRedirectUrl()).'/products/manage', $data);
         }else{
-            redirect('Vendor/Products');
+            redirect('Admin/Products');
         }
     }
 	public function Attributes(){
@@ -273,18 +286,7 @@ class Products extends Admin_Controller
         $data['Val_Pstatus'] = $data['status'];
 		 
         if(!empty($data)){
-            $CI =& get_instance();
-            $role = $CI->session->userdata('role');
-            if($role === 'vendor')
-            {
-
-                $Success = $this->Products_model->addVendorWithProducts(get_staff_user_id(),$ProductID);
-
-
-            }
-//            else{
-//                $Success = $this->Products_model->update($data,$ProductID);
-//            }
+            $Success = $this->Products_model->update($data,$ProductID);
 
             if($Success){
                 setAjaxResponse( _l('product_status_update_success'),'success',_l('success'));

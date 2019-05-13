@@ -54,6 +54,10 @@
                             url =  staff_delete_url;
                         else if(act == 'Notification')
                             url =  notification_delete_url;
+                        else if(act == 'VendorProduct'){
+                            url =  notification_delete_url;
+                        }
+
 
                         /* Ajax request */
                         $.ajax({    
@@ -144,9 +148,7 @@
             var id = $(this).data("id");
             var elementId = $(this).attr("id");
 
-            console.log("URL: "+url);
-
-			$.ajax({    
+			$.ajax({
             type: "POST",
             url: url,
             data: {'id':id,'type':type,'status':status},
@@ -196,11 +198,68 @@
             }    
         });
               
-    }); 
+    });
+        $('.tbl-vendor-products').on('click',function(){
+            var status = $(this).val();
 
-    //To navigate to the sub level on click of a row
+            var id = $(this).data("id");
+            var vendorid = $(this).data("vendorid");
+            var elementId = $(this).attr("id");
+
+            $.ajax({
+                type: "POST",
+                url: site_url + 'Admin/Vendors/AddProductForVendor',
+                data: {'productid':id,'vendorid':vendorid, 'status':status},
+                success: function(response){
+                    console.log("Response: ",response);
+                    var obj = $.parseJSON(response);
+                    $.notify({
+                        title: '<strong>'+ jsUcfirst(obj.Class) +'! '+ ' </strong>',
+                        message: obj.Msg
+                    },{
+                        type: obj.Class,
+                        offset: {
+                            x: 20,
+                            y: 70
+                        }
+                    });
+                    // ToastMessageshow(obj.Class, obj.Msg);
+
+                    if(status == 1){
+                        console.log("Ïn 1");
+                        $("#"+elementId).val('2');
+                        $("#"+elementId).attr('data-status', '2');
+                    }else{
+                        console.log("Ïn 2");
+                        $("#"+elementId).val('1');
+                        $("#"+elementId).attr('data-status', '1');
+                    }
+
+                    if(type == 'User'){
+                        if(status == 1){
+                            $('#label-enable-'+id).hide();
+                            $('#label-disable-'+id).show();
+                        } else if(status == 2){
+                            $('#label-disable-'+id).hide();
+                            $('#label-enable-'+id).show();
+                        }
+                    } else {
+                        if(status == 1){
+                            $('#label-enable-'+id).show();
+                            $('#label-disable-'+id).hide();
+                        } else if(status == 2){
+                            $('#label-disable-'+id).show();
+                            $('#label-enable-'+id).hide();
+                        }
+                    }
+
+                }
+            });
+
+        });
+        //To navigate to the sub level on click of a row
     $(".tableRowActions tr.hierarchy td:not(:nth-last-child(2), :last-child)").click(function(){
-        let url = $(this).parent().attr("data-url");
+        var url = $(this).parent().attr("data-url");
         window.location.href = url;
     });   		
 
@@ -228,4 +287,4 @@ function ToastMessageshow(msgclass, message) {
     
     return Message;
 }   
- 
+
