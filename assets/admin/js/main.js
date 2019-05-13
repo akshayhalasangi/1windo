@@ -57,7 +57,14 @@
                         else if(act == 'VendorProduct'){
                             url =  notification_delete_url;
                         }
-
+                        else if(act == 'Country')
+                            url = site_url+'Admin/Location/DeleteCountry';
+                        else if(act == 'State')
+                            url =  site_url+'Admin/Location/DeleteState';
+                        else if(act == 'city')
+                            url =  site_url+'Admin/Location/DeleteCity';
+                        else if(act == 'Area')
+                            url =  site_url+'Admin/Location/DeleteArea';
 
                         /* Ajax request */
                         $.ajax({    

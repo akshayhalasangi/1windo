@@ -117,7 +117,7 @@ define('UPLOAD_POST_NO_IMAGE',APPBASEURL.'uploads/No_Image.jpg');
 define('CUSTOMER_URL','admin/customers/');
 define('CUSTOMER_DELETE_URL',(APPBASEURL.'Admin/Customers/DeleteCustomer'));
 define('CUSTOMER_UPDATE_STATUS','Customers/UpdateCustomerStatus');
-
+define('VENDOR','Vendor');
 // Vendors Attatchments
 define('VENDOR_URL','admin/vendors/');
 define('VENDOR_DELETE_URL',(APPBASEURL.'Admin/Vendors/DeleteVendor'));
@@ -197,6 +197,8 @@ define('ORDER_URL','admin/orders/');
 define('ORDER_DELETE_URL',(APPBASEURL.'Admin/Orders/DeleteOrder'));
 define('ORDER_UPDATE_STATUS','Orders/UpdateOrderStatus');
 
+//locations
+define('LOCATION_URL','admin/location/');
 
 //define('REVIEW_PRODUCT_UPDATE_STATUS','Products/UpdateReviewStatus');
 

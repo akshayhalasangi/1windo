@@ -502,16 +502,36 @@ class Authentication_model extends W_Model
      * @return boolean if not redirect url found, if found redirect to the url
      */
     public function signIn($email,$password,$staff, $remember='')
-    {	   
+    {
+
         if ((!empty($email)) and (!empty($password))) {
             if ($staff == true) {
                 $table = 'staffs';
                 $_id   = 'Staff_ID';
             }
-            $this->db->where('S_Email', $email);
-             $this->db->where('S_Status', 2);
-            $user = $this->db->get($table)->row();
-            
+
+            if(is_numeric($email))
+            {
+                $table='members';
+                $this->db->where('M_Mobile', $email);
+                $this->db->where('M_Type', 2);
+                $this->db->where('M_Status', 2);
+                $user = $this->db->get($table)->row();
+                $_id   = 'RelationID';
+                $user->S_IsActive = 1;
+                $user->S_Password=$user->M_Password;
+                $user->role ="vendor";
+
+            }
+            else
+            {
+                $this->db->where('S_Email', $email);
+                $this->db->where('S_Status', 2);
+                $user = $this->db->get($table)->row();
+                $user->role ="other";
+            }
+
+
             if ($user) {
                 // Email is okey lets check the password now
                 $this->load->helper('phpass');
@@ -541,7 +561,8 @@ class Authentication_model extends W_Model
                 ));
                 $user_data = array(
                     'staff_user_id' => $user->$_id,
-                    'staff_logged_in' => true
+                    'staff_logged_in' => true,
+                    'role'=> $user->role
                 );
                  
             } else {

@@ -15,12 +15,12 @@
 
                     <?php
                     $data_atts = array(
-                        'data-validation'=>'email',                                                    
+                        'data-validation'=>'text',
                         'data-validation-error-msg'=> _l('please_enter_email')
                         );
                     ?>
 
-                    <?= render_input( 'Email', '','','email',$attrs,array(),'','','','admin_placeholder_email','la la-at','',true,'','','',$data_atts,'input-icon icon-left icon-lg icon-color-primary'); ?>
+                    <?= render_input( 'Email', '','','text',$attrs,array(),'','','','admin_placeholder_email','la la-at','',true,'','','',$data_atts,'input-icon icon-left icon-lg icon-color-primary'); ?>
                     
                     
                     <?php $data_atts = array(
