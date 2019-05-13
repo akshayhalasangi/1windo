@@ -1286,7 +1286,7 @@ array( 'ProductID' => "4",'Name' => "4Maybelline",'DisplayImage' => UPLOAD_PRODU
                 $RC_Status = $ExistingCartArray['RC_Status'];
                 $RestaurantID = $ExistingCartArray['RC_RestaurantID'];
              
-                if (!empty($ExistingCartArray) && $RC_Status == '1' && $RestaurantID == $data['Val_Restaurant'] ){
+                if (!empty($ExistingCartArray) && $RC_Status == '1'){
 
                 /*if (!empty($ExistingCartArray)){*/    
                     
@@ -1408,21 +1408,95 @@ array( 'ProductID' => "4",'Name' => "4Maybelline",'DisplayImage' => UPLOAD_PRODU
                         } else {
                             //Cannot Add to Cart as Cart Contains Food Items from Another Restaurant, Just Show Existing Data as it is
                             $CartID = $ExistingCartData->RCartID;
+                            $RestaurantData = $this->Restaurants_model->get($Restaurant);
+                            $DeliveryCharges = 15.00;
+                            if (!empty($RestaurantData)) {
+        
+                                $RestaurantID = $RestaurantData->RestaurantID;
+                                $RestaurantName = $RestaurantData->R_Name;
+        
+                                $FoodData = $this->Restaurants_model->getFoods($data['Val_Food']);
 
+                                if (!empty($FoodData)) {
+                                    $ProductPrices[] = $FoodData->F_Price;
+                                    $FoodAmount = number_format($FoodData->F_Price, 2, '.', '');
+                                    $ProductsTotal = $ProductsTotal + $FoodAmount;
+                                } else {
+                                    $ProductPrices = array();
+                                    $FoodAmount = number_format(0, 2, '.', '');
+                                    $ProductsTotal = $ProductsTotal + 0;
+                                }
+        
+                                /*if(!empty($ProductsArray)){}
+                                //                        foreach($ProductsArray as $Product){
+                                $RestaurantData     =    $this->Restaurants_model->get($Restaurant);
+        
+                                $RestaurantID     = $RestaurantData->RestaurantID;
+                                $RestaurantName    = $RestaurantData->R_Name;
+                                $ProductPrices[]= $RestaurantData->P_Price;
+        
+                                $ProductsTotal     = $ProductsTotal + $ProductsData->P_Price;
+        
+                                //                        }    */
+        
+                                $CartTotal = $ProductsTotal + $DeliveryCharges;
+        
+                                $PostData['Val_Customer'] = $data['Val_Customer'];
+                                $PostData['Val_RCcustomername'] = $CustomerFullName;
+                                //$PostData['Val_RCcustomeraddress']    =  json_encode($CustomerAddress);
+                                $PostData['Val_Restaurant'] = $RestaurantID;
+                                $PostData['Val_RCrestaurantname'] = $RestaurantName;
+        
+                                $PostData['Val_RCdate'] = date('Y-m-d');
+                                //                        $PostData['Val_RCdetail']            =  json_encode(array());
+                                $PostData['Val_RCprices'] = json_encode($ProductPrices);
+                                //                        $PostData['Val_Address']            =  "";
+        
+                                $PostData['Val_RCitemcount'] = 1;
+                                $PostData['Val_RCitemtotal'] = number_format($ProductsTotal, 2, '.', '');
+                                $PostData['Val_RCdeliverycharges'] = number_format($DeliveryCharges, 2, '.', '');
+                                $PostData['Val_RCcarttotal'] = number_format($CartTotal, 2, '.', '');
+                                //                    $PostData['Val_RCpaymentoption']    =  $TimeslabTitle;
+                                //                    $PostData['Val_RCservicecharge']    =  $TimeslabTitle;
+                                $PostData['Val_RCtotal'] = number_format($CartTotal, 2, '.', '');
+                                $PostData['Val_RCstatus'] = '1';
+                                $PostData['Val_RCorderstatus'] ='0';
+        
+        
+                                $CartAddProductStatus = $this->Cart_model->updateCartRestaurants($PostData, $ExistingCartData->RCartID);
+                                $PostDetailData['Val_Cart'] = $CartID;
+                            $PostDetailData['Val_Food'] = $data['Val_Food'];
+                            $PostDetailData['Val_RDquantity'] = '1';
+                            $PostDetailData['Val_RDprice'] = $FoodAmount;
+                            $CartDetailsSuccess = $this->Cart_model->addCartRestaurantsDetails($PostDetailData);
+                            $DetailID[]=(string)  $CartDetailsSuccess;
+                            //}
+
+                            $UpdatePostData['Val_RCdetail'] = json_encode($DetailID);
+                            $CartUpdateStatus = $this->Cart_model->updateCartRestaurants($UpdatePostData, $CartID);
+                            
+                            //addCartProductsDetails
                             $CartData = $this->Cart_model->getRestaurantsCart($CartID);
+                            //print_r($CartData);
 
-                            $ItemCount = $CartData->RC_ItemCount;
+                            $RestaurantsCount = "0";
+                            $RestaurantsData = array();
+                            $thisCartData= (object)$CartData[0];
+                            $RestaurantsDetailsArray = json_decode($thisCartData->RC_DetailID);
+                            $Index = 0;
 
                             $Record = array(
-                                'CartID' => getStringValue($CartData->RCartID),
+                                'CartID' => $thisCartData->RCartID,
                                 'Currency' => "Rs. ",
-                                'ItemCount' => getStringValue($ItemCount),
-                                'ItemTotal' => getStringValue($CartData->RC_ItemTotal),
-                                'CartTotal' => getStringValue($CartData->RC_CartTotal),
+                                'ItemCount' => $thisCartData->RC_ItemCount,
+                                'ItemTotal' => $thisCartData->RC_ItemTotal,
+                                'CartTotal' => $thisCartData->RC_CartTotal,
+                                //        'ProfileImage'=> UPLOAD_USER_BASE_URL.$UserData->UserID.'/'.$UserData->U_ProfileImage,
+                                //        'Status'=> getStatus($CustomerData->C_Status),
                             );
 
-                            $result = array('status' => 'warning', 'flag' => '3', 'message' => 'You cannot add items from this restaurant as your cart contains items from another restaurant.', 'data' => $Record);
-
+                                $result = array('status' => 'success', 'flag' => '1', 'message' => 'Product Added Successfully', 'data' => $Record);
+                            }
                         }
 
                     } else {

@@ -1,11 +1,15 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
-class Notification extends SS_Controller
+class Notification extends W_Controller
 {
     public function __construct()
     {
-        parent::__construct();
-		header('Content-Type: application/json');
+				parent::__construct();
+	//			$this->load()->model('notifications_model');
+
+
+				header('Content-Type: application/json');
+
     }
 	
 	public function index()
@@ -69,7 +73,27 @@ class Notification extends SS_Controller
 				} elseif ($NotificationArray == false) {					
 					$result = array('status'=>'error','message'=>'No Notifications.');	
 				}
-		} else {
+		} 
+		else if(!empty($data['Action']) && $data['Action'] == 'Update')
+		{
+			if(!empty($data['Val_Token']) && !empty($data['Val_UserId'])&& !empty($data['Val_Mobilenumber'])&& !empty($data['Val_Countrycode'])&& !empty($data['Val_Type'])&& !empty($data['Val_Token_Type']))
+			{
+				if($data['Val_Token_Type']=1)
+				{
+					$wheredata["M_Mobile"]= $data['Val_Mobilenumber'];
+					$wheredata["RelationID"]= $data['Val_UserId'];
+					$wheredata["M_Countrycode"]= $data['Val_Countrycode'];
+					$wheredata["M_Type"]= $data['Val_Type'];
+					$PostData["M_AndroidToken"]= $data['Val_Token'];
+			
+$result= $this->notifications_model->updateToken($PostData, $wheredata);
+				}
+			}
+		}
+		
+		
+		
+		else {
 			$result = array('status'=>'warning','message'=>'Paramater Missing');	
 		}
 		

@@ -82,10 +82,10 @@ if (!function_exists('Send_AndroidPushNotification')) {
 				// $CI->firebase->set($uniqueid.'/title', $alertTitle);
 				// $CI->firebase->set($uniqueid.'/data/type', 'HeyooNotify');
 
-				$token='f148MOuCMxI:APA91bEcCgc_Jt83lrK5rpX38alx4zYGo_6Yj145QyuEzArvmqjvThePqyye_5s7F58TddNzXDJ06n-_zMPMg9D-PYRqp2JTuXJtjsJD-_CqgQIGdk8R8cObiHy69an2UaHW6PcClna0';
+				$token='AAAAyoUyYI8:APA91bEVe9lSspzqhXIdSAU_jE2BZV0Hm_5tvtX3LbU76iwKILwqIPbZQH4CejiXO4jffbrcF0DYHpuVcpq-i1Itfugn5ykHIYNdJXJhwJUK-x6Wg9g1y1gkfbKSLcJBXvfeXrv2d_oy';
 				//$token='cv5zVuDRGsM:APA91bGkTOudtiE6HdDZhgU6K1ZdQG_XEJh7g_Rqfoa4kmcYlKRAFUh5t9HoWZDd8-RKrj8Pb4nzJCDMXXorIT6E5le3Wm385gFEV51mQN1cNghhBGGxgyYcPUU6Whh_gK-MeqTlhhCb';
 				$message="Order Booked Successfully !!!! ";
-				$API_SERVER_KEY = 'AIzaSyBv8FV84Y0_3_gzduiy7MT-Jj_UkKg3Ows';
+				$API_SERVER_KEY = 'AIzaSyAqTKrE2lBvPyaTufCpTc-M5UVTaVO_LoQ';
 				$abc="hi";
 
 				// $jsonString = $this->FCM_Model->sendPushNotificationToFCMSever($token, $message);  

@@ -71,7 +71,7 @@ class Notifications_model extends W_Model
         $Notification['N_IsRead'] = '1';
         $this->db->where('N_IsRead','2');
         $this->db->where('N_UserType','1');
-        $this->db->update('notifications',$Notification);
+        $this->db->update('members',$Notification);
     }
 
     
@@ -118,5 +118,27 @@ class Notifications_model extends W_Model
         $this->db->where('MONTH(N_Date) = MONTH(CURRENT_DATE()) AND YEAR(N_Date) = YEAR(CURRENT_DATE())');
         $this->db->order_by('Notification_ID','DESC');
        return  $result = $this->db->get('notifications')->result_array();
+    }
+
+    public function updateToken($data, $where)
+    {
+        $affectedRows = 0;
+        $this->db->where($where);
+        $this->db->from('notifications');
+        if ($this->db->update(TBL_MEMBERS, $data)) {
+            $affectedRows++;
+        }
+        $query = $this->db->last_query();
+        if($affectedRows>0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    
+     
+
     }
 }

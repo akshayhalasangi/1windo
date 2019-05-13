@@ -1216,9 +1216,7 @@ class Cart_model extends W_Model
 
 // Created by Akshay and Niranjan
     public
-    function getServiceOngoingOrders(
-        $id
-    ) {
+    function getServiceOngoingOrders($id) {
         $this->db->select('*');
         $this->db->from('1w_tbl_cart_service');
         $this->db->where('C_AssignedTo', $id);
@@ -1226,6 +1224,20 @@ class Cart_model extends W_Model
         $this->db->where('(C_OrderStatus = 0 OR C_OrderStatus = 1 OR C_OrderStatus = 2 OR C_OrderStatus = 3 OR C_OrderStatus = 6)');
         $result = $this->db->last_query();
         return $this->db->get()->result_array();
+    }
+
+    public function getAcceptableServiceOrders()
+    {
+
+    }
+    public function getAcceptableProductsOrders()
+    {
+        
+        
+    }
+    public function getAcceptableRestaurantOrders()
+    {
+        
     }
 
 
