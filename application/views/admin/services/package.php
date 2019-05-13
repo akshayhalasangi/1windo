@@ -4,7 +4,7 @@
             <section class="ks-title">
                 <h3>
                     <?php
-                        if(!empty($feature)){
+                        if(!empty($package)){
                             echo ("Edit: ");
                         }
                         echo $serviceName." - "._l('txt_packages');
