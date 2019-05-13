@@ -5905,15 +5905,19 @@ class Vendor extends W_Controller
                                                             } else {
                                                                 if ($BusinessType == '2') {
                                                                     $OngoingOrdersArray = $this->Cart_model->getProductsOngoingOrders($data['Val_Vendor']);
-
-                                                                    $OngoingOrdersArrayForVendor = array_filter($OngoingOrdersArray,
-                                                                        function ($order) use ($vendorProductsIds) {
-                                                                            $intersectingArray = array_intersect(json_decode($order['PC_ProductID']),
-                                                                                $vendorProductsIds);
-                                                                            if (count($intersectingArray) > 0) {
-                                                                                return $order;
-                                                                            }
-                                                                        });
+                                                                    $NewOrdersArray=  $this->Cart_model->getProductsNewOngoingOrders($data['Val_Vendor']);
+                                                                    if($NewOrdersArray!=false)
+                                                                    {
+                                                                        array_push( $OngoingOrdersArray, $NewOrdersArray);
+                                                                    }
+                                                                    // $OngoingOrdersArrayForVendor = array_filter($OngoingOrdersArray,
+                                                                    //     function ($order) use ($vendorProductsIds) {
+                                                                    //         $intersectingArray = array_intersect(json_decode($order['PC_ProductID']),
+                                                                    //             $vendorProductsIds);
+                                                                    //         if (count($intersectingArray) > 0) {
+                                                                    //             return $order;
+                                                                    //         }
+                                                                    //     });
 //
                                                                     $PastOrdersArray = $this->Cart_model->getProductsPastOrders($data['Val_Vendor']);
 
@@ -5927,9 +5931,9 @@ class Vendor extends W_Controller
                                                             }
 
 
-                                                            if (!empty($OngoingOrdersArrayForVendor)) {
-                                                                foreach ($OngoingOrdersArrayForVendor as $OrderArray) {
-                                                                    $OrderData = (object) $OrderArray;
+                                                            if (!empty($OngoingOrdersArray)) {
+                                                                foreach ($OngoingOrdersArray as $OrderArray) {
+                                                                    $OrderData = (object) $OrderArray[0];
 
                                                                     if (!empty($OrderData->CartID)) {
 
@@ -6415,8 +6419,7 @@ class Vendor extends W_Controller
 
                                                                     } else {
                                                                         if ($BusinessType == '2') {
-                                                                            $OrderData = $this->Cart_model->getProductsCart($data['Val_Order'],
-                                                                                array('PC_AssignedTo' => $data['Val_Vendor']));
+                                                                            $OrderData = $this->Cart_model->getProductsCart($data['Val_Order']);
 
                                                                             if (!empty($OrderData)) {
                                                                                 $data['Val_PCorderstatus'] = '2';

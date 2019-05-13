@@ -4867,7 +4867,7 @@ class DeliveryBoy extends W_Controller
 							unset($data['Val_Type']);
 
 							if($BusinessType == '2'){
-										$OrderData =  $this->Cart_model->getProductsCart($data['Val_Order'],array('PC_DeliveryBy'=>$data['Val_Deliveryboy']));
+										$OrderData =  $this->Cart_model->getProductsCart($data['Val_Order']);
 										
 										if(!empty($OrderData))
 										{

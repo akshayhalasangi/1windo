@@ -1268,6 +1268,25 @@ class Cart_model extends W_Model
         return $this->db->get()->result_array();
     }
 
+    public function getProductsNewOngoingOrders($id)
+    {
+        $this->db->where('vendor_id', $id);
+        $query = $this->db->get('1w_tbl_product_vendor');
+        $rowcount = $query->num_rows();
+        if ($rowcount > 0) {
+            $this->db->select('*');
+            $this->db->from('1w_tbl_cart_product');
+            $this->db->where('PC_PaymentOption= 1');
+            $this->db->where('(PC_Status = 1 OR PC_Status = 2)');
+            $this->db->where('(PC_OrderStatus = 0 OR PC_OrderStatus = 1)');
+            return $this->db->get()->result_array();
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     public
     function getProductsPastOrders(
         $id
@@ -1371,7 +1390,7 @@ class Cart_model extends W_Model
     ) {
         $this->db->select('*');
         $this->db->from('1w_tbl_cart_product');
-        $this->db->where('PC_DeliveryBy', $id);
+       
         $this->db->where('(PC_Status = 1 OR PC_Status = 2)');
         $this->db->where('(PC_DeliveryByStatus = 1 OR PC_DeliveryByStatus = 2 OR PC_DeliveryByStatus = 3 )');
         $this->db->where('(PC_OrderStatus = 2 OR PC_OrderStatus = 3 )');
@@ -1384,7 +1403,7 @@ class Cart_model extends W_Model
     ) {
         $this->db->select('*');
         $this->db->from('1w_tbl_cart_restaurant');
-        $this->db->where('RC_DeliveryBy', $id);
+       
         $this->db->where('(RC_Status = 1 OR RC_Status = 2)');
         $this->db->where('(RC_DeliveryByStatus = 1 OR RC_DeliveryByStatus = 2 OR RC_DeliveryByStatus = 3) ');
         $this->db->where('(RC_OrderStatus = 2 OR RC_OrderStatus = 3)');
