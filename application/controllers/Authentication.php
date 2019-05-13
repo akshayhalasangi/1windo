@@ -40,7 +40,7 @@ class Authentication extends W_Controller
 		
         $data = $this->input->post();
 		$data['flag'] = '';
-		 
+
 	  	if(	!empty($data) && $data != '' && $data['flag'] != ''){
 			
 			if($data['Password']){			
@@ -97,6 +97,7 @@ class Authentication extends W_Controller
 
         $data = $this->input->post(); 
 		$data['flag'] = '';
+
         if (!empty($this->input->post())) {  
         	$Remember = '';
         	if(isset($data['Remember'])){

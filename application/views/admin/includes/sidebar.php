@@ -97,9 +97,16 @@ a.nav-link.active.current{
                         <span><?= _l('Delivery Boys'); ?></span>
                     </a>
                 </li>
+                <li class="nav-item <?= ($Controller == 'Location') ? 'open' : ''; ?>">
+                    <a class="nav-link"  href="<?= admin_url('Location');?>" role="button" aria-haspopup="true" aria-expanded="false">
+                        <span class="ks-icon la la-motorcycle"></span>
+                        <span><?= _l('Locations'); ?></span>
+                    </a>
+                </li>
                 <?php
             }
             ?>
+
         </ul>         
     </div>
 </div>

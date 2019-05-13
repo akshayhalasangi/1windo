@@ -215,7 +215,7 @@ function getRedirectUrl($staffid = '')
     $role = $CI->session->userdata('role');
     if($role === 'vendor')
     {
-        return VENDOR_URL;
+        return VENDOR;
     }
     else {
         // $CI->db->select('1');

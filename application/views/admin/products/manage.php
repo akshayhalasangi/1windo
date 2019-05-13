@@ -52,6 +52,11 @@
                                                     </label>
                                                          
                                                     </td>
+        <?php
+        $CI =& get_instance();
+        $role = $CI->session->userdata('role');
+        if($role !== 'vendor') {
+            ?>
                                                     <td class="ks-controls">
                                                         <div class="dropdown">
                                                             <a class="btn btn-link" id="dropdownMenu<?= $product['ProductID']; ?>" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -66,6 +71,8 @@
                                                             </div>
                                                         </div>
                                                     </td>
+            <?php }
+        ?>
                                                 </tr>
                                                 <?php endforeach; ?>
                                             </tbody>
