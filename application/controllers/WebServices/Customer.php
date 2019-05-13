@@ -455,9 +455,9 @@ class Customer extends W_Controller
             // $GroceriesArray=$this->Categories_model->get(null, array('C_Level' => '1', 'C_Type' => '2'), "ASC");
             // $VegetablesArray=$this->Categories_model->get(null, array('C_Level' => '1', 'C_Type' => '2'), "ASC");
 
-            $CategoriesArray = $this->Categories_model->get(null, array('C_Level' => '1', 'C_Type' => '1'), "ASC");
-            $ProductCategoriesArray = $this->Categories_model->get(null, array('C_Level' => '1', 'C_Type' => '2'), "ASC");
-            $FeaturedServicesArray = $this->Categories_model->get(null, array('C_Featured' => '2'), "DESC");
+            $CategoriesArray = $this->Categories_model->getAppCategory(null, array('C_Level' => '1', 'C_Type' => '1'), "ASC");
+            $ProductCategoriesArray = $this->Categories_model->getAppCategory(null, array('C_Level' => '1', 'C_Type' => '2'), "ASC");
+            $FeaturedServicesArray = $this->Categories_model->getAppCategory(null, array('C_Featured' => '2'), "DESC");
             $FeaturedProductsArray = $this->Products_model->get(null, array('P_Featured' => '2'), "ASC");
 //                $ServicesArray = $this->Services_model->get(NULL,array('S_Type'=>'1'));
 
@@ -1602,7 +1602,14 @@ array( 'ProductID' => "4",'Name' => "4Maybelline",'DisplayImage' => UPLOAD_PRODU
 //                    exit;
 
                 if (!empty($ExistingCartData) && !empty($ExistingCartDetailData)) {
+
+
                     $ExistingCartData = (object)$ExistingCartData[0];
+    $CartData = $this->Cart_model->getProductsCart($ExistingCartData->PCartID);
+$CartData= (object)$CartData[0];
+                    $ProductsCount = "0";
+                    $ProductsData = array();
+                    $ProductsDetailsArray = json_decode($CartData->PC_DetailID);
 
                     $ProductVal = $data['Val_Product'];
                     $Products = $ExistingCartData->PC_ProductID;
@@ -1611,13 +1618,18 @@ array( 'ProductID' => "4",'Name' => "4Maybelline",'DisplayImage' => UPLOAD_PRODU
                     $ProductsTotal = 0;
                     $DeliveryCharges = $ExistingCartData->PC_DeliveryCharge;
                     if (!empty($ProductsArray)) {
-                        foreach ($ProductsArray as $Product) {
-                            $ProductsData = $this->Products_model->get($Product);
+                     
+                            foreach ($ProductsDetailsArray as $ProductDetail) {
 
-                            if ($ProductVal == $Product) {
-                                $ProductPrice = ($ProductsData->P_Price * $data['Val_Quantity']);
+                                $ProductDetailData = $this->Cart_model->getProductsCartDetails($ProductDetail);
+        
+                                $ProductData = $this->Products_model->get($ProductDetailData->PD_ProductID);
+                                $ProductDetailData =(object)$ProductDetailData;
+                          
+                            if ($ProductVal == $ProductDetailData->PD_ProductID) {
+                                $ProductPrice = ($ProductData->P_Price * $data['Val_Quantity']);
                             } else {
-                                $ProductPrice = $ProductsData->P_Price;
+                                $ProductPrice = $ProductData->P_Price * $ProductDetailData->PD_Quantity;
                             }
 
                             $ProductPrices[] = number_format($ProductPrice, 2, '.', ''); //$ProductPrice;
@@ -1629,6 +1641,8 @@ array( 'ProductID' => "4",'Name' => "4Maybelline",'DisplayImage' => UPLOAD_PRODU
                     }
 
                     $CartTotal = $ProductsTotal + $DeliveryCharges;
+                    $CartData->PC_CartTotal= $CartTotal;
+                    $CartData->PC_ItemTotal= $ProductsTotal;
                     $PostData['Val_PCprices'] = json_encode($ProductPrices);
                     $PostData['Val_PCitemtotal'] = number_format($ProductsTotal, 2, '.', '');
                     $PostData['Val_PCcarttotal'] = number_format($CartTotal, 2, '.', '');
@@ -1654,11 +1668,7 @@ array( 'ProductID' => "4",'Name' => "4Maybelline",'DisplayImage' => UPLOAD_PRODU
                         //                                            $CartUpdateStatus = $this->Cart_model->updateCartProducts($UpdatePostData,$ExistingCartData->PCartID);
                     }
 
-                    $CartData = $this->Cart_model->getProductsCart($ExistingCartData->PCartID);
-$CartData= (object)$CartData[0];
-                    $ProductsCount = "0";
-                    $ProductsData = array();
-                    $ProductsDetailsArray = json_decode($CartData->PC_DetailID);
+                
                     $Index = 0;
 
                     foreach ($ProductsDetailsArray as $ProductDetail) {

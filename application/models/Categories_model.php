@@ -41,8 +41,8 @@ class Categories_model extends W_Model
 
 	public function get($category_id = '', $where = array() ,$orderby = 'DESC')
 	{		
-        return $this->getAppCategory($category_id, $where, $orderby);
-        //return $this->getCategory($category_id, $where, $orderby);
+       // return $this->getAppCategory($category_id, $where, $orderby);
+        return $this->getCategory($category_id, $where, $orderby);
     }
     
 
