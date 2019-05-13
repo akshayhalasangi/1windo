@@ -5002,18 +5002,15 @@ class Vendor extends W_Controller
 										// $OngoingOrdersArray =  $this->Cart_model->get(NULL,array('C_AssignedTo'=>$data['Val_Vendor'],'C_Status'=>'3'),"C_OrderStatus <> 0 OR C_OrderStatus <> 1 OR C_OrderStatus <> 4 OR C_OrderStatus <> 5"); /* Updation = Change "AND" into "OR" 28.03.2019 8:49pm */										
 										// $PastOrdersArray =  $this->Cart_model->get(NULL,array('C_AssignedTo'=>$data['Val_Vendor'],'C_Status'=>'3'),'(C_OrderStatus = 4 OR C_OrderStatus = 5) ');										
 										$OngoingOrdersArray =  $this->Cart_model->getServiceOngoingOrders($data['Val_Vendor']); /* Updation = Change "AND" into "OR" 28.03.2019 8:49pm */
-$OngoingOrderAcceptableArray=$this->Cart_mode->getAcceptableServiceOrders();
-
 										$PastOrdersArray =  $this->Cart_model->getServicePastOrders($data['Val_Vendor']);
 									
 									} else if($BusinessType == '2'){
 										$OngoingOrdersArray= $this->Cart_model->getProductsOngoingOrders($data['Val_Vendor']);
-										$OngoingOrderAcceptableArray=$this->Cart_mode->getAcceptableProductsOrders();
+										
 										$PastOrdersArray= $this->Cart_model->getProductsPastOrders($data['Val_Vendor']);
 										
 									} else if($BusinessType == '3'){
 										$OngoingOrdersArray =  $this->Cart_model->getRestaurantsOngoingOrders($data['Val_Vendor']); /* Updation = Change "AND" into "OR" 28.03.2019 8:49pm */
-										$OngoingOrderAcceptableArray=$this->Cart_mode->getAcceptableRestaurantOrders();
 										$PastOrdersArray =  $this->Cart_model->getRestaurantsPastOrders($data['Val_Vendor']);
 									
 									}

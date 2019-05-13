@@ -553,7 +553,7 @@ class Products_model extends W_Model
         $attribvalueid = $this->db->insert_id();
 
         if  ($attribvalueid) {
-            logActivity('New Product Attribute Created [' . $attribvalueid . ']');
+            logActivity('New Product Assigned to Vendor [' . $attribvalueid . ']');
 
             return true;
         }
