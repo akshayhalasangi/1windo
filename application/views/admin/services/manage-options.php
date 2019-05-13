@@ -2,22 +2,13 @@
     <div class="ks-column ks-page">
         <div class="ks-page-header">
             <section class="ks-title">
-                <h3><?= _l('txt_services_options')?></h3>
+                <h3><?= $serviceName." - "._l('txt_services_options')?></h3>
+                <button class="btn btn-outline-primary ks-light mt-2" onclick="window.location.href='<?= admin_url('Services/Packages/'.$ServiceID) ?>'"><i class="fa fa-chevron-left"></i> <?= _l('btn_go_back'); ?></button>
             </section>
         </div>
 
         <div class="ks-page-content">
             <div class="ks-page-content-body ks-content-nav">
-                <div class="ks-nav">
-                    <ul class="nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="<?= admin_url('Services/Options/').$ServiceID; ?>"><?= _l('txt_listing'); ?></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="<?= admin_url('Services/Option/').$ServiceID.'/'.$PackageID; ?>"><?= _l('txt_add_service_option'); ?></a>
-                        </li>                         
-                    </ul>
-                </div>
                 <div class="ks-nav-body">
                     <div class="ks-nav-body-wrapper">
                         <div class="container-fluid">
@@ -28,7 +19,7 @@
                                 <div class="card panel ks-information ks-light">
                                     <h5 class="card-header">
                                         <span class="ks-text"><?= _l('txt_services_options')?></span>
-                                        <!-- <a href="javascript:;" class="btn btn-outline-primary ks-light">New Product</a> -->
+                                        <a href="<?= admin_url('Services/Option/'.$ServiceID.'/'.$PackageID.'/'.$option['SPOptionID']); ?>" class="btn btn-outline-primary ks-light"><i class="fa fa-plus"></i> New Package Option</a>
                                     </h5>
                                     <?php if(!empty($optionsList)) :?>
                                     <div class="card-block ks-datatable">

@@ -83,6 +83,7 @@
                                                             </a>
                                                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu<?= $package['SPackageID']; ?>">
                                                                 <a class="dropdown-item" href="<?= admin_url('Services/package/'.$ServiceID.'/'.$package['SPackageID']); ?>"><?= _l('txt_edit' ); ?></a>
+                                                                <a class="dropdown-item" href="<?= admin_url('Services/options/'.$ServiceID.'/'.$package['SPackageID']); ?>"><?= _l('txt_view_edit_package_options' ); ?></a>
                                                                 <a class="dropdown-item tbl-delete sweet-5" href="javascript:;"  data-act="Package" data-id="<?= $package['SPackageID']; ?>"><?= _l('txt_delete' ); ?></a>
                                                                 <!--a class="dropdown-item" href="<?= 'Services/Profile/'.$package['SPackageID']; ?>"><?= _l('txt_view' ); ?></a-->
                                                             </div>
