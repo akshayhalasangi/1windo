@@ -124,7 +124,6 @@ class Notifications_model extends W_Model
     {
         $affectedRows = 0;
         $this->db->where($where);
-        $this->db->from('notifications');
         if ($this->db->update(TBL_MEMBERS, $data)) {
             $affectedRows++;
         }
@@ -140,5 +139,27 @@ class Notifications_model extends W_Model
     
      
 
+    }
+    public function getToken($userID, $type)
+    {
+        if($userID!=null)
+        {
+            $this->db->where('RelationID',$userID);
+        }
+        $this->db->where('M_Type', $type);
+        $result =$this->db->get(TBL_MEMBERS)->result_array();
+        $query = $this->db->last_query();
+        return $result;
+       
+    }
+    public function getTokens($userID, $type)
+    {
+        if($userID!=null)
+        {
+            $this->db->where('RelationID',$userID);
+        }
+        $this->db->where('M_Type', $type);
+        $query = $this->db->last_query();
+        return $result =$this->db->get(TBL_MEMBERS)->result_array();
     }
 }

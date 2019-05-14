@@ -6365,6 +6365,7 @@ class Vendor extends W_Controller
                                                                     if ($BusinessType == '1') {
                                                                         $OrderData = $this->Cart_model->get($data['Val_Order'],
                                                                             array('C_AssignedTo' => $data['Val_Vendor']));
+                                                                            
                                                                         if (!empty($OrderData)) {
                                                                             $data['Val_Corderstatus'] = '2';
                                                                             $data['Val_Caccepteddttm'] = date('Y-m-d H:i:s');
@@ -6377,7 +6378,9 @@ class Vendor extends W_Controller
                                                                                 $Record = array(
                                                                                     'OrderID' => getStringValue($CartData->CartID),
                                                                                 );
-
+                                                                                $CustomerToken = $this->Notifications_model->getToken($CartData->C_CustomerID, 1);
+                                                                                $CustomerToken= (object)$CustomerToken[0];
+                                                                                sendPushNotificationAndroid($CustomerToken->M_AndroidToken,'Your Order is Accepted');
                                                                                 $result = array(
                                                                                     'status' => 'success',
                                                                                     'flag' => '1',
@@ -6433,7 +6436,9 @@ class Vendor extends W_Controller
                                                                                     $Record = array(
                                                                                         'OrderID' => getStringValue($CartData->PCartID),
                                                                                     );
-
+                                                                                    $CustomerToken = $this->Notifications_model->getToken($CartData->PC_CustomerID, 1);
+                                                                                    $CustomerToken= (object)$CustomerToken[0];
+                                                                                    sendPushNotificationAndroid($CustomerToken->M_AndroidToken,'Your Order is Accepted');
                                                                                     $result = array(
                                                                                         'status' => 'success',
                                                                                         'flag' => '1',
@@ -6491,6 +6496,9 @@ class Vendor extends W_Controller
                                                                                             $Record = array(
                                                                                                 'OrderID' => getStringValue($CartData->RCartID),
                                                                                             );
+                                                                                            $CustomerToken = $this->Notifications_model->getToken($CartData->RC_CustomerID, 1);
+                                                                                            $CustomerToken= (object)$CustomerToken[0];
+                                                                                            sendPushNotificationAndroid($CustomerToken->M_AndroidToken,'Your Order is Accepted');
 
                                                                                             $result = array(
                                                                                                 'status' => 'success',
