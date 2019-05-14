@@ -4868,7 +4868,9 @@ class DeliveryBoy extends W_Controller
 
 							if($BusinessType == '2'){
 										$OrderData =  $this->Cart_model->getProductsCart($data['Val_Order']);
-										
+										$Order= (object)$OrderData[0];
+										$data['Val_Deliveryby']= $data['Val_Deliveryboy'];
+								
 										if(!empty($OrderData))
 										{
 											$data['Val_PCdeliverybystatus'] 		= '2';
@@ -4882,6 +4884,9 @@ class DeliveryBoy extends W_Controller
 																'OrderID' 		=> getStringValue($CartData->PCartID),
 															);		
 													
+															$CustomerToken = $this->Notifications_model->getToken($Order->PC_CustomerID, 1);
+															$CustomerToken= (object)$CustomerToken[0];
+										sendPushNotificationAndroid($CustomerToken->M_AndroidToken,'Your Order is updated and enroute for pickup');
 													$result = array('status'=>'success','flag'=>'1','message'=>'Order Accepted Successfully','data'=>$Record);	
 													
 												} 

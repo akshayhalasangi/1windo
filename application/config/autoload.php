@@ -143,5 +143,5 @@ $autoload['language'] = array('english');
 |
 |   $autoload['model'] = array('first_model' => 'first');
 */
-$autoload['model'] = array('Authentication_model','Customers_model','Vendors_model','Deliveryboys_model','Services_model','Products_model','Restaurants_model','Categories_model','Cart_model','user_autologin','emails_model','settings_model','users_model','notifications_model','staffs_model','User_autologin'); 
+$autoload['model'] = array('Authentication_model','Customers_model','Vendors_model','Deliveryboys_model','Services_model','Products_model','Restaurants_model','Categories_model','Cart_model','user_autologin','emails_model','settings_model','users_model','Notifications_model','staffs_model','User_autologin'); 
 ?>

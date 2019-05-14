@@ -2333,7 +2333,15 @@ $CartData= (object)$CartData[0];
                         //        'ProfileImage'=> UPLOAD_USER_BASE_URL.$UserData->UserID.'/'.$UserData->U_ProfileImage,
                         //        'Status'=> getStatus($CustomerData->C_Status),
                     );
+                    $VendorTokens = $this->Notifications_model->getToken(null, 2);
+                    foreach($VendorTokens as $tokens)
+                    {
+                            $token= (object)$tokens[0];
 
+                        sendPushNotificationAndroid($tokens['M_AndroidToken'],'Your Order is updated and enroute for pickup');
+                    }
+                   
+                    
                     $result = array('status' => 'success', 'flag' => '1', 'message' => 'Cart Checkout Successfully', 'data' => $Record);
 
                 } else if ($success == false) {
