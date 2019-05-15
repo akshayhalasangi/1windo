@@ -376,6 +376,7 @@ $lang['txt_update_category'] = 'Update category';
 $lang['txt_edit_category'] = 'Edit category';
 
 $lang['title_services'] = 'Services';
+$lang['title_services'] = 'Services';
 $lang['title_products'] = 'Products';
 $lang['title_food'] = 'Food';
 
@@ -384,6 +385,7 @@ $lang['txt_service_categories'] = 'Service Categories';
 $lang['txt_add_service'] = 'Add a new service';
 $lang['txt_update_service'] = 'Update service';
 $lang['txt_edit_service'] = 'Edit service';
+$lang['txt_view_edit_package_options'] = 'Add & Edit Options';
 
 $lang['txt_type'] = 'Type';
 $lang['txt_level'] = 'Level';
@@ -409,6 +411,16 @@ $lang['txt_steps'] = 'Steps';
 $lang['txt_works'] = 'Works';
 $lang['txt_reviews'] = 'Reviews';
 $lang['txt_packages'] = 'Packages';
+$lang['txt_services_options'] = 'Package Options';
+$lang['txt_packages_options'] = 'Package Options';
+$lang['title_services_options'] = 'Package Options';
+$lang['txt_edit_service_option'] = 'Edit Package Option';
+$lang['txt_add_service_option'] = 'New Package Option';
+$lang['add_edit_package'] = 'Package';
+$lang['select_package'] = 'Select Package';
+$lang['txt_update_service_option'] = 'Edit Package Options';
+$lang['service_option_update_success'] = 'Option updated Successfully';
+$lang['txt_options_not_found'] = 'No Package Options Found!';
 $lang['txt_timeslabs'] = 'Time Slabs';
 
 $lang['txt_username'] = 'Username';
@@ -457,6 +469,7 @@ $lang['add_edit_description'] = 'Description';
 
 $lang['please_enter_title'] = 'please enter a title';
 $lang['please_enter_description'] = 'please enter the description';
+$lang['please_enter_price'] = 'please enter the price';
 $lang['please_enter_starttime'] = 'please enter the start time';
 $lang['please_enter_endtime'] = 'please enter the end time';
 
