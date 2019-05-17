@@ -33,6 +33,7 @@
                                              <?php 
                                                 $path = admin_url('Users/User');                                               
                                             ?>
+
                                             <form method="POST" action="" class="has-validation-callback" id="product-form" onsubmit="return true"  enctype="multipart/form-data"> 
                                                                                             
                                                 <div class="form-group hide" id="ParentInput">
@@ -48,7 +49,7 @@
                                                
                                                 $value=( !empty($product) ? $product->P_Name : '');?>  
                                                  
-                                                <?= render_input( 'Val_Pname', 'add_edit_name',$value,'text',$attrs,array(),'','','','','','',true,'','','',$data_atts,''); ?>
+                                                <?= render_input( 'Val_Pname', 'Product Name',$value,'text',$attrs,array(),'','','','','','',true,'','','',$data_atts,''); ?>
 												
 												<?php $attrs = (isset($product) ? array('required'=>'true','autofocus'=>true) : array('autofocus'=>true)); 
                                                 $data_atts = array(
@@ -67,7 +68,7 @@
                                                     'data-validation-error-msg'=> _l('please_enter_price')
                                                     );
                                                
-                                                $value=( !empty($product) ? $product->P_Name : '');?>  
+                                                $value=( !empty($product) ? $product->P_Price : '');?>
                                                  
                                                 <?= render_input( 'Val_Pprice', 'add_edit_price',$value,'text',$attrs,array(),'','','','','','',true,'','','',$data_atts,''); ?>
 												
