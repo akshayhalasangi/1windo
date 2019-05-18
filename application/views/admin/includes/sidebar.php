@@ -50,62 +50,107 @@ a.nav-link.active.current{
              <span><?= _l('txt_categories'); ?></span>
          </a>
      </li>
+     <li class="nav-item <?= ($Controller == 'Services') ? 'open' : ''; ?>">
+         <a class="nav-link"  href="<?= admin_url('Services');?>" role="button" aria-haspopup="true" aria-expanded="false">
+             <span class="ks-icon la la-fighter-jet"></span>
+             <span><?= _l('txt_services'); ?></span>
+         </a>
+     </li>
+     <li class="nav-item <?= ($Controller == 'Products') ? 'open' : ''; ?>">
+         <a class="nav-link"  href="<?= admin_url('Products');?>" role="button" aria-haspopup="true" aria-expanded="false">
+             <span class="ks-icon la la-dropbox"></span>
+             <span><?= _l('Products'); ?></span>
+         </a>
+     </li>
+     <li class="nav-item <?= ($Controller == 'Restaurants') ? 'open' : ''; ?>">
+         <a class="nav-link"  href="<?= admin_url('Restaurants');?>" role="button" aria-haspopup="true" aria-expanded="false">
+             <span class="ks-icon la la-cutlery"></span>
+             <span><?= _l('Restaurants'); ?></span>
+         </a>
+     </li>
+     <li class="nav-item <?= ($Controller == 'Orders') ? 'open' : ''; ?>">
+         <a class="nav-link"  href="<?= admin_url('Orders');?>" role="button" aria-haspopup="true" aria-expanded="false">
+             <span class="ks-icon la la-shopping-cart"></span>
+             <span><?= _l('Orders'); ?></span>
+         </a>
+     </li>
 
+     <li class="nav-item <?= ($Controller == 'Vendors') ? 'open' : ''; ?>">
+         <a class="nav-link" href="<?= admin_url('Vendors'); ?>" role="button" aria-haspopup="true"
+            aria-expanded="false">
+             <span class="ks-icon la la-certificate"></span>
+             <span><?= _l('Vendors'); ?></span>
+         </a>
+     </li>
+     <li class="nav-item <?= ($Controller == 'DeliveryBoys') ? 'open' : ''; ?>">
+         <a class="nav-link" href="<?= admin_url('DeliveryBoys'); ?>" role="button" aria-haspopup="true"
+            aria-expanded="false">
+             <span class="ks-icon la la-motorcycle"></span>
+             <span><?= _l('Delivery Boys'); ?></span>
+         </a>
+     </li>
+     <li class="nav-item <?= ($Controller == 'Location') ? 'open' : ''; ?>">
+         <a class="nav-link" href="<?= admin_url('Location'); ?>" role="button" aria-haspopup="true"
+            aria-expanded="false">
+             <span class="ks-icon la la-map"></span>
+             <span><?= _l('Locations'); ?></span>
+         </a>
+     </li>
      <?php
  }
+ else{
+     $id = $this->Products_model->getVendorCategoryID(get_staff_user_id());
+     $category = $this->Categories_model->get($id);
+     if ($category->C_Type == 1) {
+         ?>
+         <li class="nav-item <?= ($Controller == 'Services') ? 'open' : ''; ?>">
+             <a class="nav-link"  href="<?= admin_url('Services');?>" role="button" aria-haspopup="true" aria-expanded="false">
+                 <span class="ks-icon la la-fighter-jet"></span>
+                 <span><?= _l('txt_services'); ?></span>
+             </a>
+         </li>
+         <?php
+     }
+     if ($category->C_Type == 2) {
+         ?>
+         <li class="nav-item <?= ($Controller == 'Products') ? 'open' : ''; ?>">
+             <a class="nav-link"  href="<?= admin_url('Products');?>" role="button" aria-haspopup="true" aria-expanded="false">
+                 <span class="ks-icon la la-dropbox"></span>
+                 <span><?= _l('Products'); ?></span>
+             </a>
+         </li>
+         <?php
+     }
+     if ($category->C_Type == 3) {
+         ?>
+         <li class="nav-item <?= ($Controller == 'Restaurants') ? 'open' : ''; ?>">
+             <a class="nav-link"  href="<?= admin_url('Restaurants');?>" role="button" aria-haspopup="true" aria-expanded="false">
+                 <span class="ks-icon la la-cutlery"></span>
+                 <span><?= _l('Restaurants'); ?></span>
+             </a>
+         </li>
+         <?php
+     }
+
+
 ?>
-			<li class="nav-item <?= ($Controller == 'Services') ? 'open' : ''; ?>">
-                <a class="nav-link"  href="<?= admin_url('Services');?>" role="button" aria-haspopup="true" aria-expanded="false">
-                    <span class="ks-icon la la-fighter-jet"></span>
-                    <span><?= _l('txt_services'); ?></span>
-                </a>
-            </li>        
-			<li class="nav-item <?= ($Controller == 'Products') ? 'open' : ''; ?>">
-                <a class="nav-link"  href="<?= admin_url('Products');?>" role="button" aria-haspopup="true" aria-expanded="false">
-                    <span class="ks-icon la la-dropbox"></span>
-                    <span><?= _l('Products'); ?></span>
-                </a>
-            </li>   
-			<li class="nav-item <?= ($Controller == 'Restaurants') ? 'open' : ''; ?>">
-                <a class="nav-link"  href="<?= admin_url('Restaurants');?>" role="button" aria-haspopup="true" aria-expanded="false">
-                    <span class="ks-icon la la-cutlery"></span>
-                    <span><?= _l('Restaurants'); ?></span>
-                </a>
-            </li>  
-			<li class="nav-item <?= ($Controller == 'Orders') ? 'open' : ''; ?>">
-                <a class="nav-link"  href="<?= admin_url('Orders');?>" role="button" aria-haspopup="true" aria-expanded="false">
-                    <span class="ks-icon la la-shopping-cart"></span>
-                    <span><?= _l('Orders'); ?></span>
-                </a>
-            </li>
+
+     <li class="nav-item <?= ($Controller == 'Orders') ? 'open' : ''; ?>">
+         <a class="nav-link"  href="<?= admin_url('Orders');?>" role="button" aria-haspopup="true" aria-expanded="false">
+             <span class="ks-icon la la-shopping-cart"></span>
+             <span><?= _l('Orders'); ?></span>
+         </a>
+     </li>
             <?php
-            $CI =& get_instance();
-            $role = $CI->session->userdata('role');
-            if($role !== 'vendor') {
-                ?>
-                <li class="nav-item <?= ($Controller == 'Vendors') ? 'open' : ''; ?>">
-                    <a class="nav-link" href="<?= admin_url('Vendors'); ?>" role="button" aria-haspopup="true"
-                       aria-expanded="false">
-                        <span class="ks-icon la la-certificate"></span>
-                        <span><?= _l('Vendors'); ?></span>
-                    </a>
-                </li>
-                <li class="nav-item <?= ($Controller == 'DeliveryBoys') ? 'open' : ''; ?>">
-                    <a class="nav-link" href="<?= admin_url('DeliveryBoys'); ?>" role="button" aria-haspopup="true"
-                       aria-expanded="false">
-                        <span class="ks-icon la la-motorcycle"></span>
-                        <span><?= _l('Delivery Boys'); ?></span>
-                    </a>
-                </li>
-                <li class="nav-item <?= ($Controller == 'Location') ? 'open' : ''; ?>">
-                    <a class="nav-link"  href="<?= admin_url('Location');?>" role="button" aria-haspopup="true" aria-expanded="false">
-                        <span class="ks-icon la la-motorcycle"></span>
-                        <span><?= _l('Locations'); ?></span>
-                    </a>
-                </li>
-                <?php
-            }
-            ?>
+
+
+ }
+?>
+
+
+
+
+
 
         </ul>         
     </div>

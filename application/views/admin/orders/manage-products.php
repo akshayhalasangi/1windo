@@ -8,8 +8,14 @@
 
         <div class="ks-page-content">
             <div class="ks-page-content-body ks-content-nav">
+<?php
+$CI =& get_instance();
+$role = $CI->session->userdata('role');
+if($role !== 'vendor') {
+    ?>
                 <div class="ks-nav">
                     <ul class="nav">
+
                         <li class="nav-item">
                             <a class="nav-link" href="<?= admin_url('Orders'); ?>"><?= _l('txt_listing_services_orders'); ?></a>
                         </li>
@@ -21,6 +27,9 @@
                         </li>                         
                     </ul>
                 </div>
+    <?php
+}
+?>
                 <div class="ks-nav-body">
                     <div class="ks-nav-body-wrapper">
                         <div class="container-fluid">

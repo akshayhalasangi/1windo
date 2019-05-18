@@ -96,6 +96,31 @@ class Vendors_model extends W_Model
         }
     }
 
+
+
+
+    public function getVendorCategoryType($vendorid = '')
+    {
+        if (!empty($vendorid)) {
+            $this->db->where('VendorID', $vendorid);
+            return $this->db->get(TBL_VENDORS)->row();
+        } else {
+            $staffID = get_staff_user_id();
+            $this->db->where('Staff_ID', $staffID);
+            $result = $this->db->get('staffs')->row();
+            switch ($result->S_IsAdmin) {
+                case 0:
+                    $this->db->order_by('VendorID', 'DESC');
+                    return $this->db->get(TBL_VENDORS)->result_array();
+                    break;
+                case 1:
+                    $this->db->where('V_Area', $result->Area);
+                    $this->db->order_by('VendorID', 'DESC');
+                    return $this->db->get(TBL_VENDORS)->result_array();
+                    break;
+            }
+        }
+    }
     /**
      * Get vendor addresses
      * @param  mixed  $address_id

@@ -19,7 +19,17 @@
                                 <div class="card panel ks-information ks-light">
                                     <h5 class="card-header">
                                         <span class="ks-text"><?= _l('txt_restaurants')?></span>
-                                        <a href="<?= admin_url('Restaurants/Restaurant'); ?>" class="btn btn-outline-primary ks-light"><i class="fa fa-plus"></i> <?= _l('txt_add_restaurant'); ?></a>
+                                                <?php
+                                                $CI =& get_instance();
+                                                $role = $CI->session->userdata('role');
+                                                if($role !== 'vendor') {
+                                                    ?>
+                                                    <a href="<?= admin_url('Restaurants/Restaurant'); ?>" class="btn btn-outline-primary ks-light"><i
+                                                                class="fa fa-plus"></i> <?= _l('txt_add_restaurant'); ?></a>
+
+                                                    <?php
+                                                }
+                                                    ?>
                                     </h5>
                                     <?php if(!empty($restaurantsList)) :?>
                                     <div class="card-block ks-datatable">
@@ -59,9 +69,19 @@
                                                                 <span class="la la-ellipsis-h"></span>
                                                             </a>
                                                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu<?= $restaurant['RestaurantID']; ?>">
-                                                                <a class="dropdown-item" href="<?= admin_url('Restaurants/Restaurant/'.$restaurant['RestaurantID']); ?>"><?= _l('txt_edit' ); ?></a>
-                                                                <a class="dropdown-item tbl-delete sweet-5" href="javascript:;"  data-act="Restaurant" data-id="<?= $restaurant['RestaurantID']; ?>"><?= _l('txt_delete' ); ?></a>
-																<a class="dropdown-item" href="<?= admin_url('Restaurants/Foods/'.$restaurant['RestaurantID']); ?>"><?= _l('txt_view_foods' ); ?></a>
+                                                            <?php
+                                                            $CI =& get_instance();
+                                                            $role = $CI->session->userdata('role');
+                                                            if($role !== 'vendor') {
+                                                                ?>
+                                                                <a class="dropdown-item"
+                                                                   href="<?= admin_url('Restaurants/Restaurant/' . $restaurant['RestaurantID']); ?>"><?= _l('txt_edit'); ?></a>
+                                                                <a class="dropdown-item tbl-delete sweet-5" href="javascript:;" data-act="Restaurant"
+                                                                   data-id="<?= $restaurant['RestaurantID']; ?>"><?= _l('txt_delete'); ?></a>
+                                                                <?php
+                                                            }
+                                                                ?>
+                                                                 <a class="dropdown-item" href="<?= admin_url('Restaurants/Foods/'.$restaurant['RestaurantID']); ?>"><?= _l('txt_view_foods' ); ?></a>
 																<a class="dropdown-item" href="<?= admin_url('Restaurants/Reviews/'.$restaurant['RestaurantID']); ?>"><?= _l('txt_view_reviews' ); ?></a>
 																
 																<!--a class="dropdown-item" href="<?= 'Restaurants/Profile/'.$restaurant['RestaurantID']; ?>"><?= _l('txt_view' ); ?></a-->

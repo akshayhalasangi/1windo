@@ -70,6 +70,26 @@ class Products_model extends W_Model
      * @param  array  $where       perform where in query array('U_Status' => 1)
      * @return array
      */
+
+
+
+    public function getVendorCategoryID($vendorid = '')
+    {
+        $result = 0;
+        if ($vendorid != '') {
+            $this->db->where(VendorID, $vendorid);
+            $query = $this->db->get('1w_tbl_vendors')->row();
+            $result =  $query->V_CategoryID;
+           if($result == 0)
+           {
+               return false;
+           }
+
+        }
+        return $result;
+    }
+
+
 	public function getProduct($product_id = '', $where = array() ,$orderby = 'DESC' )
 	{
 		
@@ -548,6 +568,14 @@ class Products_model extends W_Model
     public function addVendorWithProducts($vendorid, $attribvalueid)
     {
 
+
+        $this->db->where('product_id',$attribvalueid);
+        $this->db->where('vendor_id',$vendorid);
+        $isdata=$this->db->get('1w_tbl_product_vendor')->row();
+
+
+        if(is_null($isdata))
+        {
         $data=['product_id'=>$attribvalueid,'vendor_id'=>$vendorid];
         $this->db->insert('1w_tbl_product_vendor', $data);
         $attribvalueid = $this->db->insert_id();
@@ -557,8 +585,13 @@ class Products_model extends W_Model
 
             return true;
         }
+            return false;
+        }
+        else{
+            logActivity(' Product Already Assigned to Vendor [' . $attribvalueid . ']');
+            return true;
+        }
 
-        return false;
     }
 	/**
      * @param  array $_POST data
