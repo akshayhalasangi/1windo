@@ -125,8 +125,16 @@ if($role !== 'vendor') {
                                                             </a>
                                                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu<?= $order['PCartID']; ?>">
                                                                 <a class="dropdown-item" href="<?= admin_url('Orders/productsorder/'.$order['PCartID']); ?>"><?= _l('txt_view' ); ?></a>
+                                                                <?php
+                                                                $CI =& get_instance();
+                                                                $role = $CI->session->userdata('role');
+                                                                if($role !== 'vendor') {
+                                                                    ?>
                                                                 <a class="dropdown-item tbl-delete sweet-5" href="javascript:;"  data-act="order" data-id="<?= $order['PCartID']; ?>"><?= _l('txt_delete' ); ?></a>
-                                                                <!--a class="dropdown-item" href="<?= 'Orders/Profile/'.$order['PCartID']; ?>"><?= _l('txt_view' ); ?></a-->
+                                                                    <?php
+                                                                }
+                                                                ?>
+                                                                    <!--a class="dropdown-item" href="<?= 'Orders/Profile/'.$order['PCartID']; ?>"><?= _l('txt_view' ); ?></a-->
                                                             </div>
                                                         </div>
                                                     </td>

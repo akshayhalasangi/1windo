@@ -73,7 +73,7 @@
                             data: {id:id},          
                             success: function(response){ 
                                 var obj = $.parseJSON(response);
-                                console.log("OBJ: ",obj);
+                                // console.log("OBJ: ",obj);
                                $.notify({
 									title: '<strong>'+ jsUcfirst(obj.Class) +'! '+ ' </strong>',
 									message: obj.Msg
@@ -160,7 +160,7 @@
             url: url,
             data: {'id':id,'type':type,'status':status},
             success: function(response){
-				console.log("Response: ",response);
+				// console.log("Response: ",response);
                 var obj = $.parseJSON(response);
 				$.notify({
 					title: '<strong>'+ jsUcfirst(obj.Class) +'! '+ ' </strong>',
@@ -175,11 +175,11 @@
                // ToastMessageshow(obj.Class, obj.Msg);
                 
                if(status == 1){
-                   console.log("Ïn 1");
+                   // console.log("Ïn 1");
                     $("#"+elementId).val('2');
                     $("#"+elementId).attr('data-status', '2');
                 }else{
-                    console.log("Ïn 2");
+                    // console.log("Ïn 2");
                     $("#"+elementId).val('1');
                     $("#"+elementId).attr('data-status', '1');
                 }

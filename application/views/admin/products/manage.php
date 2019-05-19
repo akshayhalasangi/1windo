@@ -77,9 +77,11 @@
                                                     ?>
                                                     <td>
                                                         <label class="ks-checkbox-slider ks-primary">
-
-                                                                <input type="checkbox" id="Switch<?= $product['ProductID']; ?>" value="1" data-status="1" class="tbl-status" name="Val_Status" data-type="Product" data-id="<?= $product['ProductID']; ?>">
-
+                                                            <?php if($product['vp_status'] == 0) { ?>
+                                                                <input type="checkbox" id="Switch<?= $product['ProductID']; ?>" data-status = "2" value="2" class="tbl-status" name="Val_Status"  data-type="Product" data-id="<?= $product['ProductID']; ?>">
+                                                            <?php }  else if($product['vp_status'] == 1) { ?>
+                                                                <input type="checkbox" id="Switch<?= $product['ProductID']; ?>" value="1" data-status="1" class="tbl-status" name="Val_Status" checked data-type="Product" data-id="<?= $product['ProductID']; ?>">
+                                                            <?php }?>
                                                             <span class="ks-indicator" ></span>
                                                         </label>
 

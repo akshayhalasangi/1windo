@@ -16,7 +16,7 @@ class Products extends Admin_Controller
         $id=$this->Products_model->getVendorCategoryID(get_staff_user_id());
 
         if(isset($id)){
-            $data['productsList'] = $this->Products_model->getProduct(null, array("P_CategoryID" => $id));
+            $data['productsList'] = $this->Products_model->getProductsForVendor(null, array("P_CategoryID" => $id));
             $data['productID'] = $id;
             $data['listAssets'] = 'true';
 

@@ -132,8 +132,59 @@ class Products_model extends W_Model
 		
 		return $result;
 	}
-	
 
+
+    public function getProductsForVendor($product_id = '', $where = array() ,$orderby = 'DESC' )
+    {
+
+        $this->db->where($where);
+
+        if ($product_id != '') {
+            $this->db->where('ProductID', $product_id);
+            $query = $this->db->get(TBL_PRODUCTS);
+
+            $rowcount = $query->num_rows();
+            if($rowcount > 0)
+            {
+                $this->db->where('ProductID', $product_id);
+                $result = $this->db->get(TBL_PRODUCTS)->row();
+            }
+            else
+            {
+                $result = false;
+            }
+
+            return $result;
+        }
+
+        $result=array();
+        $this->db->order_by('ProductID', $orderby);
+        $query = $this->db->get(TBL_PRODUCTS)->result_array();
+
+        foreach ($query as $row)
+        {
+            $this->db->where('product_id',$row->ProductID);
+            $this->db->where('vendor_id',get_staff_user_id());
+            $query2 = $this->db->get('1w_tbl_product_vendor');
+            if(count($query2) == 1)
+            {
+                $row['vp_status'] = 1;
+            }
+            else
+            {
+                $row['vp_status'] = 0;
+            }
+
+            array_push($result,$row);
+        }
+
+        if(count($result)== 0)
+        {
+            $result = false;
+        }
+
+        return $result;
+    }
 	/**
      * Get products steps
      * @param  mixed $review_id
@@ -588,7 +639,9 @@ class Products_model extends W_Model
             return false;
         }
         else{
-            logActivity(' Product Already Assigned to Vendor [' . $attribvalueid . ']');
+            $this->db->where('product_id',$attribvalueid);
+            $this->db->where('vendor_id',$vendorid);
+            $this->db->delete('1w_tbl_product_vendor');
             return true;
         }
 

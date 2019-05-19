@@ -818,11 +818,7 @@ class Cart_model extends W_Model
      * @return boolean
      * Update category informations
      */
-    public
-    function update(
-        $data,
-        $cartid
-    ) {
+    public function update( $data, $cartid ) {
         $affectedRows = 0;
         $cart_data = array();
         foreach ($this->cart_data as $dbfield => $field) {
@@ -872,9 +868,10 @@ class Cart_model extends W_Model
         $this->db->where('PCartID', $cartproductid);
         $this->db->update(TBL_CART_PRODUCTS, $product_cart_data);
         //echo $this->db->last_query();
-        if ($this->db->affected_rows() > 0) {
+        if ($this->db->affected_rows() > 0)
+        {
             $affectedRows++;
-            //echo 'asd';
+
             do_action('after_cart_product_updated', $cartproductid);
         } else {
             //echo 'tes';
