@@ -149,33 +149,40 @@ class Cart_model extends W_Model
             // $this->db->select(TBL_CART_SERVICES.".*, ".TBL_PAYMENT_OPTIONS.".*");
             // $this->db->from(TBL_CART_SERVICES);
             // $this->db->join(TBL_PAYMENT_OPTIONS, TBL_CART_SERVICES.'.C_PaymentOption = '.TBL_PAYMENT_OPTIONS.'.POptionId');
-            $this->db->select('*');
-            $this->db->from(TBL_CART_SERVICES);
-            $this->db->where($where);
-            if (!empty($wherestring)) {
-                $this->db->where($wherestring);
-            }
+
             $staffID = get_staff_user_id();
             $this->db->where('Staff_ID', $staffID);
-            $result = $this->db->get('staffs')->row();
-            switch ($result->S_IsAdmin) {
-                case 0:
-                    $this->db->order_by('C_OrderStatus', $orderby);
-                    $result = $this->db->get('cart_service')->result_array();
-                    break;
-                case 1:
-                    $this->db->select('CustomerID');
-                    $this->db->where('C_Area', $result->Area);
-                    $result1 = $this->db->get('1w_tbl_customers')->result_array();
-                    $customers = array_map(function ($item) {
-                        return (int) $item['CustomerID'];
-                    }, $result1);
+            $result = $this->db->get('staffs')->row_array();
+            if (! is_null($result)){
+                switch ($result->S_IsAdmin) {
+                    case 0:
+                        $this->db->order_by('C_OrderStatus', $orderby);
+                        $result = $this->db->get('cart_service')->result_array();
+                        break;
+                    case 1:
+                        $this->db->select('CustomerID');
+                        $this->db->where('C_Area', $result->Area);
+                        $result1 = $this->db->get('1w_tbl_customers')->result_array();
+                        $customers = array_map(function ($item) {
+                            return (int) $item['CustomerID'];
+                        }, $result1);
 
-                    $this->db->where_in('C_CustomerID', $customers);
-                    $this->db->order_by('C_OrderStatus', $orderby);
-                    $result = $this->db->get('cart_service')->result_array();
-                    break;
+                        $this->db->where_in('C_CustomerID', $customers);
+                        $this->db->order_by('C_OrderStatus', $orderby);
+                        $result = $this->db->get('cart_service')->result_array();
+                        break;
+                }
+            }else {
+                $this->db->select('*');
+                $this->db->where($where);
+                if (!empty($wherestring)) {
+                    $this->db->where($wherestring);
+                }
+                die(var_dump($this->db->get_compiled_select(TBL_CART_SERVICES)));
+                $result = $this->db->get(TBL_CART_SERVICES)->result_array();
+
             }
+
         } else {
             $result = false;
         }
