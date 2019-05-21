@@ -163,7 +163,7 @@ class Products_model extends W_Model
 
         foreach ($query as $row)
         {
-            $this->db->where('product_id',$row->ProductID);
+            $this->db->where('product_id',$row['ProductID']);
             $this->db->where('vendor_id',get_staff_user_id());
             $query2 = $this->db->get('1w_tbl_product_vendor')->row();
             if(count($query2) == 1)
