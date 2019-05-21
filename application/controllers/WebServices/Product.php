@@ -469,6 +469,7 @@ class Product extends W_Controller
 							
 								if(!empty($ProductAttribute)) {
 									$AttributeType = $ProductAttribute->A_Type;
+                                    $AttributeTitle = $ProductAttribute->A_Title;
 								} else {
 									$AttributeType = "3";
 								}
@@ -508,6 +509,7 @@ class Product extends W_Controller
 								'ReviewsCount'		=> $ReviewsCount,
 								'ReviewsData'		=> $ReviewsRecords,
 								'AttributeType'		=> getStringValue($AttributeType),
+								'AttributeTitle'	=> getStringValue($AttributeTitle),
 								'AttributesCount'	=> $ProductAttribValuesArray['ValuesCount'],
 								'AttributesData'	=> $ProductAttribValuesArray['ValuesData'],
 								
