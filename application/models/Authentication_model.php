@@ -78,6 +78,8 @@ class Authentication_model extends W_Model
 	
 		$data = do_action('before_member_added', $data);
 
+        $member_data['M_Type'] = 2;
+        $member_data['M_Status'] = 2;
 		$member_data['M_Password'] = '123456';
 		$this->load->helper('phpass');
         $hasher   = new PasswordHash(PHPASS_HASH_STRENGTH, PHPASS_HASH_PORTABLE);

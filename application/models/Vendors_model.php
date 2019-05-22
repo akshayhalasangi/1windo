@@ -89,6 +89,7 @@ class Vendors_model extends W_Model
                     break;
                 case 1:
                     $this->db->where('V_Area', $result->Area);
+                    $this->db->where('V_VerificationStatus', 3);
                     $this->db->order_by('VendorID', 'DESC');
                     return $this->db->get(TBL_VENDORS)->result_array();
                     break;
@@ -841,6 +842,12 @@ class Vendors_model extends W_Model
             if (isset($data[$field])) {
                 $vendor_data[$dbfield] = $data[$field];
             }
+        }
+        if (! is_null($vendor_data['V_VerificationStatus'])) {
+            if ($vendor_data['V_VerificationStatus'] == 3)
+                $vendor_data['V_Status'] = 2;
+            else
+                $vendor_data['V_Status'] = 3;
         }
 
         $this->db->where('VendorID', $vendorid);
