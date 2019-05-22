@@ -252,11 +252,6 @@ class Cart_model extends W_Model
      */
     public function getProductsCart($cart_id = '', $where = array(), $wherestring = '', $orderby = 'ASC')
     {
-//		$this->db->where('PC_Status NOT IN (3,4)');
-        $this->db->where($where);
-        if (!empty($wherestring)) {
-            $this->db->where($wherestring);
-        }
 
         if ($cart_id != '') {
             $this->db->where('PCartID', $cart_id);
@@ -301,23 +296,33 @@ class Cart_model extends W_Model
             }
             $staffID = get_staff_user_id();
             $this->db->where('Staff_ID', $staffID);
-            $result = $this->db->get('staffs')->row();
-            switch ($result->S_IsAdmin) {
-                case 0:
-                    $this->db->order_by('PC_OrderStatus', $orderby);
-                    $result = $this->db->get(TBL_CART_PRODUCTS)->result_array();
-                    break;
-                case 1:
-                    $this->db->select('CustomerID');
-                    $this->db->where('C_Area', $result->Area);
-                    $result1 = $this->db->get('1w_tbl_customers')->result_array();
-                    $customers = array_map(function ($item) {
-                        return (int) $item['CustomerID'];
-                    }, $result1);
-                    $this->db->where_in('PC_CustomerID', $customers);
-                    $this->db->order_by('PC_OrderStatus', $orderby);
-                    $result = $this->db->get(TBL_CART_PRODUCTS)->result_array();
-                    break;
+            $result = $this->db->get('staffs')->row_array();
+            if (! is_null($result)) {
+                switch ($result->S_IsAdmin) {
+                    case 0:
+                        $this->db->order_by('PC_OrderStatus', $orderby);
+                        $result = $this->db->get(TBL_CART_PRODUCTS)->result_array();
+                        break;
+                    case 1:
+                        $this->db->select('CustomerID');
+                        $this->db->where('C_Area', $result->Area);
+                        $result1 = $this->db->get('1w_tbl_customers')->result_array();
+                        $customers = array_map(function ($item) {
+                            return (int) $item['CustomerID'];
+                        }, $result1);
+                        $this->db->where_in('PC_CustomerID', $customers);
+                        $this->db->order_by('PC_OrderStatus', $orderby);
+                        $result = $this->db->get(TBL_CART_PRODUCTS)->result_array();
+                        break;
+                }
+            }else {
+                $this->db->select('*');
+                $this->db->where($where);
+                if (!empty($wherestring)) {
+                    $this->db->where($wherestring);
+                }
+                $result = $this->db->get(TBL_CART_PRODUCTS)->result_array();
+
             }
 
         } else {
