@@ -89,7 +89,6 @@ class Vendors_model extends W_Model
                     break;
                 case 1:
                     $this->db->where('V_Area', $result->Area);
-                    $this->db->where('V_VerificationStatus', 3);
                     $this->db->order_by('VendorID', 'DESC');
                     return $this->db->get(TBL_VENDORS)->result_array();
                     break;
