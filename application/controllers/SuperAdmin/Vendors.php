@@ -354,7 +354,7 @@ class Vendors extends Admin_Controller
     {
         $data = $this->input->post();
         $VendorID = $data['id'];
-        $data['Val_Vstatus'] = $data['status'];
+        $data['Val_Vverificationstatus'] = $data['status'];
         if (!empty($data)) {
             $Success = $this->Vendors_model->update($data, $VendorID);
             // return "Hello";
@@ -396,7 +396,7 @@ class Vendors extends Admin_Controller
     {
 
         $data = $this->input->post();
-        if (!empty($this->input->post())) {
+        if (!empty($this->input->post()) && $data['status'] == 1 ) {
             $Success = $this->Products_model->addVendorWithProducts($data['vendorid'], $data['productid']);
 
             if ($Success) {
@@ -413,7 +413,7 @@ class Vendors extends Admin_Controller
         if ($id != '') {
             $this->db->where('vendor_id', $id);
             $vendorProducts = $this->db->get('1w_tbl_product_vendor')->result_array();
-            if ($vendorProducts.length > 0){
+            if (count($vendorProducts) > 0){
                 $vendorProductsIds = array_map(function ($product) {
                     return $product['product_id'];
                 }, $vendorProducts);

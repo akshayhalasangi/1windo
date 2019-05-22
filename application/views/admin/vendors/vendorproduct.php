@@ -47,11 +47,24 @@
                                                                 <span class="ks-name"><?= $product['P_Name']; ?></span>
                                                             </td>
                                                             <td>
-                                                                <?php if ($this->uri->segment(3) !== 'ListVendorProducts') : ?>
+                                                                <?php if ($this->uri->segment(3) === 'VendorProducts') : ?>
                                                                     <label class="ks-checkbox-slider ks-primary">
                                                                         <input type="checkbox"
                                                                                id="Switch<?= $product['ProductID']; ?>"
                                                                                value="1" data-status="1"
+                                                                               class="tbl-vendor-products"
+                                                                               name="Val_Status" data-type="Product"
+                                                                               data-id="<?= $product['ProductID']; ?>"
+                                                                               data-vendorid="<?= $productID; ?>">
+                                                                        <span class="ks-indicator"></span>
+                                                                    </label>
+                                                                <?php endif; ?>
+                                                                <?php if ($this->uri->segment(3) === 'ListVendorProducts') : ?>
+                                                                    <label class="ks-checkbox-slider ks-primary">
+                                                                        <input type="checkbox"
+                                                                               id="Switch<?= $product['ProductID']; ?>"
+                                                                               value="1" data-status="1"
+                                                                               checked
                                                                                class="tbl-vendor-products"
                                                                                name="Val_Status" data-type="Product"
                                                                                data-id="<?= $product['ProductID']; ?>"

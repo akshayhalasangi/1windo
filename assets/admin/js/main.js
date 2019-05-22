@@ -173,17 +173,22 @@
 					}
 				});	
                // ToastMessageshow(obj.Class, obj.Msg);
-                
-               if(status == 1){
-                   // console.log("Ïn 1");
+                if(type == 'Vendor')
+                {
+                   window.location.reload();
+                }
+                else
+                {
+                    if(status == 1){
+                    // console.log("Ïn 1");
                     $("#"+elementId).val('2');
                     $("#"+elementId).attr('data-status', '2');
-                }else{
-                    // console.log("Ïn 2");
-                    $("#"+elementId).val('1');
-                    $("#"+elementId).attr('data-status', '1');
+                    }else{
+                        // console.log("Ïn 2");
+                        $("#"+elementId).val('1');
+                        $("#"+elementId).attr('data-status', '1');
+                    }
                 }
-
                 if(type == 'User'){ 
                     if(status == 1){  
                         $('#label-enable-'+id).hide();

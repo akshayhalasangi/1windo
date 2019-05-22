@@ -5880,7 +5880,6 @@ class Vendor extends W_Controller
                                         } else {
                                             if (!empty($data['Action']) && $data['Action'] == 'GetOrderHistory') {
 
-
                                                 if (!empty($data['Val_Vendor'])) {
                                                     $OngoingOrderRecords = array();
                                                     $PastOrderRecords = array();
