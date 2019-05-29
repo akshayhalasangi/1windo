@@ -1269,7 +1269,7 @@ class Cart_model extends W_Model
     ) {
         $this->db->select('*');
         $this->db->from('1w_tbl_cart_product');
-        $this->db->where('PC_AssignedTo', $id);
+//        $this->db->where('PC_AssignedTo', $id);
         $this->db->where("(PC_Status = '1' OR PC_Status = '2')");
         $this->db->where("(PC_OrderStatus = '0' OR PC_OrderStatus = '1' OR PC_OrderStatus = '2' OR PC_OrderStatus = '3' OR PC_OrderStatus = '6')");
         $result = $this->db->last_query();
