@@ -471,6 +471,7 @@ class Vendors_model extends W_Model
                 $vendor_data[$dbfield] = $data[$field];
             }
         }
+        $data['V_VerificationStatus'] = 2;
 
         $data = do_action('before_user_added', $data);
 
