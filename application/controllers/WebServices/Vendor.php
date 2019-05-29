@@ -6366,6 +6366,7 @@ class Vendor extends W_Controller
                                                                             
                                                                         if (!empty($OrderData)) {
                                                                             $data['Val_Corderstatus'] = '2';
+                                                                            $data['Val_AssignedTo'] = $data['Val_Vendor'];
                                                                             $data['Val_Caccepteddttm'] = date('Y-m-d H:i:s');
                                                                             $success = $this->Cart_model->update($data,
                                                                                 $data['Val_Order']);
@@ -6424,6 +6425,7 @@ class Vendor extends W_Controller
 
                                                                             if (!empty($OrderData)) {
                                                                                 $data['Val_PCorderstatus'] = '2';
+                                                                                $data['Val_AssignedTo'] = $data['Val_Vendor'];
                                                                                 $data['Val_PCaccepteddttm'] = date('Y-m-d H:i:s');
                                                                                 $success = $this->Cart_model->updateCartProducts($data,
                                                                                     $data['Val_Order']);
@@ -6482,6 +6484,7 @@ class Vendor extends W_Controller
 
                                                                                 if (!empty($OrderData)) {
                                                                                     $data['Val_RCorderstatus'] = '2';
+                                                                                    $data['Val_AssignedTo'] = $data['Val_Vendor'];
                                                                                     $data['Val_RCaccepteddttm'] = date('Y-m-d H:i:s');
                                                                                     $CartData = $this->Cart_model->getRestaurantsCart($data['Val_Order']);
                                                                                     if (!empty($CartData)) {
