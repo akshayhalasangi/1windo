@@ -875,10 +875,7 @@ class Cart_model extends W_Model
                 $product_cart_data[$dbfield] = $data[$field];
             }
         }
-        $this->db->where('PCartID', $cartproductid);
-        $this->db->AND('PC_AssignedTo', 0);
-        $result=$this->db->get(TBL_CART_PRODUCTS)->row();
-        if(count($result) > 0) {
+
             //print_r($category_data);
             $this->db->where('PCartID', $cartproductid);
             $this->db->update(TBL_CART_PRODUCTS, $product_cart_data);
@@ -908,13 +905,7 @@ class Cart_model extends W_Model
             }
 
             return false;
-        }
-        else
-        {
-            logActivity('Cart Product Info Already Accepted [' . $cartproductid . ']');
 
-            return true;
-        }
     }
 
     /**
