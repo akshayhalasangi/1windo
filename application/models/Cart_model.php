@@ -868,6 +868,7 @@ class Cart_model extends W_Model
         $data,
         $cartproductid
     ) {
+        die(var_dump(  $data));
         $affectedRows = 0;
         $product_cart_data = array();
         foreach ($this->product_cart_data as $dbfield => $field) {
@@ -890,7 +891,8 @@ class Cart_model extends W_Model
             if ($affectedRows > 0) {
                 $this->db->limit(1);
                 $this->db->order_by('DeliveryBoyID','desc');
-                $deliveryboy = $this->db->get('1w_tbl_delivery_boys')->result_array();
+                $deliveryboy = $this->db->get('1w_tbl_delivery_boys')->row();
+
                 $data = array(
                     'PC_DeliveryBy' => $deliveryboy->DeliveryBoyID,
                     'PC_DeliveryByStatus' => '2',
