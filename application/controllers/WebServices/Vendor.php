@@ -5932,8 +5932,7 @@ class Vendor extends W_Controller
 
                                                             if (!empty($OngoingOrdersArray)) {
                                                                 foreach ($OngoingOrdersArray as $OrderArray) {
-                                                                    $OrderData = (object) $OrderArray[0];
-
+                                                                    $OrderData = (object) $OrderArray;
                                                                     if (!empty($OrderData->CartID)) {
 
                                                                         $OrderID = $OrderData->CartID;
