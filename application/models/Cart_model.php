@@ -868,7 +868,7 @@ class Cart_model extends W_Model
         $data,
         $cartproductid
     ) {
-        die(var_dump(  $data));
+
         $affectedRows = 0;
         $product_cart_data = array();
         foreach ($this->product_cart_data as $dbfield => $field) {
@@ -899,7 +899,7 @@ class Cart_model extends W_Model
                 );
 
                 $this->db->where('PCartID', $cartproductid);
-                $this->db->update(TBL_CART_PRODUCTS,$data);
+                $r = $this->db->update(TBL_CART_PRODUCTS,$data);
 
                 logActivity('Cart Product Info Updated [' . $cartproductid . ']');
 
