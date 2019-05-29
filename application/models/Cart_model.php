@@ -890,9 +890,9 @@ class Cart_model extends W_Model
             if ($affectedRows > 0) {
                 $this->db->limit(1);
                 $this->db->order_by('DeliveryBoyID','desc');
-                $deliveryboy_id = $this->db->get('1w_tbl_delivery_boys')->result_array();
+                $deliveryboy = $this->db->get('1w_tbl_delivery_boys')->result_array();
                 $data = array(
-                    'PC_DeliveryBy' => $deliveryboy_id,
+                    'PC_DeliveryBy' => $deliveryboy->DeliveryBoyID,
                     'PC_DeliveryByStatus' => '2',
                 );
 
