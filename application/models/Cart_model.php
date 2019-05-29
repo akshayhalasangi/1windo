@@ -875,25 +875,46 @@ class Cart_model extends W_Model
                 $product_cart_data[$dbfield] = $data[$field];
             }
         }
-        //print_r($category_data);
         $this->db->where('PCartID', $cartproductid);
-        $this->db->update(TBL_CART_PRODUCTS, $product_cart_data);
-        //echo $this->db->last_query();
-        if ($this->db->affected_rows() > 0)
-        {
-            $affectedRows++;
+        $this->db->AND('PC_AssignedTo', 0);
+        $result=$this->db->get(TBL_CART_PRODUCTS)->row();
+        if(count($result) > 0) {
+            //print_r($category_data);
+            $this->db->where('PCartID', $cartproductid);
+            $this->db->update(TBL_CART_PRODUCTS, $product_cart_data);
 
-            do_action('after_cart_product_updated', $cartproductid);
-        } else {
-            //echo 'tes';
+            if ($this->db->affected_rows() > 0) {
+                $affectedRows++;
+
+                do_action('after_cart_product_updated', $cartproductid);
+            } else {
+                //echo 'tes';
+            }
+            if ($affectedRows > 0) {
+                $this->db->limit(1);
+                $this->db->order_by('DeliveryBoyID','desc');
+                $deliveryboy_id = $this->db->get('1w_tbl_delivery_boys')->result_array();
+                $data = array(
+                    'PC_DeliveryBy' => $deliveryboy_id,
+                    'PC_DeliveryByStatus' => '2',
+                );
+
+                $this->db->where('PCartID', $cartproductid);
+                $this->db->update(TBL_CART_PRODUCTS,$data);
+
+                logActivity('Cart Product Info Updated [' . $cartproductid . ']');
+
+                return true;
+            }
+
+            return false;
         }
-        if ($affectedRows > 0) {
-            logActivity('Cart Product Info Updated ['.$cartproductid.']');
+        else
+        {
+            logActivity('Cart Product Info Already Accepted [' . $cartproductid . ']');
 
             return true;
         }
-
-        return false;
     }
 
     /**
