@@ -1413,9 +1413,9 @@ class Cart_model extends W_Model
         $this->db->select('*');
         $this->db->from('1w_tbl_cart_product');
         $this->db->where('PC_DeliveryBy', $id);
-        $this->db->where('(PC_Status = 1 OR PC_Status = 2)');
-        $this->db->where('(PC_DeliveryByStatus = 1 OR PC_DeliveryByStatus = 2 OR PC_DeliveryByStatus = 3 )');
-        $this->db->where('(PC_OrderStatus = 2 OR PC_OrderStatus = 3 )');
+        $this->db->where("(PC_Status = '1' OR PC_Status = '2')");
+        $this->db->where("(PC_DeliveryByStatus = '1' OR PC_DeliveryByStatus = '2' OR PC_DeliveryByStatus = '3' )");
+        $this->db->where("(PC_OrderStatus = '2' OR PC_OrderStatus = '3' )");
         return $this->db->get()->result_array();
     }
 
