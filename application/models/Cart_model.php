@@ -888,7 +888,7 @@ class Cart_model extends W_Model
             } else {
                 //echo 'tes';
             }
-//            if ($affectedRows > 0) {
+            if ($affectedRows > 0) {
 //                $this->db->limit(1);
 //                $this->db->order_by('DeliveryBoyID','desc');
 //                $deliveryboy = $this->db->get('1w_tbl_delivery_boys')->row();
@@ -900,11 +900,11 @@ class Cart_model extends W_Model
 //
 //                $this->db->where('PCartID', $cartproductid);
 //                $r = $this->db->update(TBL_CART_PRODUCTS,$data);
-//
-//                logActivity('Cart Product Info Updated [' . $cartproductid . ']');
-//
-//                return true;
-//            }
+
+                logActivity('Cart Product Info Updated [' . $cartproductid . ']');
+
+                return true;
+            }
 
             return false;
 
