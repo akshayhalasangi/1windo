@@ -6371,7 +6371,6 @@ class Vendor extends W_Controller
                                                                             $data['Val_CassignedTo'] = $VendorData->VendorID;
                                                                             $data['Val_Caccepteddttm'] = date('Y-m-d H:i:s');
                                                                             $data['Val_PCdeliveryby'] = $deliveryboy->DeliveryBoyID;
-                                                                            $data['Val_PCdeliveryby'] = 4;
                                                                             $data['Val_PCdeliverybystatus'] ='1';
                                                                             $success = $this->Cart_model->update($data,
                                                                                 $data['Val_Order']);
@@ -6430,7 +6429,8 @@ class Vendor extends W_Controller
 
                                                                             if (!empty($OrderData)) {
                                                                                 $this->db->limit(1);
-                                                                                $this->db->order_by('DeliveryBoyID','desc');
+                                                                                $this->db->order_by('DeliveryBoyID','RANDOM');
+                                                                                $this->db->where('DB_Status','2');
                                                                                 $deliveryboy = $this->db->get('1w_tbl_delivery_boys')->row();
                                                                                 $data['Val_PCorderstatus'] = '3';
                                                                                 $data['Val_PCassginedto'] = $VendorData->VendorID;

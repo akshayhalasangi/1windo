@@ -2872,7 +2872,7 @@ $CartData= (object)$CartData[0];
                 $ServicesOrdersArray = $this->Cart_model->get(null,array('C_CustomerID' => $data['Val_Customer'],'C_OrderStatus'=>'1','C_Status'=>'2'));
 //                    $ProductsOrdersArray        =  $this->Cart_model->getProductsCart(NULL,array('PC_OrderStatus <>'=>'0','PC_OrderStatus <>'=>'4','PC_OrderStatus <>'=>'5','PC_Status'=>'3','PC_CustomerID'=>$data['Val_Customer']));
 
-                $ProductsOrdersArray = $this->Cart_model->getProductsCart(null, array('PC_CustomerID' => $data['Val_Customer'],'PC_OrderStatus'=>'3','PC_Status'=>'2'));
+                $ProductsOrdersArray = $this->Cart_model->getProductsCart(null, array('PC_CustomerID' => $data['Val_Customer'],'PC_Status'=>'2'),"PC_OrderStatus IN ('1','2')");
 
 //                    $RestaurantsOrdersArray        =  $this->Cart_model->getRestaurantsCart(NULL,array('RC_OrderStatus <>'=>'0','RC_OrderStatus <>'=>'4','RC_OrderStatus <>'=>'5','RC_Status'=>'3','RC_CustomerID'=>$data['Val_Customer']));
                 $RestaurantsOrdersArray = $this->Cart_model->getRestaurantsCart(null, array('RC_CustomerID' => $data['Val_Customer'],'RC_OrderStatus'=>'1','rC_Status'=>'2'));
