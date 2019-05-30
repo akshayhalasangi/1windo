@@ -876,7 +876,6 @@ class Cart_model extends W_Model
                 $product_cart_data[$dbfield] = $data[$field];
             }
         }
-die(var_dump($product_cart_data));
             //print_r($category_data);
             $this->db->where('PCartID', $cartproductid);
             $this->db->update(TBL_CART_PRODUCTS, $product_cart_data);

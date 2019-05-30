@@ -6429,10 +6429,14 @@ class Vendor extends W_Controller
                                                                             $OrderData = $this->Cart_model->getProductsCart($data['Val_Order']);
 
                                                                             if (!empty($OrderData)) {
+                                                                                $this->db->limit(1);
+                                                                                $this->db->order_by('DeliveryBoyID','desc');
+                                                                                $deliveryboy = $this->db->get('1w_tbl_delivery_boys')->row();
                                                                                 $data['Val_PCorderstatus'] = '3';
                                                                                 $data['Val_PCassginedto'] = $VendorData->VendorID;
                                                                                 $data['Val_PCaccepteddttm'] = date('Y-m-d H:i:s');
-                                                                                $data['Val_PCdeliveryby'] = 4;
+                                                                                $data['Val_PCdeliveryby'] = $deliveryboy->DeliveryBoyID;
+//                                                                                $data['Val_PCdeliveryby'] = 4;
                                                                                 $data['Val_PCdeliverybystatus'] ='1';
                                                                                 $success = $this->Cart_model->updateCartProducts($data,
                                                                                     $data['Val_Order']);
