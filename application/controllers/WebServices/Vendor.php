@@ -6423,7 +6423,7 @@ class Vendor extends W_Controller
                                                                             $OrderData = $this->Cart_model->getProductsCart($data['Val_Order']);
 
                                                                             if (!empty($OrderData)) {
-                                                                                $data['Val_PCorderstatus'] = '2';
+                                                                                $data['Val_PCorderstatus'] = '3';
                                                                                 $data['Val_PCassginedto'] = $VendorData->VendorID;
                                                                                 $data['Val_PCaccepteddttm'] = date('Y-m-d H:i:s');
                                                                                 $success = $this->Cart_model->updateCartProducts($data,
