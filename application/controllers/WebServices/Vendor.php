@@ -6092,7 +6092,7 @@ class Vendor extends W_Controller
                                                                     if ($BusinessType == '2') {
                                                                         $OrderData = $this->Cart_model->getProductsCart($data['Val_Order'],
                                                                             array('PC_AssignedTo' => $data['Val_Vendor']));
-
+                                                                        $OrderData = $OrderData[0];
 
                                                                     } else {
                                                                         if ($BusinessType == '3') {
