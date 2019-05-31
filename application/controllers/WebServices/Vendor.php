@@ -6435,7 +6435,8 @@ class Vendor extends W_Controller
                                                                                 $data['Val_PCorderstatus'] = '3';
                                                                                 $data['Val_PCassginedto'] = $VendorData->VendorID;
                                                                                 $data['Val_PCaccepteddttm'] = date('Y-m-d H:i:s');
-                                                                                $data['Val_PCdeliveryby'] = $deliveryboy->DeliveryBoyID;
+//                                                                                $data['Val_PCdeliveryby'] = $deliveryboy->DeliveryBoyID;
+                                                                                $data['Val_PCdeliveryby'] = 29;
 //                                                                                $data['Val_PCdeliveryby'] = 4;
                                                                                 $data['Val_PCdeliverybystatus'] ='1';
                                                                                 $success = $this->Cart_model->updateCartProducts($data,
