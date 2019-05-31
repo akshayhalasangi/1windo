@@ -3665,7 +3665,7 @@ $CartData['RestaurantsCartData']    = $RestaurantsRecords;
 
                     $ProductsCount = (string) count($ProductsData);
                     $ProductOrderRecord = array(
-                        'OrderID' => "123",//getStringValue($CartID),
+                        'OrderID' => getStringValue($CartID),
                         'OrderName' => getStringValue(getOrderName('2', $CartID)),
                         'Type' => '2',
                         'ProductsCount' => $ProductsCount,
