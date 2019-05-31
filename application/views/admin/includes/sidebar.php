@@ -42,14 +42,6 @@ a.nav-link.active.current{
              <span><?= _l('txt_customers'); ?></span>
          </a>
      </li>
-
-     <li class="nav-item <?= ($Controller == 'Categories') ? 'open' : ''; ?>">
-         <a class="nav-link" href="<?= admin_url('Categories'); ?>" role="button" aria-haspopup="true"
-            aria-expanded="false">
-             <span class="ks-icon la la-cubes"></span>
-             <span><?= _l('txt_categories'); ?></span>
-         </a>
-     </li>
      <li class="nav-item <?= ($Controller == 'Services') ? 'open' : ''; ?>">
          <a class="nav-link"  href="<?= admin_url('Services');?>" role="button" aria-haspopup="true" aria-expanded="false">
              <span class="ks-icon la la-fighter-jet"></span>
@@ -87,13 +79,6 @@ a.nav-link.active.current{
             aria-expanded="false">
              <span class="ks-icon la la-motorcycle"></span>
              <span><?= _l('Delivery Boys'); ?></span>
-         </a>
-     </li>
-     <li class="nav-item <?= ($Controller == 'Location') ? 'open' : ''; ?>">
-         <a class="nav-link" href="<?= admin_url('Location'); ?>" role="button" aria-haspopup="true"
-            aria-expanded="false">
-             <span class="ks-icon la la-map"></span>
-             <span><?= _l('Locations'); ?></span>
          </a>
      </li>
      <?php
