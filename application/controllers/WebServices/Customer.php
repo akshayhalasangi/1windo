@@ -2320,7 +2320,7 @@ $CartData= (object)$CartData[0];
 
                 if ($success) {
                     $CartData = $this->Cart_model->getProductsCart($data['Val_Cart']);
-
+                    $CartData = $CartData[0];
                     $Record = array(
                         'OrderID' => getStringValue($CartData->PCartID),
                         //'OptionsCount'     => $OptionsCount,
