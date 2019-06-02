@@ -86,7 +86,7 @@ class Notification extends W_Controller
 					$wheredata["M_Type"]= $data['Val_Type'];
 					$PostData["M_AndroidToken"]= $data['Val_Token'];
 			
-$result= $this->notifications_model->updateToken($PostData, $wheredata);
+$result= $this->Notifications_model->updateToken($PostData, $wheredata);
 				}
 			}
 		}

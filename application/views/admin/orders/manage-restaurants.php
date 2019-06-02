@@ -8,6 +8,11 @@
 
         <div class="ks-page-content">
             <div class="ks-page-content-body ks-content-nav">
+                <?php
+                $CI =& get_instance();
+                $role = $CI->session->userdata('role');
+                if($role !== 'vendor') {
+                    ?>
                 <div class="ks-nav">
                     <ul class="nav">
                         <li class="nav-item">
@@ -21,6 +26,9 @@
                         </li>                         
                     </ul>
                 </div>
+                <?php
+                }
+                ?>
                 <div class="ks-nav-body">
                     <div class="ks-nav-body-wrapper">
                         <div class="container-fluid">
@@ -129,7 +137,16 @@
                                                             </a>
                                                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu<?= $order['RCartID']; ?>">
                                                                 <a class="dropdown-item" href="<?= admin_url('Orders/restaurantsorder/'.$order['RCartID']); ?>"><?= _l('txt_view' ); ?></a>
+
+                                                                <?php
+                                                                $CI =& get_instance();
+                                                                $role = $CI->session->userdata('role');
+                                                                if($role !== 'vendor') {
+                                                                    ?>
                                                                 <a class="dropdown-item tbl-delete sweet-5" href="javascript:;"  data-act="order" data-id="<?= $order['RCartID']; ?>"><?= _l('txt_delete' ); ?></a>
+                                                                <?php
+                                                                         }
+                                                                    ?>
                                                                 <!--a class="dropdown-item" href="<?= 'Orders/Profile/'.$order['RCartID']; ?>"><?= _l('txt_view' ); ?></a-->
                                                             </div>
                                                         </div>

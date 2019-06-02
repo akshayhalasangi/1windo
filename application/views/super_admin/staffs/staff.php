@@ -126,9 +126,14 @@
                                                     <?php
                                                     if(!empty($areas)) {
                                                         foreach($areas as $area) {
+                                                            if($area['id'] == $member->area) {
                                                             ?>
+                                                            <option value="<?php echo $area['id']; ?>" selected="selected"><?= $area['name']; ?></option>
+                                                        <?php } else { ?>
                                                             <option value="<?php echo $area['id']; ?>"><?= $area['name']; ?></option>
-                                                        <?php }  }?>
+                                                        <?php }
+                                                        }  
+                                                    }?>
                                                 </select>
                                                 <?php endif;?>
                                                 <div class="form-group" style="margin-top: .8em">

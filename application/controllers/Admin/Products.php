@@ -237,7 +237,7 @@ class Products extends Admin_Controller
              
                
         $ProductId = $this->input->post('id');              
-        $Success = $this->Products_model->deleteProduct($ProductId);                 
+        $Success = $this->Products_model->delete($ProductId);
         
         if($Success){             
             setAjaxResponse( _l('product_deleted_success'),'success',_l('success'));

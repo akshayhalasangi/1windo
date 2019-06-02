@@ -41,22 +41,23 @@
                                                     <td>
 														<span class="ks-name"><?= $product['P_Name'];?></span>
                                                     </td>
-                                                    <td>                                                         
+
+                                                <?php
+                                                $CI =& get_instance();
+                                                $role = $CI->session->userdata('role');
+                                                if($role !== 'vendor') {
+                                                    ?>
+                                                    <td>
                                                         <label class="ks-checkbox-slider ks-primary">
                                                             <?php if($product['P_Status'] == 1) { ?>
-                                                        <input type="checkbox" id="Switch<?= $product['ProductID']; ?>" data-status = "2" value="2" class="tbl-status" name="Val_Status"  data-type="Product" data-id="<?= $product['ProductID']; ?>">
+                                                                <input type="checkbox" id="Switch<?= $product['ProductID']; ?>" data-status = "2" value="2" class="tbl-status" name="Val_Status"  data-type="Product" data-id="<?= $product['ProductID']; ?>">
                                                             <?php }  else if($product['P_Status'] == 2) { ?>
-                                                         <input type="checkbox" id="Switch<?= $product['ProductID']; ?>" value="1" data-status="1" class="tbl-status" name="Val_Status" checked data-type="Product" data-id="<?= $product['ProductID']; ?>">       
+                                                                <input type="checkbox" id="Switch<?= $product['ProductID']; ?>" value="1" data-status="1" class="tbl-status" name="Val_Status" checked data-type="Product" data-id="<?= $product['ProductID']; ?>">
                                                             <?php }?>
-                                                          <span class="ks-indicator" ></span>
-                                                    </label>
-                                                         
+                                                            <span class="ks-indicator" ></span>
+                                                        </label>
+
                                                     </td>
-        <?php
-        $CI =& get_instance();
-        $role = $CI->session->userdata('role');
-        if($role !== 'vendor') {
-            ?>
                                                     <td class="ks-controls">
                                                         <div class="dropdown">
                                                             <a class="btn btn-link" id="dropdownMenu<?= $product['ProductID']; ?>" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -71,8 +72,24 @@
                                                             </div>
                                                         </div>
                                                     </td>
-            <?php }
-        ?>
+                                                        <?php }
+                                                else{
+                                                    ?>
+                                                    <td>
+                                                        <label class="ks-checkbox-slider ks-primary">
+                                                            <?php if($product['vp_status'] == 0) { ?>
+                                                                <input type="checkbox" id="Switch<?= $product['ProductID']; ?>" data-status = "2" value="2" class="tbl-status" name="Val_Status"  data-type="Product" data-id="<?= $product['ProductID']; ?>">
+                                                            <?php }  else if($product['vp_status'] == 1) { ?>
+                                                                <input type="checkbox" id="Switch<?= $product['ProductID']; ?>" value="1" data-status="1" class="tbl-status" name="Val_Status" checked data-type="Product" data-id="<?= $product['ProductID']; ?>">
+                                                            <?php }?>
+                                                            <span class="ks-indicator" ></span>
+                                                        </label>
+
+                                                    </td>
+                                                    <td></td>
+                                                    <?php
+                                                }
+                                                    ?>
                                                 </tr>
                                                 <?php endforeach; ?>
                                             </tbody>

@@ -29,8 +29,8 @@ class Vendor extends W_Controller
 
                 foreach ($VendorsArray as $VendorArray) {
 
-                    $VendorFullName = $VendorArray['C_FirstName']." ".$VendorArray['C_LastName'];
-                    $VendorProfileImage = UPLOAD_VENDOR_BASE_URL.$VendorArray['VendorID'].'/'.$VendorArray['C_ProfileImage'];
+                    $VendorFullName = $VendorArray['C_FirstName'] . " " . $VendorArray['C_LastName'];
+                    $VendorProfileImage = UPLOAD_VENDOR_BASE_URL . $VendorArray['VendorID'] . '/' . $VendorArray['C_ProfileImage'];
                     $Records[] = array(
                         'TechnicianID' => $VendorArray['VendorID'],
                         'FullName' => $VendorFullName,
@@ -58,16 +58,16 @@ class Vendor extends W_Controller
                     if ($VendorData) {
 
                         $VendorJobs = $this->Jobs_model->getJoined(null,
-                            array(TBL_JOBS.'.VendorID' => $data['Val_Vendor']), false);
+                            array(TBL_JOBS . '.VendorID' => $data['Val_Vendor']), false);
 
                         if (!empty($VendorJobs)) {
-                            $TotalJobs = (string) count($VendorJobs);
+                            $TotalJobs = (string)count($VendorJobs);
                         } else {
-                            $TotalJobs = (string) 0;
+                            $TotalJobs = (string)0;
                         }
 
-                        $VendorFullName = $VendorData->C_FirstName." ".$VendorData->C_LastName;
-                        $VendorProfileImage = (!empty($VendorData->C_ProfileImage) ? UPLOAD_VENDOR_BASE_URL.$VendorData->VendorID.'/'.$VendorData->C_ProfileImage : null);
+                        $VendorFullName = $VendorData->C_FirstName . " " . $VendorData->C_LastName;
+                        $VendorProfileImage = (!empty($VendorData->C_ProfileImage) ? UPLOAD_VENDOR_BASE_URL . $VendorData->VendorID . '/' . $VendorData->C_ProfileImage : null);
                         $Records[] = array(
                             'VendorID' => $VendorData->VendorID,
                             'FullName' => $VendorFullName,
@@ -113,7 +113,7 @@ class Vendor extends W_Controller
                                 array('L_VendorID' => $data['Val_Vendor']));
 
                             if (!empty($ProfileData)) {
-                                $ProfileData = (object) $ProfileData[0];
+                                $ProfileData = (object)$ProfileData[0];
                                 $IdentityStatus = $ProfileData->P_IDCardStatus;
                                 $PersonalStatus = $ProfileData->P_PersonalStatus;
                                 $CurrentStatus = $ProfileData->P_CurrentStatus;
@@ -134,7 +134,7 @@ class Vendor extends W_Controller
 
 
                             if (!empty($AboutData)) {
-                                $AboutData = (object) $AboutData[0];
+                                $AboutData = (object)$AboutData[0];
                                 $AboutMeStatus = $AboutData->A_Status;
 
                             } else {
@@ -142,7 +142,7 @@ class Vendor extends W_Controller
                             }
 
                             if (!empty($WorksData)) {
-                                $WorksData = (object) $WorksData[0];
+                                $WorksData = (object)$WorksData[0];
                                 $WorksStatus = $WorksData->W_Status;
 
                             } else {
@@ -150,15 +150,15 @@ class Vendor extends W_Controller
                             }
 
                             if (!empty($LocationsData)) {
-                                $LocationsData = (object) $LocationsData[0];
+                                $LocationsData = (object)$LocationsData[0];
                                 $BusinessLocationStatus = $LocationsData->L_Status;
 
                             } else {
                                 $BusinessLocationStatus = '';
                             }
 
-                            $VendorFullName = $VendorData->V_FirstName." ".$VendorData->V_LastName;
-                            $VendorProfileImage = (!empty($VendorData->V_ProfileImage) ? UPLOAD_VENDOR_BASE_URL.$VendorData->VendorID.'/'.$VendorData->V_ProfileImage : "");
+                            $VendorFullName = $VendorData->V_FirstName . " " . $VendorData->V_LastName;
+                            $VendorProfileImage = (!empty($VendorData->V_ProfileImage) ? UPLOAD_VENDOR_BASE_URL . $VendorData->VendorID . '/' . $VendorData->V_ProfileImage : "");
                             $Record = array(
                                 'VendorID' => getStringValue($VendorData->VendorID),
                                 'FullName' => getStringValue($VendorFullName),
@@ -190,7 +190,7 @@ class Vendor extends W_Controller
                         } elseif ($VendorArray === false) {
                             $result = array(
                                 'status' => 'error', 'flag' => '2', 'message' => 'Vendor Record Not Fetched',
-                                'data' => (object) array()
+                                'data' => (object)array()
                             );
                         }
                     } else {
@@ -209,7 +209,7 @@ class Vendor extends W_Controller
                                     array('P_VendorID' => $data['Val_Vendor']));
 
                                 if (!empty($ProfileData)) {
-                                    $ProfileData = (object) $ProfileData[0];
+                                    $ProfileData = (object)$ProfileData[0];
                                     $IdentityStatus = $ProfileData->P_IDCardStatus;
                                     $PersonalStatus = $ProfileData->P_PersonalStatus;
                                     $CurrentStatus = $ProfileData->P_CurrentStatus;
@@ -234,7 +234,7 @@ class Vendor extends W_Controller
                                     $TermsStatus = '';
                                     $result = array(
                                         'status' => 'success', 'flag' => '1', 'message' => 'No Record Fetched',
-                                        'data' => (object) array()
+                                        'data' => (object)array()
                                     );
                                 }
 
@@ -242,7 +242,7 @@ class Vendor extends W_Controller
                             } elseif ($VendorData === false) {
                                 $result = array(
                                     'status' => 'error', 'flag' => '2', 'message' => 'Vendor Record Not Fetched',
-                                    'data' => (object) array()
+                                    'data' => (object)array()
                                 );
                             }
                         } else {
@@ -261,14 +261,14 @@ class Vendor extends W_Controller
                                         array('P_VendorID' => $data['Val_Vendor']));
 
                                     if (!empty($ProfileData)) {
-                                        $ProfileData = (object) $ProfileData[0];
+                                        $ProfileData = (object)$ProfileData[0];
                                         $IdentityStatus = $ProfileData->P_IDCardStatus;
                                         $PersonalStatus = $ProfileData->P_PersonalStatus;
                                         $CurrentStatus = $ProfileData->P_CurrentStatus;
                                         $TermsStatus = $ProfileData->P_TermsStatus;
 
-                                        $FrontImage = (!empty($ProfileData->P_IDCardFrontImage) ? UPLOAD_VENDOR_BASE_URL.$data['Val_Vendor'].'/'.$ProfileData->P_IDCardFrontImage : '');
-                                        $BackImage = (!empty($ProfileData->P_IDCardBackImage) ? UPLOAD_VENDOR_BASE_URL.$data['Val_Vendor'].'/'.$ProfileData->P_IDCardBackImage : '');
+                                        $FrontImage = (!empty($ProfileData->P_IDCardFrontImage) ? UPLOAD_VENDOR_BASE_URL . $data['Val_Vendor'] . '/' . $ProfileData->P_IDCardFrontImage : '');
+                                        $BackImage = (!empty($ProfileData->P_IDCardBackImage) ? UPLOAD_VENDOR_BASE_URL . $data['Val_Vendor'] . '/' . $ProfileData->P_IDCardBackImage : '');
 
                                         $Record = array(
                                             'VendorID' => getStringValue($data['Val_Vendor']),
@@ -308,7 +308,7 @@ class Vendor extends W_Controller
                                         $TermsStatus = '';
                                         $result = array(
                                             'status' => 'success', 'flag' => '1', 'message' => 'No Record Fetched',
-                                            'data' => (object) array()
+                                            'data' => (object)array()
                                         );
                                     }
 
@@ -316,7 +316,7 @@ class Vendor extends W_Controller
                                 } elseif ($VendorData === false) {
                                     $result = array(
                                         'status' => 'error', 'flag' => '2', 'message' => 'Vendor Record Not Fetched',
-                                        'data' => (object) array()
+                                        'data' => (object)array()
                                     );
                                 }
                             } else {
@@ -335,7 +335,7 @@ class Vendor extends W_Controller
                                             array('A_VendorID' => $data['Val_Vendor']));
 
                                         if (!empty($AboutData)) {
-                                            $AboutData = (object) $AboutData[0];
+                                            $AboutData = (object)$AboutData[0];
                                             $AStatus = $AboutData->A_Status;
 
                                             $WorkLinks = json_decode($AboutData->A_WorkLinks);
@@ -389,7 +389,7 @@ class Vendor extends W_Controller
 
                                             $result = array(
                                                 'status' => 'success', 'flag' => '1', 'message' => 'No Record Fetched',
-                                                'data' => (object) array()
+                                                'data' => (object)array()
                                             );
                                         }
 
@@ -397,7 +397,7 @@ class Vendor extends W_Controller
                                     } elseif ($VendorData === false) {
                                         $result = array(
                                             'status' => 'error', 'flag' => '2',
-                                            'message' => 'Vendor Record Not Fetched', 'data' => (object) array()
+                                            'message' => 'Vendor Record Not Fetched', 'data' => (object)array()
                                         );
                                     }
                                 } else {
@@ -418,7 +418,7 @@ class Vendor extends W_Controller
                                                 array('W_VendorID' => $data['Val_Vendor']));
 
                                             if (!empty($WorksData)) {
-                                                $WorksData = (object) $WorksData[0];
+                                                $WorksData = (object)$WorksData[0];
                                                 $WStatus = $WorksData->W_Status;
 
                                                 $WorksGallery = array();
@@ -428,7 +428,7 @@ class Vendor extends W_Controller
 
                                                 if (!empty($WorksGallery)) {
                                                     foreach ($WorksGallery as &$value) {
-                                                        $value = UPLOAD_VENDOR_BASE_URL.$data['Val_Vendor'].'/'.trim($value);
+                                                        $value = UPLOAD_VENDOR_BASE_URL . $data['Val_Vendor'] . '/' . trim($value);
                                                     }
                                                 } else {
                                                     $WorksGallery = array();
@@ -436,7 +436,7 @@ class Vendor extends W_Controller
                                                 $Record = array(
                                                     'VendorID' => getStringValue($data['Val_Vendor']),
                                                     'WorkID' => getStringValue($WorksData->VWorkID),
-                                                    'WorksGalleryCount' => (string) count($WorksGallery),
+                                                    'WorksGalleryCount' => (string)count($WorksGallery),
                                                     'WorksGallery' => $WorksGallery,
                                                     'WorkStatus' => getStringValue($WStatus),
                                                 );
@@ -449,7 +449,7 @@ class Vendor extends W_Controller
 
                                                 $result = array(
                                                     'status' => 'success', 'flag' => '1',
-                                                    'message' => 'No Record Fetched', 'data' => (object) array()
+                                                    'message' => 'No Record Fetched', 'data' => (object)array()
                                                 );
                                             }
 
@@ -457,7 +457,7 @@ class Vendor extends W_Controller
                                         } elseif ($VendorData === false) {
                                             $result = array(
                                                 'status' => 'error', 'flag' => '2',
-                                                'message' => 'Vendor Record Not Fetched', 'data' => (object) array()
+                                                'message' => 'Vendor Record Not Fetched', 'data' => (object)array()
                                             );
                                         }
                                     } else {
@@ -478,7 +478,7 @@ class Vendor extends W_Controller
                                                     array('L_VendorID' => $data['Val_Vendor']));
 
                                                 if (!empty($LocationData)) {
-                                                    $LocationData = (object) $LocationData[0];
+                                                    $LocationData = (object)$LocationData[0];
                                                     $LStatus = $LocationData->L_Status;
 
 
@@ -500,7 +500,7 @@ class Vendor extends W_Controller
 
                                                     $result = array(
                                                         'status' => 'success', 'flag' => '1',
-                                                        'message' => 'No Record Fetched', 'data' => (object) array()
+                                                        'message' => 'No Record Fetched', 'data' => (object)array()
                                                     );
                                                 }
 
@@ -508,7 +508,7 @@ class Vendor extends W_Controller
                                             } elseif ($VendorData === false) {
                                                 $result = array(
                                                     'status' => 'error', 'flag' => '2',
-                                                    'message' => 'Vendor Record Not Fetched', 'data' => (object) array()
+                                                    'message' => 'Vendor Record Not Fetched', 'data' => (object)array()
                                                 );
                                             }
                                         } else {
@@ -586,7 +586,7 @@ class Vendor extends W_Controller
                         array('A_RelationID' => $VendorData->VendorID, 'A_Type' => '2'));
 
                     $AddressRecords = array();
-                    $AddressCount = (string) count($AddressRecords);
+                    $AddressCount = (string)count($AddressRecords);
                     $AddressData = $AddressRecords;
                     if (!empty($AddressArray)) {
 
@@ -601,11 +601,11 @@ class Vendor extends W_Controller
                             );
                         }
                     }
-                    $AddressCount = (string) count($AddressRecords);
+                    $AddressCount = (string)count($AddressRecords);
                     $AddressData = $AddressRecords;
 
-                    $VendorFullName = $VendorData->V_FirstName." ".$VendorData->V_LastName;
-                    $VendorProfileImage = (!empty($VendorData->V_ProfileImage) ? UPLOAD_VENDOR_BASE_URL.$VendorData->VendorID.'/'.$VendorData->V_ProfileImage : '');
+                    $VendorFullName = $VendorData->V_FirstName . " " . $VendorData->V_LastName;
+                    $VendorProfileImage = (!empty($VendorData->V_ProfileImage) ? UPLOAD_VENDOR_BASE_URL . $VendorData->VendorID . '/' . $VendorData->V_ProfileImage : '');
 
                     $Record = array(
                         'VendorID' => getStringValue($VendorData->VendorID),
@@ -670,7 +670,7 @@ class Vendor extends W_Controller
                             array('A_RelationID' => $VendorData->VendorID, 'A_Type' => '2'));
 
                         $AddressRecords = array();
-                        $AddressCount = (string) count($AddressRecords);
+                        $AddressCount = (string)count($AddressRecords);
                         $AddressData = $AddressRecords;
                         if (!empty($AddressArray)) {
 
@@ -685,11 +685,11 @@ class Vendor extends W_Controller
                                 );
                             }
                         }
-                        $AddressCount = (string) count($AddressRecords);
+                        $AddressCount = (string)count($AddressRecords);
                         $AddressData = $AddressRecords;
 
-                        $VendorFullName = $VendorData->V_FirstName." ".$VendorData->V_LastName;
-                        $VendorProfileImage = (!empty($VendorData->V_ProfileImage) ? UPLOAD_VENDOR_BASE_URL.$VendorData->VendorID.'/'.$VendorData->V_ProfileImage : '');
+                        $VendorFullName = $VendorData->V_FirstName . " " . $VendorData->V_LastName;
+                        $VendorProfileImage = (!empty($VendorData->V_ProfileImage) ? UPLOAD_VENDOR_BASE_URL . $VendorData->VendorID . '/' . $VendorData->V_ProfileImage : '');
 
                         $Record = array(
                             'VendorID' => getStringValue($VendorData->VendorID),
@@ -746,7 +746,7 @@ class Vendor extends W_Controller
                             array('P_VendorID' => $data['Val_Vendor']));
 
                         if (!empty($ProfileData)) {
-                            $ProfileData = (object) $ProfileData[0];
+                            $ProfileData = (object)$ProfileData[0];
                             if ($data['Val_Type'] == '1') {
                                 $data['Val_Pidcardstatus'] = '2';
                                 $FrontImageStatus = handle_vendor_identity_front_image($data['Val_Vendor']);
@@ -791,7 +791,7 @@ class Vendor extends W_Controller
                                 } else {
                                     $result = array(
                                         'status' => 'warning', 'flag' => '3', 'message' => 'Something Important',
-                                        'data' => (object) array()
+                                        'data' => (object)array()
                                     );
                                 }
                             }
@@ -799,7 +799,7 @@ class Vendor extends W_Controller
                         } else {
                             $result = array(
                                 'status' => 'warning', 'flag' => '3', 'message' => 'Something Important',
-                                'data' => (object) array()
+                                'data' => (object)array()
                             );
                         }
 
@@ -817,7 +817,7 @@ class Vendor extends W_Controller
                                 array('A_VendorID' => $data['Val_Vendor']));
 
                             if (!empty($AboutData)) {
-                                $AboutData = (object) $AboutData[0];
+                                $AboutData = (object)$AboutData[0];
 
 
                                 if (!empty($data['Val_Abusinessname']) && !empty($data['Val_Abusinesspresence'])) {
@@ -848,7 +848,7 @@ class Vendor extends W_Controller
                                     } else {
                                         $result = array(
                                             'status' => 'warning', 'flag' => '3', 'message' => 'Something Important',
-                                            'data' => (object) array()
+                                            'data' => (object)array()
                                         );
                                     }
                                 }
@@ -856,7 +856,7 @@ class Vendor extends W_Controller
                             } else {
                                 $result = array(
                                     'status' => 'warning', 'flag' => '3', 'message' => 'Something Important',
-                                    'data' => (object) array()
+                                    'data' => (object)array()
                                 );
                             }
 
@@ -875,7 +875,7 @@ class Vendor extends W_Controller
                                     array('W_VendorID' => $data['Val_Vendor']));
 
                                 if (!empty($WorksData)) {
-                                    $WorksData = (object) $WorksData[0];
+                                    $WorksData = (object)$WorksData[0];
 
 
                                     $data['Val_Wstatus'] = '2';
@@ -905,7 +905,7 @@ class Vendor extends W_Controller
                                         } else {
                                             $result = array(
                                                 'status' => 'warning', 'flag' => '3',
-                                                'message' => 'Something Important', 'data' => (object) array()
+                                                'message' => 'Something Important', 'data' => (object)array()
                                             );
                                         }
                                     }
@@ -913,7 +913,7 @@ class Vendor extends W_Controller
                                 } else {
                                     $result = array(
                                         'status' => 'warning', 'flag' => '3', 'message' => 'Something Important',
-                                        'data' => (object) array()
+                                        'data' => (object)array()
                                     );
                                 }
 
@@ -932,7 +932,7 @@ class Vendor extends W_Controller
                                         array('L_VendorID' => $data['Val_Vendor']));
 
                                     if (!empty($LocationData)) {
-                                        $LocationData = (object) $LocationData[0];
+                                        $LocationData = (object)$LocationData[0];
 
 
                                         if (!empty($data['Val_Llocation']) && !empty($data['Val_Llatitude']) && !empty($data['Val_Llongitude']) && !empty($data['Val_Lradius'])) {
@@ -964,7 +964,7 @@ class Vendor extends W_Controller
                                             } else {
                                                 $result = array(
                                                     'status' => 'warning', 'flag' => '3',
-                                                    'message' => 'Something Important', 'data' => (object) array()
+                                                    'message' => 'Something Important', 'data' => (object)array()
                                                 );
                                             }
                                         }
@@ -972,7 +972,7 @@ class Vendor extends W_Controller
                                     } else {
                                         $result = array(
                                             'status' => 'warning', 'flag' => '3', 'message' => 'Something Important',
-                                            'data' => (object) array()
+                                            'data' => (object)array()
                                         );
                                     }
 
@@ -993,7 +993,7 @@ class Vendor extends W_Controller
                                             array('W_VendorID' => $data['Val_Vendor']));
 
                                         if (!empty($WorksData)) {
-                                            $WorksData = (object) $WorksData[0];
+                                            $WorksData = (object)$WorksData[0];
 
 
                                             $WorksGallery = json_decode($WorksData->W_WorksGallery);
@@ -1021,19 +1021,19 @@ class Vendor extends W_Controller
                                                 $result = array(
                                                     'status' => 'success', 'flag' => '1',
                                                     'message' => 'Vendor Works Image Delete Successfully',
-                                                    'data' => (object) array()
+                                                    'data' => (object)array()
                                                 );
                                             } else {
                                                 if ($success == false) {
                                                     $result = array(
                                                         'status' => 'error', 'flag' => '2',
                                                         'message' => 'Vendor Works Image Not Delete',
-                                                        'data' => (object) array()
+                                                        'data' => (object)array()
                                                     );
                                                 } else {
                                                     $result = array(
                                                         'status' => 'warning', 'flag' => '3',
-                                                        'message' => 'Something Important', 'data' => (object) array()
+                                                        'message' => 'Something Important', 'data' => (object)array()
                                                     );
                                                 }
                                             }
@@ -1041,7 +1041,7 @@ class Vendor extends W_Controller
                                         } else {
                                             $result = array(
                                                 'status' => 'warning', 'flag' => '3',
-                                                'message' => 'Something Important', 'data' => (object) array()
+                                                'message' => 'Something Important', 'data' => (object)array()
                                             );
                                         }
 
@@ -1073,7 +1073,7 @@ class Vendor extends W_Controller
                                                     array('L_VendorID' => $data['Val_Vendor']));
 
                                                 if (!empty($ProfileData)) {
-                                                    $ProfileData = (object) $ProfileData[0];
+                                                    $ProfileData = (object)$ProfileData[0];
                                                     $IdentityStatus = $ProfileData->P_IDCardStatus;
                                                     $PersonalStatus = $ProfileData->P_PersonalStatus;
                                                     $CurrentStatus = $ProfileData->P_CurrentStatus;
@@ -1094,7 +1094,7 @@ class Vendor extends W_Controller
 
 
                                                 if (!empty($AboutData)) {
-                                                    $AboutData = (object) $AboutData[0];
+                                                    $AboutData = (object)$AboutData[0];
                                                     $AboutMeStatus = $AboutData->A_Status;
 
                                                 } else {
@@ -1102,7 +1102,7 @@ class Vendor extends W_Controller
                                                 }
 
                                                 if (!empty($WorksData)) {
-                                                    $WorksData = (object) $WorksData[0];
+                                                    $WorksData = (object)$WorksData[0];
                                                     $WorksStatus = $WorksData->W_Status;
 
                                                 } else {
@@ -1110,15 +1110,15 @@ class Vendor extends W_Controller
                                                 }
 
                                                 if (!empty($LocationsData)) {
-                                                    $LocationsData = (object) $LocationsData[0];
+                                                    $LocationsData = (object)$LocationsData[0];
                                                     $BusinessLocationStatus = $LocationsData->L_Status;
 
                                                 } else {
                                                     $BusinessLocationStatus = '';
                                                 }
 
-                                                $VendorFullName = $VendorData->V_FirstName." ".$VendorData->V_LastName;
-                                                $VendorProfileImage = (!empty($VendorData->V_ProfileImage) ? UPLOAD_VENDOR_BASE_URL.$VendorData->VendorID.'/'.$VendorData->V_ProfileImage : "");
+                                                $VendorFullName = $VendorData->V_FirstName . " " . $VendorData->V_LastName;
+                                                $VendorProfileImage = (!empty($VendorData->V_ProfileImage) ? UPLOAD_VENDOR_BASE_URL . $VendorData->VendorID . '/' . $VendorData->V_ProfileImage : "");
                                                 $Record = array(
                                                     'VendorID' => getStringValue($VendorData->VendorID),
                                                     'FullName' => getStringValue($VendorFullName),
@@ -1156,19 +1156,19 @@ class Vendor extends W_Controller
                                                     $result = array(
                                                         'status' => 'error', 'flag' => '2',
                                                         'message' => 'Vendor Profile Not Submitted ',
-                                                        'data' => (object) array()
+                                                        'data' => (object)array()
                                                     );
                                                 } else {
                                                     $result = array(
                                                         'status' => 'warning', 'flag' => '3',
-                                                        'message' => 'Something Important', 'data' => (object) array()
+                                                        'message' => 'Something Important', 'data' => (object)array()
                                                     );
                                                 }
                                             }
                                         } else {
                                             $result = array(
                                                 'status' => 'info', 'flag' => '4', 'message' => 'Parameter Missing...',
-                                                'data' => (object) array()
+                                                'data' => (object)array()
                                             );
                                         }
 
@@ -1189,7 +1189,7 @@ class Vendor extends W_Controller
                                                         array('L_VendorID' => $data['Val_Vendor']));
 
                                                     if (!empty($ProfileData)) {
-                                                        $ProfileData = (object) $ProfileData[0];
+                                                        $ProfileData = (object)$ProfileData[0];
                                                         $IdentityStatus = $ProfileData->P_IDCardStatus;
                                                         $PersonalStatus = $ProfileData->P_PersonalStatus;
                                                         $CurrentStatus = $ProfileData->P_CurrentStatus;
@@ -1210,7 +1210,7 @@ class Vendor extends W_Controller
 
 
                                                     if (!empty($AboutData)) {
-                                                        $AboutData = (object) $AboutData[0];
+                                                        $AboutData = (object)$AboutData[0];
                                                         $AboutMeStatus = $AboutData->A_Status;
 
                                                     } else {
@@ -1218,7 +1218,7 @@ class Vendor extends W_Controller
                                                     }
 
                                                     if (!empty($WorksData)) {
-                                                        $WorksData = (object) $WorksData[0];
+                                                        $WorksData = (object)$WorksData[0];
                                                         $WorksStatus = $WorksData->W_Status;
 
                                                     } else {
@@ -1226,15 +1226,15 @@ class Vendor extends W_Controller
                                                     }
 
                                                     if (!empty($LocationsData)) {
-                                                        $LocationsData = (object) $LocationsData[0];
+                                                        $LocationsData = (object)$LocationsData[0];
                                                         $BusinessLocationStatus = $LocationsData->L_Status;
 
                                                     } else {
                                                         $BusinessLocationStatus = '';
                                                     }
 
-                                                    $VendorFullName = $VendorData->V_FirstName." ".$VendorData->V_LastName;
-                                                    $VendorProfileImage = (!empty($VendorData->V_ProfileImage) ? UPLOAD_VENDOR_BASE_URL.$VendorData->VendorID.'/'.$VendorData->V_ProfileImage : "");
+                                                    $VendorFullName = $VendorData->V_FirstName . " " . $VendorData->V_LastName;
+                                                    $VendorProfileImage = (!empty($VendorData->V_ProfileImage) ? UPLOAD_VENDOR_BASE_URL . $VendorData->VendorID . '/' . $VendorData->V_ProfileImage : "");
                                                     $Record = array(
                                                         'VendorID' => getStringValue($VendorData->VendorID),
                                                         'FullName' => getStringValue($VendorFullName),
@@ -1269,13 +1269,13 @@ class Vendor extends W_Controller
                                                     $result = array(
                                                         'status' => 'error', 'flag' => '2',
                                                         'message' => 'Vendor Profile Not Submitted ',
-                                                        'data' => (object) array()
+                                                        'data' => (object)array()
                                                     );
                                                 }
                                             } else {
                                                 $result = array(
                                                     'status' => 'info', 'flag' => '4',
-                                                    'message' => 'Parameter Missing...', 'data' => (object) array()
+                                                    'message' => 'Parameter Missing...', 'data' => (object)array()
                                                 );
                                             }
                                         } else {
@@ -1286,7 +1286,7 @@ class Vendor extends W_Controller
                                                         array('A_VendorID' => $data['Val_Vendor']));
 
                                                     if (!empty($AccountData)) {
-                                                        $AccountData = (object) $AccountData[0];
+                                                        $AccountData = (object)$AccountData[0];
 
 
                                                         if (!empty($data['Val_Aaccountname']) && !empty($data['Val_Aaccounttype']) && !empty($data['Val_Aaccountnumber']) && !empty($data['Val_Aifscnumber'])) {
@@ -1321,7 +1321,7 @@ class Vendor extends W_Controller
                                                                 $result = array(
                                                                     'status' => 'warning', 'flag' => '3',
                                                                     'message' => 'Something Important',
-                                                                    'data' => (object) array()
+                                                                    'data' => (object)array()
                                                                 );
                                                             }
                                                         }
@@ -1330,7 +1330,7 @@ class Vendor extends W_Controller
                                                         $result = array(
                                                             'status' => 'warning', 'flag' => '3',
                                                             'message' => 'Something Important',
-                                                            'data' => (object) array()
+                                                            'data' => (object)array()
                                                         );
                                                     }
 
@@ -1362,7 +1362,7 @@ class Vendor extends W_Controller
                                                                 ));
 
                                                             $AddressRecords = array();
-                                                            $AddressCount = (string) count($AddressRecords);
+                                                            $AddressCount = (string)count($AddressRecords);
                                                             $AddressData = $AddressRecords;
                                                             if (!empty($AddressArray)) {
 
@@ -1377,11 +1377,11 @@ class Vendor extends W_Controller
                                                                     );
                                                                 }
                                                             }
-                                                            $AddressCount = (string) count($AddressRecords);
+                                                            $AddressCount = (string)count($AddressRecords);
                                                             $AddressData = $AddressRecords;
 
-                                                            $VendorFullName = $VendorData->V_FirstName." ".$VendorData->V_LastName;
-                                                            $VendorProfileImage = (!empty($VendorData->V_ProfileImage) ? UPLOAD_VENDOR_BASE_URL.$VendorData->VendorID.'/'.$VendorData->V_ProfileImage : '');
+                                                            $VendorFullName = $VendorData->V_FirstName . " " . $VendorData->V_LastName;
+                                                            $VendorProfileImage = (!empty($VendorData->V_ProfileImage) ? UPLOAD_VENDOR_BASE_URL . $VendorData->VendorID . '/' . $VendorData->V_ProfileImage : '');
 
                                                             $Record = array(
                                                                 'VendorID' => getStringValue($VendorData->VendorID),
@@ -1447,7 +1447,7 @@ class Vendor extends W_Controller
                                                         if ($VendorData) {
                                                             $data['Val_Relation'] = $data['Val_Vendor'];
 
-                                                            $VendorFullName = $VendorData->C_FirstName." ".$VendorData->C_LastName;
+                                                            $VendorFullName = $VendorData->C_FirstName . " " . $VendorData->C_LastName;
                                                             //$VendorProfileImage = (!empty($VendorData->C_ProfileImage) ? UPLOAD_VENDOR_BASE_URL.$VendorData->VendorID.'/'.$VendorData->C_ProfileImage : NULL);
                                                             $Record = array(
                                                                 'VendorID' => getStringValue($VendorData->VendorID),
@@ -1565,7 +1565,7 @@ class Vendor extends W_Controller
                                                                         array('A_VendorID' => $data['Val_Vendor']));
 
                                                                     $AddressRecords = array();
-                                                                    $AddressCount = (string) count($AddressRecords);
+                                                                    $AddressCount = (string)count($AddressRecords);
                                                                     $AddressData = $AddressRecords;
                                                                     if (!empty($AddressArray)) {
 
@@ -1580,11 +1580,11 @@ class Vendor extends W_Controller
                                                                             );
                                                                         }
                                                                     }
-                                                                    $AddressCount = (string) count($AddressRecords);
+                                                                    $AddressCount = (string)count($AddressRecords);
                                                                     $AddressData = $AddressRecords;
                                                                     $OTPResponse = "";
 
-                                                                    $VendorFullName = getStringValue($VendorData->C_FirstName)." ".getStringValue($VendorData->C_LastName);
+                                                                    $VendorFullName = getStringValue($VendorData->C_FirstName) . " " . getStringValue($VendorData->C_LastName);
                                                                     $Record = array(
                                                                         'VendorID' => getStringValue($VendorData->VendorID),
                                                                         'FullName' => getStringValue($VendorFullName),
@@ -1651,7 +1651,7 @@ class Vendor extends W_Controller
                                                                             array('A_RelationID' => $VendorData->VendorID));
 
                                                                         $AddressRecords = array();
-                                                                        $AddressCount = (string) count($AddressRecords);
+                                                                        $AddressCount = (string)count($AddressRecords);
                                                                         $AddressData = $AddressRecords;
                                                                         if (!empty($AddressArray)) {
                                                                             foreach ($AddressArray as $Adress) {
@@ -1665,12 +1665,12 @@ class Vendor extends W_Controller
                                                                                 );
                                                                             }
                                                                         }
-                                                                        $AddressCount = (string) count($AddressRecords);
+                                                                        $AddressCount = (string)count($AddressRecords);
                                                                         $AddressData = $AddressRecords;
 
                                                                         $OTPResponse = "";
 
-                                                                        $VendorFullName = $VendorData->C_FirstName." ".$VendorData->C_LastName;
+                                                                        $VendorFullName = $VendorData->C_FirstName . " " . $VendorData->C_LastName;
                                                                         //$VendorProfileImage = (!empty($VendorData->C_ProfileImage) ? UPLOAD_VENDOR_BASE_URL.$VendorData->VendorID.'/'.$VendorData->C_ProfileImage : NULL);
                                                                         $Record = array(
                                                                             'VendorID' => getStringValue($VendorData->VendorID),
@@ -1729,7 +1729,7 @@ class Vendor extends W_Controller
                                                                         array('A_VendorID' => $data['Val_Vendor']));
 
                                                                     $AddressRecords = array();
-                                                                    $AddressCount = (string) count($AddressRecords);
+                                                                    $AddressCount = (string)count($AddressRecords);
                                                                     $AddressData = $AddressRecords;
                                                                     if (!empty($AddressArray)) {
 
@@ -1744,11 +1744,11 @@ class Vendor extends W_Controller
                                                                             );
                                                                         }
                                                                     }
-                                                                    $AddressCount = (string) count($AddressRecords);
+                                                                    $AddressCount = (string)count($AddressRecords);
                                                                     $AddressData = $AddressRecords;
                                                                     $OTPResponse = "";
 
-                                                                    $VendorFullName = getStringValue($VendorData->C_FirstName)." ".getStringValue($VendorData->C_LastName);
+                                                                    $VendorFullName = getStringValue($VendorData->C_FirstName) . " " . getStringValue($VendorData->C_LastName);
                                                                     $Record = array(
                                                                         'VendorID' => getStringValue($VendorData->VendorID),
                                                                         'FullName' => getStringValue($VendorFullName),
@@ -1861,7 +1861,7 @@ class Vendor extends W_Controller
 
             if (!empty($data['Val_Vendor'])) {
                 $OrderRecords = array();
-                $OrderRecordsCount = (string) count($OrderRecords);
+                $OrderRecordsCount = (string)count($OrderRecords);
                 $VendorData = $this->Vendors_model->getVendor($data['Val_Vendor']);
                 if (!empty($VendorData)) {
                     $CategoryData = $this->Categories_model->get($VendorData->V_CategoryID);
@@ -1884,7 +1884,7 @@ class Vendor extends W_Controller
                         $TotalSales = 0;
                         if (!empty($OrdersArray)) {
                             foreach ($OrdersArray as $OrderArray) {
-                                $OrderData = (object) $OrderArray;
+                                $OrderData = (object)$OrderArray;
 
                                 if (!empty($OrderData->CartID)) {
                                     //28:03:2019 08:41PM
@@ -1928,7 +1928,7 @@ class Vendor extends W_Controller
                                     'OrderName' => $OrderName,
                                     'OrderDate' => $OrderDate,
                                     'OrderTimeAgo' => $OrderTimeAgo,
-                                    'OrderTotal' => "Rs. ".getStringValue($OrderTotal),
+                                    'OrderTotal' => "Rs. " . getStringValue($OrderTotal),
                                 );
                             }
                         }
@@ -1940,37 +1940,37 @@ class Vendor extends W_Controller
                         //echo date("Y-m-d H:i:s",strtotime("-1 month"));
                         $TotalDays = cal_days_in_month(CAL_GREGORIAN, $LastMonth, $LastMonthYear);
 
-                        $StringDate = $LastMonthYear.'-'.$LastMonth.'-01';
+                        $StringDate = $LastMonthYear . '-' . $LastMonth . '-01';
                         $LastMonthDate = date('Y-m-d', strtotime($StringDate));
                         //5th
-                        $month_line_1 = date('Y-m-d', strtotime($LastMonthDate." +4 day"));
+                        $month_line_1 = date('Y-m-d', strtotime($LastMonthDate . " +4 day"));
                         $OrdersArray1 = $this->Cart_model->getCartTotal(null,
                             array('C_AssignedTo' => $data['Val_Vendor'], 'C_OrderStatus' => '4', 'C_Status' => '3'),
                             " DATE(C_BookedDttm) <= '$month_line_1' AND  DATE(C_BookedDttm) >= '$LastMonthDate' ");
 
                         //10th
-                        $month_line_2 = date('Y-m-d', strtotime($LastMonthDate." +9 day"));
+                        $month_line_2 = date('Y-m-d', strtotime($LastMonthDate . " +9 day"));
                         $OrdersArray2 = $this->Cart_model->getCartTotal(null,
                             array('C_AssignedTo' => $data['Val_Vendor'], 'C_OrderStatus' => '4', 'C_Status' => '3'),
                             " DATE(C_BookedDttm) <= '$month_line_2' AND  DATE(C_BookedDttm) > '$month_line_1' ");
 
                         //15th
-                        $month_line_3 = date('Y-m-d', strtotime($LastMonthDate." +14 day"));
+                        $month_line_3 = date('Y-m-d', strtotime($LastMonthDate . " +14 day"));
                         $OrdersArray3 = $this->Cart_model->getCartTotal(null,
                             array('C_AssignedTo' => $data['Val_Vendor'], 'C_OrderStatus' => '4', 'C_Status' => '3'),
                             " DATE(C_BookedDttm) <= '$month_line_3' AND  DATE(C_BookedDttm) > '$month_line_2' ");
                         //20th
-                        $month_line_4 = date('Y-m-d', strtotime($LastMonthDate." +19 day"));
+                        $month_line_4 = date('Y-m-d', strtotime($LastMonthDate . " +19 day"));
                         $OrdersArray4 = $this->Cart_model->getCartTotal(null,
                             array('C_AssignedTo' => $data['Val_Vendor'], 'C_OrderStatus' => '4', 'C_Status' => '3'),
                             " DATE(C_BookedDttm) <= '$month_line_4' AND  DATE(C_BookedDttm) > '$month_line_3' ");
                         //25th
-                        $month_line_5 = date('Y-m-d', strtotime($LastMonthDate." +24 day"));
+                        $month_line_5 = date('Y-m-d', strtotime($LastMonthDate . " +24 day"));
                         $OrdersArray5 = $this->Cart_model->getCartTotal(null,
                             array('C_AssignedTo' => $data['Val_Vendor'], 'C_OrderStatus' => '4', 'C_Status' => '3'),
                             " DATE(C_BookedDttm) <= '$month_line_5' AND  DATE(C_BookedDttm) > '$month_line_4' ");
                         //last day of month
-                        $month_line_last = date('Y-m-d', strtotime($LastMonthDate." next month - 1 hour"));
+                        $month_line_last = date('Y-m-d', strtotime($LastMonthDate . " next month - 1 hour"));
                         $OrdersArraylast = $this->Cart_model->getCartTotal(null,
                             array('C_AssignedTo' => $data['Val_Vendor'], 'C_OrderStatus' => '4', 'C_Status' => '3'),
                             " DATE(C_BookedDttm) <= '$month_line_last' AND  DATE(C_BookedDttm) > '$month_line_5' ");
@@ -2028,7 +2028,7 @@ class Vendor extends W_Controller
                         $Records['OrderRecords'] = $OrderRecords;
                         $Records['GraphRecords']['AxisValues'] = $AxisValues;
                         $Records['GraphRecords']['PointValues'] = $PointValues;
-                        $Records['GraphRecords']['TotalSales'] = 'Rs. '.number_format($TotalSales, '2');
+                        $Records['GraphRecords']['TotalSales'] = 'Rs. ' . number_format($TotalSales, '2');
                         $Records['MiscData'] = $MiscRecords;
 
                         $result = array(
@@ -2040,20 +2040,20 @@ class Vendor extends W_Controller
                     } else {
                         $result = array(
                             'status' => 'warning', 'flag' => '3', 'message' => 'Something Went Wrong...',
-                            'data' => (object) $Records
+                            'data' => (object)$Records
                         );
                     }
                 } else {
                     $result = array(
                         'status' => 'warning', 'flag' => '3', 'message' => 'Something Went Wrong...',
-                        'data' => (object) $Records
+                        'data' => (object)$Records
                     );
                 }
 
 
             } else {
                 $result = array(
-                    'status' => 'info', 'flag' => '4', 'message' => 'Parameters Missing...', 'data' => (object) $Records
+                    'status' => 'info', 'flag' => '4', 'message' => 'Parameters Missing...', 'data' => (object)$Records
                 );
             }
 
@@ -2062,7 +2062,7 @@ class Vendor extends W_Controller
 
                 if (!empty($data['Val_Vendor'])) {
                     $OrderRecords = array();
-                    $OrderRecordsCount = (string) count($OrderRecords);
+                    $OrderRecordsCount = (string)count($OrderRecords);
                     $VendorData = $this->Vendors_model->getVendor($data['Val_Vendor']);
                     if (!empty($VendorData)) {
                         $CategoryData = $this->Categories_model->get($VendorData->V_CategoryID);
@@ -2167,7 +2167,7 @@ class Vendor extends W_Controller
                                     ), " DATE(C_BookedDttm) = '$CurrentDate'");
 
                                     if (!empty($TodaysTotalOrdersArray)) {
-                                        $TotalOrdersToday = (string) count($TodaysTotalOrdersArray);
+                                        $TotalOrdersToday = (string)count($TodaysTotalOrdersArray);
                                     } else {
                                         $TotalOrdersToday = '0';
                                     }
@@ -2188,7 +2188,7 @@ class Vendor extends W_Controller
                                     ), " DATE(C_BookedDttm) = '$YesterdayDate'");
 
                                     if (!empty($YesterdaysTotalOrdersArray)) {
-                                        $TotalOrdersYesterday = (string) count($YesterdaysTotalOrdersArray);
+                                        $TotalOrdersYesterday = (string)count($YesterdaysTotalOrdersArray);
                                     } else {
                                         $TotalOrdersYesterday = '0';
                                     }
@@ -2202,9 +2202,9 @@ class Vendor extends W_Controller
 
                                     $Records['GraphRecords']['AxisValues'] = $AxisValues;
                                     $Records['GraphRecords']['PointValues'] = $PointValues;
-                                    $Records['GraphRecords']['TodaysRevenue'] = 'Rs. '.$OrdertotalToday;
+                                    $Records['GraphRecords']['TodaysRevenue'] = 'Rs. ' . $OrdertotalToday;
                                     $Records['GraphRecords']['TodaysOrders'] = $TotalOrdersToday;
-                                    $Records['GraphRecords']['YesterdaysRevenue'] = 'Rs. '.$OrdertotalYesterday;
+                                    $Records['GraphRecords']['YesterdaysRevenue'] = 'Rs. ' . $OrdertotalYesterday;
                                     $Records['GraphRecords']['YesterdaysOrders'] = $TotalOrdersYesterday;
                                     $Records['GraphRecords']['TotalSales'] = '';
 
@@ -2218,10 +2218,10 @@ class Vendor extends W_Controller
                                         //echo date("Y-m-d H:i:s",strtotime("-1 month"));
                                         $TotalDays = cal_days_in_month(CAL_GREGORIAN, $LastMonth, $LastMonthYear);
 
-                                        $StringDate = $LastMonthYear.'-'.$LastMonth.'-01';
+                                        $StringDate = $LastMonthYear . '-' . $LastMonth . '-01';
                                         $LastMonthDate = date('Y-m-d', strtotime($StringDate));
                                         //5th
-                                        $month_line_1 = date('Y-m-d', strtotime($LastMonthDate." +4 day"));
+                                        $month_line_1 = date('Y-m-d', strtotime($LastMonthDate . " +4 day"));
                                         $OrdersArray1 = $this->Cart_model->getProductsCartTotal(null, array(
                                             'PC_AssignedTo' => $data['Val_Vendor'], 'PC_OrderStatus' => '4',
                                             'PC_Status' => '3'
@@ -2229,7 +2229,7 @@ class Vendor extends W_Controller
                                             " DATE(PC_BookedDttm) <= '$month_line_1' AND  DATE(PC_BookedDttm) >= '$LastMonthDate' ");
 
                                         //10th
-                                        $month_line_2 = date('Y-m-d', strtotime($LastMonthDate." +9 day"));
+                                        $month_line_2 = date('Y-m-d', strtotime($LastMonthDate . " +9 day"));
                                         $OrdersArray2 = $this->Cart_model->getProductsCartTotal(null, array(
                                             'PC_AssignedTo' => $data['Val_Vendor'], 'PC_OrderStatus' => '4',
                                             'PC_Status' => '3'
@@ -2237,21 +2237,21 @@ class Vendor extends W_Controller
                                             " DATE(PC_BookedDttm) <= '$month_line_2' AND  DATE(PC_BookedDttm) > '$month_line_1' ");
 
                                         //15th
-                                        $month_line_3 = date('Y-m-d', strtotime($LastMonthDate." +14 day"));
+                                        $month_line_3 = date('Y-m-d', strtotime($LastMonthDate . " +14 day"));
                                         $OrdersArray3 = $this->Cart_model->getProductsCartTotal(null, array(
                                             'PC_AssignedTo' => $data['Val_Vendor'], 'PC_OrderStatus' => '4',
                                             'PC_Status' => '3'
                                         ),
                                             " DATE(PC_BookedDttm) <= '$month_line_3' AND  DATE(PC_BookedDttm) > '$month_line_2' ");
                                         //20th
-                                        $month_line_4 = date('Y-m-d', strtotime($LastMonthDate." +19 day"));
+                                        $month_line_4 = date('Y-m-d', strtotime($LastMonthDate . " +19 day"));
                                         $OrdersArray4 = $this->Cart_model->getProductsCartTotal(null, array(
                                             'PC_AssignedTo' => $data['Val_Vendor'], 'PC_OrderStatus' => '4',
                                             'PC_Status' => '3'
                                         ),
                                             " DATE(PC_BookedDttm) <= '$month_line_4' AND  DATE(PC_BookedDttm) > '$month_line_3' ");
                                         //25th
-                                        $month_line_5 = date('Y-m-d', strtotime($LastMonthDate." +24 day"));
+                                        $month_line_5 = date('Y-m-d', strtotime($LastMonthDate . " +24 day"));
                                         $OrdersArray5 = $this->Cart_model->getProductsCartTotal(null, array(
                                             'PC_AssignedTo' => $data['Val_Vendor'], 'PC_OrderStatus' => '4',
                                             'PC_Status' => '3'
@@ -2259,7 +2259,7 @@ class Vendor extends W_Controller
                                             " DATE(PC_BookedDttm) <= '$month_line_5' AND  DATE(PC_BookedDttm) > '$month_line_4' ");
                                         //last day of month
                                         $month_line_last = date('Y-m-d',
-                                            strtotime($LastMonthDate." next month - 1 hour"));
+                                            strtotime($LastMonthDate . " next month - 1 hour"));
                                         $OrdersArraylast = $this->Cart_model->getProductsCartTotal(null, array(
                                             'PC_AssignedTo' => $data['Val_Vendor'], 'PC_OrderStatus' => '4',
                                             'PC_Status' => '3'
@@ -2325,7 +2325,7 @@ class Vendor extends W_Controller
                                         ), " DATE(PC_BookedDttm) = '$CurrentDate'");
 
                                         if (!empty($TodaysTotalOrdersArray)) {
-                                            $TotalOrdersToday = (string) count($TodaysTotalOrdersArray);
+                                            $TotalOrdersToday = (string)count($TodaysTotalOrdersArray);
                                         } else {
                                             $TotalOrdersToday = '0';
                                         }
@@ -2348,7 +2348,7 @@ class Vendor extends W_Controller
                                         ), " DATE(PC_BookedDttm) = '$YesterdayDate'");
 
                                         if (!empty($YesterdaysTotalOrdersArray)) {
-                                            $TotalOrdersYesterday = (string) count($YesterdaysTotalOrdersArray);
+                                            $TotalOrdersYesterday = (string)count($YesterdaysTotalOrdersArray);
                                         } else {
                                             $TotalOrdersYesterday = '0';
                                         }
@@ -2362,9 +2362,9 @@ class Vendor extends W_Controller
 
                                         $Records['GraphRecords']['AxisValues'] = $AxisValues;
                                         $Records['GraphRecords']['PointValues'] = $PointValues;
-                                        $Records['GraphRecords']['TodaysRevenue'] = 'Rs. '.$OrdertotalToday;
+                                        $Records['GraphRecords']['TodaysRevenue'] = 'Rs. ' . $OrdertotalToday;
                                         $Records['GraphRecords']['TodaysOrders'] = $TotalOrdersToday;
-                                        $Records['GraphRecords']['YesterdaysRevenue'] = 'Rs. '.$OrdertotalYesterday;
+                                        $Records['GraphRecords']['YesterdaysRevenue'] = 'Rs. ' . $OrdertotalYesterday;
                                         $Records['GraphRecords']['YesterdaysOrders'] = $TotalOrdersYesterday;
                                         $Records['GraphRecords']['TotalSales'] = 'Rs. 1234.00';
 
@@ -2379,10 +2379,10 @@ class Vendor extends W_Controller
                                             $TotalDays = cal_days_in_month(CAL_GREGORIAN, $Last3rdMonth,
                                                 $Last3rdMonthYear);
 
-                                            $StringDate = $Last3rdMonthYear.'-'.$Last3rdMonth.'-01';
+                                            $StringDate = $Last3rdMonthYear . '-' . $Last3rdMonth . '-01';
                                             $LastMonthDate = date('Y-m-d', strtotime($StringDate));
                                             //5th
-                                            $month_line_1 = date('Y-m-d', strtotime($LastMonthDate." +15 day"));
+                                            $month_line_1 = date('Y-m-d', strtotime($LastMonthDate . " +15 day"));
                                             $OrdersArray1 = $this->Cart_model->getRestaurantsCartTotal(null, array(
                                                 'RC_AssignedTo' => $data['Val_Vendor'], 'RC_OrderStatus' => '4',
                                                 'RC_Status' => '3'
@@ -2391,7 +2391,7 @@ class Vendor extends W_Controller
 
                                             //10th
                                             $month_line_2 = date('Y-m-d',
-                                                strtotime($LastMonthDate." next month - 1 hour"));
+                                                strtotime($LastMonthDate . " next month - 1 hour"));
                                             $OrdersArray2 = $this->Cart_model->getRestaurantsCartTotal(null, array(
                                                 'RC_AssignedTo' => $data['Val_Vendor'], 'RC_OrderStatus' => '4',
                                                 'RC_Status' => '3'
@@ -2399,7 +2399,7 @@ class Vendor extends W_Controller
                                                 " DATE(RC_BookedDttm) <= '$month_line_2' AND  DATE(RC_BookedDttm) > '$month_line_1' ");
 
                                             //15th
-                                            $month_line_3 = date('Y-m-d', strtotime($LastMonthDate." +45 day"));
+                                            $month_line_3 = date('Y-m-d', strtotime($LastMonthDate . " +45 day"));
                                             $OrdersArray3 = $this->Cart_model->getRestaurantsCartTotal(null, array(
                                                 'RC_AssignedTo' => $data['Val_Vendor'], 'RC_OrderStatus' => '4',
                                                 'RC_Status' => '3'
@@ -2407,14 +2407,14 @@ class Vendor extends W_Controller
                                                 " DATE(RC_BookedDttm) <= '$month_line_3' AND  DATE(RC_BookedDttm) > '$month_line_2' ");
                                             //20th
                                             $month_line_4 = date('Y-m-d',
-                                                strtotime($LastMonthDate."  +2 month - 1 hour"));
+                                                strtotime($LastMonthDate . "  +2 month - 1 hour"));
                                             $OrdersArray4 = $this->Cart_model->getRestaurantsCartTotal(null, array(
                                                 'RC_AssignedTo' => $data['Val_Vendor'], 'RC_OrderStatus' => '4',
                                                 'RC_Status' => '3'
                                             ),
                                                 " DATE(RC_BookedDttm) <= '$month_line_4' AND  DATE(RC_BookedDttm) > '$month_line_3' ");
                                             //25th
-                                            $month_line_5 = date('Y-m-d', strtotime($LastMonthDate." +75 day"));
+                                            $month_line_5 = date('Y-m-d', strtotime($LastMonthDate . " +75 day"));
                                             $OrdersArray5 = $this->Cart_model->getRestaurantsCartTotal(null, array(
                                                 'RC_AssignedTo' => $data['Val_Vendor'], 'RC_OrderStatus' => '4',
                                                 'RC_Status' => '3'
@@ -2422,7 +2422,7 @@ class Vendor extends W_Controller
                                                 " DATE(RC_BookedDttm) <= '$month_line_5' AND  DATE(RC_BookedDttm) > '$month_line_4' ");
                                             //last day of month
                                             $month_line_last = date('Y-m-d',
-                                                strtotime($LastMonthDate." +3 month - 1 hour"));
+                                                strtotime($LastMonthDate . " +3 month - 1 hour"));
                                             $OrdersArraylast = $this->Cart_model->getRestaurantsCartTotal(null, array(
                                                 'RC_AssignedTo' => $data['Val_Vendor'], 'RC_OrderStatus' => '4',
                                                 'RC_Status' => '3'
@@ -2488,7 +2488,7 @@ class Vendor extends W_Controller
                                             ), " DATE(RC_BookedDttm) = '$CurrentDate'");
 
                                             if (!empty($TodaysTotalOrdersArray)) {
-                                                $TotalOrdersToday = (string) count($TodaysTotalOrdersArray);
+                                                $TotalOrdersToday = (string)count($TodaysTotalOrdersArray);
                                             } else {
                                                 $TotalOrdersToday = '0';
                                             }
@@ -2513,7 +2513,7 @@ class Vendor extends W_Controller
                                                 ), " DATE(RC_BookedDttm) = '$YesterdayDate'");
 
                                             if (!empty($YesterdaysTotalOrdersArray)) {
-                                                $TotalOrdersYesterday = (string) count($YesterdaysTotalOrdersArray);
+                                                $TotalOrdersYesterday = (string)count($YesterdaysTotalOrdersArray);
                                             } else {
                                                 $TotalOrdersYesterday = '0';
                                             }
@@ -2527,9 +2527,9 @@ class Vendor extends W_Controller
 
                                             $Records['GraphRecords']['AxisValues'] = $AxisValues;
                                             $Records['GraphRecords']['PointValues'] = $PointValues;
-                                            $Records['GraphRecords']['TodaysRevenue'] = 'Rs. '.$OrdertotalToday;
+                                            $Records['GraphRecords']['TodaysRevenue'] = 'Rs. ' . $OrdertotalToday;
                                             $Records['GraphRecords']['TodaysOrders'] = $TotalOrdersToday;
-                                            $Records['GraphRecords']['YesterdaysRevenue'] = 'Rs. '.$OrdertotalYesterday;
+                                            $Records['GraphRecords']['YesterdaysRevenue'] = 'Rs. ' . $OrdertotalYesterday;
                                             $Records['GraphRecords']['YesterdaysOrders'] = $TotalOrdersYesterday;
                                             $Records['GraphRecords']['TotalSales'] = 'Rs. 1234.00';
 
@@ -2643,7 +2643,7 @@ class Vendor extends W_Controller
                                         ), " DATE(C_BookedDttm) = '$CurrentDate'");
 
                                         if (!empty($TodaysTotalOrdersArray)) {
-                                            $TotalOrdersToday = (string) count($TodaysTotalOrdersArray);
+                                            $TotalOrdersToday = (string)count($TodaysTotalOrdersArray);
                                         } else {
                                             $TotalOrdersToday = '0';
                                         }
@@ -2666,7 +2666,7 @@ class Vendor extends W_Controller
                                         ), " DATE(C_BookedDttm) = '$YesterdayDate'");
 
                                         if (!empty($YesterdaysTotalOrdersArray)) {
-                                            $TotalOrdersYesterday = (string) count($YesterdaysTotalOrdersArray);
+                                            $TotalOrdersYesterday = (string)count($YesterdaysTotalOrdersArray);
                                         } else {
                                             $TotalOrdersYesterday = '0';
                                         }
@@ -2680,9 +2680,9 @@ class Vendor extends W_Controller
 
                                         $Records['GraphRecords']['AxisValues'] = $AxisValues;
                                         $Records['GraphRecords']['PointValues'] = $PointValues;
-                                        $Records['GraphRecords']['TodaysRevenue'] = 'Rs. '.$OrdertotalToday;
+                                        $Records['GraphRecords']['TodaysRevenue'] = 'Rs. ' . $OrdertotalToday;
                                         $Records['GraphRecords']['TodaysOrders'] = $TotalOrdersToday;
-                                        $Records['GraphRecords']['YesterdaysRevenue'] = 'Rs. '.$OrdertotalYesterday;
+                                        $Records['GraphRecords']['YesterdaysRevenue'] = 'Rs. ' . $OrdertotalYesterday;
                                         $Records['GraphRecords']['YesterdaysOrders'] = $TotalOrdersYesterday;
                                         $Records['GraphRecords']['TotalSales'] = 'Rs. 1234.00';
 
@@ -2696,10 +2696,10 @@ class Vendor extends W_Controller
                                             //echo date("Y-m-d H:i:s",strtotime("-1 month"));
                                             $TotalDays = cal_days_in_month(CAL_GREGORIAN, $LastMonth, $LastMonthYear);
 
-                                            $StringDate = $LastMonthYear.'-'.$LastMonth.'-01';
+                                            $StringDate = $LastMonthYear . '-' . $LastMonth . '-01';
                                             $LastMonthDate = date('Y-m-d', strtotime($StringDate));
                                             //5th
-                                            $month_line_1 = date('Y-m-d', strtotime($LastMonthDate." +4 day"));
+                                            $month_line_1 = date('Y-m-d', strtotime($LastMonthDate . " +4 day"));
                                             $OrdersArray1 = $this->Cart_model->getProductsCartTotal(null, array(
                                                 'PC_AssignedTo' => $data['Val_Vendor'], 'PC_OrderStatus' => '4',
                                                 'PC_Status' => '3'
@@ -2707,7 +2707,7 @@ class Vendor extends W_Controller
                                                 " DATE(PC_BookedDttm) <= '$month_line_1' AND  DATE(PC_BookedDttm) >= '$LastMonthDate' ");
 
                                             //10th
-                                            $month_line_2 = date('Y-m-d', strtotime($LastMonthDate." +9 day"));
+                                            $month_line_2 = date('Y-m-d', strtotime($LastMonthDate . " +9 day"));
                                             $OrdersArray2 = $this->Cart_model->getProductsCartTotal(null, array(
                                                 'PC_AssignedTo' => $data['Val_Vendor'], 'PC_OrderStatus' => '4',
                                                 'PC_Status' => '3'
@@ -2715,21 +2715,21 @@ class Vendor extends W_Controller
                                                 " DATE(PC_BookedDttm) <= '$month_line_2' AND  DATE(PC_BookedDttm) > '$month_line_1' ");
 
                                             //15th
-                                            $month_line_3 = date('Y-m-d', strtotime($LastMonthDate." +14 day"));
+                                            $month_line_3 = date('Y-m-d', strtotime($LastMonthDate . " +14 day"));
                                             $OrdersArray3 = $this->Cart_model->getProductsCartTotal(null, array(
                                                 'PC_AssignedTo' => $data['Val_Vendor'], 'PC_OrderStatus' => '4',
                                                 'PC_Status' => '3'
                                             ),
                                                 " DATE(PC_BookedDttm) <= '$month_line_3' AND  DATE(PC_BookedDttm) > '$month_line_2' ");
                                             //20th
-                                            $month_line_4 = date('Y-m-d', strtotime($LastMonthDate." +19 day"));
+                                            $month_line_4 = date('Y-m-d', strtotime($LastMonthDate . " +19 day"));
                                             $OrdersArray4 = $this->Cart_model->getProductsCartTotal(null, array(
                                                 'PC_AssignedTo' => $data['Val_Vendor'], 'PC_OrderStatus' => '4',
                                                 'PC_Status' => '3'
                                             ),
                                                 " DATE(PC_BookedDttm) <= '$month_line_4' AND  DATE(PC_BookedDttm) > '$month_line_3' ");
                                             //25th
-                                            $month_line_5 = date('Y-m-d', strtotime($LastMonthDate." +24 day"));
+                                            $month_line_5 = date('Y-m-d', strtotime($LastMonthDate . " +24 day"));
                                             $OrdersArray5 = $this->Cart_model->getProductsCartTotal(null, array(
                                                 'PC_AssignedTo' => $data['Val_Vendor'], 'PC_OrderStatus' => '4',
                                                 'PC_Status' => '3'
@@ -2737,7 +2737,7 @@ class Vendor extends W_Controller
                                                 " DATE(PC_BookedDttm) <= '$month_line_5' AND  DATE(PC_BookedDttm) > '$month_line_4' ");
                                             //last day of month
                                             $month_line_last = date('Y-m-d',
-                                                strtotime($LastMonthDate." next month - 1 hour"));
+                                                strtotime($LastMonthDate . " next month - 1 hour"));
                                             $OrdersArraylast = $this->Cart_model->getProductsCartTotal(null, array(
                                                 'PC_AssignedTo' => $data['Val_Vendor'], 'PC_OrderStatus' => '4',
                                                 'PC_Status' => '3'
@@ -2803,7 +2803,7 @@ class Vendor extends W_Controller
                                             ), " DATE(PC_BookedDttm) = '$CurrentDate'");
 
                                             if (!empty($TodaysTotalOrdersArray)) {
-                                                $TotalOrdersToday = (string) count($TodaysTotalOrdersArray);
+                                                $TotalOrdersToday = (string)count($TodaysTotalOrdersArray);
                                             } else {
                                                 $TotalOrdersToday = '0';
                                             }
@@ -2828,7 +2828,7 @@ class Vendor extends W_Controller
                                                 ), " DATE(PC_BookedDttm) = '$YesterdayDate'");
 
                                             if (!empty($YesterdaysTotalOrdersArray)) {
-                                                $TotalOrdersYesterday = (string) count($YesterdaysTotalOrdersArray);
+                                                $TotalOrdersYesterday = (string)count($YesterdaysTotalOrdersArray);
                                             } else {
                                                 $TotalOrdersYesterday = '0';
                                             }
@@ -2843,9 +2843,9 @@ class Vendor extends W_Controller
 
                                             $Records['GraphRecords']['AxisValues'] = $AxisValues;
                                             $Records['GraphRecords']['PointValues'] = $PointValues;
-                                            $Records['GraphRecords']['TodaysRevenue'] = 'Rs. '.$OrdertotalToday;
+                                            $Records['GraphRecords']['TodaysRevenue'] = 'Rs. ' . $OrdertotalToday;
                                             $Records['GraphRecords']['TodaysOrders'] = $TotalOrdersToday;
-                                            $Records['GraphRecords']['YesterdaysRevenue'] = 'Rs. '.$OrdertotalYesterday;
+                                            $Records['GraphRecords']['YesterdaysRevenue'] = 'Rs. ' . $OrdertotalYesterday;
                                             $Records['GraphRecords']['YesterdaysOrders'] = $TotalOrdersYesterday;
                                             $Records['GraphRecords']['TotalSales'] = 'Rs. 1234.00';
 
@@ -2860,10 +2860,10 @@ class Vendor extends W_Controller
                                                 $TotalDays = cal_days_in_month(CAL_GREGORIAN, $Last3rdMonth,
                                                     $Last3rdMonthYear);
 
-                                                $StringDate = $Last3rdMonthYear.'-'.$Last3rdMonth.'-01';
+                                                $StringDate = $Last3rdMonthYear . '-' . $Last3rdMonth . '-01';
                                                 $LastMonthDate = date('Y-m-d', strtotime($StringDate));
                                                 //5th
-                                                $month_line_1 = date('Y-m-d', strtotime($LastMonthDate." +15 day"));
+                                                $month_line_1 = date('Y-m-d', strtotime($LastMonthDate . " +15 day"));
                                                 $OrdersArray1 = $this->Cart_model->getRestaurantsCartTotal(null, array(
                                                     'RC_AssignedTo' => $data['Val_Vendor'], 'RC_OrderStatus' => '4',
                                                     'RC_Status' => '3'
@@ -2872,7 +2872,7 @@ class Vendor extends W_Controller
 
                                                 //10th
                                                 $month_line_2 = date('Y-m-d',
-                                                    strtotime($LastMonthDate." next month - 1 hour"));
+                                                    strtotime($LastMonthDate . " next month - 1 hour"));
                                                 $OrdersArray2 = $this->Cart_model->getRestaurantsCartTotal(null, array(
                                                     'RC_AssignedTo' => $data['Val_Vendor'], 'RC_OrderStatus' => '4',
                                                     'RC_Status' => '3'
@@ -2880,7 +2880,7 @@ class Vendor extends W_Controller
                                                     " DATE(RC_BookedDttm) <= '$month_line_2' AND  DATE(RC_BookedDttm) > '$month_line_1' ");
 
                                                 //15th
-                                                $month_line_3 = date('Y-m-d', strtotime($LastMonthDate." +45 day"));
+                                                $month_line_3 = date('Y-m-d', strtotime($LastMonthDate . " +45 day"));
                                                 $OrdersArray3 = $this->Cart_model->getRestaurantsCartTotal(null, array(
                                                     'RC_AssignedTo' => $data['Val_Vendor'], 'RC_OrderStatus' => '4',
                                                     'RC_Status' => '3'
@@ -2888,14 +2888,14 @@ class Vendor extends W_Controller
                                                     " DATE(RC_BookedDttm) <= '$month_line_3' AND  DATE(RC_BookedDttm) > '$month_line_2' ");
                                                 //20th
                                                 $month_line_4 = date('Y-m-d',
-                                                    strtotime($LastMonthDate."  +2 month - 1 hour"));
+                                                    strtotime($LastMonthDate . "  +2 month - 1 hour"));
                                                 $OrdersArray4 = $this->Cart_model->getRestaurantsCartTotal(null, array(
                                                     'RC_AssignedTo' => $data['Val_Vendor'], 'RC_OrderStatus' => '4',
                                                     'RC_Status' => '3'
                                                 ),
                                                     " DATE(RC_BookedDttm) <= '$month_line_4' AND  DATE(RC_BookedDttm) > '$month_line_3' ");
                                                 //25th
-                                                $month_line_5 = date('Y-m-d', strtotime($LastMonthDate." +75 day"));
+                                                $month_line_5 = date('Y-m-d', strtotime($LastMonthDate . " +75 day"));
                                                 $OrdersArray5 = $this->Cart_model->getRestaurantsCartTotal(null, array(
                                                     'RC_AssignedTo' => $data['Val_Vendor'], 'RC_OrderStatus' => '4',
                                                     'RC_Status' => '3'
@@ -2903,7 +2903,7 @@ class Vendor extends W_Controller
                                                     " DATE(RC_BookedDttm) <= '$month_line_5' AND  DATE(RC_BookedDttm) > '$month_line_4' ");
                                                 //last day of month
                                                 $month_line_last = date('Y-m-d',
-                                                    strtotime($LastMonthDate." +3 month - 1 hour"));
+                                                    strtotime($LastMonthDate . " +3 month - 1 hour"));
                                                 $OrdersArraylast = $this->Cart_model->getRestaurantsCartTotal(null,
                                                     array(
                                                         'RC_AssignedTo' => $data['Val_Vendor'], 'RC_OrderStatus' => '4',
@@ -2973,7 +2973,7 @@ class Vendor extends W_Controller
                                                     ), " DATE(RC_BookedDttm) = '$CurrentDate'");
 
                                                 if (!empty($TodaysTotalOrdersArray)) {
-                                                    $TotalOrdersToday = (string) count($TodaysTotalOrdersArray);
+                                                    $TotalOrdersToday = (string)count($TodaysTotalOrdersArray);
                                                 } else {
                                                     $TotalOrdersToday = '0';
                                                 }
@@ -2998,7 +2998,7 @@ class Vendor extends W_Controller
                                                     ), " DATE(RC_BookedDttm) = '$YesterdayDate'");
 
                                                 if (!empty($YesterdaysTotalOrdersArray)) {
-                                                    $TotalOrdersYesterday = (string) count($YesterdaysTotalOrdersArray);
+                                                    $TotalOrdersYesterday = (string)count($YesterdaysTotalOrdersArray);
                                                 } else {
                                                     $TotalOrdersYesterday = '0';
                                                 }
@@ -3013,9 +3013,9 @@ class Vendor extends W_Controller
 
                                                 $Records['GraphRecords']['AxisValues'] = $AxisValues;
                                                 $Records['GraphRecords']['PointValues'] = $PointValues;
-                                                $Records['GraphRecords']['TodaysRevenue'] = 'Rs. '.$OrdertotalToday;
+                                                $Records['GraphRecords']['TodaysRevenue'] = 'Rs. ' . $OrdertotalToday;
                                                 $Records['GraphRecords']['TodaysOrders'] = $TotalOrdersToday;
-                                                $Records['GraphRecords']['YesterdaysRevenue'] = 'Rs. '.$OrdertotalYesterday;
+                                                $Records['GraphRecords']['YesterdaysRevenue'] = 'Rs. ' . $OrdertotalYesterday;
                                                 $Records['GraphRecords']['YesterdaysOrders'] = $TotalOrdersYesterday;
                                                 $Records['GraphRecords']['TotalSales'] = 'Rs. 1234.00';
 
@@ -3131,7 +3131,7 @@ class Vendor extends W_Controller
                                             ), " DATE(C_BookedDttm) = '$CurrentDate'");
 
                                             if (!empty($TodaysTotalOrdersArray)) {
-                                                $TotalOrdersToday = (string) count($TodaysTotalOrdersArray);
+                                                $TotalOrdersToday = (string)count($TodaysTotalOrdersArray);
                                             } else {
                                                 $TotalOrdersToday = '0';
                                             }
@@ -3154,7 +3154,7 @@ class Vendor extends W_Controller
                                             ), " DATE(C_BookedDttm) = '$YesterdayDate'");
 
                                             if (!empty($YesterdaysTotalOrdersArray)) {
-                                                $TotalOrdersYesterday = (string) count($YesterdaysTotalOrdersArray);
+                                                $TotalOrdersYesterday = (string)count($YesterdaysTotalOrdersArray);
                                             } else {
                                                 $TotalOrdersYesterday = '0';
                                             }
@@ -3169,9 +3169,9 @@ class Vendor extends W_Controller
 
                                             $Records['GraphRecords']['AxisValues'] = $AxisValues;
                                             $Records['GraphRecords']['PointValues'] = $PointValues;
-                                            $Records['GraphRecords']['TodaysRevenue'] = 'Rs. '.$OrdertotalToday;
+                                            $Records['GraphRecords']['TodaysRevenue'] = 'Rs. ' . $OrdertotalToday;
                                             $Records['GraphRecords']['TodaysOrders'] = $TotalOrdersToday;
-                                            $Records['GraphRecords']['YesterdaysRevenue'] = 'Rs. '.$OrdertotalYesterday;
+                                            $Records['GraphRecords']['YesterdaysRevenue'] = 'Rs. ' . $OrdertotalYesterday;
                                             $Records['GraphRecords']['YesterdaysOrders'] = $TotalOrdersYesterday;
                                             $Records['GraphRecords']['TotalSales'] = 'Rs. 1234.00';
 
@@ -3186,10 +3186,10 @@ class Vendor extends W_Controller
                                                 $TotalDays = cal_days_in_month(CAL_GREGORIAN, $LastMonth,
                                                     $LastMonthYear);
 
-                                                $StringDate = $LastMonthYear.'-'.$LastMonth.'-01';
+                                                $StringDate = $LastMonthYear . '-' . $LastMonth . '-01';
                                                 $LastMonthDate = date('Y-m-d', strtotime($StringDate));
                                                 //5th
-                                                $month_line_1 = date('Y-m-d', strtotime($LastMonthDate." +4 day"));
+                                                $month_line_1 = date('Y-m-d', strtotime($LastMonthDate . " +4 day"));
                                                 $OrdersArray1 = $this->Cart_model->getProductsCartTotal(null, array(
                                                     'PC_AssignedTo' => $data['Val_Vendor'], 'PC_OrderStatus' => '4',
                                                     'PC_Status' => '3'
@@ -3197,7 +3197,7 @@ class Vendor extends W_Controller
                                                     " DATE(PC_BookedDttm) <= '$month_line_1' AND  DATE(PC_BookedDttm) >= '$LastMonthDate' ");
 
                                                 //10th
-                                                $month_line_2 = date('Y-m-d', strtotime($LastMonthDate." +9 day"));
+                                                $month_line_2 = date('Y-m-d', strtotime($LastMonthDate . " +9 day"));
                                                 $OrdersArray2 = $this->Cart_model->getProductsCartTotal(null, array(
                                                     'PC_AssignedTo' => $data['Val_Vendor'], 'PC_OrderStatus' => '4',
                                                     'PC_Status' => '3'
@@ -3205,21 +3205,21 @@ class Vendor extends W_Controller
                                                     " DATE(PC_BookedDttm) <= '$month_line_2' AND  DATE(PC_BookedDttm) > '$month_line_1' ");
 
                                                 //15th
-                                                $month_line_3 = date('Y-m-d', strtotime($LastMonthDate." +14 day"));
+                                                $month_line_3 = date('Y-m-d', strtotime($LastMonthDate . " +14 day"));
                                                 $OrdersArray3 = $this->Cart_model->getProductsCartTotal(null, array(
                                                     'PC_AssignedTo' => $data['Val_Vendor'], 'PC_OrderStatus' => '4',
                                                     'PC_Status' => '3'
                                                 ),
                                                     " DATE(PC_BookedDttm) <= '$month_line_3' AND  DATE(PC_BookedDttm) > '$month_line_2' ");
                                                 //20th
-                                                $month_line_4 = date('Y-m-d', strtotime($LastMonthDate." +19 day"));
+                                                $month_line_4 = date('Y-m-d', strtotime($LastMonthDate . " +19 day"));
                                                 $OrdersArray4 = $this->Cart_model->getProductsCartTotal(null, array(
                                                     'PC_AssignedTo' => $data['Val_Vendor'], 'PC_OrderStatus' => '4',
                                                     'PC_Status' => '3'
                                                 ),
                                                     " DATE(PC_BookedDttm) <= '$month_line_4' AND  DATE(PC_BookedDttm) > '$month_line_3' ");
                                                 //25th
-                                                $month_line_5 = date('Y-m-d', strtotime($LastMonthDate." +24 day"));
+                                                $month_line_5 = date('Y-m-d', strtotime($LastMonthDate . " +24 day"));
                                                 $OrdersArray5 = $this->Cart_model->getProductsCartTotal(null, array(
                                                     'PC_AssignedTo' => $data['Val_Vendor'], 'PC_OrderStatus' => '4',
                                                     'PC_Status' => '3'
@@ -3227,7 +3227,7 @@ class Vendor extends W_Controller
                                                     " DATE(PC_BookedDttm) <= '$month_line_5' AND  DATE(PC_BookedDttm) > '$month_line_4' ");
                                                 //last day of month
                                                 $month_line_last = date('Y-m-d',
-                                                    strtotime($LastMonthDate." next month - 1 hour"));
+                                                    strtotime($LastMonthDate . " next month - 1 hour"));
                                                 $OrdersArraylast = $this->Cart_model->getProductsCartTotal(null, array(
                                                     'PC_AssignedTo' => $data['Val_Vendor'], 'PC_OrderStatus' => '4',
                                                     'PC_Status' => '3'
@@ -3295,7 +3295,7 @@ class Vendor extends W_Controller
                                                     ), " DATE(PC_BookedDttm) = '$CurrentDate'");
 
                                                 if (!empty($TodaysTotalOrdersArray)) {
-                                                    $TotalOrdersToday = (string) count($TodaysTotalOrdersArray);
+                                                    $TotalOrdersToday = (string)count($TodaysTotalOrdersArray);
                                                 } else {
                                                     $TotalOrdersToday = '0';
                                                 }
@@ -3320,7 +3320,7 @@ class Vendor extends W_Controller
                                                     ), " DATE(PC_BookedDttm) = '$YesterdayDate'");
 
                                                 if (!empty($YesterdaysTotalOrdersArray)) {
-                                                    $TotalOrdersYesterday = (string) count($YesterdaysTotalOrdersArray);
+                                                    $TotalOrdersYesterday = (string)count($YesterdaysTotalOrdersArray);
                                                 } else {
                                                     $TotalOrdersYesterday = '0';
                                                 }
@@ -3335,9 +3335,9 @@ class Vendor extends W_Controller
 
                                                 $Records['GraphRecords']['AxisValues'] = $AxisValues;
                                                 $Records['GraphRecords']['PointValues'] = $PointValues;
-                                                $Records['GraphRecords']['TodaysRevenue'] = 'Rs. '.$OrdertotalToday;
+                                                $Records['GraphRecords']['TodaysRevenue'] = 'Rs. ' . $OrdertotalToday;
                                                 $Records['GraphRecords']['TodaysOrders'] = $TotalOrdersToday;
-                                                $Records['GraphRecords']['YesterdaysRevenue'] = 'Rs. '.$OrdertotalYesterday;
+                                                $Records['GraphRecords']['YesterdaysRevenue'] = 'Rs. ' . $OrdertotalYesterday;
                                                 $Records['GraphRecords']['YesterdaysOrders'] = $TotalOrdersYesterday;
                                                 $Records['GraphRecords']['TotalSales'] = 'Rs. 1234.00';
 
@@ -3352,10 +3352,10 @@ class Vendor extends W_Controller
                                                     $TotalDays = cal_days_in_month(CAL_GREGORIAN, $Last3rdMonth,
                                                         $Last3rdMonthYear);
 
-                                                    $StringDate = $Last3rdMonthYear.'-'.$Last3rdMonth.'-01';
+                                                    $StringDate = $Last3rdMonthYear . '-' . $Last3rdMonth . '-01';
                                                     $LastMonthDate = date('Y-m-d', strtotime($StringDate));
                                                     //5th
-                                                    $month_line_1 = date('Y-m-d', strtotime($LastMonthDate." +15 day"));
+                                                    $month_line_1 = date('Y-m-d', strtotime($LastMonthDate . " +15 day"));
                                                     $OrdersArray1 = $this->Cart_model->getRestaurantsCartTotal(null,
                                                         array(
                                                             'RC_AssignedTo' => $data['Val_Vendor'],
@@ -3365,7 +3365,7 @@ class Vendor extends W_Controller
 
                                                     //10th
                                                     $month_line_2 = date('Y-m-d',
-                                                        strtotime($LastMonthDate." next month - 1 hour"));
+                                                        strtotime($LastMonthDate . " next month - 1 hour"));
                                                     $OrdersArray2 = $this->Cart_model->getRestaurantsCartTotal(null,
                                                         array(
                                                             'RC_AssignedTo' => $data['Val_Vendor'],
@@ -3374,7 +3374,7 @@ class Vendor extends W_Controller
                                                         " DATE(RC_BookedDttm) <= '$month_line_2' AND  DATE(RC_BookedDttm) > '$month_line_1' ");
 
                                                     //15th
-                                                    $month_line_3 = date('Y-m-d', strtotime($LastMonthDate." +45 day"));
+                                                    $month_line_3 = date('Y-m-d', strtotime($LastMonthDate . " +45 day"));
                                                     $OrdersArray3 = $this->Cart_model->getRestaurantsCartTotal(null,
                                                         array(
                                                             'RC_AssignedTo' => $data['Val_Vendor'],
@@ -3383,7 +3383,7 @@ class Vendor extends W_Controller
                                                         " DATE(RC_BookedDttm) <= '$month_line_3' AND  DATE(RC_BookedDttm) > '$month_line_2' ");
                                                     //20th
                                                     $month_line_4 = date('Y-m-d',
-                                                        strtotime($LastMonthDate."  +2 month - 1 hour"));
+                                                        strtotime($LastMonthDate . "  +2 month - 1 hour"));
                                                     $OrdersArray4 = $this->Cart_model->getRestaurantsCartTotal(null,
                                                         array(
                                                             'RC_AssignedTo' => $data['Val_Vendor'],
@@ -3391,7 +3391,7 @@ class Vendor extends W_Controller
                                                         ),
                                                         " DATE(RC_BookedDttm) <= '$month_line_4' AND  DATE(RC_BookedDttm) > '$month_line_3' ");
                                                     //25th
-                                                    $month_line_5 = date('Y-m-d', strtotime($LastMonthDate." +75 day"));
+                                                    $month_line_5 = date('Y-m-d', strtotime($LastMonthDate . " +75 day"));
                                                     $OrdersArray5 = $this->Cart_model->getRestaurantsCartTotal(null,
                                                         array(
                                                             'RC_AssignedTo' => $data['Val_Vendor'],
@@ -3400,7 +3400,7 @@ class Vendor extends W_Controller
                                                         " DATE(RC_BookedDttm) <= '$month_line_5' AND  DATE(RC_BookedDttm) > '$month_line_4' ");
                                                     //last day of month
                                                     $month_line_last = date('Y-m-d',
-                                                        strtotime($LastMonthDate." +3 month - 1 hour"));
+                                                        strtotime($LastMonthDate . " +3 month - 1 hour"));
                                                     $OrdersArraylast = $this->Cart_model->getRestaurantsCartTotal(null,
                                                         array(
                                                             'RC_AssignedTo' => $data['Val_Vendor'],
@@ -3470,7 +3470,7 @@ class Vendor extends W_Controller
                                                         ), " DATE(RC_BookedDttm) = '$CurrentDate'");
 
                                                     if (!empty($TodaysTotalOrdersArray)) {
-                                                        $TotalOrdersToday = (string) count($TodaysTotalOrdersArray);
+                                                        $TotalOrdersToday = (string)count($TodaysTotalOrdersArray);
                                                     } else {
                                                         $TotalOrdersToday = '0';
                                                     }
@@ -3495,7 +3495,7 @@ class Vendor extends W_Controller
                                                         ), " DATE(RC_BookedDttm) = '$YesterdayDate'");
 
                                                     if (!empty($YesterdaysTotalOrdersArray)) {
-                                                        $TotalOrdersYesterday = (string) count($YesterdaysTotalOrdersArray);
+                                                        $TotalOrdersYesterday = (string)count($YesterdaysTotalOrdersArray);
                                                     } else {
                                                         $TotalOrdersYesterday = '0';
                                                     }
@@ -3510,9 +3510,9 @@ class Vendor extends W_Controller
 
                                                     $Records['GraphRecords']['AxisValues'] = $AxisValues;
                                                     $Records['GraphRecords']['PointValues'] = $PointValues;
-                                                    $Records['GraphRecords']['TodaysRevenue'] = 'Rs. '.$OrdertotalToday;
+                                                    $Records['GraphRecords']['TodaysRevenue'] = 'Rs. ' . $OrdertotalToday;
                                                     $Records['GraphRecords']['TodaysOrders'] = $TotalOrdersToday;
-                                                    $Records['GraphRecords']['YesterdaysRevenue'] = 'Rs. '.$OrdertotalYesterday;
+                                                    $Records['GraphRecords']['YesterdaysRevenue'] = 'Rs. ' . $OrdertotalYesterday;
                                                     $Records['GraphRecords']['YesterdaysOrders'] = $TotalOrdersYesterday;
                                                     $Records['GraphRecords']['TotalSales'] = 'Rs. 1234.00';
 
@@ -3870,13 +3870,13 @@ class Vendor extends W_Controller
                         } else {
                             $result = array(
                                 'status' => 'warning', 'flag' => '3', 'message' => 'Something Went Wrong...',
-                                'data' => (object) $Records
+                                'data' => (object)$Records
                             );
                         }
                     } else {
                         $result = array(
                             'status' => 'warning', 'flag' => '3', 'message' => 'Something Went Wrong...',
-                            'data' => (object) $Records
+                            'data' => (object)$Records
                         );
                     }
 
@@ -3884,7 +3884,7 @@ class Vendor extends W_Controller
                 } else {
                     $result = array(
                         'status' => 'info', 'flag' => '4', 'message' => 'Parameters Missing...',
-                        'data' => (object) $Records
+                        'data' => (object)$Records
                     );
                 }
 
@@ -3896,7 +3896,7 @@ class Vendor extends W_Controller
 
                         $VendorData = $this->Vendors_model->getVendor($data['Val_Vendor']);
                         //print_r($VendorData);
-                        $VendorFullName = getStringValue($VendorData->C_FirstName)." ".getStringValue($VendorData->C_LastName);
+                        $VendorFullName = getStringValue($VendorData->C_FirstName) . " " . getStringValue($VendorData->C_LastName);
                         $VendorAddress = array(
                             getStringValue($VendorData->C_Address), getStringValue($VendorData->C_Location)
                         );
@@ -3963,7 +3963,7 @@ class Vendor extends W_Controller
                                 );
                                 $Index++;
                             }
-                            $OptionsCount = (string) count($OptionsData);
+                            $OptionsCount = (string)count($OptionsData);
                             $Record = array(
                                 'CartID' => getStringValue($CartData->CartID),
                                 'OptionsCount' => $OptionsCount,
@@ -4007,7 +4007,7 @@ class Vendor extends W_Controller
                             ));
 
                             if (!empty($ExistingCartArray) && count($ExistingCartArray) == '1') {
-                                $ExistingCartData = (object) $ExistingCartArray[0];
+                                $ExistingCartData = (object)$ExistingCartArray[0];
 
                                 //echo "Exist";
                                 $ProductVal = $data['Val_Product'];
@@ -4077,7 +4077,7 @@ class Vendor extends W_Controller
                                         $PostDetailData['Val_Attribute'] = getStringValue($data['Val_Attribute']);
                                         $PostDetailData['Val_Attribvalue'] = getStringValue($data['Val_Attribvalue']);
                                         $CartDetailsSuccess = $this->Cart_model->addCartProductsDetails($PostDetailData);
-                                        $DetailID[] = (string) $CartDetailsSuccess;
+                                        $DetailID[] = (string)$CartDetailsSuccess;
 
 
                                         $UpdatePostData['Val_PCdetail'] = json_encode($DetailID);
@@ -4114,7 +4114,7 @@ class Vendor extends W_Controller
 
 
                                         $FeaturedImage = '';
-                                        $FeaturedImage = (!empty($ProductData->P_FeaturedImage) ? UPLOAD_PRODUCTS_BASE_URL.$ProductData->ProductID.'/'.$ProductData->P_FeaturedImage : '');
+                                        $FeaturedImage = (!empty($ProductData->P_FeaturedImage) ? UPLOAD_PRODUCTS_BASE_URL . $ProductData->ProductID . '/' . $ProductData->P_FeaturedImage : '');
                                         $ProductsData[] = array(
                                             'DetailID' => $ProductDetailData->CPDetailID,
                                             'ProductID' => $ProductDetailData->PD_ProductID,
@@ -4128,7 +4128,7 @@ class Vendor extends W_Controller
                                         );
                                         $Index++;
                                     }
-                                    $ProductsCount = (string) count($ProductsData);
+                                    $ProductsCount = (string)count($ProductsData);
                                     $Record = array(
                                         'CartID' => getStringValue($CartData->PCartID),
                                         'ProductsCount' => $ProductsCount,
@@ -4173,7 +4173,7 @@ class Vendor extends W_Controller
 
 
                                         $FeaturedImage = '';
-                                        $FeaturedImage = (!empty($ProductData->P_FeaturedImage) ? UPLOAD_PRODUCTS_BASE_URL.$ProductData->ProductID.'/'.$ProductData->P_FeaturedImage : '');
+                                        $FeaturedImage = (!empty($ProductData->P_FeaturedImage) ? UPLOAD_PRODUCTS_BASE_URL . $ProductData->ProductID . '/' . $ProductData->P_FeaturedImage : '');
                                         $ProductsData[] = array(
                                             'DetailID' => $ProductDetailData->CPDetailID,
                                             'ProductID' => $ProductDetailData->PD_ProductID,
@@ -4187,7 +4187,7 @@ class Vendor extends W_Controller
                                         );
                                         $Index++;
                                     }
-                                    $ProductsCount = (string) count($ProductsData);
+                                    $ProductsCount = (string)count($ProductsData);
                                     $Record = array(
                                         'CartID' => getStringValue($CartData->PCartID),
                                         'ProductsCount' => $ProductsCount,
@@ -4210,7 +4210,7 @@ class Vendor extends W_Controller
 
                                 $VendorData = $this->Vendors_model->getVendor($data['Val_Vendor']);
                                 //print_r($VendorData);
-                                $VendorFullName = getStringValue($VendorData->C_FirstName)." ".getStringValue($VendorData->C_LastName);
+                                $VendorFullName = getStringValue($VendorData->C_FirstName) . " " . getStringValue($VendorData->C_LastName);
                                 $VendorAddress = array(
                                     getStringValue($VendorData->C_Address), getStringValue($VendorData->C_Location)
                                 );
@@ -4265,7 +4265,7 @@ class Vendor extends W_Controller
                                     $PostDetailData['Val_Attribute'] = $data['Val_Attribute'];
                                     $PostDetailData['Val_Attribvalue'] = $data['Val_Attribvalue'];
                                     $CartDetailsSuccess = $this->Cart_model->addCartProductsDetails($PostDetailData);
-                                    $DetailID[] = (string) $CartDetailsSuccess;
+                                    $DetailID[] = (string)$CartDetailsSuccess;
                                     //}
 
                                     $UpdatePostData['Val_PCdetail'] = json_encode($DetailID);
@@ -4300,7 +4300,7 @@ class Vendor extends W_Controller
                                         }
 
                                         $FeaturedImage = '';
-                                        $FeaturedImage = (!empty($ProductData->P_FeaturedImage) ? UPLOAD_PRODUCTS_BASE_URL.$ProductData->ProductID.'/'.$ProductData->P_FeaturedImage : '');
+                                        $FeaturedImage = (!empty($ProductData->P_FeaturedImage) ? UPLOAD_PRODUCTS_BASE_URL . $ProductData->ProductID . '/' . $ProductData->P_FeaturedImage : '');
                                         $ProductsData[] = array(
                                             'DetailID' => $ProductDetailData->CPDetailID,
                                             'ProductID' => $ProductDetailData->PD_ProductID,
@@ -4314,7 +4314,7 @@ class Vendor extends W_Controller
                                         );
                                         $Index++;
                                     }
-                                    $ProductsCount = (string) count($ProductsData);
+                                    $ProductsCount = (string)count($ProductsData);
                                     $Record = array(
                                         'CartID' => getStringValue($CartData->PCartID),
                                         'ProductsCount' => $ProductsCount,
@@ -4365,7 +4365,7 @@ class Vendor extends W_Controller
 
                                 if (!empty($ExistingCartArray) && count($ExistingCartArray) == '1') {
                                     //echo "Exist";
-                                    $ExistingCartData = (object) $ExistingCartArray[0];
+                                    $ExistingCartData = (object)$ExistingCartArray[0];
                                     $Restaurant = $data['Val_Restaurant'];
                                     $RestaurantData = $this->Restaurants_model->get($Restaurant);
                                     if (!empty($RestaurantData)) {
@@ -4430,7 +4430,7 @@ class Vendor extends W_Controller
                                                     $PostDetailData['Val_RDquantity'] = '1';
                                                     $PostDetailData['Val_RDprice'] = getStringValue($FoodAmount);
                                                     $CartDetailsSuccess = $this->Cart_model->addCartRestaurantsDetails($PostDetailData);
-                                                    $DetailID[] = (string) $CartDetailsSuccess;
+                                                    $DetailID[] = (string)$CartDetailsSuccess;
 
 
                                                     $UpdatePostData['Val_RCdetail'] = json_encode($DetailID);
@@ -4504,7 +4504,7 @@ class Vendor extends W_Controller
                                     } else {
                                         $result = array(
                                             'status' => 'warning', 'flag' => '3',
-                                            'message' => 'Something Important Happened !! ', 'data' => (object) array()
+                                            'message' => 'Something Important Happened !! ', 'data' => (object)array()
                                         );
                                     }
                                     //echo "exist";
@@ -4512,7 +4512,7 @@ class Vendor extends W_Controller
 
                                     $VendorData = $this->Vendors_model->getVendor($data['Val_Vendor']);
 
-                                    $VendorFullName = getStringValue($VendorData->C_FirstName)." ".getStringValue($VendorData->C_LastName);
+                                    $VendorFullName = getStringValue($VendorData->C_FirstName) . " " . getStringValue($VendorData->C_LastName);
                                     $VendorAddress = array(
                                         getStringValue($VendorData->C_Address), getStringValue($VendorData->C_Location)
                                     );
@@ -4589,7 +4589,7 @@ class Vendor extends W_Controller
                                             $PostDetailData['Val_RDquantity'] = '1';
                                             $PostDetailData['Val_RDprice'] = $FoodAmount;
                                             $CartDetailsSuccess = $this->Cart_model->addCartRestaurantsDetails($PostDetailData);
-                                            $DetailID[] = (string) $CartDetailsSuccess;
+                                            $DetailID[] = (string)$CartDetailsSuccess;
                                             //}
 
                                             $UpdatePostData['Val_RCdetail'] = json_encode($DetailID);
@@ -4627,13 +4627,13 @@ class Vendor extends W_Controller
                                                 $result = array(
                                                     'status' => 'error', 'flag' => '2',
                                                     'message' => 'We couldn\'t register you. Please try again later.(404)',
-                                                    'data' => (object) array()
+                                                    'data' => (object)array()
                                                 );
                                             } else {
                                                 $result = array(
                                                     'status' => 'warning', 'flag' => '3',
                                                     'message' => 'Something Important Happened !! ',
-                                                    'data' => (object) array()
+                                                    'data' => (object)array()
                                                 );
                                             }
                                         }
@@ -4642,7 +4642,7 @@ class Vendor extends W_Controller
                                     } else {
                                         $result = array(
                                             'status' => 'warning', 'flag' => '3',
-                                            'message' => 'Something Important Happened !! ', 'data' => (object) array()
+                                            'message' => 'Something Important Happened !! ', 'data' => (object)array()
                                         );
                                     }
 
@@ -4756,7 +4756,7 @@ class Vendor extends W_Controller
 
 
                                     $FeaturedImage = '';
-                                    $FeaturedImage = (!empty($ProductData->P_FeaturedImage) ? UPLOAD_PRODUCTS_BASE_URL.$ProductData->ProductID.'/'.$ProductData->P_FeaturedImage : '');
+                                    $FeaturedImage = (!empty($ProductData->P_FeaturedImage) ? UPLOAD_PRODUCTS_BASE_URL . $ProductData->ProductID . '/' . $ProductData->P_FeaturedImage : '');
                                     $ProductsData[] = array(
                                         'DetailID' => $ProductDetailData->CPDetailID,
                                         'ProductID' => $ProductDetailData->PD_ProductID,
@@ -4770,7 +4770,7 @@ class Vendor extends W_Controller
                                     );
                                     $Index++;
                                 }
-                                $ProductsCount = (string) count($ProductsData);
+                                $ProductsCount = (string)count($ProductsData);
                                 $Record = array(
                                     'CartID' => getStringValue($CartData->PCartID),
                                     'ProductsCount' => $ProductsCount,
@@ -4789,7 +4789,7 @@ class Vendor extends W_Controller
                             } else {
                                 $result = array(
                                     'status' => 'warning', 'flag' => '3',
-                                    'message' => 'Something Important Happened !! ', 'data' => (object) array()
+                                    'message' => 'Something Important Happened !! ', 'data' => (object)array()
                                 );
 //							echo "No Exist";
                             }
@@ -4805,7 +4805,7 @@ class Vendor extends W_Controller
                                 $ExistingCartDetailData = $this->Cart_model->getRestaurantsCartDetails(null,
                                     array('RD_CartID' => $data['Val_Cart'], 'RD_FoodID' => $data['Val_Food']));
                                 if (!empty($ExistingCartData) && !empty($ExistingCartDetailData) && count($ExistingCartDetailData) == '1') {
-                                    $ExistingCartDetailData = (object) $ExistingCartDetailData[0];
+                                    $ExistingCartDetailData = (object)$ExistingCartDetailData[0];
                                     $RestaurantID = $data['Val_Restaurant'];
                                     $RestaurantData = $this->Restaurants_model->get($RestaurantID);
 
@@ -4907,7 +4907,7 @@ class Vendor extends W_Controller
                                             $FoodDetailsArray = json_decode($CartData->RC_DetailID);
 
                                             if (!empty($FoodDetailsArray)) {
-                                                $ItemCount = (string) count($FoodDetailsArray);
+                                                $ItemCount = (string)count($FoodDetailsArray);
                                             } else {
                                                 $ItemCount = "0";
                                             }
@@ -4930,14 +4930,14 @@ class Vendor extends W_Controller
                                     } else {
                                         $result = array(
                                             'status' => 'warning', 'flag' => '3',
-                                            'message' => 'Something Important Happened !! ', 'data' => (object) array()
+                                            'message' => 'Something Important Happened !! ', 'data' => (object)array()
                                         );
                                     }
 
                                 } else {
                                     $result = array(
                                         'status' => 'warning', 'flag' => '3',
-                                        'message' => 'Something Important Happened !! ', 'data' => (object) array()
+                                        'message' => 'Something Important Happened !! ', 'data' => (object)array()
                                     );
 //							echo "No Exist";
                                 }
@@ -4983,7 +4983,7 @@ class Vendor extends W_Controller
                                                 $ProductID[] = $ProductsData->ProductID;
 
                                                 $ProductNames[] = $ProductsData->P_Name;
-                                                $ProductPrice = (float) $PricesArray[$Key];
+                                                $ProductPrice = (float)$PricesArray[$Key];
                                                 $ProductPrices[] = number_format($ProductPrice, 2, '.',
                                                     '');//$ProductPrice;
                                             }
@@ -5047,7 +5047,7 @@ class Vendor extends W_Controller
                                                 $AttributeValueTitle = "";
                                             }
                                             $FeaturedImage = '';
-                                            $FeaturedImage = (!empty($ProductData->P_FeaturedImage) ? UPLOAD_PRODUCTS_BASE_URL.$ProductData->ProductID.'/'.$ProductData->P_FeaturedImage : '');
+                                            $FeaturedImage = (!empty($ProductData->P_FeaturedImage) ? UPLOAD_PRODUCTS_BASE_URL . $ProductData->ProductID . '/' . $ProductData->P_FeaturedImage : '');
                                             $ProductsData[] = array(
                                                 'DetailID' => $ProductDetailData->CPDetailID,
                                                 'ProductID' => $ProductDetailData->PD_ProductID,
@@ -5061,7 +5061,7 @@ class Vendor extends W_Controller
                                             );
                                             $Index++;
                                         }
-                                        $ProductsCount = (string) count($ProductsData);
+                                        $ProductsCount = (string)count($ProductsData);
                                         $Record = array(
                                             'CartID' => getStringValue($CartData->PCartID),
                                             'ProductsCount' => $ProductsCount,
@@ -5082,7 +5082,7 @@ class Vendor extends W_Controller
                                         $CartDetailsSuccess = $this->Cart_model->deleteCartProductsDetails($data['Val_Detail']);
                                         $result = array(
                                             'status' => 'success', 'flag' => '1',
-                                            'message' => 'Cart Cleared Successfully', 'data' => (object) array()
+                                            'message' => 'Cart Cleared Successfully', 'data' => (object)array()
                                         );
                                     }
 //
@@ -5092,14 +5092,14 @@ class Vendor extends W_Controller
                                     if (empty($ExistingCartData) && empty($ExistingCartDetailData)) {
                                         $result = array(
                                             'status' => 'success', 'flag' => '1', 'message' => 'Cart Already Empty.',
-                                            'data' => (object) array()
+                                            'data' => (object)array()
                                         );
                                     } else {
 //							$result = array('status'=>'success','flag'=>'1','message'=>'Product Updated Successfully','data'=>$Record);
                                         $result = array(
                                             'status' => 'warning', 'flag' => '3',
                                             'message' => 'Product Already removed from cart.',
-                                            'data' => (object) array()
+                                            'data' => (object)array()
                                         );
 //							echo "No Exist";
                                     }
@@ -5115,7 +5115,7 @@ class Vendor extends W_Controller
                                     $ExistingCartDetailData = $this->Cart_model->getRestaurantsCartDetails(null,
                                         array('RD_CartID' => $data['Val_Cart'], 'RD_FoodID' => $data['Val_Food']));
                                     if (!empty($ExistingCartData) && !empty($ExistingCartDetailData) && count($ExistingCartDetailData) == '1') {
-                                        $ExistingCartDetailData = (object) $ExistingCartDetailData[0];
+                                        $ExistingCartDetailData = (object)$ExistingCartDetailData[0];
 
                                         $DetailIdArray = json_decode($ExistingCartData->RC_DetailID);
                                         $PricesJson = $ExistingCartData->RC_Prices;
@@ -5139,7 +5139,7 @@ class Vendor extends W_Controller
                                                     $DetailIDs[] = $DetailID;
                                                     $ItemsCount = $ItemsCount + $ExistingCartDetailsItemsArrayTemp->RD_Quantity;
 
-                                                    $FoodPrice = (float) $PricesArray[$Key];
+                                                    $FoodPrice = (float)$PricesArray[$Key];
                                                     $FoodPricesArray[] = number_format($FoodPrice, 2, '.',
                                                         '');//$ProductPrice;
                                                 }
@@ -5191,7 +5191,7 @@ class Vendor extends W_Controller
                                             $CartDetailsSuccess = $this->Cart_model->deleteCartRestaurantsDetails($ExistingCartDetailData->CRDetailID);
                                             $result = array(
                                                 'status' => 'success', 'flag' => '1',
-                                                'message' => 'Cart Cleared Successfully', 'data' => (object) array()
+                                                'message' => 'Cart Cleared Successfully', 'data' => (object)array()
                                             );
                                         }
 
@@ -5199,14 +5199,14 @@ class Vendor extends W_Controller
                                         if (empty($ExistingCartData) && empty($ExistingCartDetailData)) {
                                             $result = array(
                                                 'status' => 'success', 'flag' => '1',
-                                                'message' => 'Cart Already Empty.', 'data' => (object) array()
+                                                'message' => 'Cart Already Empty.', 'data' => (object)array()
                                             );
                                         } else {
 //							$result = array('status'=>'success','flag'=>'1','message'=>'Product Updated Successfully','data'=>$Record);
                                             $result = array(
                                                 'status' => 'warning', 'flag' => '3',
                                                 'message' => 'Product Already removed from cart.',
-                                                'data' => (object) array()
+                                                'data' => (object)array()
                                             );
 //							echo "No Exist";
                                         }
@@ -5235,12 +5235,12 @@ class Vendor extends W_Controller
                                         $CartSuccess = $this->Cart_model->delete($data['Val_Cart']);
                                         $result = array(
                                             'status' => 'success', 'flag' => '1',
-                                            'message' => 'Cart Cleared Successfully.', 'data' => (object) array()
+                                            'message' => 'Cart Cleared Successfully.', 'data' => (object)array()
                                         );
                                     } else {
                                         $result = array(
                                             'status' => 'warning', 'flag' => '3', 'message' => 'Cart Already Cleared.',
-                                            'data' => (object) array()
+                                            'data' => (object)array()
                                         );
                                     }
 
@@ -5269,12 +5269,12 @@ class Vendor extends W_Controller
                                                 $result = array(
                                                     'status' => 'success', 'flag' => '1',
                                                     'message' => 'Cart Cleared Successfully.',
-                                                    'data' => (object) array()
+                                                    'data' => (object)array()
                                                 );
                                             } else {
                                                 $result = array(
                                                     'status' => 'success', 'flag' => '1',
-                                                    'message' => 'Cart Already Cleared.', 'data' => (object) array()
+                                                    'message' => 'Cart Already Cleared.', 'data' => (object)array()
                                                 );
                                             }
                                         }
@@ -5298,7 +5298,7 @@ class Vendor extends W_Controller
                                                 $CartSuccess = $this->Cart_model->deleteCartRestaurants($data['Val_Cart']);
                                                 $result = array(
                                                     'status' => 'success', 'flag' => '1',
-                                                    'message' => 'Cart Cleared Successfully', 'data' => (object) array()
+                                                    'message' => 'Cart Cleared Successfully', 'data' => (object)array()
                                                 );
                                             } else {
                                                 if (!empty($ExistingCartData) && empty($ExistingCartDetailData)) {
@@ -5306,12 +5306,12 @@ class Vendor extends W_Controller
                                                     $result = array(
                                                         'status' => 'success', 'flag' => '1',
                                                         'message' => 'Cart Cleared Successfully.',
-                                                        'data' => (object) array()
+                                                        'data' => (object)array()
                                                     );
                                                 } else {
                                                     $result = array(
                                                         'status' => 'warning', 'flag' => '3',
-                                                        'message' => 'Cart Already Empty.', 'data' => (object) array()
+                                                        'message' => 'Cart Already Empty.', 'data' => (object)array()
                                                     );
                                                 }
                                             }
@@ -5362,11 +5362,11 @@ class Vendor extends W_Controller
 
 
                                             $StartTime = date('h:i A',
-                                                strtotime($CartData->C_Date." ".$TimeslabData->T_StartTime));
+                                                strtotime($CartData->C_Date . " " . $TimeslabData->T_StartTime));
                                             $EndTime = date('h:i A',
-                                                strtotime($CartData->C_Date." ".$TimeslabData->T_EndTime));
+                                                strtotime($CartData->C_Date . " " . $TimeslabData->T_EndTime));
                                             $Date = date('D, j M,Y', strtotime($CartData->C_Date));
-                                            $CartTimeText = $StartTime." - ".$EndTime." on ".$Date;
+                                            $CartTimeText = $StartTime . " - " . $EndTime . " on " . $Date;
 
                                             $Record = array(
                                                 'OrderID' => getStringValue($CartData->CartID),
@@ -5394,11 +5394,11 @@ class Vendor extends W_Controller
 
 
                                                 $StartTime = date('h:i A',
-                                                    strtotime($CartData->C_Date." ".$TimeslabData->T_StartTime));
+                                                    strtotime($CartData->C_Date . " " . $TimeslabData->T_StartTime));
                                                 $EndTime = date('h:i A',
-                                                    strtotime($CartData->C_Date." ".$TimeslabData->T_EndTime));
+                                                    strtotime($CartData->C_Date . " " . $TimeslabData->T_EndTime));
                                                 $Date = date('D, j M,Y', strtotime($CartData->C_Date));
-                                                $CartTimeText = $StartTime." - ".$EndTime." on ".$Date;
+                                                $CartTimeText = $StartTime . " - " . $EndTime . " on " . $Date;
 
                                                 $Record = array(
                                                     'OrderID' => getStringValue($CartData->CartID),
@@ -5553,7 +5553,7 @@ class Vendor extends W_Controller
                                                     $result = array(
                                                         'status' => 'warning', 'flag' => '3',
                                                         'message' => 'Something Important Happened !! ',
-                                                        'data' => (object) array()
+                                                        'data' => (object)array()
                                                     );
                                                 }
 
@@ -5581,7 +5581,7 @@ class Vendor extends W_Controller
                                             $DetailIDsArray = array();
 
                                             if (!empty($ExistingRestaurantCartArray)) {
-                                                $ExistingCartData = (object) $ExistingRestaurantCartArray[0];
+                                                $ExistingCartData = (object)$ExistingRestaurantCartArray[0];
 
 
                                                 $DetailIDsJson = $ExistingCartData->RC_DetailID;
@@ -5602,7 +5602,7 @@ class Vendor extends W_Controller
 
                                                             $FoodData = $this->Restaurants_model->getFoods($FoodID);
 
-                                                            $DisplayImage = (!empty($FoodData->F_DisplayImage) ? UPLOAD_RESTAURANTS_FOODS_BASE_URL.$FoodData->RFoodID.'/'.$FoodData->F_DisplayImage : '');
+                                                            $DisplayImage = (!empty($FoodData->F_DisplayImage) ? UPLOAD_RESTAURANTS_FOODS_BASE_URL . $FoodData->RFoodID . '/' . $FoodData->F_DisplayImage : '');
                                                             array_push($FoodsRecords, array(
                                                                     'FoodID' => getStringValue($FoodData->RFoodID),
 
@@ -5620,7 +5620,7 @@ class Vendor extends W_Controller
                                                             $CartItemsCount = $CartItemsCount + 0;
                                                         }
                                                     }
-                                                    $FoodsCount = (string) count($FoodsRecords);
+                                                    $FoodsCount = (string)count($FoodsRecords);
                                                     if (!empty($ExistingCartData->RC_ItemCount)) {
                                                         $CartItemsCount = $ExistingCartData->RC_ItemCount;
                                                     } else {
@@ -5652,7 +5652,7 @@ class Vendor extends W_Controller
                                             } else {
                                                 $result = array(
                                                     'status' => 'error', 'flag' => '2', 'message' => 'Cart is empty',
-                                                    'data' => (object) array()
+                                                    'data' => (object)array()
                                                 );
                                             }
                                         } else {
@@ -5684,9 +5684,9 @@ class Vendor extends W_Controller
                                                     ));
 
                                                 $ServicesCart = '1';
-                                                $ServicesRecords = (object) array();
+                                                $ServicesRecords = (object)array();
                                                 if (!empty($ExistingServiceCartArray)) {
-                                                    $ExistingServiceCartData = (object) $ExistingServiceCartArray[0];
+                                                    $ExistingServiceCartData = (object)$ExistingServiceCartArray[0];
                                                     $CartID = $ExistingServiceCartArray;
 
                                                     $OptionsCount = "0";
@@ -5706,7 +5706,7 @@ class Vendor extends W_Controller
                                                         );
                                                         $Index++;
                                                     }
-                                                    $OptionsCount = (string) count($OptionsData);
+                                                    $OptionsCount = (string)count($OptionsData);
                                                     $ServicesRecords = array(
                                                         'CartID' => getStringValue($ExistingServiceCartData->CartID),
                                                         'OptionsCount' => $OptionsCount,
@@ -5717,10 +5717,10 @@ class Vendor extends W_Controller
                                                     $ServicesCart = '2';
                                                 }
                                                 $ProductsCart = '1';
-                                                $ProductsRecords = (object) array();
+                                                $ProductsRecords = (object)array();
                                                 $ProductsCartItemsCount = 0;
                                                 if (!empty($ExistingProductCartArray)) {
-                                                    $ExistingProductCartData = (object) $ExistingProductCartArray[0];
+                                                    $ExistingProductCartData = (object)$ExistingProductCartArray[0];
                                                     $CartID = $ExistingProductCartData->PCartID;
 
                                                     $ProductsCount = "0";
@@ -5748,7 +5748,7 @@ class Vendor extends W_Controller
 
 
                                                             $FeaturedImage = '';
-                                                            $FeaturedImage = (!empty($ProductData->P_FeaturedImage) ? UPLOAD_PRODUCTS_BASE_URL.$ProductData->ProductID.'/'.$ProductData->P_FeaturedImage : '');
+                                                            $FeaturedImage = (!empty($ProductData->P_FeaturedImage) ? UPLOAD_PRODUCTS_BASE_URL . $ProductData->ProductID . '/' . $ProductData->P_FeaturedImage : '');
                                                             $ProductsData[] = array(
                                                                 'DetailID' => $ProductDetailData->CPDetailID,
                                                                 'ProductID' => $ProductDetailData->PD_ProductID,
@@ -5768,7 +5768,7 @@ class Vendor extends W_Controller
                                                         //echo "Not Matching 3";
                                                         $ProductsCartItemsCount = $ProductsCartItemsCount + 0;
                                                     }
-                                                    $ProductsCount = (string) count($ProductsData);
+                                                    $ProductsCount = (string)count($ProductsData);
                                                     $ProductsRecords = array(
                                                         'CartID' => getStringValue($CartID),
                                                         'ProductsCount' => $ProductsCount,
@@ -5784,10 +5784,10 @@ class Vendor extends W_Controller
                                                 }
 
                                                 $RestaurantsCart = '1';
-                                                $RestaurantsRecords = (object) array();
+                                                $RestaurantsRecords = (object)array();
                                                 $RestaurantsCartItemsCount = 0;
                                                 if (!empty($ExistingRestaurantCartArray)) {
-                                                    $ExistingCartData = (object) $ExistingRestaurantCartArray[0];
+                                                    $ExistingCartData = (object)$ExistingRestaurantCartArray[0];
 
                                                     $DetailIDsJson = $ExistingCartData->RC_DetailID;
                                                     $DetailIDsArray = json_decode($DetailIDsJson);
@@ -5807,7 +5807,7 @@ class Vendor extends W_Controller
 
                                                                 $FoodData = $this->Restaurants_model->getFoods($FoodID);
 
-                                                                $DisplayImage = (!empty($FoodData->F_DisplayImage) ? UPLOAD_RESTAURANTS_FOODS_BASE_URL.$FoodData->RFoodID.'/'.$FoodData->F_DisplayImage : '');
+                                                                $DisplayImage = (!empty($FoodData->F_DisplayImage) ? UPLOAD_RESTAURANTS_FOODS_BASE_URL . $FoodData->RFoodID . '/' . $FoodData->F_DisplayImage : '');
                                                                 array_push($FoodsRecords, array(
                                                                         'FoodID' => getStringValue($FoodData->RFoodID),
 
@@ -5825,14 +5825,14 @@ class Vendor extends W_Controller
                                                                 $RestaurantsCartItemsCount = $RestaurantsCartItemsCount + 0;
                                                             }
                                                         }
-                                                        $FoodsCount = (string) count($FoodsRecords);
+                                                        $FoodsCount = (string)count($FoodsRecords);
                                                         if (!empty($ExistingCartData->RC_ItemCount)) {
                                                             $RestaurantsCartItemsCount = $ExistingCartData->RC_ItemCount;
                                                         } else {
                                                             $RestaurantsCartItemsCount = $RestaurantsCartItemsCount;
                                                         }
 
-                                                        $RestaurantsCartItemsCount = (string) $RestaurantsCartItemsCount;
+                                                        $RestaurantsCartItemsCount = (string)$RestaurantsCartItemsCount;
 
                                                     } else {
                                                         //echo "Not Matching 3";
@@ -5880,12 +5880,11 @@ class Vendor extends W_Controller
                                         } else {
                                             if (!empty($data['Action']) && $data['Action'] == 'GetOrderHistory') {
 
-
                                                 if (!empty($data['Val_Vendor'])) {
                                                     $OngoingOrderRecords = array();
                                                     $PastOrderRecords = array();
-                                                    $PastOrderRecordsCount = (string) count($PastOrderRecords);
-                                                    $OngoingOrderRecordsCount = (string) count($OngoingOrderRecords);
+                                                    $PastOrderRecordsCount = (string)count($PastOrderRecords);
+                                                    $OngoingOrderRecordsCount = (string)count($OngoingOrderRecords);
                                                     $VendorData = $this->Vendors_model->getVendor($data['Val_Vendor']);
                                                     $this->db->where('vendor_id', $data['Val_Vendor']);
                                                     $vendorProducts = $this->db->get('1w_tbl_product_vendor')->result_array();
@@ -5905,10 +5904,9 @@ class Vendor extends W_Controller
                                                             } else {
                                                                 if ($BusinessType == '2') {
                                                                     $OngoingOrdersArray = $this->Cart_model->getProductsOngoingOrders($data['Val_Vendor']);
-                                                                    $NewOrdersArray=  $this->Cart_model->getProductsNewOngoingOrders($data['Val_Vendor']);
-                                                                    if($NewOrdersArray!=false)
-                                                                    {
-                                                                        array_push( $OngoingOrdersArray, $NewOrdersArray);
+                                                                    $NewOrdersArray = $this->Cart_model->getProductsNewOngoingOrders($data['Val_Vendor']);
+                                                                    if ($NewOrdersArray != false) {
+                                                                        array_push($OngoingOrdersArray, $NewOrdersArray);
                                                                     }
                                                                     // $OngoingOrdersArrayForVendor = array_filter($OngoingOrdersArray,
                                                                     //     function ($order) use ($vendorProductsIds) {
@@ -5933,8 +5931,7 @@ class Vendor extends W_Controller
 
                                                             if (!empty($OngoingOrdersArray)) {
                                                                 foreach ($OngoingOrdersArray as $OrderArray) {
-                                                                    $OrderData = (object) $OrderArray[0];
-
+                                                                    $OrderData = (object)$OrderArray;
                                                                     if (!empty($OrderData->CartID)) {
 
                                                                         $OrderID = $OrderData->CartID;
@@ -5976,12 +5973,12 @@ class Vendor extends W_Controller
                                                                         'OrderTotal' => getStringValue($OrderTotal),
                                                                     );
                                                                 }
-                                                                $OngoingOrderRecordsCount = (string) count($OngoingOrderRecords);
+                                                                $OngoingOrderRecordsCount = (string)count($OngoingOrderRecords);
                                                             }
 
                                                             if (!empty($PastOrdersArray)) {
                                                                 foreach ($PastOrdersArray as $OrderArray) {
-                                                                    $OrderData = (object) $OrderArray;
+                                                                    $OrderData = (object)$OrderArray;
 
                                                                     if (!empty($OrderData->CartID)) {
 
@@ -6024,7 +6021,7 @@ class Vendor extends W_Controller
                                                                         'OrderTotal' => getStringValue($OrderTotal),
                                                                     );
                                                                 }
-                                                                $PastOrderRecordsCount = (string) count($PastOrderRecords);
+                                                                $PastOrderRecordsCount = (string)count($PastOrderRecords);
                                                             }
 
 
@@ -6049,14 +6046,14 @@ class Vendor extends W_Controller
                                                             $result = array(
                                                                 'status' => 'warning', 'flag' => '3',
                                                                 'message' => 'Something Went Wrong...',
-                                                                'data' => (object) $Records
+                                                                'data' => (object)$Records
                                                             );
                                                         }
                                                     } else {
                                                         $result = array(
                                                             'status' => 'warning', 'flag' => '3',
                                                             'message' => 'Something Went Wrong...',
-                                                            'data' => (object) $Records
+                                                            'data' => (object)$Records
                                                         );
                                                     }
 
@@ -6077,8 +6074,8 @@ class Vendor extends W_Controller
 
                                                         $OngoingOrderRecords = array();
                                                         $PastOrderRecords = array();
-                                                        $PastOrderRecordsCount = (string) count($PastOrderRecords);
-                                                        $OngoingOrderRecordsCount = (string) count($OngoingOrderRecords);
+                                                        $PastOrderRecordsCount = (string)count($PastOrderRecords);
+                                                        $OngoingOrderRecordsCount = (string)count($OngoingOrderRecords);
                                                         $VendorData = $this->Vendors_model->getVendor($data['Val_Vendor']);
                                                         if (!empty($VendorData)) {
                                                             $CategoryData = $this->Categories_model->get($VendorData->V_CategoryID);
@@ -6087,20 +6084,20 @@ class Vendor extends W_Controller
                                                                 // exit;
                                                                 if ($BusinessType == '1') {
 
-                                                                    $OrderData = $this->Cart_model->get($data['Val_Order'],
-                                                                        array('C_AssignedTo' => $data['Val_Vendor']));
-
+                                                                    $OrderData = $this->Cart_model->get($data['Val_Order']);
+//                                                                        array('C_AssignedTo' => $data['Val_Vendor']));
+                                                                    $OrderData = $OrderData[0];
                                                                 } else {
                                                                     if ($BusinessType == '2') {
-                                                                        $OrderData = $this->Cart_model->getProductsCart($data['Val_Order'],
-                                                                            array('PC_AssignedTo' => $data['Val_Vendor']));
-
+                                                                        $OrderData = $this->Cart_model->getProductsCart($data['Val_Order']);
+//                                                                            array('PC_AssignedTo' => $data['Val_Vendor']));
+                                                                        $OrderData = $OrderData[0];
 
                                                                     } else {
                                                                         if ($BusinessType == '3') {
-                                                                            $OrderData = $this->Cart_model->getRestaurantsCart($data['Val_Order'],
-                                                                                array('RC_AssignedTo' => $data['Val_Vendor']));
-
+                                                                            $OrderData = $this->Cart_model->getRestaurantsCart($data['Val_Order']);
+//                                                                                array('RC_AssignedTo' => $data['Val_Vendor']));
+                                                                            $OrderData = $OrderData[0];
                                                                         }
                                                                     }
                                                                 }
@@ -6120,7 +6117,7 @@ class Vendor extends W_Controller
                                                                         $OrderTimeAgo = time_ago($OrderData->C_AssignedDttm);
                                                                         $Username = $OrderData->C_CustomerName;
                                                                         $AddressArray = json_decode($OrderData->C_CustomerAddress);
-                                                                        $AddressString = $AddressArray[1].','.$AddressArray[2];
+                                                                        $AddressString = $AddressArray[1] . ',' . $AddressArray[2];
 
                                                                         $ItemsCount = "0";
                                                                         $ItemsData = array();
@@ -6133,8 +6130,8 @@ class Vendor extends W_Controller
                                                                         foreach ($OptionNames as $Option) {
 
                                                                             $ItemsData[] = array(
-                                                                                'Index' => (string) $Index,
-                                                                                'Title' => $PackageNames[$Key].' ( '.$Option.' ) ',
+                                                                                'Index' => (string)$Index,
+                                                                                'Title' => $PackageNames[$Key] . ' ( ' . $Option . ' ) ',
                                                                                 'Description' => $Option,
                                                                                 'Currency' => "Rs. ",
                                                                                 'Price' => $OptionPrices[$Key],
@@ -6142,7 +6139,7 @@ class Vendor extends W_Controller
                                                                             $Key++;
                                                                             $Index++;
                                                                         }
-                                                                        $ItemsCount = (string) count($ItemsData);
+                                                                        $ItemsCount = (string)count($ItemsData);
 
                                                                         $ServiceCharge = $OrderData->C_ServiceCharge;
                                                                         $DeliveryCharge = "0";
@@ -6165,7 +6162,7 @@ class Vendor extends W_Controller
                                                                             $OrderTimeAgo = time_ago($OrderData->PC_AssignedDttm);
                                                                             $Username = $OrderData->PC_CustomerName;
                                                                             $AddressArray = json_decode($OrderData->PC_CustomerAddress);
-                                                                            $AddressString = $AddressArray[1].','.$AddressArray[2];
+                                                                            $AddressString = $AddressArray[1] . ',' . $AddressArray[2];
 
 
                                                                             $ItemsCount = "0";
@@ -6196,11 +6193,11 @@ class Vendor extends W_Controller
 
 
                                                                                     $FeaturedImage = '';
-                                                                                    $FeaturedImage = (!empty($ProductData->P_FeaturedImage) ? UPLOAD_PRODUCTS_BASE_URL.$ProductData->ProductID.'/'.$ProductData->P_FeaturedImage : '');
+                                                                                    $FeaturedImage = (!empty($ProductData->P_FeaturedImage) ? UPLOAD_PRODUCTS_BASE_URL . $ProductData->ProductID . '/' . $ProductData->P_FeaturedImage : '');
                                                                                     $ItemsData[] = array(
-                                                                                        'Index' => (string) $Index,
-                                                                                        'Title' => $ProductData->P_Name.' x '.$ProductDetailData->PD_Quantity,
-                                                                                        'Description' => $AttributeTitle.' : '.$AttributeValueTitle,
+                                                                                        'Index' => (string)$Index,
+                                                                                        'Title' => $ProductData->P_Name . ' x ' . $ProductDetailData->PD_Quantity,
+                                                                                        'Description' => $AttributeTitle . ' : ' . $AttributeValueTitle,
                                                                                         'Currency' => "Rs. ",
                                                                                         'Price' => $ProductData->P_Price,
                                                                                     );
@@ -6208,7 +6205,7 @@ class Vendor extends W_Controller
 
                                                                                     $Index++;
                                                                                 }
-                                                                                $ItemsCount = (string) count($ItemsData);
+                                                                                $ItemsCount = (string)count($ItemsData);
                                                                             } else {
                                                                                 //echo "Not Matching 3";
                                                                                 $ProductCartItemsCount = $ProductCartItemsCount + 0;
@@ -6238,7 +6235,7 @@ class Vendor extends W_Controller
                                                                                 $OrderTimeAgo = time_ago($OrderData->RC_AssignedDttm);
                                                                                 $Username = $OrderData->RC_CustomerName;
                                                                                 $AddressArray = json_decode($OrderData->RC_CustomerAddress);
-                                                                                $AddressString = $AddressArray[1].','.$AddressArray[2];
+                                                                                $AddressString = $AddressArray[1] . ',' . $AddressArray[2];
 
                                                                                 $ItemsCount = "0";
                                                                                 $ItemsData = array();
@@ -6253,7 +6250,7 @@ class Vendor extends W_Controller
                                                                                         if (!empty($ExistingCartDetailData)) {
                                                                                             $FoodID = $ExistingCartDetailData->RD_FoodID;
                                                                                             $FoodData = $this->Restaurants_model->getFoods($FoodID);
-                                                                                            $DisplayImage = (!empty($FoodData->F_DisplayImage) ? UPLOAD_RESTAURANTS_FOODS_BASE_URL.$FoodData->RFoodID.'/'.$FoodData->F_DisplayImage : '');
+                                                                                            $DisplayImage = (!empty($FoodData->F_DisplayImage) ? UPLOAD_RESTAURANTS_FOODS_BASE_URL . $FoodData->RFoodID . '/' . $FoodData->F_DisplayImage : '');
                                                                                             if ($FoodData->F_Type == '1') {
                                                                                                 $F_Type = 'Veg.';
                                                                                             } else {
@@ -6263,8 +6260,8 @@ class Vendor extends W_Controller
                                                                                             }
                                                                                             array_push($ItemsData,
                                                                                                 array(
-                                                                                                    'Index' => (string) $Index,
-                                                                                                    'Title' => getStringValue('('.$F_Type.')'.$FoodData->F_Title.' x '.$ExistingCartDetailData->RD_Quantity),
+                                                                                                    'Index' => (string)$Index,
+                                                                                                    'Title' => getStringValue('(' . $F_Type . ')' . $FoodData->F_Title . ' x ' . $ExistingCartDetailData->RD_Quantity),
                                                                                                     'Description' => getStringValue($FoodData->F_Description),
                                                                                                     'Currency' => getStringValue("Rs. "),
                                                                                                     'Price' => getStringValue($FoodData->F_Price),
@@ -6275,7 +6272,7 @@ class Vendor extends W_Controller
                                                                                         }
                                                                                         $Index++;
                                                                                     }
-                                                                                    $ItemsCount = (string) count($ItemsData);
+                                                                                    $ItemsCount = (string)count($ItemsData);
 
                                                                                 }
 
@@ -6322,7 +6319,7 @@ class Vendor extends W_Controller
                                                                     $result = array(
                                                                         'status' => 'error', 'flag' => '2',
                                                                         'message' => 'Vendor Orders Data Not Found',
-                                                                        'data' => (object) $Record
+                                                                        'data' => (object)$Record
                                                                     );
                                                                 }
 
@@ -6330,14 +6327,14 @@ class Vendor extends W_Controller
                                                                 $result = array(
                                                                     'status' => 'warning', 'flag' => '3',
                                                                     'message' => 'Something Went Wrong...',
-                                                                    'data' => (object) $Records
+                                                                    'data' => (object)$Records
                                                                 );
                                                             }
                                                         } else {
                                                             $result = array(
                                                                 'status' => 'warning', 'flag' => '3',
                                                                 'message' => 'Something Went Wrong...',
-                                                                'data' => (object) $Records
+                                                                'data' => (object)$Records
                                                             );
                                                         }
 
@@ -6365,10 +6362,16 @@ class Vendor extends W_Controller
                                                                     if ($BusinessType == '1') {
                                                                         $OrderData = $this->Cart_model->get($data['Val_Order'],
                                                                             array('C_AssignedTo' => $data['Val_Vendor']));
-                                                                            
+
                                                                         if (!empty($OrderData)) {
+                                                                            $this->db->limit(1);
+                                                                            $this->db->order_by('DeliveryBoyID','desc');
+                                                                            $deliveryboy = $this->db->get('1w_tbl_delivery_boys')->row();
                                                                             $data['Val_Corderstatus'] = '2';
+                                                                            $data['Val_CassignedTo'] = $VendorData->VendorID;
                                                                             $data['Val_Caccepteddttm'] = date('Y-m-d H:i:s');
+                                                                            $data['Val_PCdeliveryby'] = $deliveryboy->DeliveryBoyID;
+                                                                            $data['Val_PCdeliverybystatus'] ='1';
                                                                             $success = $this->Cart_model->update($data,
                                                                                 $data['Val_Order']);
 
@@ -6379,8 +6382,8 @@ class Vendor extends W_Controller
                                                                                     'OrderID' => getStringValue($CartData->CartID),
                                                                                 );
                                                                                 $CustomerToken = $this->Notifications_model->getToken($CartData->C_CustomerID, 1);
-                                                                                $CustomerToken= (object)$CustomerToken[0];
-                                                                                sendPushNotificationAndroid($CustomerToken->M_AndroidToken,'Your Order is Accepted');
+                                                                                $CustomerToken = (object)$CustomerToken[0];
+                                                                                sendPushNotificationAndroid($CustomerToken->M_AndroidToken, 'Your Order is Accepted');
                                                                                 $result = array(
                                                                                     'status' => 'success',
                                                                                     'flag' => '1',
@@ -6407,7 +6410,7 @@ class Vendor extends W_Controller
                                                                                         'status' => 'warning',
                                                                                         'flag' => '3',
                                                                                         'message' => 'Something Important Happened ! ',
-                                                                                        'data' => (object) array()
+                                                                                        'data' => (object)array()
                                                                                     );
                                                                                 }
                                                                             }
@@ -6415,7 +6418,7 @@ class Vendor extends W_Controller
                                                                             $result = array(
                                                                                 'status' => 'warning', 'flag' => '3',
                                                                                 'message' => 'Something Important Happened !! ',
-                                                                                'data' => (object) array()
+                                                                                'data' => (object)array()
                                                                             );
                                                                         }
 
@@ -6425,8 +6428,17 @@ class Vendor extends W_Controller
                                                                             $OrderData = $this->Cart_model->getProductsCart($data['Val_Order']);
 
                                                                             if (!empty($OrderData)) {
-                                                                                $data['Val_PCorderstatus'] = '2';
+                                                                                $this->db->limit(1);
+                                                                                $this->db->order_by('DeliveryBoyID','RANDOM');
+                                                                                $this->db->where('DB_Status','2');
+                                                                                $deliveryboy = $this->db->get('1w_tbl_delivery_boys')->row();
+                                                                                $data['Val_PCorderstatus'] = '3';
+                                                                                $data['Val_PCassginedto'] = $VendorData->VendorID;
                                                                                 $data['Val_PCaccepteddttm'] = date('Y-m-d H:i:s');
+//                                                                                $data['Val_PCdeliveryby'] = $deliveryboy->DeliveryBoyID;
+                                                                                $data['Val_PCdeliveryby'] = 29;
+//                                                                                $data['Val_PCdeliveryby'] = 4;
+                                                                                $data['Val_PCdeliverybystatus'] ='1';
                                                                                 $success = $this->Cart_model->updateCartProducts($data,
                                                                                     $data['Val_Order']);
 
@@ -6437,8 +6449,8 @@ class Vendor extends W_Controller
                                                                                         'OrderID' => getStringValue($CartData->PCartID),
                                                                                     );
                                                                                     $CustomerToken = $this->Notifications_model->getToken($CartData->PC_CustomerID, 1);
-                                                                                    $CustomerToken= (object)$CustomerToken[0];
-                                                                                    sendPushNotificationAndroid($CustomerToken->M_AndroidToken,'Your Order is Accepted');
+                                                                                    $CustomerToken = (object)$CustomerToken[0];
+                                                                                    sendPushNotificationAndroid($CustomerToken->M_AndroidToken, 'Your Order is Accepted');
                                                                                     $result = array(
                                                                                         'status' => 'success',
                                                                                         'flag' => '1',
@@ -6465,7 +6477,7 @@ class Vendor extends W_Controller
                                                                                             'status' => 'warning',
                                                                                             'flag' => '3',
                                                                                             'message' => 'Something Important Happened !! ',
-                                                                                            'data' => (object) array()
+                                                                                            'data' => (object)array()
                                                                                         );
                                                                                     }
                                                                                 }
@@ -6474,7 +6486,7 @@ class Vendor extends W_Controller
                                                                                     'status' => 'warning',
                                                                                     'flag' => '3',
                                                                                     'message' => 'Something Important Happened !! ',
-                                                                                    'data' => (object) array()
+                                                                                    'data' => (object)array()
                                                                                 );
                                                                             }
                                                                         } else {
@@ -6484,6 +6496,7 @@ class Vendor extends W_Controller
 
                                                                                 if (!empty($OrderData)) {
                                                                                     $data['Val_RCorderstatus'] = '2';
+                                                                                    $data['Val_RCassginedto'] = $VendorData->VendorID;
                                                                                     $data['Val_RCaccepteddttm'] = date('Y-m-d H:i:s');
                                                                                     $CartData = $this->Cart_model->getRestaurantsCart($data['Val_Order']);
                                                                                     if (!empty($CartData)) {
@@ -6497,8 +6510,8 @@ class Vendor extends W_Controller
                                                                                                 'OrderID' => getStringValue($CartData->RCartID),
                                                                                             );
                                                                                             $CustomerToken = $this->Notifications_model->getToken($CartData->RC_CustomerID, 1);
-                                                                                            $CustomerToken= (object)$CustomerToken[0];
-                                                                                            sendPushNotificationAndroid($CustomerToken->M_AndroidToken,'Your Order is Accepted');
+                                                                                            $CustomerToken = (object)$CustomerToken[0];
+                                                                                            sendPushNotificationAndroid($CustomerToken->M_AndroidToken, 'Your Order is Accepted');
 
                                                                                             $result = array(
                                                                                                 'status' => 'success',
@@ -6529,7 +6542,7 @@ class Vendor extends W_Controller
                                                                                                     'status' => 'warning',
                                                                                                     'flag' => '3',
                                                                                                     'message' => 'Something Important Happened !! ',
-                                                                                                    'data' => (object) array()
+                                                                                                    'data' => (object)array()
                                                                                                 );
                                                                                             }
                                                                                         }
@@ -6538,7 +6551,7 @@ class Vendor extends W_Controller
                                                                                             'status' => 'warning',
                                                                                             'flag' => '3',
                                                                                             'message' => 'Something Important Happened !! ',
-                                                                                            'data' => (object) array()
+                                                                                            'data' => (object)array()
                                                                                         );
                                                                                     }
                                                                                 } else {
@@ -6546,7 +6559,7 @@ class Vendor extends W_Controller
                                                                                         'status' => 'warning',
                                                                                         'flag' => '3',
                                                                                         'message' => 'Something Important Happened !! ',
-                                                                                        'data' => (object) array()
+                                                                                        'data' => (object)array()
                                                                                     );
                                                                                 }
 
@@ -6558,21 +6571,21 @@ class Vendor extends W_Controller
                                                                     $result = array(
                                                                         'status' => 'warning', 'flag' => '3',
                                                                         'message' => 'Something Went Wrong...',
-                                                                        'data' => (object) $Records
+                                                                        'data' => (object)$Records
                                                                     );
                                                                 }
                                                             } else {
                                                                 $result = array(
                                                                     'status' => 'warning', 'flag' => '3',
                                                                     'message' => 'Something Went Wrong...',
-                                                                    'data' => (object) $Records
+                                                                    'data' => (object)$Records
                                                                 );
                                                             }
                                                         } else {
                                                             $result = array(
                                                                 'status' => 'info', 'flag' => '4',
                                                                 'message' => 'Paramater Missing',
-                                                                'data' => (object) array()
+                                                                'data' => (object)array()
                                                             );
                                                         }
 
@@ -6629,7 +6642,7 @@ class Vendor extends W_Controller
                                                                                             'status' => 'warning',
                                                                                             'flag' => '3',
                                                                                             'message' => 'Something Important Happened ! ',
-                                                                                            'data' => (object) array()
+                                                                                            'data' => (object)array()
                                                                                         );
                                                                                     }
                                                                                 }
@@ -6638,7 +6651,7 @@ class Vendor extends W_Controller
                                                                                     'status' => 'warning',
                                                                                     'flag' => '3',
                                                                                     'message' => 'Something Important Happened !! ',
-                                                                                    'data' => (object) array()
+                                                                                    'data' => (object)array()
                                                                                 );
                                                                             }
 
@@ -6687,7 +6700,7 @@ class Vendor extends W_Controller
                                                                                                 'status' => 'warning',
                                                                                                 'flag' => '3',
                                                                                                 'message' => 'Something Important Happened !! ',
-                                                                                                'data' => (object) array()
+                                                                                                'data' => (object)array()
                                                                                             );
                                                                                         }
                                                                                     }
@@ -6696,7 +6709,7 @@ class Vendor extends W_Controller
                                                                                         'status' => 'warning',
                                                                                         'flag' => '3',
                                                                                         'message' => 'Something Important Happened !! ',
-                                                                                        'data' => (object) array()
+                                                                                        'data' => (object)array()
                                                                                     );
                                                                                 }
                                                                             } else {
@@ -6748,7 +6761,7 @@ class Vendor extends W_Controller
                                                                                                         'status' => 'warning',
                                                                                                         'flag' => '3',
                                                                                                         'message' => 'Something Important Happened !! ',
-                                                                                                        'data' => (object) array()
+                                                                                                        'data' => (object)array()
                                                                                                     );
                                                                                                 }
                                                                                             }
@@ -6757,7 +6770,7 @@ class Vendor extends W_Controller
                                                                                                 'status' => 'warning',
                                                                                                 'flag' => '3',
                                                                                                 'message' => 'Something Important Happened !! ',
-                                                                                                'data' => (object) array()
+                                                                                                'data' => (object)array()
                                                                                             );
                                                                                         }
                                                                                     } else {
@@ -6765,7 +6778,7 @@ class Vendor extends W_Controller
                                                                                             'status' => 'warning',
                                                                                             'flag' => '3',
                                                                                             'message' => 'Something Important Happened !! ',
-                                                                                            'data' => (object) array()
+                                                                                            'data' => (object)array()
                                                                                         );
                                                                                     }
 
@@ -6777,21 +6790,21 @@ class Vendor extends W_Controller
                                                                         $result = array(
                                                                             'status' => 'warning', 'flag' => '3',
                                                                             'message' => 'Something Went Wrong...',
-                                                                            'data' => (object) $Records
+                                                                            'data' => (object)$Records
                                                                         );
                                                                     }
                                                                 } else {
                                                                     $result = array(
                                                                         'status' => 'warning', 'flag' => '3',
                                                                         'message' => 'Something Went Wrong...',
-                                                                        'data' => (object) $Records
+                                                                        'data' => (object)$Records
                                                                     );
                                                                 }
                                                             } else {
                                                                 $result = array(
                                                                     'status' => 'info', 'flag' => '4',
                                                                     'message' => 'Paramater Missing',
-                                                                    'data' => (object) array()
+                                                                    'data' => (object)array()
                                                                 );
                                                             }
 
@@ -6801,8 +6814,8 @@ class Vendor extends W_Controller
                                                                 if (!empty($data['Val_Vendor'])) {
                                                                     $OngoingOrderRecords = array();
                                                                     $PastOrderRecords = array();
-                                                                    $PastOrderRecordsCount = (string) count($PastOrderRecords);
-                                                                    $OngoingOrderRecordsCount = (string) count($OngoingOrderRecords);
+                                                                    $PastOrderRecordsCount = (string)count($PastOrderRecords);
+                                                                    $OngoingOrderRecordsCount = (string)count($OngoingOrderRecords);
                                                                     $VendorData = $this->Vendors_model->getVendor($data['Val_Vendor']);
                                                                     if (!empty($VendorData)) {
                                                                         $CategoryData = $this->Categories_model->get($VendorData->V_CategoryID);
@@ -6819,7 +6832,7 @@ class Vendor extends W_Controller
 //													$ReviewData = (object)$ReviewArray;
                                                                                     $FormattedDate = date('d M,Y',
                                                                                         strtotime($ReviewArray['R_Date']));
-                                                                                    $FormattedDateAgo = time_ago($ReviewArray['R_Date']." ".$ReviewArray['R_Time']);
+                                                                                    $FormattedDateAgo = time_ago($ReviewArray['R_Date'] . " " . $ReviewArray['R_Time']);
 
 
                                                                                     $ReviewsRecords[] = array(
@@ -6835,7 +6848,7 @@ class Vendor extends W_Controller
                                                                                     );
                                                                                     $Index++;
                                                                                 }
-                                                                                $ReviewsRecordsCount = (string) count($ReviewsRecords);
+                                                                                $ReviewsRecordsCount = (string)count($ReviewsRecords);
                                                                             }
 
 
@@ -6858,14 +6871,14 @@ class Vendor extends W_Controller
                                                                             $result = array(
                                                                                 'status' => 'warning', 'flag' => '3',
                                                                                 'message' => 'Something Went Wrong...',
-                                                                                'data' => (object) $Records
+                                                                                'data' => (object)$Records
                                                                             );
                                                                         }
                                                                     } else {
                                                                         $result = array(
                                                                             'status' => 'warning', 'flag' => '3',
                                                                             'message' => 'Something Went Wrong...',
-                                                                            'data' => (object) $Records
+                                                                            'data' => (object)$Records
                                                                         );
                                                                     }
 
@@ -6883,8 +6896,8 @@ class Vendor extends W_Controller
                                                                     if (!empty($data['Val_Vendor'])) {
                                                                         $OngoingOrderRecords = array();
                                                                         $PastOrderRecords = array();
-                                                                        $PastOrderRecordsCount = (string) count($PastOrderRecords);
-                                                                        $OngoingOrderRecordsCount = (string) count($OngoingOrderRecords);
+                                                                        $PastOrderRecordsCount = (string)count($PastOrderRecords);
+                                                                        $OngoingOrderRecordsCount = (string)count($OngoingOrderRecords);
                                                                         $VendorData = $this->Vendors_model->getVendor($data['Val_Vendor']);
                                                                         if (!empty($VendorData)) {
                                                                             $CategoryData = $this->Categories_model->get($VendorData->V_CategoryID);
@@ -6897,7 +6910,7 @@ class Vendor extends W_Controller
                                                                                 if (!empty($AccountArray)) {
                                                                                     $Index = 1;
 
-                                                                                    $AccountData = (object) $AccountArray[0];
+                                                                                    $AccountData = (object)$AccountArray[0];
 
 
                                                                                     $AccountRecord = array(
@@ -6935,14 +6948,14 @@ class Vendor extends W_Controller
                                                                                     'status' => 'warning',
                                                                                     'flag' => '3',
                                                                                     'message' => 'Something Went Wrong...',
-                                                                                    'data' => (object) $Records
+                                                                                    'data' => (object)$Records
                                                                                 );
                                                                             }
                                                                         } else {
                                                                             $result = array(
                                                                                 'status' => 'warning', 'flag' => '3',
                                                                                 'message' => 'Something Went Wrong...',
-                                                                                'data' => (object) $Records
+                                                                                'data' => (object)$Records
                                                                             );
                                                                         }
 
@@ -6984,7 +6997,7 @@ class Vendor extends W_Controller
                                                                                 $result = array(
                                                                                     'status' => 'error', 'flag' => '2',
                                                                                     'message' => 'Vendor Record Not Fetched',
-                                                                                    'data' => (object) array()
+                                                                                    'data' => (object)array()
                                                                                 );
                                                                             }
                                                                         } else {
@@ -6998,8 +7011,8 @@ class Vendor extends W_Controller
                                                                         if (!empty($data['Val_Vendor'])) {
                                                                             $OngoingOrderRecords = array();
                                                                             $PastOrderRecords = array();
-                                                                            $PastOrderRecordsCount = (string) count($PastOrderRecords);
-                                                                            $OngoingOrderRecordsCount = (string) count($OngoingOrderRecords);
+                                                                            $PastOrderRecordsCount = (string)count($PastOrderRecords);
+                                                                            $OngoingOrderRecordsCount = (string)count($OngoingOrderRecords);
                                                                             $VendorData = $this->Vendors_model->getVendor($data['Val_Vendor']);
                                                                             if (!empty($VendorData)) {
                                                                                 $CategoryData = $this->Categories_model->get($VendorData->V_CategoryID);
@@ -7017,7 +7030,7 @@ class Vendor extends W_Controller
 
 
                                                                                     if (!empty($ProfileData)) {
-                                                                                        $ProfileData = (object) $ProfileData[0];
+                                                                                        $ProfileData = (object)$ProfileData[0];
                                                                                         $IdentityStatus = $ProfileData->P_IDCardStatus;
                                                                                         $PersonalStatus = $ProfileData->P_PersonalStatus;
                                                                                         $CurrentStatus = $ProfileData->P_CurrentStatus;
@@ -7038,7 +7051,7 @@ class Vendor extends W_Controller
 
 
                                                                                     if (!empty($AboutData)) {
-                                                                                        $AboutData = (object) $AboutData[0];
+                                                                                        $AboutData = (object)$AboutData[0];
                                                                                         $AboutMeStatus = $AboutData->A_Status;
 
                                                                                     } else {
@@ -7046,7 +7059,7 @@ class Vendor extends W_Controller
                                                                                     }
 
                                                                                     if (!empty($WorksData)) {
-                                                                                        $WorksData = (object) $WorksData[0];
+                                                                                        $WorksData = (object)$WorksData[0];
                                                                                         $WorksStatus = $WorksData->W_Status;
 
                                                                                     } else {
@@ -7054,15 +7067,15 @@ class Vendor extends W_Controller
                                                                                     }
 
                                                                                     if (!empty($LocationsData)) {
-                                                                                        $LocationsData = (object) $LocationsData[0];
+                                                                                        $LocationsData = (object)$LocationsData[0];
                                                                                         $BusinessLocationStatus = $LocationsData->L_Status;
 
                                                                                     } else {
                                                                                         $BusinessLocationStatus = '';
                                                                                     }
 
-                                                                                    $VendorFullName = $VendorData->V_FirstName." ".$VendorData->V_LastName;
-                                                                                    $VendorProfileImage = (!empty($VendorData->V_ProfileImage) ? UPLOAD_VENDOR_BASE_URL.$VendorData->VendorID.'/'.$VendorData->V_ProfileImage : "");
+                                                                                    $VendorFullName = $VendorData->V_FirstName . " " . $VendorData->V_LastName;
+                                                                                    $VendorProfileImage = (!empty($VendorData->V_ProfileImage) ? UPLOAD_VENDOR_BASE_URL . $VendorData->VendorID . '/' . $VendorData->V_ProfileImage : "");
                                                                                     $ProfileRecord = array(
                                                                                         'VendorID' => getStringValue($VendorData->VendorID),
                                                                                         'FullName' => getStringValue($VendorFullName),
@@ -7108,7 +7121,7 @@ class Vendor extends W_Controller
                                                                                         'status' => 'warning',
                                                                                         'flag' => '3',
                                                                                         'message' => 'Something Went Wrong...',
-                                                                                        'data' => (object) $Records
+                                                                                        'data' => (object)$Records
                                                                                     );
                                                                                 }
                                                                             } else {
@@ -7116,7 +7129,7 @@ class Vendor extends W_Controller
                                                                                     'status' => 'warning',
                                                                                     'flag' => '3',
                                                                                     'message' => 'Something Went Wrong...',
-                                                                                    'data' => (object) $Records
+                                                                                    'data' => (object)$Records
                                                                                 );
                                                                             }
 

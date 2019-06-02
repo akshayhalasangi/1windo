@@ -19,9 +19,18 @@
                                 <div class="card panel ks-information ks-light">
                                     <h5 class="card-header">
                                         <span class="ks-text"><?= _l('txt_services')?></span>
-                                        <a href="<?= admin_url('Services/Service/0/'.$serviceID); ?>" class="btn btn-outline-primary ks-light"><i class="fa fa-plus"></i> New Service</a>
-                                    </h5>
-                                    <?php if(!empty($servicesList)) :?>
+                                        <?php
+                                        $CI =& get_instance();
+                                        $role = $CI->session->userdata('role');
+                                        if($role !== 'vendor') {
+                                            ?>
+                                            <a href="<?= admin_url('Services/Service/0/' . $serviceID); ?>" class="btn btn-outline-primary ks-light"><i
+                                                        class="fa fa-plus"></i> New Service</a>
+                                            <?php
+                                        }
+                                            ?>
+                                            </h5>
+                                                                            <?php if(!empty($servicesList)) :?>
                                     <div class="card-block ks-datatable">
                                         <table id="ks-sales-datatable" class="table table-bordered" style="width:100%" width="100%">
                                             <thead>
@@ -52,6 +61,11 @@
                                                     </label>
 
                                                     </td>
+        <?php
+        $CI =& get_instance();
+        $role = $CI->session->userdata('role');
+        if($role !== 'vendor') {
+            ?>
                                                     <td class="ks-controls">
                                                         <div class="dropdown">
                                                             <a class="btn btn-link" id="dropdownMenu<?= $service['ServiceID']; ?>" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -64,6 +78,9 @@
                                                             </div>
                                                         </div>
                                                     </td>
+            <?php
+        }
+        ?>
                                                 </tr>
                                                 <?php endforeach; ?>
                                             </tbody>

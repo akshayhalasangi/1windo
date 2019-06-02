@@ -8,8 +8,16 @@
 
         <div class="ks-page-content">
             <div class="ks-page-content-body ks-content-nav">
+
+                <?php
+                $CI =& get_instance();
+                $role = $CI->session->userdata('role');
+                if($role !== 'vendor') {
+                ?>
                 <div class="ks-nav">
                     <ul class="nav">
+
+
                         <li class="nav-item">
                             <a class="nav-link" href="<?= admin_url('Orders'); ?>"><?= _l('txt_listing_services_orders'); ?></a>
                         </li>
@@ -18,9 +26,14 @@
                         </li>                         
                         <li class="nav-item">
                             <a class="nav-link" href="<?= admin_url('Orders/Restaurants'); ?>"><?= _l('txt_listing_restaurants_orders'); ?></a>
-                        </li>                         
+                        </li>
+
+
                     </ul>
                 </div>
+                    <?php
+                }
+                ?>
                 <div class="ks-nav-body">
                     <div class="ks-nav-body-wrapper">
                         <div class="container-fluid">
@@ -106,7 +119,16 @@
                                                             </a>
                                                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu<?= $order['CartID']; ?>">
                                                                 <a class="dropdown-item" href="<?= 'Orders/order/'.$order['CartID']; ?>"><?= _l('txt_view' ); ?></a>
-                                                                <a class="dropdown-item tbl-delete sweet-5" href="javascript:;"  data-act="order" data-id="<?= $order['CartID']; ?>"><?= _l('txt_delete' ); ?></a>
+                                                                <?php
+                                                                $CI =& get_instance();
+                                                                $role = $CI->session->userdata('role');
+                                                                if($role !== 'vendor') {
+                                                                    ?>
+                                                                    <a class="dropdown-item tbl-delete sweet-5" href="javascript:;" data-act="order"
+                                                                       data-id="<?= $order['CartID']; ?>"><?= _l('txt_delete'); ?></a>
+                                                                    <?php
+                                                                }
+                                                                    ?>
                                                                 <!--a class="dropdown-item" href="<?= 'Orders/Profile/'.$order['CartID']; ?>"><?= _l('txt_view' ); ?></a-->
                                                             </div>
                                                         </div>

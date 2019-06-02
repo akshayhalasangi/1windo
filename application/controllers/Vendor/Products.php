@@ -13,9 +13,10 @@ class Products extends Admin_Controller
 
     public function index(){
 
-        $id=10;
+        $id=$this->Products_model->getVendorCategoryID(get_staff_user_id());
+
         if(isset($id)){
-            $data['productsList'] = $this->Products_model->getProduct(null, array("P_CategoryID" => $id));
+            $data['productsList'] = $this->Products_model->getProductsForVendor(null, array("P_CategoryID" => $id));
             $data['productID'] = $id;
             $data['listAssets'] = 'true';
 
@@ -25,7 +26,7 @@ class Products extends Admin_Controller
 
             $data['title'] = $categoryName._l('txt_products');
             $data['categoryName'] =  $categoryName;
-            $this->load->view('admin//products/' . 'manage', $data);
+            $this->load->view('admin/products/' . 'manage', $data);
         }else{
             redirect('Vendor/Products');
         }
@@ -35,7 +36,7 @@ class Products extends Admin_Controller
         $data['listAssets'] = 'true';
         $data['attributesList'] = $this->Products_model->getAttributes();
 
-        $this->load->view( 'admin//products/'.'manage-attributes', $data);   
+        $this->load->view( 'admin/products/'.'manage-attributes', $data);   
     }
 	public function AttribValues($attributeid){
         $data['title'] = _l('title_products_attributes_values');
@@ -46,7 +47,7 @@ class Products extends Admin_Controller
         $data['attributeName'] = $this->Products_model->getAttributes($attributeid);
         $data['attributeName'] = $data['attributeName']->A_Title;
 
-        $this->load->view( 'admin//products/'.'manage-attribvalues', $data);   
+        $this->load->view( 'admin/products/'.'manage-attribvalues', $data);   
     }
 	public function Reviews($productid, $categoryId = ''){
         $data['title'] = _l('title_products_reviews');
@@ -54,7 +55,7 @@ class Products extends Admin_Controller
         $data['reviewsList'] = $this->Products_model->getReviews(NULL,array('R_Type'=>'2','R_RelationID'=>$productid));
         $data['ProductID'] = $productid;
         $data['categoryId'] = $categoryId;
-        $this->load->view( 'admin//products/'.'manage-reviews', $data);   
+        $this->load->view( 'admin/products/'.'manage-reviews', $data);   
     }
     public function Product($id = '', $categoryId = ''){
 
@@ -120,7 +121,7 @@ class Products extends Admin_Controller
 		$data['attributes'] = $this->Products_model->getAttributes(NULL,array('A_Status'=>'2'),'ASC');
 		
         $data['addAssets'] = true;        
-        $this->load->view('admin//products/'.'product',$data);            
+        $this->load->view('admin/products/'.'product',$data);            
     }
 	public function Attribute($id = ''){
 
@@ -159,7 +160,7 @@ class Products extends Admin_Controller
         }
         $data['listAssets'] = 'true';
 		$data['addAssets'] = true;        
-        $this->load->view('admin//products/'.'attribute',$data);            
+        $this->load->view('admin/products/'.'attribute',$data);            
     }
 
 	public function AttribValue($attributeid, $id = ''){
@@ -204,7 +205,7 @@ class Products extends Admin_Controller
 		
 		$data['AttributeID'] = $attributeid;      
 		$data['addAssets'] = true;        
-        $this->load->view('admin//products/'.'attribvalue',$data);            
+        $this->load->view('admin/products/'.'attribvalue',$data);            
     }
 
 	/* Delete Get Services Ajax */

@@ -2320,7 +2320,7 @@ $CartData= (object)$CartData[0];
 
                 if ($success) {
                     $CartData = $this->Cart_model->getProductsCart($data['Val_Cart']);
-
+                    $CartData = $CartData[0];
                     $Record = array(
                         'OrderID' => getStringValue($CartData->PCartID),
                         //'OptionsCount'     => $OptionsCount,
@@ -2626,10 +2626,10 @@ $CartData= (object)$CartData[0];
                 //$ExistingProductCartArray = $this->Cart_model->getProductsCart(null, array( 'PC_CustomerID' => $data['Val_Customer']), "(PC_Status = 1 OR PC_Status = 0 OR PC_Status = 2)AND(PC_OrderStatus=0 OR PC_OrderStatus=1)");
                 //$ExistingRestaurantCartArray = $this->Cart_model->getRestaurantsCart(null, array('RC_CustomerID' => $data['Val_Customer']), "(RC_Status = 1 OR RC_Status = 0 OR RC_Status = 2)AND (RC_OrderStatus=0 OR RC_OrderStatus=1 )");
 
-                $ExistingServiceCartArray = $this->Cart_model->get(null, array('C_CustomerID' => $data['Val_Customer']), "C_Status IN (1,2) AND C_OrderStatus IN (0,1)");
-                $ExistingProductCartArray = $this->Cart_model->getProductsCart(null, array( 'PC_CustomerID' => $data['Val_Customer']), "PC_Status IN (1,2) AND PC_OrderStatus IN (0,1)");
+                $ExistingServiceCartArray = $this->Cart_model->get(null, array('C_CustomerID' => $data['Val_Customer']), "C_Status IN ('1','2') AND C_OrderStatus IN ('0','1')");
+                $ExistingProductCartArray = $this->Cart_model->getProductsCart(null, array( 'PC_CustomerID' => $data['Val_Customer']), "PC_Status IN ('1','2') AND PC_OrderStatus IN ('0','1')");
                
-                $ExistingRestaurantCartArray = $this->Cart_model->getRestaurantsCart(null, array('RC_CustomerID' => $data['Val_Customer']), "RC_Status IN (1,2) AND RC_OrderStatus IN (0,1)");
+                $ExistingRestaurantCartArray = $this->Cart_model->getRestaurantsCart(null, array('RC_CustomerID' => $data['Val_Customer']), "RC_Status IN ('1','2') AND RC_OrderStatus IN ('0','1')");
                 
                 $ServicesCart = '1';
                 $ServicesRecords=  array();                                        
@@ -2872,7 +2872,7 @@ $CartData= (object)$CartData[0];
                 $ServicesOrdersArray = $this->Cart_model->get(null,array('C_CustomerID' => $data['Val_Customer'],'C_OrderStatus'=>'1','C_Status'=>'2'));
 //                    $ProductsOrdersArray        =  $this->Cart_model->getProductsCart(NULL,array('PC_OrderStatus <>'=>'0','PC_OrderStatus <>'=>'4','PC_OrderStatus <>'=>'5','PC_Status'=>'3','PC_CustomerID'=>$data['Val_Customer']));
 
-                $ProductsOrdersArray = $this->Cart_model->getProductsCart(null, array('PC_CustomerID' => $data['Val_Customer'],'PC_OrderStatus'=>'1','PC_Status'=>'2'));
+                $ProductsOrdersArray = $this->Cart_model->getProductsCart(null, array('PC_CustomerID' => $data['Val_Customer'],'PC_Status'=>'2'),"PC_OrderStatus IN ('1','2')");
 
 //                    $RestaurantsOrdersArray        =  $this->Cart_model->getRestaurantsCart(NULL,array('RC_OrderStatus <>'=>'0','RC_OrderStatus <>'=>'4','RC_OrderStatus <>'=>'5','RC_Status'=>'3','RC_CustomerID'=>$data['Val_Customer']));
                 $RestaurantsOrdersArray = $this->Cart_model->getRestaurantsCart(null, array('RC_CustomerID' => $data['Val_Customer'],'RC_OrderStatus'=>'1','rC_Status'=>'2'));
@@ -3082,12 +3082,12 @@ $CartData= (object)$CartData[0];
                 }
 
 //                    $ServicesPastOrdersArray        =  $this->Cart_model->get(NULL,array('C_OrderStatus'=>'4','C_OrderStatus'=>'5','C_Status'=>'3','C_Status'=>'4','C_CustomerID'=>$data['Val_Customer']));
-                $ServicesPastOrdersArray = $this->Cart_model->get(null, array('C_CustomerID' => $data['Val_Customer']), "C_Status NOT IN (1,2) AND C_OrderStatus NOT IN (1,2,3)");
+                $ServicesPastOrdersArray = $this->Cart_model->get(null, array('C_CustomerID' => $data['Val_Customer']), "C_Status NOT IN ('1','2') AND C_OrderStatus NOT IN ('1','2','3')");
 //                    $ProductsPastOrdersArray        =  $this->Cart_model->getProductsCart(NULL,array('PC_OrderStatus'=>'4','PC_OrderStatus'=>'5','PC_Status'=>'3','PC_Status'=>'4','PC_CustomerID'=>$data['Val_Customer']));
-                $ProductsPastOrdersArray = $this->Cart_model->getProductsCart(null, array('PC_CustomerID' => $data['Val_Customer']), "PC_Status NOT IN (1,2) AND PC_OrderStatus NOT IN (1,2,3)");
+                $ProductsPastOrdersArray = $this->Cart_model->getProductsCart(null, array('PC_CustomerID' => $data['Val_Customer']), "PC_Status NOT IN ('1','2') AND PC_OrderStatus NOT IN ('1','2','3')");
 
 //                    $RestaurantsPastOrdersArray        =  $this->Cart_model->getRestaurantsCart(NULL,array('RC_OrderStatus'=>'4','RC_OrderStatus'=>'5','RC_Status'=>'3','RC_Status'=>'4','RC_CustomerID'=>$data['Val_Customer']));
-                $RestaurantsPastOrdersArray = $this->Cart_model->getRestaurantsCart(null, array('RC_CustomerID' => $data['Val_Customer']), "RC_Status NOT IN (1,2) AND RC_OrderStatus NOt IN (1,2,3)");
+                $RestaurantsPastOrdersArray = $this->Cart_model->getRestaurantsCart(null, array('RC_CustomerID' => $data['Val_Customer']), "RC_Status NOT IN ('1','2') AND RC_OrderStatus NOt IN ('1','2','3')");
 
                 $PastOrders = array();
                 $PastOrdersCount = '0';

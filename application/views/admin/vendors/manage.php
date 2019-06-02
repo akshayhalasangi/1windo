@@ -28,8 +28,8 @@
                                                     <th><?= _l('txt_sr_no'); ?></th>                                                     
                                                     <th><?= _l('Vendor Name'); ?></th>                                                     
                                                     <th><?= _l('txt_mobileno'); ?></th>
+                                                     <th><?= _l('txt_status'); ?></th>
                                                     <th><?= _l('lbl_business_category'); ?></th>
-                                                    <!-- <th><?= _l('txt_status'); ?></th> -->
                                                     <th><?= _l('txt_action'); ?></th>
                                                     <th>&nbsp;</th>
                                                 </tr>
@@ -58,7 +58,7 @@
                                                     </td>
                                                     <td><span class="ks-name ks-color-danger"><?= $vendor['V_CountryCode'].$vendor['V_Mobile'];?></span>    
                                                     </td> 
-                                                        <!-- <td>                                                         
+                                                         <td>
                                                             <?php if($vendor['V_ProfileStatus'] == 1) { ?>
                                                                 <span class="badge badge-default">No Details</span>
                                                             <?php } else if($vendor['V_ProfileStatus'] == 2) { ?>
@@ -78,7 +78,7 @@
                                                                     <span class="badge badge-warning">Assigned</span>
                                                                     <?php }?>
                                                             <?php }?>
-                                                        </td> -->
+                                                        </td>
                                                     <td>
                                                         <?php
                                                             if(!empty($Categories)) {
@@ -96,10 +96,10 @@
                                                     <td>
                                                         <?php if($vendor['V_VerificationStatus'] >= 2 || $vendor['V_VerificationStatus'] >= 3){ ?>
                                                             <label class="ks-checkbox-slider ks-primary">
-                                                                <?php if($vendor['V_Status'] == 1 || $vendor['V_Status'] == 3) { ?>
-                                                                <input type="checkbox" id="Switch<?= $vendor['VendorID']; ?>" data-status = "2" value="2" class="tbl-status" name="Val_Vstatus"  data-type="Vendor" data-id="<?= $vendor['VendorID']; ?>">
-                                                                    <?php }  else if($vendor['V_Status'] == 2) { ?>
-                                                                <input type="checkbox" id="Switch<?= $vendor['VendorID']; ?>" value="3" data-status="3" class="tbl-status" name="Val_Vstatus" checked data-type="Vendor" data-id="<?= $vendor['VendorID']; ?>">       
+                                                                <?php if($vendor['V_VerificationStatus'] == 2) { ?>
+                                                                <input type="checkbox" id="Switch<?= $vendor['VendorID']; ?>" data-status = "3" value="3" class="tbl-status" name="Val_Vverificationstatus"  data-type="Vendor" data-id="<?= $vendor['VendorID']; ?>">
+                                                                    <?php }  else if($vendor['V_VerificationStatus'] == 3) { ?>
+                                                                <input type="checkbox" id="Switch<?= $vendor['VendorID']; ?>" value="2" data-status="2" class="tbl-status" name="Val_Vverificationstatus" checked data-type="Vendor" data-id="<?= $vendor['VendorID']; ?>">
                                                                     <?php }?>
                                                                 <span class="ks-indicator" ></span>
                                                             </label>

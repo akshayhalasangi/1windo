@@ -9,7 +9,7 @@
             let action = $(this).data('action');
             let url = $(this).data('url');
 
-            console.log("Id: "+id+", Type: "+type+", Action: "+action+", URL: "+url);
+            // console.log("Id: "+id+", Type: "+type+", Action: "+action+", URL: "+url);
 
             $.ajax({
                 url: url,
@@ -17,10 +17,12 @@
                 datatype: "json",
                 data: {id: id, status: action, type: type},
                 success: function(resp){
-                    console.log("Response: ",resp);
+                    // console.log("Response: ",resp);
+
+                    window.location.reload();
                 },
                 error: function(error){
-                    console.log("Error: ",error);
+                    swal("Error", "Please try later", "error");
                 }
             });
         });

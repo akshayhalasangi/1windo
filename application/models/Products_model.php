@@ -70,6 +70,26 @@ class Products_model extends W_Model
      * @param  array  $where       perform where in query array('U_Status' => 1)
      * @return array
      */
+
+
+
+    public function getVendorCategoryID($vendorid = '')
+    {
+        $result = 0;
+        if ($vendorid != '') {
+            $this->db->where(VendorID, $vendorid);
+            $query = $this->db->get('1w_tbl_vendors')->row();
+            $result =  $query->V_CategoryID;
+           if($result == 0)
+           {
+               return false;
+           }
+
+        }
+        return $result;
+    }
+
+
 	public function getProduct($product_id = '', $where = array() ,$orderby = 'DESC' )
 	{
 		
@@ -112,8 +132,59 @@ class Products_model extends W_Model
 		
 		return $result;
 	}
-	
 
+
+    public function getProductsForVendor($product_id = '', $where = array() ,$orderby = 'DESC' )
+    {
+
+        $this->db->where($where);
+
+        if ($product_id != '') {
+            $this->db->where('ProductID', $product_id);
+            $query = $this->db->get(TBL_PRODUCTS);
+
+            $rowcount = $query->num_rows();
+            if($rowcount > 0)
+            {
+                $this->db->where('ProductID', $product_id);
+                $result = $this->db->get(TBL_PRODUCTS)->row();
+            }
+            else
+            {
+                $result = false;
+            }
+
+            return $result;
+        }
+
+        $result=array();
+        $this->db->order_by('ProductID', $orderby);
+        $query = $this->db->get(TBL_PRODUCTS)->result_array();
+
+        foreach ($query as $row)
+        {
+            $this->db->where('product_id',$row['ProductID']);
+            $this->db->where('vendor_id',get_staff_user_id());
+            $query2 = $this->db->get('1w_tbl_product_vendor')->row();
+            if(count($query2) == 1)
+            {
+                $row['vp_status'] = 1;
+            }
+            else
+            {
+                $row['vp_status'] = 0;
+            }
+
+            array_push($result,$row);
+        }
+
+        if(count($result)== 0)
+        {
+            $result = false;
+        }
+
+        return $result;
+    }
 	/**
      * Get products steps
      * @param  mixed $review_id
@@ -548,6 +619,14 @@ class Products_model extends W_Model
     public function addVendorWithProducts($vendorid, $attribvalueid)
     {
 
+
+        $this->db->where('product_id',$attribvalueid);
+        $this->db->where('vendor_id',$vendorid);
+        $isdata=$this->db->get('1w_tbl_product_vendor')->row();
+
+
+        if(is_null($isdata))
+        {
         $data=['product_id'=>$attribvalueid,'vendor_id'=>$vendorid];
         $this->db->insert('1w_tbl_product_vendor', $data);
         $attribvalueid = $this->db->insert_id();
@@ -557,8 +636,15 @@ class Products_model extends W_Model
 
             return true;
         }
+            return false;
+        }
+        else{
+            $this->db->where('product_id',$attribvalueid);
+            $this->db->where('vendor_id',$vendorid);
+            $this->db->delete('1w_tbl_product_vendor');
+            return true;
+        }
 
-        return false;
     }
 	/**
      * @param  array $_POST data

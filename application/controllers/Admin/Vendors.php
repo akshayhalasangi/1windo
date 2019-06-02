@@ -354,9 +354,7 @@ class Vendors extends Admin_Controller
     {
         $data = $this->input->post();
         $VendorID = $data['id'];
-        $data['Val_Vstatus'] = $data['status'];
-// print_r($data);
-// exit;
+        $data['Val_Vverificationstatus'] = $data['status'];
         if (!empty($data)) {
             $Success = $this->Vendors_model->update($data, $VendorID);
             // return "Hello";
@@ -371,7 +369,6 @@ class Vendors extends Admin_Controller
 
     public function VendorProducts($id = '')
     {
-
         if ($id != '') {
             $this->db->select('V_CategoryID');
             $this->db->where('VendorID', $id);
@@ -416,12 +413,16 @@ class Vendors extends Admin_Controller
         if ($id != '') {
             $this->db->where('vendor_id', $id);
             $vendorProducts = $this->db->get('1w_tbl_product_vendor')->result_array();
-            $vendorProductsIds = array_map(function ($product) {
-                return $product['product_id'];
-            }, $vendorProducts);
-            $this->db->where_in('ProductID', $vendorProductsIds);
-            $allproducts = $this->db->get('1w_tbl_products')->result_array();
-            $data['productsList'] = $allproducts;
+            if (count($vendorProducts) > 0){
+                $vendorProductsIds = array_map(function ($product) {
+                    return $product['product_id'];
+                }, $vendorProducts);
+                $this->db->where_in('ProductID', $vendorProductsIds);
+                $allproducts = $this->db->get('1w_tbl_products')->result_array();
+                $data['productsList'] = $allproducts;
+            }else{
+                $data['productsList'] = [];
+            }
             $data['productID'] = $id;
             $data['listAssets'] = 'true';
 

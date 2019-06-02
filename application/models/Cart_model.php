@@ -149,33 +149,39 @@ class Cart_model extends W_Model
             // $this->db->select(TBL_CART_SERVICES.".*, ".TBL_PAYMENT_OPTIONS.".*");
             // $this->db->from(TBL_CART_SERVICES);
             // $this->db->join(TBL_PAYMENT_OPTIONS, TBL_CART_SERVICES.'.C_PaymentOption = '.TBL_PAYMENT_OPTIONS.'.POptionId');
-            $this->db->select('*');
-            $this->db->from(TBL_CART_SERVICES);
-            $this->db->where($where);
-            if (!empty($wherestring)) {
-                $this->db->where($wherestring);
-            }
+
             $staffID = get_staff_user_id();
             $this->db->where('Staff_ID', $staffID);
-            $result = $this->db->get('staffs')->row();
-            switch ($result->S_IsAdmin) {
-                case 0:
-                    $this->db->order_by('C_OrderStatus', $orderby);
-                    $result = $this->db->get('cart_service')->result_array();
-                    break;
-                case 1:
-                    $this->db->select('CustomerID');
-                    $this->db->where('C_Area', $result->Area);
-                    $result1 = $this->db->get('1w_tbl_customers')->result_array();
-                    $customers = array_map(function ($item) {
-                        return (int) $item['CustomerID'];
-                    }, $result1);
+            $result = $this->db->get('staffs')->row_array();
+            if (! is_null($result)){
+                switch ($result->S_IsAdmin) {
+                    case 0:
+                        $this->db->order_by('C_OrderStatus', $orderby);
+                        $result = $this->db->get('cart_service')->result_array();
+                        break;
+                    case 1:
+                        $this->db->select('CustomerID');
+                        $this->db->where('C_Area', $result->Area);
+                        $result1 = $this->db->get('1w_tbl_customers')->result_array();
+                        $customers = array_map(function ($item) {
+                            return (int) $item['CustomerID'];
+                        }, $result1);
 
-                    $this->db->where_in('C_CustomerID', $customers);
-                    $this->db->order_by('C_OrderStatus', $orderby);
-                    $result = $this->db->get('cart_service')->result_array();
-                    break;
+                        $this->db->where_in('C_CustomerID', $customers);
+                        $this->db->order_by('C_OrderStatus', $orderby);
+                        $result = $this->db->get('cart_service')->result_array();
+                        break;
+                }
+            }else {
+                $this->db->select('*');
+                $this->db->where($where);
+                if (!empty($wherestring)) {
+                    $this->db->where($wherestring);
+                }
+                $result = $this->db->get(TBL_CART_SERVICES)->result_array();
+
             }
+
         } else {
             $result = false;
         }
@@ -246,11 +252,6 @@ class Cart_model extends W_Model
      */
     public function getProductsCart($cart_id = '', $where = array(), $wherestring = '', $orderby = 'ASC')
     {
-//		$this->db->where('PC_Status NOT IN (3,4)');
-        $this->db->where($where);
-        if (!empty($wherestring)) {
-            $this->db->where($wherestring);
-        }
 
         if ($cart_id != '') {
             $this->db->where('PCartID', $cart_id);
@@ -295,23 +296,33 @@ class Cart_model extends W_Model
             }
             $staffID = get_staff_user_id();
             $this->db->where('Staff_ID', $staffID);
-            $result = $this->db->get('staffs')->row();
-            switch ($result->S_IsAdmin) {
-                case 0:
-                    $this->db->order_by('PC_OrderStatus', $orderby);
-                    $result = $this->db->get(TBL_CART_PRODUCTS)->result_array();
-                    break;
-                case 1:
-                    $this->db->select('CustomerID');
-                    $this->db->where('C_Area', $result->Area);
-                    $result1 = $this->db->get('1w_tbl_customers')->result_array();
-                    $customers = array_map(function ($item) {
-                        return (int) $item['CustomerID'];
-                    }, $result1);
-                    $this->db->where_in('PC_CustomerID', $customers);
-                    $this->db->order_by('PC_OrderStatus', $orderby);
-                    $result = $this->db->get(TBL_CART_PRODUCTS)->result_array();
-                    break;
+            $result = $this->db->get('staffs')->row_array();
+            if (! is_null($result)) {
+                switch ($result->S_IsAdmin) {
+                    case 0:
+                        $this->db->order_by('PC_OrderStatus', $orderby);
+                        $result = $this->db->get(TBL_CART_PRODUCTS)->result_array();
+                        break;
+                    case 1:
+                        $this->db->select('CustomerID');
+                        $this->db->where('C_Area', $result->Area);
+                        $result1 = $this->db->get('1w_tbl_customers')->result_array();
+                        $customers = array_map(function ($item) {
+                            return (int) $item['CustomerID'];
+                        }, $result1);
+                        $this->db->where_in('PC_CustomerID', $customers);
+                        $this->db->order_by('PC_OrderStatus', $orderby);
+                        $result = $this->db->get(TBL_CART_PRODUCTS)->result_array();
+                        break;
+                }
+            }else {
+                $this->db->select('*');
+                $this->db->where($where);
+                if (!empty($wherestring)) {
+                    $this->db->where($wherestring);
+                }
+                $result = $this->db->get(TBL_CART_PRODUCTS)->result_array();
+
             }
 
         } else {
@@ -818,11 +829,7 @@ class Cart_model extends W_Model
      * @return boolean
      * Update category informations
      */
-    public
-    function update(
-        $data,
-        $cartid
-    ) {
+    public function update( $data, $cartid ) {
         $affectedRows = 0;
         $cart_data = array();
         foreach ($this->cart_data as $dbfield => $field) {
@@ -861,6 +868,7 @@ class Cart_model extends W_Model
         $data,
         $cartproductid
     ) {
+
         $affectedRows = 0;
         $product_cart_data = array();
         foreach ($this->product_cart_data as $dbfield => $field) {
@@ -868,24 +876,37 @@ class Cart_model extends W_Model
                 $product_cart_data[$dbfield] = $data[$field];
             }
         }
-        //print_r($category_data);
-        $this->db->where('PCartID', $cartproductid);
-        $this->db->update(TBL_CART_PRODUCTS, $product_cart_data);
-        //echo $this->db->last_query();
-        if ($this->db->affected_rows() > 0) {
-            $affectedRows++;
-            //echo 'asd';
-            do_action('after_cart_product_updated', $cartproductid);
-        } else {
-            //echo 'tes';
-        }
-        if ($affectedRows > 0) {
-            logActivity('Cart Product Info Updated ['.$cartproductid.']');
+            //print_r($category_data);
+            $this->db->where('PCartID', $cartproductid);
+            $this->db->update(TBL_CART_PRODUCTS, $product_cart_data);
 
-            return true;
-        }
+            if ($this->db->affected_rows() > 0) {
+                $affectedRows++;
 
-        return false;
+                do_action('after_cart_product_updated', $cartproductid);
+            } else {
+                //echo 'tes';
+            }
+            if ($affectedRows > 0) {
+//                $this->db->limit(1);
+//                $this->db->order_by('DeliveryBoyID','desc');
+//                $deliveryboy = $this->db->get('1w_tbl_delivery_boys')->row();
+//
+//                $data = array(
+//                    'PC_DeliveryBy' => $deliveryboy->DeliveryBoyID,
+//                    'PC_DeliveryByStatus' => '1',
+//                );
+//
+//                $this->db->where('PCartID', $cartproductid);
+//                $r = $this->db->update(TBL_CART_PRODUCTS,$data);
+
+                logActivity('Cart Product Info Updated [' . $cartproductid . ']');
+
+                return true;
+            }
+
+            return false;
+
     }
 
     /**
@@ -1261,9 +1282,9 @@ class Cart_model extends W_Model
     ) {
         $this->db->select('*');
         $this->db->from('1w_tbl_cart_product');
-        $this->db->where('PC_AssignedTo', $id);
-        $this->db->where('(PC_Status = 1 OR PC_Status = 2)');
-        $this->db->where('(PC_OrderStatus = 0 OR PC_OrderStatus = 1 OR PC_OrderStatus = 2 OR PC_OrderStatus = 3 OR PC_OrderStatus = 6)');
+//        $this->db->where('PC_AssignedTo', $id);
+        $this->db->where("(PC_Status = '1' OR PC_Status = '2')");
+        $this->db->where("(PC_OrderStatus = '0' OR PC_OrderStatus = '1' OR PC_OrderStatus = '2' OR PC_OrderStatus = '3' OR PC_OrderStatus = '6')");
         $result = $this->db->last_query();
         return $this->db->get()->result_array();
     }
@@ -1390,10 +1411,10 @@ class Cart_model extends W_Model
     ) {
         $this->db->select('*');
         $this->db->from('1w_tbl_cart_product');
-       
-        $this->db->where('(PC_Status = 1 OR PC_Status = 2)');
-        $this->db->where('(PC_DeliveryByStatus = 1 OR PC_DeliveryByStatus = 2 OR PC_DeliveryByStatus = 3 )');
-        $this->db->where('(PC_OrderStatus = 2 OR PC_OrderStatus = 3 )');
+        $this->db->where('PC_DeliveryBy', $id);
+        $this->db->where("(PC_Status = '1' OR PC_Status = '2')");
+        $this->db->where("(PC_DeliveryByStatus = '1' OR PC_DeliveryByStatus = '2' OR PC_DeliveryByStatus = '3' )");
+        $this->db->where("(PC_OrderStatus = '2' OR PC_OrderStatus = '3' )");
         return $this->db->get()->result_array();
     }
 
