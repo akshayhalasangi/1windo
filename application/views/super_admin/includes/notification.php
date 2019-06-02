@@ -1,9 +1,9 @@
  <?= init_head(); ?>   
    <div class="wrapper">
         <!----- SIDEBAR ----->
-        <?php $this->load->view('admin/includes/sidebar'); ?>    
+        <?php $this->load->view('super_admin/includes/sidebar'); ?>    
          <div class="right_part">        
-            <?php $this->load->view('admin/includes/topbar'); ?> 
+            <?php $this->load->view('super_admin/includes/topbar'); ?> 
         
          <!----- START SECTION ----->
          <section class="page-main">
