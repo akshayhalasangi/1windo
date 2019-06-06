@@ -2,7 +2,7 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 class Products_model extends W_Model
 {
-    private $product_data = array('ProductID'=>'Val_Product', 'P_CategoryID'=>'Val_Category',  'P_Name'=>'Val_Pname', 'P_Description'=>'Val_Pdescription', 'P_FeaturedImage'=>'Val_Pfeaturedimage','P_Gallery'=>'Val_Pgallery','P_Price'=>'Val_Pprice','P_Attributes'=>'Val_Pattributes','P_AttributeValues'=>'Val_Pattributevalues','P_Status'=>'Val_Pstatus', 'RowAddedDttm' => '', 'RowUpdatedDttm' => '');
+    private $product_data = array('ProductID'=>'Val_Product', 'P_CategoryID'=>'Val_Category',  'P_Name'=>'Val_Pname', 'P_Description'=>'Val_Pdescription', 'P_FeaturedImage'=>'Val_Pfeaturedimage','P_Gallery'=>'Val_Pgallery','P_Price'=>'Val_Pprice','P_Attributes'=>'Val_Pattributes','P_AttributeValues'=>'Val_Pattributevalues','P_Status'=>'Val_Pstatus', 'RowAddedDttm' => '', 'RowUpdatedDttm' => '','P_Featured' =>'Val_Pfeatured');
 	
     private $reviews_data = array('ReviewID'=>'Val_Review', 'R_Type'=>'Val_Type', 'R_RelationID'=>'Val_Service',  'R_VendorID'=>'Val_Vendor','R_MemberID' => 'Val_Member', 'R_UserName'=>'Val_Rusername', 'R_Comment'=>'Val_Rcomment', 'R_Location'=>'Val_Rlocation', 'R_Rating'=>'Val_Rrating', 'R_Date'=>'Val_Rdate','R_Status'=>'Val_Rstatus' ,'RowAddedDttm' => '', 'RowUpdatedDttm' => '');
 

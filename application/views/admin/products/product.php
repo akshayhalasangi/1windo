@@ -126,7 +126,12 @@
 														</select>
 													</div>
 												</div>
-                                                
+                                                <div class="form-group">
+                                                    <div class="custom-control custom-checkbox">
+                                                        <input id="Val_Pfeatured" name="Val_Pfeatured" type="checkbox" value="1" class="custom-control-input">
+                                                        <label class="custom-control-label" for="Val_Pfeatured"><?= _l('Is Featured')?></label>
+                                                    </div>
+                                                </div>
                                                 <div class="form-group">
                                                     <label><?= _l('featured_image'); ?></label><br/>
                                                     <button class="btn btn-primary ks-btn-file">
