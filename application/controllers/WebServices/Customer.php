@@ -459,7 +459,7 @@ class Customer extends W_Controller
             $CategoriesArray = $this->Categories_model->getAppCategory(null, array('C_Level' => '1', 'C_Type' => '1'), "ASC");
             $ProductCategoriesArray = $this->Categories_model->getAppCategory(null, array('C_Level' => '1', 'C_Type' => '2'), "ASC");
             $FeaturedServicesArray = $this->Categories_model->getAppCategory(null, array('C_Featured' => '2'), "DESC");
-            $FeaturedProductsArray = $this->Products_model->get(null, array('P_Featured' => '2'), "ASC");
+            $FeaturedProductsArray = $this->Products_model->get(null, array('P_Featured' => '1'), "DESC limit 4");
 //                $ServicesArray = $this->Services_model->get(NULL,array('S_Type'=>'1'));
 
             if (!empty($GroceriesArray)) {
