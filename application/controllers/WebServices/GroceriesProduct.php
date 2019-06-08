@@ -12,6 +12,8 @@ class GroceriesProduct extends W_Controller
 
     public function getGroceriesProduct()
     {
+        $MinPrice = PHP_INT_MAX;
+        $MaxPrice = 0;
         $data = $this->input->post();
         $GroceriesType = $this->Categories_model->getDataOne($data['type']);
         $GroceriesType = $GroceriesType[0];
