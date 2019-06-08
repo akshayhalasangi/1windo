@@ -386,7 +386,7 @@ class Service extends W_Controller
 				if( !empty($data['Val_Service']) )	
 					{
 						$Records = array();
-						$PackagesArray =	$this->Services_model->getPackages(NULL,array('P_ServiceID'=>$data['Val_Service']));	
+						$PackagesArray =	$this->Services_model->getPackages(NULL,array('P_ServiceID'=>$data['Val_Service'],'P_Status' => '2'));
 						$PackageData['PackagesCount'] 	= (string)count($Records); 
 						$PackageData['PackagesData'] 	= $Records;
 						$Index = 1;
@@ -407,7 +407,7 @@ class Service extends W_Controller
 							$PackageData['PackagesData'] 	= $Records;
 							
 							$result = array('status'=>'success','flag'=>'1','message'=>'Packages Records Fetched','data'=>$PackageData);	
-						} elseif ($ServiceArray == false) {					
+						} elseif ($PackagesArray == false) {
 							$result = array('status'=>'error','flag'=>'2','message'=>'No Entries Found.','data'=>$PackageData);	
 						}
 						
