@@ -11,11 +11,11 @@ class FeaturedProduct extends W_Controller
 
     public function FeaturedProduct()
     {
-
+        $data = $this->input->post();
         $MinPrice = PHP_INT_MAX;
         $MaxPrice = 0;
 
-        $FeaturedProductsArray = $this->Products_model->get(null, array('P_Featured' => '1'), "DESC");
+        $FeaturedProductsArray = $this->Products_model->get(null, array('P_Featured' => $data['featured']), "DESC");
 
         if (!empty($FeaturedProductsArray)) {
 
@@ -113,4 +113,5 @@ class FeaturedProduct extends W_Controller
         $this->data = $result;
         echo json_encode($this->data);
     }
+
 }
