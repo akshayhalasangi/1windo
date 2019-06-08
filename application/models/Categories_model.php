@@ -54,6 +54,14 @@ class Categories_model extends W_Model
         $result = $this->db->last_query();
         return $this->db->get()->result_array();
     }
+
+    public function getCategoriesByParentID($parentId)
+    {
+        $this->db->select('*');
+        $this->db->from('1w_tbl_categories');
+        $this->db->where('C_Parent',$parentId);
+        return $this->db->get()->result_array();
+    }
 	
 	 /**
      * Get categories contacts

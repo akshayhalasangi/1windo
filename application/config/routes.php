@@ -71,3 +71,4 @@ $route['SuperAdmin/Permissions'] = "Authentication/Permissions";
 $route['SuperAdmin/AddPermission'] = "Authentication/AddPermission";
 $route['SuperAdmin/Permissions/(:num)'] = "Authentication/Permissions/$1";
 $route['WebServices/FeaturedProduct'] = "WebServices/FeaturedProduct/FeaturedProduct";
+$route['WebServices/GroceriesProduct'] = "WebServices/GroceriesProduct/getGroceriesProduct";

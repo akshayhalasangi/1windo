@@ -756,5 +756,12 @@ class Products_model extends W_Model
 
     }
 
+    public function whereCategoriesId($categoriesId)
+    {
+        $this->db->where_in('P_CategoryID',$categoriesId);
+        $this->db->order_by('ProductID', 'DESC');
+        return $this->db->get(TBL_PRODUCTS)->result_array();
+    }
+
 }
 ?>
