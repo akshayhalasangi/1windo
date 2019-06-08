@@ -236,7 +236,7 @@ class Service extends W_Controller
 */
 
 					$ServiceData = $this->Services_model->get($data['Val_Service'],array());
-					$ServiceFeatures =	$this->Services_model->getFeatures(NULL,array('F_ServiceID'=>$data['Val_Service']),'ASC');	
+					$ServiceFeatures =	$this->Services_model->getFeatures(NULL,array('F_ServiceID'=>$data['Val_Service'],'F_Status' => '2'),'ASC');
 					if(!empty($ServiceFeatures))
 						{
 							$Index = 1;
@@ -259,7 +259,7 @@ class Service extends W_Controller
 								$FeaturesCount = "0" ;
 							}	
 
-					$ServiceSteps =	$this->Services_model->getSteps(NULL,array('ST_ServiceID'=>$data['Val_Service']),'ASC');	
+					$ServiceSteps =	$this->Services_model->getSteps(NULL,array('ST_ServiceID'=>$data['Val_Service'],'ST_Status' => '2'),'ASC');
 					if(!empty($ServiceSteps))
 						{
 							$Index = 1;
@@ -285,7 +285,7 @@ class Service extends W_Controller
 
 						
 
-					$ServiceWorks =	$this->Services_model->getWorks(NULL,array('W_ServiceID'=>$data['Val_Service']),'ASC');	
+					$ServiceWorks =	$this->Services_model->getWorks(NULL,array('W_ServiceID'=>$data['Val_Service'],'W_Status' => '2'),'ASC');
 					if(!empty($ServiceWorks))
 						{
 							$Index = 1;
